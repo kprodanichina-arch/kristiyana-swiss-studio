@@ -1,5 +1,6 @@
-import { Mail, Phone, Linkedin, Instagram } from "lucide-react";
-import { EMAIL, INSTAGRAM, LINKEDIN, PHONE_HREF } from "./data";
+import { Mail, Linkedin, Instagram } from "lucide-react";
+import { WhatsAppIcon, ViberIcon } from "./icons";
+import { EMAIL, INSTAGRAM, LINKEDIN, WHATSAPP_HREF, VIBER_HREF } from "./data";
 
 export function Footer() {
   const cls =
@@ -18,11 +19,14 @@ export function Footer() {
           <a href={INSTAGRAM} target="_blank" rel="noreferrer" aria-label="Instagram" className={cls}>
             <Instagram className="h-4 w-4" />
           </a>
+          <a href={WHATSAPP_HREF} target="_blank" rel="noreferrer" aria-label="WhatsApp" className={cls}>
+            <WhatsAppIcon className="h-4 w-4" />
+          </a>
+          <a href={VIBER_HREF} aria-label="Viber" className={cls}>
+            <ViberIcon className="h-4 w-4" />
+          </a>
           <a href={`mailto:${EMAIL}`} aria-label="E-Mail" className={cls}>
             <Mail className="h-4 w-4" />
-          </a>
-          <a href={`tel:${PHONE_HREF}`} aria-label="Telefon" className={cls}>
-            <Phone className="h-4 w-4" />
           </a>
         </div>
       </div>
