@@ -110,17 +110,39 @@ export function ContactSection() {
                   <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5" />
                 </a>
               </li>
-              <li>
-                <a
-                  href={`tel:${PHONE_HREF}`}
-                  className="group flex items-center justify-between gap-4 py-5"
-                >
-                  <span className="flex items-center gap-4">
-                    <Phone className="h-4 w-4 text-muted-foreground" />
-                    <span className="text-sm">{PHONE_DISPLAY}</span>
-                  </span>
-                  <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5" />
-                </a>
+              <li className="flex items-center justify-between gap-4 py-5">
+                <span className="flex items-center gap-4">
+                  <WhatsAppIcon className="h-4 w-4 text-muted-foreground" />
+                  <span className="text-sm">WhatsApp {PHONE_DISPLAY}</span>
+                </span>
+                <div className="flex items-center gap-2">
+                  <a
+                    href={WHATSAPP_HREF}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group inline-flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-foreground"
+                    aria-label="WhatsApp öffnen"
+                  >
+                    Chat
+                    <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5" />
+                  </a>
+                </div>
+              </li>
+              <li className="flex items-center justify-between gap-4 py-5">
+                <span className="flex items-center gap-4">
+                  <ViberIcon className="h-4 w-4 text-muted-foreground" />
+                  <span className="text-sm">Viber {PHONE_DISPLAY}</span>
+                </span>
+                <div className="flex items-center gap-2">
+                  <a
+                    href={VIBER_HREF}
+                    className="group inline-flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-foreground"
+                    aria-label="Viber öffnen"
+                  >
+                    Chat
+                    <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5" />
+                  </a>
+                </div>
               </li>
               <li>
                 <a
