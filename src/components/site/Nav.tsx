@@ -24,16 +24,18 @@ export function Nav() {
 
   useEffect(() => {
     if (!open) return;
+    const onClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
     const timer = setTimeout(() => {
-      const onClick = (e: MouseEvent) => {
-        if (ref.current && !ref.current.contains(e.target as Node)) {
-          setOpen(false);
-        }
-      };
       document.addEventListener("click", onClick);
-      return () => document.removeEventListener("click", onClick);
-    }, 50);
-    return () => clearTimeout(timer);
+    }, 0);
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener("click", onClick);
+    };
   }, [open]);
 
   return (
