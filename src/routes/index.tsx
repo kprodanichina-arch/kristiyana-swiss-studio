@@ -6,7 +6,9 @@ import { ExperienceSection } from "@/components/site/ExperienceSection";
 import { ProjectsSection } from "@/components/site/ProjectsSection";
 import { RendersSection } from "@/components/site/RendersSection";
 import { BenefitsSection } from "@/components/site/BenefitsSection";
+import { ReviewsSection } from "@/components/site/ReviewsSection";
 import { Footer } from "@/components/site/Footer";
+import { getApprovedReviews } from "@/lib/reviews.functions";
 
 const title = "Kristiyana Prodanichina — Architektin & Visualisierung";
 const description =
@@ -23,10 +25,14 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
+  loader: async () => ({
+    reviews: await getApprovedReviews(),
+  }),
   component: Index,
 });
 
 function Index() {
+  const { reviews } = Route.useLoaderData();
   return (
     <div className="min-h-screen bg-background">
       <Nav />
@@ -37,6 +43,7 @@ function Index() {
         <ProjectsSection />
         <RendersSection />
         <BenefitsSection />
+        <ReviewsSection initialReviews={reviews} />
       </main>
       <Footer />
     </div>
