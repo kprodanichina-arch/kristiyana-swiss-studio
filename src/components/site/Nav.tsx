@@ -35,7 +35,13 @@ export function Nav() {
           <li className="relative" ref={ref}>
             <button
               type="button"
-              onClick={() => setOpen((v) => !v)}
+              onClick={() => {
+                console.log("Projektarten clicked, current:", open);
+                setOpen((v) => {
+                  console.log("setting open to:", !v);
+                  return !v;
+                });
+              }}
               className="group flex items-center gap-1 text-xs tracking-wide text-muted-foreground transition-colors hover:text-foreground"
               aria-expanded={open}
               aria-haspopup="true"
