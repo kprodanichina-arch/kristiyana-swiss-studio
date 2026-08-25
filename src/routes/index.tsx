@@ -6,7 +6,9 @@ import { ExperienceSection } from "@/components/site/ExperienceSection";
 import { ProjectsSection } from "@/components/site/ProjectsSection";
 import { RendersSection } from "@/components/site/RendersSection";
 import { BenefitsSection } from "@/components/site/BenefitsSection";
+import { ReviewsSection } from "@/components/site/ReviewsSection";
 import { Footer } from "@/components/site/Footer";
+import { getApprovedReviews } from "@/lib/reviews.functions";
 
 const title = "Kristiyana Prodanichina — Architektin & Visualisierung";
 const description =
@@ -22,6 +24,9 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+  }),
+  loader: async () => ({
+    reviews: await getApprovedReviews(),
   }),
   component: Index,
 });
