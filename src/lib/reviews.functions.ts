@@ -1,6 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
-import { supabase } from "@/integrations/supabase/client.server";
+import { createClient } from "@supabase/supabase-js";
+import type { Database } from "@/integrations/supabase/types";
 
 const reviewSchema = z.object({
   companyName: z.string().trim().min(1).max(200),
@@ -23,9 +24,23 @@ export type Review = {
   created_at: string;
 };
 
+function createPublishableClient() {
+  return createClient<Database>(
+    import.meta.env.VITE_SUPABASE_URL!,
+    import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY!,
+    {
+      auth: {
+        persistSession: false,
+        autoRefreshToken: false,
+      },
+    },
+  );
+}
+
 export const submitReview = createServerFn({ method: "POST" })
-  .inputValidator((data) => reviewSchema.parse(data))
+  .validator((data) => reviewSchema.parse(data))
   .handler(async ({ data }) => {
+    const supabase = createPublishableClient();
     const { error } = await supabase.from("reviews").insert({
       company_name: data.companyName,
       speed_rating: data.speedRating,
@@ -44,6 +59,7 @@ export const submitReview = createServerFn({ method: "POST" })
 
 export const getApprovedReviews = createServerFn({ method: "GET" })
   .handler(async () => {
+    const supabase = createPublishableClient();
     const { data, error } = await supabase
       .from("reviews")
       .select("*")
