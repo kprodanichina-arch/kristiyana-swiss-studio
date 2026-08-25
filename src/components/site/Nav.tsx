@@ -7,6 +7,7 @@ const links = [
   { href: "#projekte", label: "Projekte" },
   { href: "#visualisierungen", label: "Visualisierungen" },
   { href: "#vorteile", label: "Ihre Vorteile" },
+  { href: "#bewertungen", label: "Referenzen" },
 ];
 
 const projectTypeLinks = [
