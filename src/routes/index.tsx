@@ -32,6 +32,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const { reviews } = Route.useLoaderData();
   return (
     <div className="min-h-screen bg-background">
       <Nav />
@@ -42,6 +43,7 @@ function Index() {
         <ProjectsSection />
         <RendersSection />
         <BenefitsSection />
+        <ReviewsSection initialReviews={reviews} />
       </main>
       <Footer />
     </div>
