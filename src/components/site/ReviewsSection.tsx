@@ -4,11 +4,11 @@ import { Star } from "lucide-react";
 import { submitReview, getApprovedReviews, type Review } from "@/lib/reviews.functions";
 import { EMAIL } from "./data";
 
-const ratingLabels: Record<string, string> = {
+const ratingLabels = {
   speed: "Geschwindigkeit der Umsetzung",
   complexity: "Projektkomplexität",
   quality: "Gesamtqualität der Dienstleistung",
-};
+} as const;
 
 function StarRatingInput({
   value,
