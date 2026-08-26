@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { Star } from "lucide-react";
-import { submitReview, getApprovedReviews, type Review } from "@/lib/reviews.functions";
+import { submitReview, type Review } from "@/lib/reviews.functions";
 import { EMAIL } from "./data";
 
 const ratingLabels = {
