@@ -32,7 +32,8 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const { reviews } = Route.useLoaderData();
+  const loaderData = Route.useLoaderData();
+  const reviews = loaderData?.reviews ?? [];
   return (
     <div className="min-h-screen bg-background">
       <Nav />
