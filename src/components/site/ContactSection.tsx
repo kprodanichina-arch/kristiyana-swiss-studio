@@ -8,6 +8,7 @@ import {
   PHONE_DISPLAY,
   WHATSAPP_HREF,
   VIBER_HREF,
+  PROJECT_TYPES,
 } from "./data";
 
 import { WhatsAppIcon, ViberIcon } from "./icons";
