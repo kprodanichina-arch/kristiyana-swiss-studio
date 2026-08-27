@@ -82,3 +82,11 @@ export const renderImages = Array.from(
   { length: 12 },
   (_, i) => `/images/renders/${i + 1}.webp`,
 );
+
+export const PROJECT_TYPES = [
+  "Wohngebäude (über 2000 m²)",
+  "Ausführungs- & Detailplanung",
+  "High-End 3D-Visualisierung (Twinmotion / D5 Render)",
+  "2D-Visualisierung & Planaufbereitung",
+  "CAD-Workflows & Datenkonvertierung",
+] as const;

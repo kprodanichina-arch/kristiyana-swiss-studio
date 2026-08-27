@@ -1,7 +1,10 @@
-import { SmartImage } from "@/components/SmartImage";
-import { renderImages } from "./data";
+import { useSequentialImages } from "@/lib/useImageProbe";
 
 export function RendersSection() {
+  const { images, loading } = useSequentialImages((i) => `/images/renders/${i}.webp`);
+
+  if (!loading && images.length === 0) return null;
+
   return (
     <section
       id="visualisierungen"
@@ -15,18 +18,22 @@ export function RendersSection() {
         Ein Einblick in meine laufenden kreativen und fotorealistischen Arbeiten.
       </p>
 
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {renderImages.map((src, i) => (
-          <figure key={src} className="panel overflow-hidden p-2">
-            <SmartImage
-              src={src}
-              alt={`Visualisierung ${i + 1}`}
-              label={`Render ${i + 1}`}
-              className="aspect-4/3 w-full bg-muted object-cover"
-            />
-          </figure>
-        ))}
-      </div>
+      {loading ? (
+        <p className="mt-8 text-sm text-muted-foreground">Galerie wird geladen …</p>
+      ) : (
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {images.map((src, i) => (
+            <figure key={src} className="panel overflow-hidden p-2">
+              <img
+                src={src}
+                alt={`Visualisierung ${i + 1}`}
+                loading="lazy"
+                className="aspect-4/3 w-full bg-muted object-cover"
+              />
+            </figure>
+          ))}
+        </div>
+      )}
     </section>
   );
 }
