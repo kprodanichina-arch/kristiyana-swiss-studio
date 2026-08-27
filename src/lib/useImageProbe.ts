@@ -70,7 +70,7 @@ export function useAvailableProjects(max = 30, tolerance = 2) {
 }
 
 /** Probes the images inside a single project folder. */
-export function useProjectImages(id: number | null, max = 10) {
+export function useProjectImages(id: number | null, max = 15) {
   const [images, setImages] = useState<string[]>([]);
 
   useEffect(() => {
