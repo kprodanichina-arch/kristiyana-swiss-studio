@@ -55,7 +55,16 @@ export function ContactSection() {
               placeholder="E-Mail"
               className={field}
             />
-            <input name="type" placeholder="Projektart" className={field} />
+            <select name="type" defaultValue="" className={`${field} appearance-none`}>
+              <option value="" disabled>
+                Projektart wählen
+              </option>
+              {PROJECT_TYPES.map((t) => (
+                <option key={t} value={t}>
+                  {t}
+                </option>
+              ))}
+            </select>
             <textarea
               name="message"
               rows={5}
