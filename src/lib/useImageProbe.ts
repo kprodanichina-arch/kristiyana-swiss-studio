@@ -57,7 +57,7 @@ export function useSequentialImages(
 }
 
 /** Probes project folders and returns the ids that contain at least 1.webp. */
-export function useAvailableProjects(max = 30, tolerance = 2) {
+export function useAvailableProjects(max = 150, tolerance = 2) {
   const { images, loading } = useSequentialImages(
     (i) => `/images/projects/project${i}/1.webp`,
     max,
