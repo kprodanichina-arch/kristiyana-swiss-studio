@@ -18,7 +18,7 @@ export function checkImage(src: string): Promise<boolean> {
  */
 export function useSequentialImages(
   buildSrc: (i: number) => string,
-  max = 30,
+  max = 150,
   tolerance = 2,
 ) {
   const [images, setImages] = useState<string[]>([]);
