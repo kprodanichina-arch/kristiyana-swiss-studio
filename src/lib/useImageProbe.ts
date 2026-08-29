@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 /** Resolves true if the image URL loads successfully in the browser. */
-function checkImage(src: string): Promise<boolean> {
+export function checkImage(src: string): Promise<boolean> {
   return new Promise((resolve) => {
     if (typeof window === "undefined") return resolve(false);
     const img = new Image();
