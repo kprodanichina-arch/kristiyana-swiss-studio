@@ -120,8 +120,29 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+function useImageProtection() {
+  useEffect(() => {
+    const isImage = (t: EventTarget | null) =>
+      t instanceof HTMLElement && (t.tagName === "IMG" || t.closest("[data-protect-image]"));
+
+    const onContextMenu = (e: MouseEvent) => {
+      if (isImage(e.target)) e.preventDefault();
+    };
+    const onDragStart = (e: DragEvent) => {
+      if (isImage(e.target)) e.preventDefault();
+    };
+    document.addEventListener("contextmenu", onContextMenu);
+    document.addEventListener("dragstart", onDragStart);
+    return () => {
+      document.removeEventListener("contextmenu", onContextMenu);
+      document.removeEventListener("dragstart", onDragStart);
+    };
+  }, []);
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  useImageProtection();
 
   return (
     <QueryClientProvider client={queryClient}>

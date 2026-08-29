@@ -84,11 +84,19 @@ export function Lightbox({ open, onClose, title, images }: Props) {
               <img
                 src={images[index]}
                 alt={`${title} – Plan ${index + 1}`}
+                draggable={false}
                 onLoad={() => setLoaded((l) => ({ ...l, [index]: true }))}
                 onError={() => setFailed((f) => ({ ...f, [index]: true }))}
-                className={`max-h-full max-w-full object-contain transition-opacity duration-300 ${
+                className={`max-h-full max-w-full select-none object-contain transition-opacity duration-300 ${
                   loaded[index] ? "opacity-100" : "opacity-0"
                 }`}
+              />
+              {/* Transparent shield: right-click / save targets this overlay instead of the image */}
+              <div
+                data-protect-image
+                aria-hidden="true"
+                className="absolute inset-0 z-10 select-none bg-transparent"
+                onContextMenu={(e) => e.preventDefault()}
               />
             </>
           )}
