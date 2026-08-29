@@ -28,7 +28,7 @@ export function ProjectsSection() {
         <p className="mt-8 text-sm text-muted-foreground">Projekte werden geladen …</p>
       ) : (
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
-          {ids.map((id) => {
+          {[...ids].sort((a, b) => b - a).map((id) => {
             const project = meta(id);
             return (
               <article key={id} className="panel flex flex-col overflow-hidden">
