@@ -46,6 +46,7 @@ function Index() {
         <RendersSection />
         <BenefitsSection />
         <ReviewsSection initialReviews={reviews} />
+        <ImageSyncStatus />
       </main>
       <Footer />
     </div>
