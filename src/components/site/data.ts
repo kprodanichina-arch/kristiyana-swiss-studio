@@ -21,19 +21,19 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    title: "Wohnüberbauung Beta",
+    title: "Wohngebäude Beta",
     description:
       "Wohnüberbauung mit Tiefgarage. Grundrisse, Schnitte, Fassadenpläne und Visualisierung.",
   },
   {
     id: 3,
-    title: "Stadtvilla Gamma",
+    title: "Stadtvilla Gammа",
     description:
       "Einfamilienhaus in Hanglage. Entwurf, Materialisierung und fotorealistische Renders.",
   },
   {
     id: 4,
-    title: "Bürogebäude Delta",
+    title: "Kleinhaus Delta",
     description:
       "Verwaltungsbau mit flexiblen Grundrissen. Ausführungsplanung und Detailschnitte.",
   },
@@ -45,19 +45,19 @@ export const projects: Project[] = [
   },
   {
     id: 6,
-    title: "Reihenhäuser Zeta",
+    title: "Foresthouse Zeta",
     description:
       "Reihenhauszeile, typisierte Grundrisstypen, Fassadenstudien und Renderserie.",
   },
   {
     id: 7,
-    title: "Mixed-Use Eta",
+    title: "Lux-haus Eta",
     description:
       "Gewerbe im Erdgeschoss, Wohnen darüber. Nutzungskonzept und Ausführungspläne.",
   },
   {
     id: 8,
-    title: "Interior Theta",
+    title: "Exterior Theta",
     description:
       "Innenarchitektonisches Konzept, Möblierungspläne und High-End-Innenrenders.",
   },
@@ -69,7 +69,7 @@ export const projects: Project[] = [
   },
   {
     id: 10,
-    title: "Studie Kappa",
+    title: "Wohnblock Kappa",
     description:
       "Städtebauliche Volumenstudie mit Varianten, Diagrammen und Aussenvisualisierungen.",
   },
