@@ -69,8 +69,13 @@ export function useAvailableProjects(max = 30, tolerance = 2) {
   return { ids, loading };
 }
 
-/** Probes the images inside a single project folder. */
-export function useProjectImages(id: number | null, max = 15) {
+/**
+ * Probes the images inside a single project folder.
+ * Tolerates gaps: a missing file (e.g. 3.webp) does not stop the scan —
+ * up to `tolerance` consecutive misses are allowed before stopping, and
+ * every skipped number is logged as a developer warning.
+ */
+export function useProjectImages(id: number | null, max = 15, tolerance = 2) {
   const [images, setImages] = useState<string[]>([]);
 
   useEffect(() => {
@@ -81,19 +86,37 @@ export function useProjectImages(id: number | null, max = 15) {
     let cancelled = false;
     (async () => {
       const found: string[] = [];
-      for (let i = 1; i <= max; i++) {
+      const missing: number[] = [];
+      let misses = 0;
+      for (let i = 1; i <= max && misses <= tolerance; i++) {
         const src = `/images/projects/project${id}/${i}.webp`;
         // eslint-disable-next-line no-await-in-loop
         const ok = await checkImage(src);
         if (cancelled) return;
-        if (ok) found.push(src);
+        if (ok) {
+          found.push(src);
+          misses = 0;
+        } else {
+          missing.push(i);
+          misses++;
+        }
       }
-      if (!cancelled) setImages(found);
+      if (!cancelled) {
+        if (missing.length > 0) {
+          // Developer warning only — visible in the browser console,
+          // never shown to site visitors.
+          console.warn(
+            `[Portfolio] Projekt ${String(id).padStart(2, "0")}: fehlende Bildnummern im Ordner /images/projects/project${id}/ ->`,
+            missing.join(", "),
+          );
+        }
+        setImages(found);
+      }
     })();
     return () => {
       cancelled = true;
     };
-  }, [id, max]);
+  }, [id, max, tolerance]);
 
   return images;
 }
