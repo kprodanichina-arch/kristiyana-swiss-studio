@@ -11,6 +11,7 @@ type Props = {
 export function Lightbox({ open, onClose, title, images }: Props) {
   const [index, setIndex] = useState(0);
   const [failed, setFailed] = useState<Record<number, boolean>>({});
+  const [loaded, setLoaded] = useState<Record<number, boolean>>({});
 
   const prev = useCallback(
     () => setIndex((i) => (i - 1 + images.length) % images.length),
@@ -73,12 +74,23 @@ export function Lightbox({ open, onClose, title, images }: Props) {
               <span className="eyebrow">Zeichnung {index + 1} folgt</span>
             </div>
           ) : (
-            <img
-              src={images[index]}
-              alt={`${title} – Plan ${index + 1}`}
-              onError={() => setFailed((f) => ({ ...f, [index]: true }))}
-              className="max-h-full max-w-full object-contain"
-            />
+            <>
+              {!loaded[index] && (
+                <div className="absolute inset-0 flex animate-pulse flex-col items-center justify-center gap-4 bg-muted/60">
+                  <div className="aspect-4/3 w-2/3 max-w-md rounded bg-muted" />
+                  <span className="eyebrow">Plan {index + 1} wird geladen …</span>
+                </div>
+              )}
+              <img
+                src={images[index]}
+                alt={`${title} – Plan ${index + 1}`}
+                onLoad={() => setLoaded((l) => ({ ...l, [index]: true }))}
+                onError={() => setFailed((f) => ({ ...f, [index]: true }))}
+                className={`max-h-full max-w-full object-contain transition-opacity duration-300 ${
+                  loaded[index] ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            </>
           )}
         </div>
 

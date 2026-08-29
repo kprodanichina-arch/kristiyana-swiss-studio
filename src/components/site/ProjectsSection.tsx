@@ -25,7 +25,20 @@ export function ProjectsSection() {
       </h2>
 
       {loading ? (
-        <p className="mt-8 text-sm text-muted-foreground">Projekte werden geladen …</p>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2">
+          {[0, 1].map((i) => (
+            <div key={i} className="panel flex animate-pulse flex-col overflow-hidden">
+              <div className="aspect-4/3 w-full bg-muted" />
+              <div className="flex flex-1 flex-col p-7">
+                <div className="h-2.5 w-20 rounded bg-muted" />
+                <div className="mt-4 h-5 w-2/3 rounded bg-muted" />
+                <div className="mt-4 h-3 w-full rounded bg-muted" />
+                <div className="mt-2 h-3 w-5/6 rounded bg-muted" />
+                <div className="mt-6 h-11 w-40 rounded-sm bg-muted" />
+              </div>
+            </div>
+          ))}
+        </div>
       ) : (
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {[...ids].sort((a, b) => b - a).map((id) => {
@@ -56,6 +69,17 @@ export function ProjectsSection() {
               </article>
             );
           })}
+        </div>
+      )}
+
+      {openId !== null && lightboxImages.length === 0 && (
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-background/98 backdrop-blur-sm">
+          <div className="panel flex w-full max-w-3xl animate-pulse flex-col gap-4 p-6 sm:p-10">
+            <div className="h-4 w-32 rounded bg-muted" />
+            <div className="aspect-4/3 w-full rounded bg-muted" />
+            <div className="mx-auto h-2 w-24 rounded-full bg-muted" />
+          </div>
+          <span className="eyebrow mt-6">Projekt wird geladen …</span>
         </div>
       )}
 
