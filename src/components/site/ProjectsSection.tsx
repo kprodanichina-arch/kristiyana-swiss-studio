@@ -25,7 +25,20 @@ export function ProjectsSection() {
       </h2>
 
       {loading ? (
-        <p className="mt-8 text-sm text-muted-foreground">Projekte werden geladen …</p>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2">
+          {[0, 1].map((i) => (
+            <div key={i} className="panel flex animate-pulse flex-col overflow-hidden">
+              <div className="aspect-4/3 w-full bg-muted" />
+              <div className="flex flex-1 flex-col p-7">
+                <div className="h-2.5 w-20 rounded bg-muted" />
+                <div className="mt-4 h-5 w-2/3 rounded bg-muted" />
+                <div className="mt-4 h-3 w-full rounded bg-muted" />
+                <div className="mt-2 h-3 w-5/6 rounded bg-muted" />
+                <div className="mt-6 h-11 w-40 rounded-sm bg-muted" />
+              </div>
+            </div>
+          ))}
+        </div>
       ) : (
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {[...ids].sort((a, b) => b - a).map((id) => {
