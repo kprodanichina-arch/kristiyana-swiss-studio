@@ -72,6 +72,17 @@ export function ProjectsSection() {
         </div>
       )}
 
+      {openId !== null && lightboxImages.length === 0 && (
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-background/98 backdrop-blur-sm">
+          <div className="panel flex w-full max-w-3xl animate-pulse flex-col gap-4 p-6 sm:p-10">
+            <div className="h-4 w-32 rounded bg-muted" />
+            <div className="aspect-4/3 w-full rounded bg-muted" />
+            <div className="mx-auto h-2 w-24 rounded-full bg-muted" />
+          </div>
+          <span className="eyebrow mt-6">Projekt wird geladen …</span>
+        </div>
+      )}
+
       <Lightbox
         open={openId !== null && lightboxImages.length > 0}
         onClose={() => setOpenId(null)}
