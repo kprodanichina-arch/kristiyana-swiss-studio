@@ -98,7 +98,7 @@ export function ImageSyncStatus() {
             <p className="text-sm text-muted-foreground">Ordner werden geprüft …</p>
           ) : (
             <>
-              {state.projects.map((p) => (
+              {[...state.projects].sort((a, b) => b.id - a.id).map((p) => (
                 <div
                   key={p.id}
                   className="flex items-center gap-4 border border-border bg-background px-5 py-4"
