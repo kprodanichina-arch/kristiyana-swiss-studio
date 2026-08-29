@@ -11,6 +11,7 @@ type Props = {
 export function Lightbox({ open, onClose, title, images }: Props) {
   const [index, setIndex] = useState(0);
   const [failed, setFailed] = useState<Record<number, boolean>>({});
+  const [loaded, setLoaded] = useState<Record<number, boolean>>({});
 
   const prev = useCallback(
     () => setIndex((i) => (i - 1 + images.length) % images.length),
