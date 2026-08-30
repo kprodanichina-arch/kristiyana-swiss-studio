@@ -45,12 +45,11 @@ export function ProjectsSection() {
             const project = meta(id);
             return (
               <article key={id} className="panel flex flex-col overflow-hidden">
-                <img
+                <FadeImage
                   src={`/images/projects/project${id}/1.webp`}
                   alt={`${project.title} – Visualisierung`}
-                  loading="lazy"
-                  draggable={false}
-                  className="aspect-4/3 w-full select-none bg-muted object-cover"
+                  wrapperClassName="aspect-4/3 w-full bg-muted"
+                  className="h-full w-full object-cover"
                 />
                 <div className="flex flex-1 flex-col p-7">
                   <span className="eyebrow">Projekt {String(id).padStart(2, "0")}</span>

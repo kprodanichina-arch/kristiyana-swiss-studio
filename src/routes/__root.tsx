@@ -85,6 +85,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
+      // Front-end security hardening
+      { name: "referrer", content: "strict-origin-when-cross-origin" },
+      {
+        "http-equiv": "Content-Security-Policy",
+        content: "frame-ancestors 'self'",
+      },
+      { "http-equiv": "X-Content-Type-Options", content: "nosniff" },
     ],
     links: [
       {
