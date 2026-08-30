@@ -132,8 +132,14 @@ function useImageProtection() {
     const isImage = (t: EventTarget | null) =>
       t instanceof HTMLElement && (t.tagName === "IMG" || t.closest("[data-protect-image]"));
 
+    // Global right-click block, except in form fields so clients keep
+    // copy/paste and spellcheck while filling out the contact form.
+    const isFormField = (t: EventTarget | null) =>
+      t instanceof HTMLElement &&
+      (t.closest("input, textarea, select, [contenteditable='true']") !== null);
+
     const onContextMenu = (e: MouseEvent) => {
-      if (isImage(e.target)) e.preventDefault();
+      if (!isFormField(e.target)) e.preventDefault();
     };
     const onDragStart = (e: DragEvent) => {
       if (isImage(e.target)) e.preventDefault();
