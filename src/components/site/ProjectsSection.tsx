@@ -49,7 +49,8 @@ export function ProjectsSection() {
                   src={`/images/projects/project${id}/1.webp`}
                   alt={`${project.title} – Visualisierung`}
                   loading="lazy"
-                  className="aspect-4/3 w-full bg-muted object-cover"
+                  draggable={false}
+                  className="aspect-4/3 w-full select-none bg-muted object-cover"
                 />
                 <div className="flex flex-1 flex-col p-7">
                   <span className="eyebrow">Projekt {String(id).padStart(2, "0")}</span>
