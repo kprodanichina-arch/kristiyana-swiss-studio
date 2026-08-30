@@ -85,6 +85,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
+      // Front-end security hardening
+      { name: "referrer", content: "strict-origin-when-cross-origin" },
+      {
+        "http-equiv": "Content-Security-Policy",
+        content: "frame-ancestors 'self'",
+      },
+      { "http-equiv": "X-Content-Type-Options", content: "nosniff" },
     ],
     links: [
       {
@@ -125,8 +132,14 @@ function useImageProtection() {
     const isImage = (t: EventTarget | null) =>
       t instanceof HTMLElement && (t.tagName === "IMG" || t.closest("[data-protect-image]"));
 
+    // Global right-click block, except in form fields so clients keep
+    // copy/paste and spellcheck while filling out the contact form.
+    const isFormField = (t: EventTarget | null) =>
+      t instanceof HTMLElement &&
+      (t.closest("input, textarea, select, [contenteditable='true']") !== null);
+
     const onContextMenu = (e: MouseEvent) => {
-      if (isImage(e.target)) e.preventDefault();
+      if (!isFormField(e.target)) e.preventDefault();
     };
     const onDragStart = (e: DragEvent) => {
       if (isImage(e.target)) e.preventDefault();

@@ -1,9 +1,20 @@
 import { useSequentialImages } from "@/lib/useImageProbe";
+import { FadeImage } from "@/components/FadeImage";
 
 export function RendersSection() {
-  const { images, loading } = useSequentialImages((i) => `/images/renders/${i}.webp`);
+  // Scans up to 150 slots; newest (highest number) first.
+  const { images, loading } = useSequentialImages(
+    (i) => `/images/renders/${i}.webp`,
+    150,
+    2,
+  );
 
-  if (!loading && images.length === 0) return null;
+  const ordered = [...images].sort((a, b) => {
+    const n = (s: string) => Number(s.match(/(\d+)\.webp$/)?.[1] ?? 0);
+    return n(b) - n(a);
+  });
+
+  if (!loading && ordered.length === 0) return null;
 
   return (
     <section
@@ -18,23 +29,24 @@ export function RendersSection() {
         Ein Einblick in meine laufenden kreativen und fotorealistischen Arbeiten.
       </p>
 
-      {loading ? (
-        <p className="mt-8 text-sm text-muted-foreground">Galerie wird geladen …</p>
-      ) : (
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {images.map((src, i) => (
-            <figure key={src} className="panel overflow-hidden p-2">
-              <img
-                src={src}
-                alt={`Visualisierung ${i + 1}`}
-                loading="lazy"
-                draggable={false}
-                className="aspect-4/3 w-full select-none bg-muted object-cover"
-              />
-            </figure>
-          ))}
-        </div>
-      )}
+      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {loading && ordered.length === 0
+          ? [0, 1, 2, 3, 4, 5].map((i) => (
+              <figure key={i} className="panel overflow-hidden p-2">
+                <div className="aspect-4/3 w-full animate-pulse bg-muted" />
+              </figure>
+            ))
+          : ordered.map((src, i) => (
+              <figure key={src} className="panel overflow-hidden p-2">
+                <FadeImage
+                  src={src}
+                  alt={`Visualisierung ${ordered.length - i}`}
+                  wrapperClassName="aspect-4/3 w-full bg-muted"
+                  className="h-full w-full object-cover"
+                />
+              </figure>
+            ))}
+      </div>
     </section>
   );
 }
