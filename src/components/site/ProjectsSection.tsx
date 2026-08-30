@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Lightbox } from "@/components/Lightbox";
+import { FadeImage } from "@/components/FadeImage";
 import { projects } from "./data";
 import { useAvailableProjects, useProjectImages } from "@/lib/useImageProbe";
 
