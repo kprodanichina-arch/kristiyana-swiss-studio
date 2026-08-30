@@ -28,7 +28,8 @@ export function RendersSection() {
                 src={src}
                 alt={`Visualisierung ${i + 1}`}
                 loading="lazy"
-                className="aspect-4/3 w-full bg-muted object-cover"
+                draggable={false}
+                className="aspect-4/3 w-full select-none bg-muted object-cover"
               />
             </figure>
           ))}

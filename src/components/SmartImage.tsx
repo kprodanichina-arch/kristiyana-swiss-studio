@@ -31,8 +31,9 @@ export function SmartImage({ src, alt, className = "", label }: Props) {
       src={src}
       alt={alt}
       loading="lazy"
+      draggable={false}
       onError={() => setFailed(true)}
-      className={className}
+      className={`select-none ${className}`}
     />
   );
 }
