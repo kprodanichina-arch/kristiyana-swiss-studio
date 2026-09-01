@@ -11,7 +11,7 @@ export function Footer() {
     <footer className="border-t border-border">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-5 py-10 sm:flex-row sm:px-8">
         <div className="flex flex-col items-center gap-3 sm:items-start">
-          <Logo className="h-7 w-auto" />
+          <Logo className="h-[100px] w-auto" />
           <p className="text-xs tracking-wide text-muted-foreground">
             © Kristiyana Prodanichina. All rights reserved.
           </p>
