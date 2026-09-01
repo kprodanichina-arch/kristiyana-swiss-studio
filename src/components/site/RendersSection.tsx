@@ -6,7 +6,7 @@ export function RendersSection() {
   const { images, loading } = useSequentialImages(
     (i) => `/images/renders/${i}.webp`,
     150,
-    2,
+    8,
   );
 
   const ordered = [...images].sort((a, b) => {

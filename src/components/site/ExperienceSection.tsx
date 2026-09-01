@@ -24,11 +24,6 @@ const items = [
     title: "Praktikantin Architektur | Berkein Architects",
     text: "",
   },
-  {
-    period: "2015 – 2018",
-    title: "Servicemitarbeiterin / Gastronomie",
-    text: "Frühe Arbeitsmoral und starke Kundenorientierung.",
-  },
 ];
 
 export function ExperienceSection() {
