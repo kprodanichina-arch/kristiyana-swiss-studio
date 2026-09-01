@@ -92,7 +92,7 @@ export function ContactSection() {
 
         <div className="panel flex flex-col justify-between p-7 sm:p-10">
           <div>
-            <Logo className="mb-8 h-10 w-auto" />
+            <Logo className="mb-8 h-24 w-auto sm:h-[150px]" />
             <p className="eyebrow">Direkter Kontakt</p>
             <ul className="mt-8 divide-y divide-border">
               <li>
