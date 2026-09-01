@@ -1,5 +1,6 @@
 import { Mail, Linkedin, Instagram } from "lucide-react";
 import { WhatsAppIcon, ViberIcon } from "./icons";
+import { Logo } from "./Logo";
 import { EMAIL, INSTAGRAM, LINKEDIN, WHATSAPP_HREF, VIBER_HREF } from "./data";
 
 export function Footer() {
@@ -9,9 +10,12 @@ export function Footer() {
   return (
     <footer className="border-t border-border">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-5 py-10 sm:flex-row sm:px-8">
-        <p className="text-xs tracking-wide text-muted-foreground">
-          © Kristiyana Prodanichina. All rights reserved.
-        </p>
+        <div className="flex flex-col items-center gap-3 sm:items-start">
+          <Logo className="h-7 w-auto" />
+          <p className="text-xs tracking-wide text-muted-foreground">
+            © Kristiyana Prodanichina. All rights reserved.
+          </p>
+        </div>
         <div className="flex items-center gap-3">
           <a href={LINKEDIN} target="_blank" rel="noreferrer" aria-label="LinkedIn" className={cls}>
             <Linkedin className="h-4 w-4" />

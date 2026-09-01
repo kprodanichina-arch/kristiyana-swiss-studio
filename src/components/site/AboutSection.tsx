@@ -1,5 +1,30 @@
+import { useState } from "react";
 import { FileText } from "lucide-react";
 import { CV_PATH } from "./data";
+
+function Portrait() {
+  const [state, setState] = useState<"loading" | "ok" | "missing">("loading");
+
+  return (
+    <div className="relative aspect-3/4 w-full overflow-hidden bg-muted shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
+      {state !== "ok" && <div className="absolute inset-0 animate-pulse bg-muted" />}
+      {state !== "missing" && (
+        <img
+          src="/images/kristiyana.webp"
+          alt="Porträt von Kristiyana Prodanichina"
+          loading="lazy"
+          draggable={false}
+          onLoad={() => setState("ok")}
+          onError={() => setState("missing")}
+          onContextMenu={(e) => e.preventDefault()}
+          className={`h-full w-full select-none object-cover transition-opacity duration-500 ${
+            state === "ok" ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      )}
+    </div>
+  );
+}
 
 const paragraphs = [
   "Mein Name ist Kristiyana Prodanichina. Bei mir finden Sie keine Grossagentur mit komplizierten Hierarchien und langen Kommunikationswegen – ich bin Ihre direkte Ansprechpartnerin. Ich zeichne mich durch eine hohe Motivation und den klaren Wunsch nach kontinuierlicher Weiterentwicklung aus. Gerne präsentiere ich Ihnen in diesem Portfolio meinen beruflichen Werdegang und meine bisherigen Erfahrungen.",
@@ -14,10 +39,13 @@ export function AboutSection() {
       <h2 className="mt-4 text-2xl font-medium tracking-tight sm:text-4xl">Über mich</h2>
 
       <div className="mt-10 panel p-7 sm:p-12">
-        <div className="max-w-3xl space-y-6 text-[15px] leading-relaxed text-muted-foreground">
-          {paragraphs.map((p) => (
-            <p key={p.slice(0, 24)}>{p}</p>
-          ))}
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,340px)_1fr] lg:gap-14">
+          <Portrait />
+          <div className="space-y-6 text-[15px] leading-relaxed text-muted-foreground">
+            {paragraphs.map((p) => (
+              <p key={p.slice(0, 24)}>{p}</p>
+            ))}
+          </div>
         </div>
         <a
           href={CV_PATH}
