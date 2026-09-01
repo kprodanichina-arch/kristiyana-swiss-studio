@@ -19,7 +19,7 @@ const items = [
   {
     icon: Receipt,
     title: "Maximale Kosteneffizienz & B2B-Fakturierung",
-    text: "Senken Sie Ihre Fixkosten strategisch. Sie zahlen ausschliesslich für effektiv geleistete Projektstunden – ohne Schweizer Lohnnebenkosten, teure zusätzliche Software-Lizenzen oder Arbeitsplatzgebühren decken zu müssen. Die Abrechnung erfolgt professionell über ordnungsgemässe B2B-Rechnungen.",
+    text: "Senken Sie Ihre Fixkosten strategisch. Sie zahlen ausschliesslich für effektiv geleistete Projektstunden – ohne Lohnnebenkosten, teure zusätzliche Software-Lizenzen oder Arbeitsplatzgebühren decken zu müssen. Die Abrechnung erfolgt professionell über ordnungsgemässe B2B-Rechnungen.",
   },
 ];
 
