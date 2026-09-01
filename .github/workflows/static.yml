@@ -1,4 +1,4 @@
-name: Deploy React App to Pages
+name: Deploy static content to Pages
 
 on:
   push:
@@ -23,33 +23,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm install --legacy-peer-deps
-
-      - name: Force Production Build
-        run: |
-          export CI=false
-          npx vite build --base=./
-        continue-on-error: true
-
-      - name: Ensure Build Directory
-        run: mkdir -p dist && touch dist/.nojekyll
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
-
+          path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
