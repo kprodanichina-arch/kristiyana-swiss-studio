@@ -3,7 +3,7 @@ import { CV_PATH } from "./data";
 
 const paragraphs = [
   "Mein Name ist Kristiyana Prodanichina. Bei mir finden Sie keine Grossagentur mit komplizierten Hierarchien und langen Kommunikationswegen – ich bin Ihre direkte Ansprechpartnerin. Ich zeichne mich durch eine hohe Motivation und den klaren Wunsch nach kontinuierlicher Weiterentwicklung aus. Gerne präsentiere ich Ihnen in diesem Portfolio meinen beruflichen Werdegang und meine bisherigen Erfahrungen.",
-  "Mein primäres und ehrliches Ziel ist es, eine partnerschaftliche und erfolgreiche Zusammenarbeit mit meinen Kunden zu erreichen – unabhängig davon, wie viele Korrekturschleifen bis zum perfekten Ergebnis nötig sind. Gleichzeitig bin ich äusserst flexibel und offen für verschiedene Projektarten, ganz abgestimmt auf Ihre individuellen Bedürfnisse.",
+  "Mein primäres Ziel ist es, eine partnerschaftliche und erfolgreiche Zusammenarbeit mit meinen Kunden zu erreichen – unabhängig davon, wie viele Korrekturschleifen bis zum perfekten Ergebnis nötig sind. Gleichzeitig bin ich äusserst flexibel und offen für verschiedene Projektarten, ganz abgestimmt auf Ihre individuellen Bedürfnisse.",
   "Aktuell fokussiere ich mich in meiner täglichen Arbeit auf ArchiCAD, Twinmotion und D5 Render. Da ich im Laufe der Jahre jedoch auch intensiv mit AutoCAD, Revit, Vectorworks und Lumion gearbeitet habe, kann ich mich schnell und flexibel an Ihre bestehenden Software-Workflows anpassen. Nachfolgend finden Sie eine Auswahl meiner aktuellen Projekte.",
 ];
 
