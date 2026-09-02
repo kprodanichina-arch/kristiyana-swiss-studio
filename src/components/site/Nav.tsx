@@ -17,12 +17,13 @@ export function Nav() {
         <a
           href="#kontakt"
           aria-label="Startseite"
-          className="pointer-events-auto absolute left-8 top-1/2 z-50 flex -translate-y-1/2 items-center sm:left-14 lg:left-20"
+          className="pointer-events-auto absolute left-8 top-2 z-50 flex items-center sm:left-14 lg:left-20"
         >
           <Logo className="h-16 w-auto drop-shadow-sm sm:h-[90px] lg:h-[130px]" />
         </a>
 
-        <ul className="hidden items-center gap-7 lg:flex">
+        <ul className="ml-auto hidden items-center gap-7 lg:flex">
+
           {links.map((l) => (
             <li key={l.href}>
               <a
