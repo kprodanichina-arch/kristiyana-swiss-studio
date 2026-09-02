@@ -110,8 +110,39 @@ function ReviewCard({ review }: { review: Review }) {
   );
 }
 
+/**
+ * Beispiel-Referenzen. Können jederzeit manuell angepasst oder geleert werden —
+ * freigegebene Bewertungen aus der Datenbank haben Vorrang.
+ */
+const PLACEHOLDER_REVIEWS: Review[] = [
+  {
+    id: "placeholder-1",
+    company_name: "Meier & Partner Architekten AG, Zürich",
+    speed_rating: 5,
+    complexity_rating: 5,
+    quality_rating: 5,
+    message:
+      "Die Ausführungs- und Detailplanung für unser Wohnbauprojekt wurde termingerecht und in ausgezeichneter Qualität geliefert. Die Zusammenarbeit war strukturiert, präzise und jederzeit professionell.",
+    status: "approved",
+    created_at: "2026-01-15T09:00:00.000Z",
+  },
+  {
+    id: "placeholder-2",
+    company_name: "Bauwerk Immobilien GmbH, Basel",
+    speed_rating: 5,
+    complexity_rating: 4,
+    quality_rating: 5,
+    message:
+      "Die High-End-Visualisierungen haben unsere Vermarktung merklich gestärkt. Klare Kommunikation, saubere CAD-Daten und ein sehr effizienter Workflow.",
+    status: "approved",
+    created_at: "2026-02-04T09:00:00.000Z",
+  },
+];
+
 export function ReviewsSection({ initialReviews }: { initialReviews: Review[] }) {
-  const [reviews] = useState<Review[]>(initialReviews);
+  const [reviews] = useState<Review[]>(
+    initialReviews.length > 0 ? initialReviews : PLACEHOLDER_REVIEWS,
+  );
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({
     companyName: "",
@@ -185,13 +216,6 @@ export function ReviewsSection({ initialReviews }: { initialReviews: Review[] })
         Veröffentlichung von unserem Team überprüft.
       </p>
 
-      {reviews.length > 0 && (
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {reviews.map((review) => (
-            <ReviewCard key={review.id} review={review} />
-          ))}
-        </div>
-      )}
 
       <div className="mt-12">
         {!showForm ? (
