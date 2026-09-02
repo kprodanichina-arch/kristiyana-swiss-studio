@@ -89,31 +89,22 @@ function ReviewCard({ review }: { review: Review }) {
       <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
         {review.message}
       </p>
-      <dl className="mt-6 grid grid-cols-3 gap-4 border-t border-border pt-5">
-        <div>
-          <dt className="text-[10px] uppercase tracking-wide text-muted-foreground">
-            Geschwindigkeit
-          </dt>
-          <dd className="mt-1 text-xs font-medium tabular-nums">
-            {review.speed_rating}/5
-          </dd>
-        </div>
-        <div>
-          <dt className="text-[10px] uppercase tracking-wide text-muted-foreground">
-            Komplexität
-          </dt>
-          <dd className="mt-1 text-xs font-medium tabular-nums">
-            {review.complexity_rating}/5
-          </dd>
-        </div>
-        <div>
-          <dt className="text-[10px] uppercase tracking-wide text-muted-foreground">
-            Qualität
-          </dt>
-          <dd className="mt-1 text-xs font-medium tabular-nums">
-            {review.quality_rating}/5
-          </dd>
-        </div>
+      <dl className="mt-6 space-y-3 border-t border-border pt-5">
+        {[
+          ["Geschwindigkeit", review.speed_rating],
+          ["Projektkomplexität", review.complexity_rating],
+          ["Gesamtqualität", review.quality_rating],
+        ].map(([label, value]) => (
+          <div key={label as string} className="flex items-center justify-between gap-4">
+            <dt className="text-[10px] uppercase tracking-wide text-muted-foreground">
+              {label}
+            </dt>
+            <dd className="flex items-center gap-2">
+              <StarDisplay value={value as number} />
+              <span className="text-xs font-medium tabular-nums">{value}/5</span>
+            </dd>
+          </div>
+        ))}
       </dl>
     </article>
   );
