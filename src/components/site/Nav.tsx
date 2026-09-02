@@ -13,15 +13,14 @@ const links = [
 export function Nav() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/85 backdrop-blur-md [overflow:visible]">
-      <nav className="relative mx-auto flex h-14 max-w-6xl items-center justify-between gap-6 px-6 pl-10 sm:px-10 sm:pl-16 lg:px-14 lg:pl-24">
+      <nav className="relative mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-6 pl-8 sm:px-10 sm:pl-14 lg:px-14 lg:pl-20">
         <a
           href="#kontakt"
           aria-label="Startseite"
-          className="pointer-events-auto absolute left-10 top-1 z-50 flex items-center sm:left-16 lg:left-24"
+          className="pointer-events-auto absolute left-8 top-2 z-50 flex items-center sm:left-14 lg:left-20"
         >
-          <Logo className="h-[130px] w-auto max-w-[70vw] drop-shadow-sm" />
+          <Logo className="h-16 w-auto drop-shadow-sm sm:h-[90px] lg:h-[130px]" />
         </a>
-
 
         <ul className="ml-auto hidden items-center gap-7 lg:flex">
 
