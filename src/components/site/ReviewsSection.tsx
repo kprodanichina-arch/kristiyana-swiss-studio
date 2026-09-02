@@ -304,6 +304,17 @@ export function ReviewsSection({ initialReviews }: { initialReviews: Review[] })
           </form>
         )}
       </div>
+
+      {reviews.length > 0 && (
+        <div className="mt-16">
+          <p className="eyebrow">Freigegebene Bewertungen</p>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            {reviews.map((review) => (
+              <ReviewCard key={review.id} review={review} />
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 }
