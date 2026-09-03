@@ -111,37 +111,14 @@ function ReviewCard({ review }: { review: Review }) {
 }
 
 /**
- * Beispiel-Referenzen. Können jederzeit manuell angepasst oder geleert werden —
+ * Manuell gepflegte Referenzen. Hier können echte Bewertungen ergänzt werden —
  * freigegebene Bewertungen aus der Datenbank haben Vorrang.
  */
-const PLACEHOLDER_REVIEWS: Review[] = [
-  {
-    id: "placeholder-1",
-    company_name: "Meier & Partner Architekten AG, Zürich",
-    speed_rating: 5,
-    complexity_rating: 5,
-    quality_rating: 5,
-    message:
-      "Die Ausführungs- und Detailplanung für unser Wohnbauprojekt wurde termingerecht und in ausgezeichneter Qualität geliefert. Die Zusammenarbeit war strukturiert, präzise und jederzeit professionell.",
-    status: "approved",
-    created_at: "2026-01-15T09:00:00.000Z",
-  },
-  {
-    id: "placeholder-2",
-    company_name: "Bauwerk Immobilien GmbH, Basel",
-    speed_rating: 5,
-    complexity_rating: 4,
-    quality_rating: 5,
-    message:
-      "Die High-End-Visualisierungen haben unsere Vermarktung merklich gestärkt. Klare Kommunikation, saubere CAD-Daten und ein sehr effizienter Workflow.",
-    status: "approved",
-    created_at: "2026-02-04T09:00:00.000Z",
-  },
-];
+const MANUAL_REVIEWS: Review[] = [];
 
 export function ReviewsSection({ initialReviews }: { initialReviews: Review[] }) {
   const [reviews] = useState<Review[]>(
-    initialReviews.length > 0 ? initialReviews : PLACEHOLDER_REVIEWS,
+    initialReviews.length > 0 ? initialReviews : MANUAL_REVIEWS,
   );
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({
@@ -305,16 +282,22 @@ export function ReviewsSection({ initialReviews }: { initialReviews: Review[] })
         )}
       </div>
 
-      {reviews.length > 0 && (
-        <div className="mt-16">
-          <p className="eyebrow">Freigegebene Bewertungen</p>
+      <div className="mt-16">
+        <p className="eyebrow">Freigegebene Bewertungen</p>
+        {reviews.length > 0 ? (
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             {reviews.map((review) => (
               <ReviewCard key={review.id} review={review} />
             ))}
           </div>
-        </div>
-      )}
+        ) : (
+          <div className="panel mt-8 max-w-2xl p-8 sm:p-10">
+            <p className="text-sm text-muted-foreground">
+              Noch keine Bewertungen vorhanden.
+            </p>
+          </div>
+        )}
+      </div>
     </section>
   );
 }
