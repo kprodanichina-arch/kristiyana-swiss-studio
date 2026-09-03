@@ -6,10 +6,19 @@ type Props = {
   onClose: () => void;
   title: string;
   images: string[];
+  initialIndex?: number;
+  eyebrow?: string;
 };
 
-export function Lightbox({ open, onClose, title, images }: Props) {
-  const [index, setIndex] = useState(0);
+export function Lightbox({
+  open,
+  onClose,
+  title,
+  images,
+  initialIndex = 0,
+  eyebrow = "Projektmappe",
+}: Props) {
+  const [index, setIndex] = useState(initialIndex);
   const [failed, setFailed] = useState<Record<number, boolean>>({});
   const [loaded, setLoaded] = useState<Record<number, boolean>>({});
 
@@ -23,8 +32,8 @@ export function Lightbox({ open, onClose, title, images }: Props) {
   );
 
   useEffect(() => {
-    if (open) setIndex(0);
-  }, [open]);
+    if (open) setIndex(initialIndex);
+  }, [open, initialIndex]);
 
   useEffect(() => {
     if (!open) return;
