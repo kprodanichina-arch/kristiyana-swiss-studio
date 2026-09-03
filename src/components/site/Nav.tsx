@@ -19,7 +19,7 @@ export function Nav() {
           aria-label="Startseite"
           className="pointer-events-auto absolute left-8 top-2 z-50 flex items-center sm:left-14 lg:left-20"
         >
-          <Logo className="h-16 w-auto drop-shadow-sm sm:h-[90px] lg:h-[130px]" />
+          <Logo className="h-[90px] w-auto drop-shadow-sm sm:h-[130px]" />
         </a>
 
         <ul className="ml-auto hidden items-center gap-7 lg:flex">
