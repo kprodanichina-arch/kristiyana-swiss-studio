@@ -41,15 +41,31 @@ export function RendersSection() {
             ))
           : ordered.map((src, i) => (
               <figure key={src} className="panel overflow-hidden p-2">
-                <FadeImage
-                  src={src}
-                  alt={`Visualisierung ${ordered.length - i}`}
-                  wrapperClassName="aspect-4/3 w-full bg-muted"
-                  className="h-full w-full object-cover"
-                />
+                <button
+                  type="button"
+                  onClick={() => setOpenIndex(i)}
+                  aria-label={`Visualisierung ${ordered.length - i} in Vollbild öffnen`}
+                  className="block w-full cursor-zoom-in"
+                >
+                  <FadeImage
+                    src={src}
+                    alt={`Visualisierung ${ordered.length - i}`}
+                    wrapperClassName="aspect-4/3 w-full bg-muted"
+                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-[1.02]"
+                  />
+                </button>
               </figure>
             ))}
       </div>
+
+      <Lightbox
+        open={openIndex !== null}
+        onClose={() => setOpenIndex(null)}
+        title="Visualisierungen &amp; Renders"
+        eyebrow="Galerie"
+        images={ordered}
+        initialIndex={openIndex ?? 0}
+      />
     </section>
   );
 }
