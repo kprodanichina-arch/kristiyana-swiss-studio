@@ -118,7 +118,7 @@ const MANUAL_REVIEWS: Review[] = [];
 
 export function ReviewsSection({ initialReviews }: { initialReviews: Review[] }) {
   const [reviews] = useState<Review[]>(
-    initialReviews.length > 0 ? initialReviews : PLACEHOLDER_REVIEWS,
+    initialReviews.length > 0 ? initialReviews : MANUAL_REVIEWS,
   );
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({
@@ -282,16 +282,22 @@ export function ReviewsSection({ initialReviews }: { initialReviews: Review[] })
         )}
       </div>
 
-      {reviews.length > 0 && (
-        <div className="mt-16">
-          <p className="eyebrow">Freigegebene Bewertungen</p>
+      <div className="mt-16">
+        <p className="eyebrow">Freigegebene Bewertungen</p>
+        {reviews.length > 0 ? (
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             {reviews.map((review) => (
               <ReviewCard key={review.id} review={review} />
             ))}
           </div>
-        </div>
-      )}
+        ) : (
+          <div className="panel mt-8 max-w-2xl p-8 sm:p-10">
+            <p className="text-sm text-muted-foreground">
+              Noch keine Bewertungen vorhanden.
+            </p>
+          </div>
+        )}
+      </div>
     </section>
   );
 }
