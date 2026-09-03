@@ -61,7 +61,7 @@ export function RendersSection() {
       <Lightbox
         open={openIndex !== null}
         onClose={() => setOpenIndex(null)}
-        title="Visualisierungen &amp; Renders"
+        title="Visualisierungen & Renders"
         eyebrow="Galerie"
         images={ordered}
         initialIndex={openIndex ?? 0}
