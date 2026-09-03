@@ -53,10 +53,10 @@ export function Lightbox({
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col bg-background/98 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex animate-in fade-in flex-col bg-background/98 backdrop-blur-sm duration-200">
       <div className="flex items-center justify-between border-b border-border px-5 py-4 sm:px-10">
         <div>
-          <p className="eyebrow">Projektmappe</p>
+          <p className="eyebrow">{eyebrow}</p>
           <h3 className="text-sm font-medium tracking-tight sm:text-base">{title}</h3>
         </div>
         <button
