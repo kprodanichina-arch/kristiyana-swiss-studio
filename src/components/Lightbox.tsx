@@ -68,14 +68,22 @@ export function Lightbox({
         </button>
       </div>
 
-      <div className="relative flex flex-1 items-center justify-center overflow-hidden p-4 sm:p-10">
-        <button
-          onClick={prev}
-          aria-label="Vorherige Seite"
-          className="absolute left-3 z-10 rounded-full bg-card p-3 shadow-soft transition-transform hover:scale-105 sm:left-6"
-        >
-          <ChevronLeft className="h-5 w-5" />
-        </button>
+      <div
+        className="relative flex flex-1 items-center justify-center overflow-hidden p-4 sm:p-10"
+        onClick={(e) => {
+          if (e.target === e.currentTarget) onClose();
+        }}
+      >
+        {images.length > 1 && (
+          <button
+            onClick={prev}
+            aria-label="Vorherige Seite"
+            className="absolute left-3 z-10 rounded-full bg-card p-3 shadow-soft transition-transform hover:scale-105 sm:left-6"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+        )}
+
 
         <div className="flex h-full w-full max-w-5xl items-center justify-center panel overflow-hidden">
           {failed[index] ? (
