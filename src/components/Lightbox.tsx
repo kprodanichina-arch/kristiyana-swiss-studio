@@ -6,10 +6,19 @@ type Props = {
   onClose: () => void;
   title: string;
   images: string[];
+  initialIndex?: number;
+  eyebrow?: string;
 };
 
-export function Lightbox({ open, onClose, title, images }: Props) {
-  const [index, setIndex] = useState(0);
+export function Lightbox({
+  open,
+  onClose,
+  title,
+  images,
+  initialIndex = 0,
+  eyebrow = "Projektmappe",
+}: Props) {
+  const [index, setIndex] = useState(initialIndex);
   const [failed, setFailed] = useState<Record<number, boolean>>({});
   const [loaded, setLoaded] = useState<Record<number, boolean>>({});
 
@@ -23,8 +32,8 @@ export function Lightbox({ open, onClose, title, images }: Props) {
   );
 
   useEffect(() => {
-    if (open) setIndex(0);
-  }, [open]);
+    if (open) setIndex(initialIndex);
+  }, [open, initialIndex]);
 
   useEffect(() => {
     if (!open) return;
@@ -44,10 +53,10 @@ export function Lightbox({ open, onClose, title, images }: Props) {
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col bg-background/98 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex animate-in fade-in flex-col bg-background/98 backdrop-blur-sm duration-200">
       <div className="flex items-center justify-between border-b border-border px-5 py-4 sm:px-10">
         <div>
-          <p className="eyebrow">Projektmappe</p>
+          <p className="eyebrow">{eyebrow}</p>
           <h3 className="text-sm font-medium tracking-tight sm:text-base">{title}</h3>
         </div>
         <button
@@ -59,14 +68,22 @@ export function Lightbox({ open, onClose, title, images }: Props) {
         </button>
       </div>
 
-      <div className="relative flex flex-1 items-center justify-center overflow-hidden p-4 sm:p-10">
-        <button
-          onClick={prev}
-          aria-label="Vorherige Seite"
-          className="absolute left-3 z-10 rounded-full bg-card p-3 shadow-soft transition-transform hover:scale-105 sm:left-6"
-        >
-          <ChevronLeft className="h-5 w-5" />
-        </button>
+      <div
+        className="relative flex flex-1 items-center justify-center overflow-hidden p-4 sm:p-10"
+        onClick={(e) => {
+          if (e.target === e.currentTarget) onClose();
+        }}
+      >
+        {images.length > 1 && (
+          <button
+            onClick={prev}
+            aria-label="Vorherige Seite"
+            className="absolute left-3 z-10 rounded-full bg-card p-3 shadow-soft transition-transform hover:scale-105 sm:left-6"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+        )}
+
 
         <div className="flex h-full w-full max-w-5xl items-center justify-center panel overflow-hidden">
           {failed[index] ? (
@@ -102,17 +119,19 @@ export function Lightbox({ open, onClose, title, images }: Props) {
           )}
         </div>
 
-        <button
-          onClick={next}
-          aria-label="Nächste Seite"
-          className="absolute right-3 z-10 rounded-full bg-card p-3 shadow-soft transition-transform hover:scale-105 sm:right-6"
-        >
-          <ChevronRight className="h-5 w-5" />
-        </button>
+        {images.length > 1 && (
+          <button
+            onClick={next}
+            aria-label="Nächste Seite"
+            className="absolute right-3 z-10 rounded-full bg-card p-3 shadow-soft transition-transform hover:scale-105 sm:right-6"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
+        )}
       </div>
 
       <div className="flex items-center justify-center gap-2 border-t border-border px-5 py-4">
-        {images.map((_, i) => (
+        {images.length > 1 && images.map((_, i) => (
           <button
             key={i}
             onClick={() => setIndex(i)}
