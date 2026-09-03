@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { useSequentialImages } from "@/lib/useImageProbe";
 import { FadeImage } from "@/components/FadeImage";
+import { Lightbox } from "@/components/Lightbox";
 
 export function RendersSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
   // Scans up to 150 slots; newest (highest number) first.
   const { images, loading } = useSequentialImages(
     (i) => `/images/renders/${i}.webp`,
