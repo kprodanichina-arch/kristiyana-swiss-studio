@@ -119,17 +119,19 @@ export function Lightbox({
           )}
         </div>
 
-        <button
-          onClick={next}
-          aria-label="Nächste Seite"
-          className="absolute right-3 z-10 rounded-full bg-card p-3 shadow-soft transition-transform hover:scale-105 sm:right-6"
-        >
-          <ChevronRight className="h-5 w-5" />
-        </button>
+        {images.length > 1 && (
+          <button
+            onClick={next}
+            aria-label="Nächste Seite"
+            className="absolute right-3 z-10 rounded-full bg-card p-3 shadow-soft transition-transform hover:scale-105 sm:right-6"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
+        )}
       </div>
 
       <div className="flex items-center justify-center gap-2 border-t border-border px-5 py-4">
-        {images.map((_, i) => (
+        {images.length > 1 && images.map((_, i) => (
           <button
             key={i}
             onClick={() => setIndex(i)}
