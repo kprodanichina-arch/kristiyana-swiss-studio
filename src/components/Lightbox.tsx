@@ -85,7 +85,7 @@ export function Lightbox({
         )}
 
 
-        <div className="flex h-full w-full max-w-5xl items-center justify-center panel overflow-hidden">
+        <div className="relative flex h-full w-full max-w-5xl items-center justify-center panel overflow-hidden">
           {failed[index] ? (
             <div className="flex h-full w-full items-center justify-center bg-muted">
               <span className="eyebrow">Zeichnung {index + 1} folgt</span>
@@ -99,9 +99,16 @@ export function Lightbox({
                 </div>
               )}
               <img
+                key={images[index]}
                 src={images[index]}
                 alt={`${title} – Plan ${index + 1}`}
                 draggable={false}
+                ref={(el) => {
+                  // Cached images can finish before React attaches onLoad.
+                  if (el?.complete && el.naturalWidth > 0 && !loaded[index]) {
+                    setLoaded((l) => ({ ...l, [index]: true }));
+                  }
+                }}
                 onLoad={() => setLoaded((l) => ({ ...l, [index]: true }))}
                 onError={() => setFailed((f) => ({ ...f, [index]: true }))}
                 className={`max-h-full max-w-full select-none object-contain transition-opacity duration-300 ${
@@ -118,6 +125,7 @@ export function Lightbox({
             </>
           )}
         </div>
+
 
         {images.length > 1 && (
           <button
