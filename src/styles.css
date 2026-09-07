@@ -224,3 +224,27 @@ article:has(img[src*="projects"])::after {
   /* Втори слой фин дигитален шум за допълнителна защита от векторизиране */
   backdrop-filter: contrast(1.01) brightness(0.99) !important;
 }
+
+/* БЛОКИРАНЕ НА ЦЯЛ ЕКРАН И ПЪЛНА ЗАЩИТА НА ЧЕРТЕЖИТЕ */
+
+/* 1. Скрива напълно бутона "Projekt ansehen" (Преглед на проекта) */
+#projekte button, 
+#projekte .button,
+#projekte [onClick] {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* 2. Забранява всякакъв клик и интеракция върху кутиите на проектите */
+#projekte article, 
+#projekte img {
+  pointer-events: none !important; /* Курсорът изобщо не реагира, сайтът става плосък */
+  cursor: default !important;
+}
+
+/* 3. Намалява резолюцията визуално за швейцарски скрийншотове */
+#projekte img {
+  filter: blur(0.3px) contrast(0.95) !important; /* Леко омекотява линиите в малък мащаб, за да пречи на четенето */
+}
