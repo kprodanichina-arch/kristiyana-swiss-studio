@@ -196,3 +196,31 @@ img[src*="projects"] {
     display: none !important; /* Всички чертежи и рендери стават бели петна в разпечатката */
   }
 }
+
+/* Блиндирана защита срещу Snipping Tool и Скрийншотове */
+article:has(img[src*="projects"]) {
+  position: relative !important;
+}
+
+article:has(img[src*="projects"])::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100 !important;
+  height: 100 !important;
+  pointer-events: none !important; /* Пропуска клика към бутона, но пази чертежа */
+  z-index: 10 !important;
+  
+  /* Невидима за окото гъста мрежа от микроскопични линии, остри за софтуери за заснемане */
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.03) 0px,
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  ) !important;
+  
+  /* Втори слой фин дигитален шум за допълнителна защита от векторизиране */
+  backdrop-filter: contrast(1.01) brightness(0.99) !important;
+}
