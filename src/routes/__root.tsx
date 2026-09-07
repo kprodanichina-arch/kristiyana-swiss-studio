@@ -157,6 +157,22 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   useImageProtection();
 
+  // Strict B2B Geo-blocking for restricted regions (Bulgaria)
+  if (typeof window !== 'undefined') {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if (tz === 'Europe/Sofia' || tz.includes('Sofia')) {
+      window.stop(); // Спира изтеглянето на чертежите от GitHub папките на мига
+      document.documentElement.innerHTML = `
+        <div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#fbfbfb;color:#888888;font-family:sans-serif;font-size:14px;letter-spacing:0.15em;text-transform:uppercase;text-align:center;width:100vw;position:fixed;top:0;left:0;z-index:999999;">
+          <div style="border:1px solid #e5e5e5;padding:20px 40px;background:#ffffff;box-shadow:0 4px 20px rgba(0,0,0,0.02);">
+            403 - Zugriff aus dieser Region verweigert
+          </div>
+        </div>
+      `;
+      return null;
+    }
+  }
+
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
@@ -164,3 +180,4 @@ function RootComponent() {
     </QueryClientProvider>
   );
 }
+
