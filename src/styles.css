@@ -225,49 +225,46 @@ article:has(img[src*="projects"])::after {
   backdrop-filter: contrast(1.01) brightness(0.99) !important;
 }
 
-/* БЛОКИРАНЕ НА ЦЯЛ ЕКРАН И АКТИВИРАНЕ НА СТРЕЛКИЧКИ ЗА МИНИ-ГАЛЕРИЯ В ПРОЗОРЕЦА */
+/* ФИНАЛНО БЛИНДИРАНЕ НА ПОРТФОЛИОТО И АКТИВИРАНЕ НА МИНИ-СЛАЙДЕРА */
 
-/* 1. Скрива напълно бутона "Projekt ansehen" (Преглед на проекта) */
+/* 1. Скрива напълно големия бутон за отваряне на цял екран (Lightbox) */
 #projekte button:not([aria-label*="next"]):not([aria-label*="prev"]), 
-#projekte .button:not(.carousel-btn-left):not(.carousel-btn-right) {
+#projekte .button:not(.carousel-btn-left):not(.carousel-btn-right),
+#projekte button:not(:has(svg)):not([class*="carousel"]) {
   display: none !important;
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
 }
 
-/* 2. Отключваме мишката специално за картинката и стрелките за прелистване */
-#projekte article, 
-#projekte img,
-#projekte button,
-#projekte [role="button"],
-#projekte .carousel-container {
+/* 2. Отключваме софтуерния капацитет на слайдера, за да зареди картинките мигновено */
+#projekte img {
   pointer-events: auto !important;
-  cursor: default !important;
+  -webkit-user-drag: none !important; /* Пази от влачене на десктоп */
 }
 
-/* 3. Форсираме показването на стрелките на Lovable в малкия прозорец */
+/* 3. Правим фабричните бели стрелки на Lovable големи, видими и лесни за кликане */
 #projekte button[aria-label*="next"],
 #projekte button[aria-label*="prev"],
 #projekte .carousel-btn-left,
 #projekte .carousel-btn-right,
-#projekte button:has(svg) {
+#projekte button[class*="carousel"] {
   display: flex !important;
   opacity: 1 !important;
   visibility: visible !important;
   pointer-events: auto !important;
-  z-index: 50 !important;
-  background-color: rgb(255, 255, 255) !important; /* Чисто бял бутон */
-  color: rgb(0, 0, 0) !important;
-  border: 1px solid rgb(0, 0, 0) !important;
-  border-radius: 9999px !important; /* Кръгли стрелки */
-  width: 36px !important;
-  height: 36px !important;
+  z-index: 99 !important;
+  background-color: #ffffff !important; /* Чисто бял швейцарски бутон */
+  color: #000000 !important;
+  border: 1px solid #000000 !important;
+  border-radius: 9999px !important;
+  width: 40px !important;
+  height: 40px !important;
   align-items: center !important;
   justify-content: center !important;
 }
 
-/* 4. Защита: Чертежът си остава малък и леко размит, за да не се четат котите от скрийншот */
+/* 4. Защита: Омекотяваме линиите в малкия прозорец, за да пречим на разчитането на коти от скрийншот */
 #projekte img {
   filter: blur(0.3px) contrast(0.95) !important;
 }
