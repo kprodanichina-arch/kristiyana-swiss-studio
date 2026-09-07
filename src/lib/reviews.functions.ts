@@ -34,7 +34,14 @@ export const submitReview = createServerFn({ method: "POST" })
 
 export const getApprovedReviews = createServerFn({ method: "GET" })
   .handler(async () => {
-    const supabase = createReviewsClient();
+    let supabase: ReturnType<typeof createReviewsClient>;
+    try {
+      supabase = createReviewsClient();
+    } catch (error) {
+      console.error(error);
+      return [] as Review[];
+    }
+
     const { data, error } = await supabase
       .from("reviews")
       .select("*")
@@ -42,7 +49,8 @@ export const getApprovedReviews = createServerFn({ method: "GET" })
       .order("created_at", { ascending: false });
 
     if (error) {
-      throw new Error(error.message);
+      console.error(error);
+      return [] as Review[];
     }
 
     return (data ?? []) as Review[];
