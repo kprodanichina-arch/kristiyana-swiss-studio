@@ -225,26 +225,49 @@ article:has(img[src*="projects"])::after {
   backdrop-filter: contrast(1.01) brightness(0.99) !important;
 }
 
-/* БЛОКИРАНЕ НА ЦЯЛ ЕКРАН И ПЪЛНА ЗАЩИТА НА ЧЕРТЕЖИТЕ */
+/* БЛОКИРАНЕ НА ЦЯЛ ЕКРАН И АКТИВИРАНЕ НА СТРЕЛКИЧКИ ЗА МИНИ-ГАЛЕРИЯ В ПРОЗОРЕЦА */
 
 /* 1. Скрива напълно бутона "Projekt ansehen" (Преглед на проекта) */
-#projekte button, 
-#projekte .button,
-#projekte [onClick] {
+#projekte button:not([aria-label*="next"]):not([aria-label*="prev"]), 
+#projekte .button:not(.carousel-btn-left):not(.carousel-btn-right) {
   display: none !important;
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
 }
 
-/* 2. Забранява всякакъв клик и интеракция върху кутиите на проектите */
+/* 2. Отключваме мишката специално за картинката и стрелките за прелистване */
 #projekte article, 
-#projekte img {
-  pointer-events: none !important; /* Курсорът изобщо не реагира, сайтът става плосък */
+#projekte img,
+#projekte button,
+#projekte [role="button"],
+#projekte .carousel-container {
+  pointer-events: auto !important;
   cursor: default !important;
 }
 
-/* 3. Намалява резолюцията визуално за швейцарски скрийншотове */
+/* 3. Форсираме показването на стрелките на Lovable в малкия прозорец */
+#projekte button[aria-label*="next"],
+#projekte button[aria-label*="prev"],
+#projekte .carousel-btn-left,
+#projekte .carousel-btn-right,
+#projekte button:has(svg) {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  z-index: 50 !important;
+  background-color: rgb(255, 255, 255) !important; /* Чисто бял бутон */
+  color: rgb(0, 0, 0) !important;
+  border: 1px solid rgb(0, 0, 0) !important;
+  border-radius: 9999px !important; /* Кръгли стрелки */
+  width: 36px !important;
+  height: 36px !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* 4. Защита: Чертежът си остава малък и леко размит, за да не се четат котите от скрийншот */
 #projekte img {
-  filter: blur(0.3px) contrast(0.95) !important; /* Леко омекотява линиите в малък мащаб, за да пречи на четенето */
+  filter: blur(0.3px) contrast(0.95) !important;
 }
