@@ -4,7 +4,6 @@ export const PHONE_DISPLAY = "+359 878 63 50 60";
 export const WHATSAPP_HREF = "https://wa.me/+359878635060";
 export const VIBER_HREF = "viber://chat?number=%2B359878635060";
 export const LINKEDIN = "https://www.linkedin.com/in/kristiyana-prodanichina";
-export const INSTAGRAM = "https://www.instagram.com/kristiana9999";
 
 export type Project = {
   id: number;
