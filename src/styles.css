@@ -171,3 +171,28 @@
   text-transform: uppercase;
   color: var(--muted-foreground);
 }
+
+/* Глобална B2B защита на архитектурните чертежи и изображения */
+img {
+  -webkit-touch-callout: none !important; /* Блокира дългото задържане на телефон */
+  -webkit-user-select: none !important;    /* Блокира маркирането в Safari */
+  -khtml-user-select: none !important;
+  -moz-user-select: none !important;       /* Блокира маркирането във Firefox */
+  -ms-user-select: none !important;
+  user-select: none !important;            /* Забранява селектирането на изображението */
+  pointer-events: none !important;         /* Абсолютно блокира десния бутон, клика и влаченето */
+  -webkit-user-drag: none !important;      /* Блокира Drag & Drop на десктоп */
+}
+
+/* Специална B2B защита за Технически чертежи */
+img[src*="projects"] {
+  filter: contrast(0.92) brightness(1.02); /* Пречи на автоматичното векторизиране от скрийншот */
+  mix-blend-mode: multiply; /* Слива белия фон на чертежа с уебсайта */
+}
+
+/* Ако потребителят се опита да принтира страницата или да я запише като PDF през браузъра */
+@media print {
+  img, picture, figure, canvas, .lightbox {
+    display: none !important; /* Всички чертежи и рендери стават бели петна в разпечатката */
+  }
+}
