@@ -8,8 +8,16 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
   tanstackStart: {
-    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Pin Vercel’s Node handler. The default `web` entry leaves `req.runtime.node`
+  // undefined, and TanStack Start’s HTML stream then 500s on `/`.
+  // `as { preset: string }` is required because Lovable’s published nitro type
+  // does not yet include `vercel.entryFormat`.
+  nitro: {
+    preset: "vercel",
+    vercel: {
+      entryFormat: "node",
+    },
+  } as { preset: string },
 });

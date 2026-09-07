@@ -1,9 +1,8 @@
 import { useState, type FormEvent } from "react";
-import { Mail, Linkedin, Instagram, Download, ArrowUpRight } from "lucide-react";
+import { Mail, Linkedin, Download, ArrowUpRight } from "lucide-react";
 import {
   CV_PATH,
   EMAIL,
-  INSTAGRAM,
   LINKEDIN,
   PHONE_DISPLAY,
   WHATSAPP_HREF,
@@ -151,20 +150,6 @@ export function ContactSection() {
                   <span className="flex items-center gap-4">
                     <Linkedin className="h-4 w-4 text-muted-foreground" />
                     <span className="text-sm">Kristiyana Prodanichina</span>
-                  </span>
-                  <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href={INSTAGRAM}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group flex items-center justify-between gap-4 py-5"
-                >
-                  <span className="flex items-center gap-4">
-                    <Instagram className="h-4 w-4 text-muted-foreground" />
-                    <span className="text-sm">@kristiana9999</span>
                   </span>
                   <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5" />
                 </a>
