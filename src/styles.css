@@ -268,3 +268,31 @@ article:has(img[src*="projects"])::after {
 #projekte img {
   filter: blur(0.3px) contrast(0.95) !important;
 }
+/* ФОРСИРАНЕ НА СТРЕЛКИТЕ НАД КОМПОНЕНТА FADEIMAGE */
+#projekte article button {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  z-index: 9999 !important; /* Избутва бутоните над абсолютно всички слоеве и картини */
+}
+
+/* Настройка на позицията на стрелките, за да стоят перфектно центрирани вертикално */
+#projekte article button:first-of-type {
+  left: 12px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+#projekte article button:last-of-type {
+  right: 12px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+/* Защитен филтър против четене на котировки от скрийншотове */
+#projekte img, 
+#projekte [class*="FadeImage"] img {
+  filter: blur(0.3px) contrast(0.95) !important;
+  pointer-events: none !important;
+}
