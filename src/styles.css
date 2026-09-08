@@ -225,59 +225,58 @@ article:has(img[src*="projects"])::after {
   backdrop-filter: contrast(1.01) brightness(0.99) !important;
 }
 
-/* ФИНАЛНО БЛИНДИРАНЕ НА ПОРТФОЛИОТО И АКТИВИРАНЕ НА МИНИ-СЛАЙДЕРА */
+@layer utilities {
+  /* 1. Скрива напълно големия бутон за отваряне на цял екран (Lightbox) */
+  #projekte button:not([aria-label*="next"]):not([aria-label*="prev"]):not(.carousel-btn-left):not(.carousel-btn-right) {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
 
-/* 1. Скрива напълно големия бутон за отваряне на цял екран (Lightbox) */
-#projekte button:not([aria-label*="next"]):not([aria-label*="prev"]):not(.carousel-btn-left):not(.carousel-btn-right) {
-  display: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
+  /* 2. Избутваме стрелките най-отгоре над абсолютно всички слоеве и картини */
+  #projekte article button {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important; 
+    z-index: 99999 !important; 
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background-color: #ffffff !important; /* Плътен бял фон */
+    color: #000000 !important; /* Черни стрелки */
+    border: 1px solid #d4d4d4 !important;
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+    cursor: pointer !important;
+  }
+
+  /* 3. Фиксиране на перфектни позиции отляво и отдясно */
+  #projekte article button:first-of-type {
+    left: 16px !important;
+  }
+
+  #projekte article button:last-of-type {
+    right: 16px !important;
+  }
+
+  /* 4. Защита на чертежите: мишката не може да ги докосне или извлече */
+  #projekte img, 
+  #projekte [class*="FadeImage"] img {
+    pointer-events: none !important;
+    -webkit-user-drag: none !important;
+    filter: blur(0.3px) contrast(0.95) !important; /* Леко омекотяване против детайлни скрийншотове */
+  }
+
+  /* Разрешаваме на контейнера на картата да приема кликвания само за бутоните */
+  #projekte article {
+    pointer-events: auto !important;
+  }
 }
-
-/* 2. Избутваме стрелките най-отгоре над абсолютно всички слоеве и картини */
-#projekte article button {
-  display: flex !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
-  z-index: 99999 !important; 
-  position: absolute !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  background-color: #ffffff !important; /* Плътен бял фон */
-  color: #000000 !important; /* Черни стрелки */
-  border: 1px solid #d4d4d4 !important;
-  border-radius: 50% !important;
-  width: 40px !important;
-  height: 40px !important;
-  align-items: center !important;
-  justify-content: center !important;
-  font-size: 18px !important;
-  font-weight: bold !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
-  cursor: pointer !important;
-}
-
-/* 3. Фиксиране на перфектни позиции отляво и отдясно */
-#projekte article button:first-of-type {
-  left: 16px !important;
-}
-
-#projekte article button:last-of-type {
-  right: 16px !important;
-}
-
-/* 4. Защита на чертежите: мишката не може да ги докосне или извлече */
-#projekte img, 
-#projekte [class*="FadeImage"] img {
-  pointer-events: none !important;
-  -webkit-user-drag: none !important;
-  filter: blur(0.3px) contrast(0.95) !important; /* Леко омекотяване против скрийншотове */
-}
-
-/* Разрешаваме на контейнера на картата да приема кликвания само за бутоните */
-#projekte article {
-  pointer-events: auto !important;
-}
-
