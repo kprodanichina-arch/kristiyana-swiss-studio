@@ -1,52 +1,58 @@
 import { useState } from "react";
-import { FadeImage } from "@/components/FadeImage";
 import { projects } from "./data";
 import { useAvailableProjects } from "@/lib/useImageProbe";
 
-// Локален компонент за всяка отделна проектна карта със свои стрелки
+// Локален компонент за всяка отделна проектна карта със свои работещи стрелки
 function ProjectCard({ id, metaData }: { id: number; metaData: any }) {
   const [currentImg, setCurrentImg] = useState(1);
 
   const nextImg = (e: React.MouseEvent) => {
+    e.preventDefault();
     e.stopPropagation();
-    setCurrentImg((prev) => (prev < 10 ? prev + 1 : 1)); // Върти от 1 до 10 снимки
+    setCurrentImg((prev) => (prev < 10 ? prev + 1 : 1)); // Прелиства от 1 до 10 чертежа
   };
 
   const prevImg = (e: React.MouseEvent) => {
+    e.preventDefault();
     e.stopPropagation();
     setCurrentImg((prev) => (prev > 1 ? prev - 1 : 10));
   };
 
   return (
-    <article className="panel flex flex-col overflow-hidden relative group">
-      {/* Малка мини-галерия с вградени защитени стрелки */}
-      <div className="relative aspect-4/3 w-full bg-muted overflow-hidden select-none">
-        {/* Стрелка Наляво */}
+    <article className="panel flex flex-col overflow-hidden relative group" style={{ pointerEvents: 'auto' }}>
+      {/* Малка мини-галерия с вградени физически стрелки */}
+      <div className="relative aspect-4/3 w-full bg-muted overflow-hidden select-none" style={{ pointerEvents: 'auto' }}>
+        
+        {/* Стрелка Наляво (←) */}
         <button
           onClick={prevImg}
-          className="absolute left-3 top-1/2 -translate-y-1/2 z-30 flex h-8 w-8 items-center justify-center rounded-full border border-neutral-300 bg-white/90 text-sm font-bold text-black shadow-sm transition-all hover:bg-black hover:text-white"
-          style={{ pointerEvents: "auto" }}
+          type="button"
+          className="absolute left-3 top-1/2 -translate-y-1/2 z-50 flex h-9 w-9 items-center justify-center rounded-full border border-neutral-400 bg-white text-base font-bold text-black shadow-md cursor-pointer transition-all hover:bg-black hover:text-white"
+          style={{ pointerEvents: 'auto', display: 'flex' }}
         >
-          &larr;
+          &#8592;
         </button>
 
-        <FadeImage
+        {/* Чист стандартен СУРОВ IMG таг, който се подчинява на React променливата */}
+        <img
           src={`/images/projects/project${id}/${currentImg}.webp`}
           alt={`${metaData.title} – Visualisierung ${currentImg}`}
-          wrapperClassName="w-full h-full"
-          className="h-full w-full object-cover pointer-events-none"
-          style={{ filter: "blur(0.3px) contrast(0.95)" }} // Фин филтър против детайлни скрийншотове
+          className="w-full h-full object-cover pointer-events-none"
+          style={{ filter: "blur(0.3px) contrast(0.95)" }} // Защитен филтър против четене на котировки
+          id={`project-img-${id}`}
         />
-        {/* Прозрачен защитен параван срещу десен бутон и влачене */}
+        
+        {/* Прозрачен защитен параван отгоре срещу влачене и десен бутон */}
         <div className="absolute inset-0 z-10 bg-transparent pointer-events-none" />
 
-        {/* Стрелка Надясно */}
+        {/* Стрелка Надясно (→) */}
         <button
           onClick={nextImg}
-          className="absolute right-3 top-1/2 -translate-y-1/2 z-30 flex h-8 w-8 items-center justify-center rounded-full border border-neutral-300 bg-white/90 text-sm font-bold text-black shadow-sm transition-all hover:bg-black hover:text-white"
-          style={{ pointerEvents: "auto" }}
+          type="button"
+          className="absolute right-3 top-1/2 -translate-y-1/2 z-50 flex h-9 w-9 items-center justify-center rounded-full border border-neutral-400 bg-white text-base font-bold text-black shadow-md cursor-pointer transition-all hover:bg-black hover:text-white"
+          style={{ pointerEvents: "auto", display: 'flex' }}
         >
-          &rarr;
+          &#8594;
         </button>
       </div>
 
@@ -108,4 +114,3 @@ export function ProjectsSection() {
     </section>
   );
 }
-
