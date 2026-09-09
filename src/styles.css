@@ -69,6 +69,7 @@
   --muted-foreground: oklch(0.704 0.04 256.788);
   --accent: oklch(0.279 0.041 260.031);
   --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.551 0.027 264.364);
@@ -87,6 +88,7 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    position: relative !important;
   }
 }
 
@@ -103,7 +105,32 @@
   color: var(--muted-foreground);
 }
 
-/* --- Screenshot / copy deterrents (best-effort only) --- */
+/* --- Глобален прозрачен параван над целия уебсайт (Бял лист) --- */
+body::after {
+  content: "" !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: transparent !important;
+  z-index: 9999 !important; /* Стои пред всички чертежи и рендери */
+  pointer-events: auto !important; /* Блокира влаченето и десния бутон */
+}
+
+/* Изключения за паравана: Позволяваме на мишката да натиска само бутоните и формите */
+button,
+a,
+input,
+textarea,
+select,
+#projekte article button {
+  position: relative !important;
+  z-index: 100000 !important; /* Избутва интерактивните елементи над защитния параван */
+  pointer-events: auto !important;
+}
+
+/* --- Защита на изображенията --- */
 img {
   -webkit-user-select: none !important;
   user-select: none !important;
@@ -112,7 +139,7 @@ img {
 }
 
 img[src*="projects"] {
-  filter: contrast(0.92) brightness(1.02);
+  filter: contrast(0.92) brightness(1.02) blur(0.3px) !important;
   mix-blend-mode: multiply;
 }
 
@@ -121,6 +148,7 @@ article:has(img[src*="projects"]) {
 }
 
 @layer utilities {
+  /* Балансиране на правоъгълния луксозен стил на стрелките */
   #projekte article button.carousel-btn-left,
   #projekte article button.carousel-btn-right {
     display: flex !important;
@@ -129,15 +157,15 @@ article:has(img[src*="projects"]) {
     transform: translateY(-50%) !important;
     align-items: center !important;
     justify-content: center !important;
-    background-color: #f6f3ef !important;
-    color: #7a7266 !important;
-    border-radius: 50% !important;
-    width: 48px !important;
-    height: 48px !important;
-    z-index: 99999 !important;
+    background-color: rgba(28, 26, 23, 0.82) !important; /* Използваме тъмния стил от React файла */
+    color: #efeae1 !important;
+    border-radius: 0px !important; /* Напълно правоъгълни */
+    width: 46px !important;
+    height: 84px !important;
+    z-index: 100000 !important;
   }
-  #projekte article button.carousel-btn-left { left: 14px !important; }
-  #projekte article button.carousel-btn-right { right: 14px !important; }
+  #projekte article button.carousel-btn-left { left: 0px !important; }
+  #projekte article button.carousel-btn-right { right: 0px !important; }
   #projekte img { pointer-events: none !important; }
   #projekte article { pointer-events: auto !important; }
 }
