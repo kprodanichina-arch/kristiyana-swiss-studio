@@ -1,4 +1,3 @@
-// ProjectsSection.tsx
 import { useState } from "react";
 import { projects } from "./data";
 import { useAvailableProjects } from "@/lib/useImageProbe";
@@ -21,8 +20,8 @@ const arrowButtonStyle: React.CSSProperties = {
   justifyContent: "center",
   width: "46px",
   height: "84px",
-  backgroundColor: "rgba(28, 26, 23, 0.82)", // deep graphite
-  color: "#efeae1", // warm off-white chevron
+  backgroundColor: "rgba(28, 26, 23, 0.82)",
+  color: "#efeae1",
   border: "none",
   borderRadius: 0,
   fontSize: "24px",
@@ -54,4 +53,105 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
   return (
     <article className="panel flex flex-col overflow-hidden">
       <div
-        onContextMenu={(e) => 
+        onContextMenu={(e) => e.preventDefault()}
+        style={{
+          position: "relative",
+          width: "100%",
+          aspectRatio: "4/3",
+          backgroundColor: "#f5f5f5",
+          overflow: "hidden",
+        }}
+      >
+        <button
+          onClick={prevImg}
+          type="button"
+          className="carousel-btn-left"
+          aria-label="Vorheriges Bild"
+          style={{ ...arrowButtonStyle, left: "0px" }}
+        >
+          {"\u2039"}
+        </button>
+
+        <img
+          src={`/images/projects/project${id}/${currentImg}.webp`}
+          alt={`${project.title} – Visualisierung ${currentImg}`}
+          onError={handleImageError}
+          draggable={false}
+          onContextMenu={(e) => e.preventDefault()}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            pointerEvents: "none",
+            userSelect: "none",
+          }}
+        />
+
+        <button
+          onClick={nextImg}
+          type="button"
+          className="carousel-btn-right"
+          aria-label="Nächstes Bild"
+          style={{ ...arrowButtonStyle, right: "0px" }}
+        >
+          {"\u203A"}
+        </button>
+      </div>
+
+      <div className="flex flex-1 flex-col p-7">
+        <span className="eyebrow">Projekt {String(id).padStart(2, "0")}</span>
+        <h3 className="mt-3 text-lg font-medium tracking-tight">{project.title}</h3>
+        <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+          {project.description}
+        </p>
+      </div>
+    </article>
+  );
+}
+
+export function ProjectsSection() {
+  const { ids, loading } = useAvailableProjects();
+
+  const meta = (id: number): ProjectMeta =>
+    projects.find((p) => p.id === id) ?? {
+      id,
+      title: `Projekt ${String(id).padStart(2, "0")}`,
+      description: "Architekturprojekt – Planung und Visualisierung.",
+    };
+
+  if (!loading && ids.length === 0) return null;
+
+  return (
+    <section id="projekte" className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+      <p className="eyebrow">04 — Portfolio</p>
+      <h2 className="mt-4 text-2xl font-medium tracking-tight sm:text-4xl">
+        Architektur-Projekte
+      </h2>
+
+      {loading ? (
+        <div className="mt-10 grid gap-6 sm:grid-cols-2">
+          {[0, 1].map((i) => (
+            <div key={i} className="panel flex animate-pulse flex-col overflow-hidden">
+              <div className="aspect-[4/3] w-full bg-muted" />
+              <div className="flex flex-1 flex-col p-7">
+                <div className="h-2.5 w-20 rounded bg-muted" />
+                <div className="mt-4 h-5 w-2/3 rounded bg-muted" />
+                <div className="mt-4 h-3 w-full rounded bg-muted" />
+                <div className="mt-2 h-3 w-5/6 rounded bg-muted" />
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="mt-10 grid gap-6 sm:grid-cols-2">
+          {[...ids]
+            .sort((a, b) => b - a)
+            .map((id) => (
+              <ProjectCard key={id} id={id} project={meta(id)} />
+            ))}
+        </div>
+      )}
+    </section>
+  );
+  // END OF FILE
+}
