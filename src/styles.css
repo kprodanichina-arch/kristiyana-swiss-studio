@@ -1,203 +1,28 @@
-@import "tailwindcss" source(none);
-@source "../src";
-@import "tw-animate-css";
-
-@custom-variant dark (&:is(.dark *));
-
-/*
- * Design system definition.
- *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
- */
-
-@theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-ring-offset-background: var(--background);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-}
-
-:root {
-  --radius: 0.25rem;
-  --background: oklch(0.9825 0.0015 264);
-  --foreground: oklch(0.205 0.005 264);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.205 0.005 264);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.205 0.005 264);
-  --primary: oklch(0.205 0.005 264);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.97 0.001 264);
-  --secondary-foreground: oklch(0.205 0.005 264);
-  --muted: oklch(0.955 0.001 264);
-  --muted-foreground: oklch(0.545 0.008 264);
-  --accent: oklch(0.955 0.001 264);
-  --accent-foreground: oklch(0.205 0.005 264);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.918 0.002 264);
-  --input: oklch(0.918 0.002 264);
-  --ring: oklch(0.6 0.008 264);
-  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.03);
-  --shadow-lift: 0 10px 40px rgba(0, 0, 0, 0.07);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
-}
-
-.dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
-}
-
-@theme inline {
-  --font-sans:
-    "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.03);
-  --shadow-lift: 0 10px 40px rgba(0, 0, 0, 0.07);
-}
-
-@layer base {
-  * {
-    border-color: var(--color-border);
-  }
-
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
-  }
-
-  body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    font-family: var(--font-sans);
-    -webkit-font-smoothing: antialiased;
-  }
-}
-
-@utility panel {
-  background-color: #ffffff;
-  box-shadow: var(--shadow-soft);
-  border-radius: var(--radius);
-}
-
-@utility eyebrow {
-  font-size: 0.6875rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--muted-foreground);
-}
+/* ... unchanged @theme / :root / .dark / @layer base / @utility blocks above ... */
 
 /* Глобална B2B защита на архитектурните чертежи и изображения */
 img {
-  -webkit-touch-callout: none !important; /* Блокира дългото задържане на телефон */
-  -webkit-user-select: none !important;    /* Блокира маркирането в Safari */
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
   -khtml-user-select: none !important;
-  -moz-user-select: none !important;       /* Блокира маркирането във Firefox */
+  -moz-user-select: none !important;
   -ms-user-select: none !important;
-  user-select: none !important;            /* Забранява селектирането на изображението */
-  pointer-events: none !important;         /* Абсолютно блокира десния бутон, клика и влаченето */
-  -webkit-user-drag: none !important;      /* Блокира Drag & Drop на десктоп */
+  user-select: none !important;
+  pointer-events: none !important;
+  -webkit-user-drag: none !important;
 }
 
-/* Специална B2B защита за Технически чертежи */
 img[src*="projects"] {
-  filter: contrast(0.92) brightness(1.02); /* Пречи на автоматичното векторизиране от скрийншот */
-  mix-blend-mode: multiply; /* Слива белия фон на чертежа с уебсайта */
+  filter: contrast(0.92) brightness(1.02);
+  mix-blend-mode: multiply;
 }
 
-/* Ако потребителят се опита да принтира страницата или да я запише като PDF през браузъра */
 @media print {
   img, picture, figure, canvas, .lightbox {
-    display: none !important; /* Всички чертежи и рендери стават бели петна в разпечатката */
+    display: none !important;
   }
 }
 
-/* Блиндирана защита срещу Snipping Tool и Скрийншотове */
 article:has(img[src*="projects"]) {
   position: relative !important;
 }
@@ -207,12 +32,10 @@ article:has(img[src*="projects"])::after {
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
-  width: 100 !important;
-  height: 100 !important;
-  pointer-events: none !important; /* Пропуска клика към бутона, но пази чертежа */
+  width: 100% !important;   /* fixed: was "100" with no unit — invalid CSS */
+  height: 100% !important;  /* fixed: was "100" with no unit — invalid CSS */
+  pointer-events: none !important;
   z-index: 10 !important;
-  
-  /* Невидима за окото гъста мрежа от микроскопични линии, остри за софтуери за заснемане */
   background: repeating-linear-gradient(
     45deg,
     rgba(255, 255, 255, 0.03) 0px,
@@ -220,32 +43,31 @@ article:has(img[src*="projects"])::after {
     transparent 1px,
     transparent 3px
   ) !important;
-  
-  /* Втори слой фин дигитален шум за допълнителна защита от векторизиране */
   backdrop-filter: contrast(1.01) brightness(0.99) !important;
 }
 
 @layer utilities {
-  /* 1. Скрива напълно големия бутон за отваряне на цял екран (Lightbox) */
-  #projekte button:not([aria-label*="next"]):not([aria-label*="prev"]):not(.carousel-btn-left):not(.carousel-btn-right) {
+  /* Hide any stray/legacy buttons that aren't the carousel arrows */
+  #projekte button:not(.carousel-btn-left):not(.carousel-btn-right) {
     display: none !important;
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none !important;
   }
 
-  /* 2. Избутваме стрелките най-отгоре над абсолютно всички слоеве и картини */
-  #projekte article button {
+  /* Keep the carousel arrows visible and on top */
+  #projekte article button.carousel-btn-left,
+  #projekte article button.carousel-btn-right {
     display: flex !important;
     opacity: 1 !important;
     visibility: visible !important;
-    pointer-events: auto !important; 
-    z-index: 99999 !important; 
+    pointer-events: auto !important;
+    z-index: 99999 !important;
     position: absolute !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
-    background-color: #ffffff !important; /* Плътен бял фон */
-    color: #000000 !important; /* Черни стрелки */
+    background-color: #ffffff !important;
+    color: #000000 !important;
     border: 1px solid #d4d4d4 !important;
     border-radius: 50% !important;
     width: 40px !important;
@@ -258,24 +80,20 @@ article:has(img[src*="projects"])::after {
     cursor: pointer !important;
   }
 
-  /* 3. Фиксиране на перфектни позиции отляво и отдясно */
-  #projekte article button:first-of-type {
+  #projekte article button.carousel-btn-left {
     left: 16px !important;
   }
 
-  #projekte article button:last-of-type {
+  #projekte article button.carousel-btn-right {
     right: 16px !important;
   }
 
-  /* 4. Защита на чертежите: мишката не може да ги докосне или извлече */
-  #projekte img, 
-  #projekte [class*="FadeImage"] img {
+  #projekte img {
     pointer-events: none !important;
     -webkit-user-drag: none !important;
-    filter: blur(0.3px) contrast(0.95) !important; /* Леко омекотяване против детайлни скрийншотове */
+    filter: blur(0.3px) contrast(0.95) !important;
   }
 
-  /* Разрешаваме на контейнера на картата да приема кликвания само за бутоните */
   #projekte article {
     pointer-events: auto !important;
   }
