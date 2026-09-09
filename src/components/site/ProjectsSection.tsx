@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { projects } from "./data";
 
-// Използваме директен твърд масив с числа от 1 до 10, за да няма празни скоби
+// Твърд масив от 1 до 10 за вашите 10 проекта
 const projectIds =;
 
 function ProjectCard({ id, metaData }: { id: number; metaData: any }) {
@@ -10,13 +10,19 @@ function ProjectCard({ id, metaData }: { id: number; metaData: any }) {
   const nextImg = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setCurrentImg((prev) => (prev < 10 ? prev + 1 : 1)); // Прелиства от 1 до 10 чертежа
+    // Вдигаме лимита на 50, интелигентният onError филтър долу ще рестартира при липсващ файл
+    setCurrentImg((prev) => (prev < 50 ? prev + 1 : 1));
   };
 
   const prevImg = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setCurrentImg((prev) => (prev > 1 ? prev - 1 : 10));
+    setCurrentImg((prev) => (prev > 1 ? prev - 1 : 1));
+  };
+
+  // Ако следващата снимка не съществува в папката, автоматично връща на първата корица
+  const handleImageError = () => {
+    setCurrentImg(1);
   };
 
   return (
@@ -51,10 +57,11 @@ function ProjectCard({ id, metaData }: { id: number; metaData: any }) {
           &#8592;
         </button>
 
-        {/* Чист стандартен архитектурен чертеж */}
+        {/* Чист стандартен архитектурен чертеж с авто-рестарт при грешка */}
         <img
           src={`/images/projects/project${id}/${currentImg}.webp`}
           alt={`${metaData.title} – Visualisierung ${currentImg}`}
+          onError={handleImageError}
           style={{ 
             width: "100%", 
             height: "100%", 
@@ -128,4 +135,3 @@ export function ProjectsSection() {
     </section>
   );
 }
-
