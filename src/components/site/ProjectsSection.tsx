@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { projects } from "./data";
 
-// Използваме директно твърд списък от 1 до 10, за да не чакаме софтуерни проверки
+// Твърд масив от 1 до 10, който описва номерата на вашите проекти
 const projectIds =;
 
 function ProjectCard({ id, metaData }: { id: number; metaData: any }) {
@@ -10,7 +10,7 @@ function ProjectCard({ id, metaData }: { id: number; metaData: any }) {
   const nextImg = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setCurrentImg((prev) => (prev < 10 ? prev + 1 : 1));
+    setCurrentImg((prev) => (prev < 10 ? prev + 1 : 1)); // Прелиства от 1 до 10 чертежа
   };
 
   const prevImg = (e: React.MouseEvent) => {
@@ -91,7 +91,7 @@ function ProjectCard({ id, metaData }: { id: number; metaData: any }) {
         </button>
       </div>
 
-      {/* Описание на проекта */}
+      {/* Описание на проекта под чертежа */}
       <div className="flex flex-1 flex-col p-7">
         <span className="eyebrow">Projekt {String(id).padStart(2, "0")}</span>
         <h3 className="mt-3 text-lg font-medium tracking-tight">
