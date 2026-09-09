@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { projects } from "./data";
 
-// Твърд масив от 1 до 10, който описва номерата на вашите проекти
+// Използваме директен твърд масив с числа от 1 до 10, за да няма празни скоби
 const projectIds =;
 
 function ProjectCard({ id, metaData }: { id: number; metaData: any }) {
@@ -128,3 +128,4 @@ export function ProjectsSection() {
     </section>
   );
 }
+
