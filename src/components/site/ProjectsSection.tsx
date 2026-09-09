@@ -72,7 +72,6 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
           }}
         />
 
-        {/* Прозрачен защитен параван */}
         <div style={{ position: "absolute", inset: 0, zIndex: 10, backgroundColor: "transparent", pointerEvents: "none" }} />
 
         <button
@@ -160,4 +159,3 @@ export function ProjectsSection() {
     </section>
   );
 }
-
