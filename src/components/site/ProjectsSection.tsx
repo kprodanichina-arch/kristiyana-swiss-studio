@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { Lightbox } from "@/components/Lightbox";
 import { projects } from "./data";
-import { useAvailableProjects } from "@/lib/useImageProbe";
+import { useAvailableProjects, useProjectImages } from "@/lib/useImageProbe";
 
 interface ProjectMeta {
   id: number;
@@ -8,7 +9,7 @@ interface ProjectMeta {
   description: string;
 }
 
-function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
+function ProjectCard({ id, project, onOpen }: { id: number; project: ProjectMeta; onOpen: () => void }) {
   const [currentImg, setCurrentImg] = useState(1);
 
   const prevImg = (e: React.MouseEvent) => {
@@ -37,28 +38,27 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
           aria-label="Vorheriges Bild"
           style={{
             position: "absolute",
-            left: "16px",
+            left: "14px",
             top: "50%",
             transform: "translateY(-50%)",
             zIndex: 99999,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            width: "48px", /* Още по-голям и мащабен кръг */
-            height: "48px",
+            width: "46px", /* По-голям луксозен размер */
+            height: "46px",
             backgroundColor: "#f2f1ed", /* Сивкаво-бежов луксозен off-white цвят */
-            color: "#222222",
-            border: "none",
+            color: "#111111",
+            border: "none", /* Без грозни черни очертания */
             borderRadius: "50%",
-            fontSize: "28px", /* По-голям и нарисуван знак */
-            fontWeight: "300", /* По-тънък и елегантен силует */
+            fontSize: "26px", /* Голям и красив знак */
+            fontWeight: "300", /* Тънък силует */
             lineHeight: "1",
-            paddingRight: "4px", /* Перфектно оптическо центриране за лявата стрелка */
-            paddingBottom: "4px",
+            paddingRight: "3px", /* Оптическо центриране за лявата стрелка */
+            paddingBottom: "5px",
             cursor: "pointer",
             pointerEvents: "auto",
-            boxShadow: "0 4px 14px rgba(0, 0, 0, 0.05), 0 2px 5px rgba(0, 0, 0, 0.03)",
-            transition: "all 0.2s ease",
+            boxShadow: "0 4px 14px rgba(0, 0, 0, 0.05), 0 2px 5px rgba(0, 0, 0, 0.03)", /* Лека ефирна сянка */
           }}
         >
           &lsaquo;
@@ -74,7 +74,7 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
             objectFit: "cover",
             pointerEvents: "none",
             userSelect: "none",
-            filter: "blur(0.3px) contrast(0.95)"
+            filter: "blur(0.3px) contrast(0.95)" /* Защитен филтър */
           }}
         />
 
@@ -89,28 +89,27 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
           aria-label="Nächstes Bild"
           style={{
             position: "absolute",
-            right: "16px",
+            right: "14px",
             top: "50%",
             transform: "translateY(-50%)",
             zIndex: 99999,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            width: "48px", /* Още по-голям и мащабен кръг */
-            height: "48px",
+            width: "46px", /* По-голям луксозен размер */
+            height: "46px",
             backgroundColor: "#f2f1ed", /* Сивкаво-бежов луксозен off-white цвят */
-            color: "#222222",
-            border: "none",
+            color: "#111111",
+            border: "none", /* Без грозни черни очертания */
             borderRadius: "50%",
-            fontSize: "28px", /* По-голям и нарисуван знак */
-            fontWeight: "300", /* По-тънък и елегантен силует */
+            fontSize: "26px", /* Голям и красив знак */
+            fontWeight: "300", /* Тънък силует */
             lineHeight: "1",
-            paddingLeft: "4px", /* Перфектно оптическо центриране за дясната стрелка */
-            paddingBottom: "4px",
+            paddingLeft: "4px", /* Оптическо центриране за дясната стрелка */
+            paddingBottom: "5px",
             cursor: "pointer",
             pointerEvents: "auto",
-            boxShadow: "0 4px 14px rgba(0, 0, 0, 0.05), 0 2px 5px rgba(0, 0, 0, 0.03)",
-            transition: "all 0.2s ease",
+            boxShadow: "0 4px 14px rgba(0, 0, 0, 0.05), 0 2px 5px rgba(0, 0, 0, 0.03)", /* Лека ефирна сянка */
           }}
         >
           &rsaquo;
@@ -121,7 +120,7 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
         <span className="eyebrow">Projekt {String(id).padStart(2, "0")}</span>
         <h3 className="mt-3 text-lg font-medium tracking-tight">{project.title}</h3>
         <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-          {metaData.description}
+          {project.description}
         </p>
       </div>
     </article>
@@ -164,10 +163,11 @@ export function ProjectsSection() {
       ) : (
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {[...ids].sort((a, b) => b - a).map((id) => (
-            <ProjectCard key={id} id={id} project={meta(id)} />
+            <ProjectCard key={id} id={id} project={meta(id)} onOpen={() => {}} />
           ))}
         </div>
       )}
     </section>
   );
 }
+
