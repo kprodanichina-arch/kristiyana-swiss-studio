@@ -78,7 +78,7 @@ export const projectImages = (id: number) =>
   Array.from({ length: 10 }, (_, i) => `/images/projects/project${id}/${i + 1}.webp`);
 
 export const renderImages = Array.from(
-  { length: 12 },
+  { length: 150 },
   (_, i) => `/images/renders/${i + 1}.webp`,
 );
 
