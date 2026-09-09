@@ -1,16 +1,21 @@
 const items = [
   {
+    period: "Seit 02/2026",
+    title: "Sekretärin der Architektenkammer in Bulgarien",
+    text: "Koordination von Kammeraktivitäten im Vorstand der nationalen Architektenkammer (KAB).",
+  },
+  {
     period: "Seit 10/2025",
     title: "Architektin | Alvi BG",
     text: "Projektierung von grossen Wohngebäuden (über 2000 m²). Eigenverantwortliche Abwicklung des gesamten Arbeitsprozesses nach bulg. Baugesetz (ZUT): Von der Konzeptphase über die Ausführungs- und Detailplanung bis hin zu fotorealistischen Visualisierungen und der Zusammenstellung der Projektmappen.",
   },
   {
-    period: "2024 – 2025",
+    period: "12/2023 – 12/2025",
     title: "Elternzeit",
     text: "Pause aufgrund von Mutterschaft.",
   },
   {
-    period: "2024",
+    period: "06/2024",
     title: "Master-Abschluss in Architektur",
     text: "Universität für Architektur, Bauingenieurwesen und Geodäsie (UACEG).",
   },
@@ -39,7 +44,7 @@ export function ExperienceSection() {
 
       <ol className="mt-10 space-y-4">
         {items.map((item) => (
-          <li key={item.period} className="panel p-7 sm:p-9">
+          <li key={item.title} className="panel p-7 sm:p-9">
             <div className="grid gap-4 sm:grid-cols-[180px_1fr] sm:gap-10">
               <span className="eyebrow pt-1">{item.period}</span>
               <div>
