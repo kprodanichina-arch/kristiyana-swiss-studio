@@ -65,7 +65,7 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
           aria-label="Vorheriges Bild"
           style={{ ...arrowButtonStyle, left: "14px" }}
         >
-          &#8592;
+          ←
         </button>
 
         <img
@@ -90,7 +90,7 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
           aria-label="Nächstes Bild"
           style={{ ...arrowButtonStyle, right: "14px" }}
         >
-          &#8594;
+          →
         </button>
       </div>
 
@@ -148,3 +148,4 @@ export function ProjectsSection() {
     </section>
   );
 }
+
