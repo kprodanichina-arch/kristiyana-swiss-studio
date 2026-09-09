@@ -29,7 +29,7 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
     <article className="panel flex flex-col overflow-hidden">
       <div style={{ position: "relative", width: "100%", aspectRatio: "4/3", backgroundColor: "#f5f5f5", overflow: "hidden" }}>
         
-        {/* Красива, по-голяма бяла стрелка Наляво (Без очертания, с лека сянка) */}
+        {/* Луксозно по-голямо сивкаво-бежово кръгче със загладена тънка стрелка Наляво */}
         <button
           onClick={prevImg}
           type="button"
@@ -37,28 +37,31 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
           aria-label="Vorheriges Bild"
           style={{
             position: "absolute",
-            left: "14px",
+            left: "16px",
             top: "50%",
             transform: "translateY(-50%)",
             zIndex: 99999,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            width: "44px", /* По-голям и луксозен размер */
-            height: "44px",
-            backgroundColor: "#ffffff",
-            color: "#111111",
-            border: "none", /* Премахнато черно очертание */
+            width: "48px", /* Още по-голям и мащабен кръг */
+            height: "48px",
+            backgroundColor: "#f2f1ed", /* Сивкаво-бежов луксозен off-white цвят */
+            color: "#222222",
+            border: "none",
             borderRadius: "50%",
-            fontSize: "18px",
-            fontWeight: "normal",
+            fontSize: "28px", /* По-голям и нарисуван знак */
+            fontWeight: "300", /* По-тънък и елегантен силует */
+            lineHeight: "1",
+            paddingRight: "4px", /* Перфектно оптическо центриране за лявата стрелка */
+            paddingBottom: "4px",
             cursor: "pointer",
             pointerEvents: "auto",
-            boxShadow: "0 4px 14px rgba(0, 0, 0, 0.06), 0 2px 5px rgba(0, 0, 0, 0.04)", /* Фина, елегантна сянка */
-            transition: "transform 0.2s ease, background-color 0.2s ease",
+            boxShadow: "0 4px 14px rgba(0, 0, 0, 0.05), 0 2px 5px rgba(0, 0, 0, 0.03)",
+            transition: "all 0.2s ease",
           }}
         >
-          ←
+          &lsaquo;
         </button>
 
         <img
@@ -71,14 +74,14 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
             objectFit: "cover",
             pointerEvents: "none",
             userSelect: "none",
-            filter: "blur(0.3px) contrast(0.95)" /* Защитен филтър */
+            filter: "blur(0.3px) contrast(0.95)"
           }}
         />
 
-        {/* Прозрачен защитен параван срещу десен бутон */}
+        {/* Прозрачен защитен параван */}
         <div style={{ position: "absolute", inset: 0, zIndex: 10, backgroundColor: "transparent", pointerEvents: "none" }} />
 
-        {/* Красива, по-голяма бяла стрелка Надясно (Без очертания, с лека сянка) */}
+        {/* Луксозно по-голямо сивкаво-бежово кръгче със загладена тънка стрелка Надясно */}
         <button
           onClick={nextImg}
           type="button"
@@ -86,28 +89,31 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
           aria-label="Nächstes Bild"
           style={{
             position: "absolute",
-            right: "14px",
+            right: "16px",
             top: "50%",
             transform: "translateY(-50%)",
             zIndex: 99999,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            width: "44px", /* По-голям и луксозен размер */
-            height: "44px",
-            backgroundColor: "#ffffff",
-            color: "#111111",
-            border: "none", /* Премахнато черно очертание */
+            width: "48px", /* Още по-голям и мащабен кръг */
+            height: "48px",
+            backgroundColor: "#f2f1ed", /* Сивкаво-бежов луксозен off-white цвят */
+            color: "#222222",
+            border: "none",
             borderRadius: "50%",
-            fontSize: "18px",
-            fontWeight: "normal",
+            fontSize: "28px", /* По-голям и нарисуван знак */
+            fontWeight: "300", /* По-тънък и елегантен силует */
+            lineHeight: "1",
+            paddingLeft: "4px", /* Перфектно оптическо центриране за дясната стрелка */
+            paddingBottom: "4px",
             cursor: "pointer",
             pointerEvents: "auto",
-            boxShadow: "0 4px 14px rgba(0, 0, 0, 0.06), 0 2px 5px rgba(0, 0, 0, 0.04)", /* Фина, елегантна сянка */
-            transition: "transform 0.2s ease, background-color 0.2s ease",
+            boxShadow: "0 4px 14px rgba(0, 0, 0, 0.05), 0 2px 5px rgba(0, 0, 0, 0.03)",
+            transition: "all 0.2s ease",
           }}
         >
-          →
+          &rsaquo;
         </button>
       </div>
 
@@ -115,7 +121,7 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
         <span className="eyebrow">Projekt {String(id).padStart(2, "0")}</span>
         <h3 className="mt-3 text-lg font-medium tracking-tight">{project.title}</h3>
         <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-          {project.description}
+          {metaData.description}
         </p>
       </div>
     </article>
@@ -165,4 +171,3 @@ export function ProjectsSection() {
     </section>
   );
 }
-
