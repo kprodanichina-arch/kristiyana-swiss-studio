@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { projects } from "./data";
-import { useAvailableProjects } from "@/lib/useImageProbe";
 
-// Самостоятелен компонент за всяка картичка с вграден суров стил за стрелките
+// Използваме директно твърд списък от 1 до 10, за да не чакаме софтуерни проверки
+const projectIds =;
+
 function ProjectCard({ id, metaData }: { id: number; metaData: any }) {
   const [currentImg, setCurrentImg] = useState(1);
 
   const nextImg = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setCurrentImg((prev) => (prev < 10 ? prev + 1 : 1)); // Върти от 1 до 10 чертежа
+    setCurrentImg((prev) => (prev < 10 ? prev + 1 : 1));
   };
 
   const prevImg = (e: React.MouseEvent) => {
@@ -19,89 +20,78 @@ function ProjectCard({ id, metaData }: { id: number; metaData: any }) {
   };
 
   return (
-    <article className="panel flex flex-col overflow-hidden relative group" style={{ pointerEvents: 'auto', position: 'relative' }}>
+    <article className="panel flex flex-col overflow-hidden relative" style={{ position: "relative", display: "flex", flexDirection: "column" }}>
       
-      {/* Контейнер за мини-галерията */}
-      <div className="relative aspect-4/3 w-full bg-muted overflow-hidden select-none" style={{ pointerEvents: 'auto', position: 'relative' }}>
+      {/* Малка защитена мини-галерия */}
+      <div style={{ position: "relative", width: "100%", aspectRatio: "4/3", backgroundColor: "#f5f5f5", overflow: "hidden" }}>
         
-        {/* Физическа Стрелка Наляво (←) - Инжектиран суров CSS */}
+        {/* Физическа Стрелка Наляво (←) */}
         <button
           onClick={prevImg}
           type="button"
           style={{
-            position: 'absolute',
-            left: '16px',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            zIndex: 999999,
-            display: 'flex',
-            alignItems: 'center',
-            justify-content: center,
-            width: '42px',
-            height: '42px',
-            backgroundColor: '#ffffff',
-            color: '#000000',
-            border: '2px solid #000000',
-            borderRadius: '50%',
-            fontSize: '18px',
-            fontWeight: 'bold',
-            cursor: 'pointer',
-            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
-            pointerEvents: 'auto'
+            position: "absolute",
+            left: "12px",
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 9999,
+            display: "block",
+            width: "36px",
+            height: "36px",
+            backgroundColor: "#ffffff",
+            color: "#000000",
+            border: "1px solid #000000",
+            borderRadius: "50%",
+            fontSize: "16px",
+            fontWeight: "bold",
+            cursor: "pointer",
+            boxShadow: "0 2px 10px rgba(0,0,0,0.1)"
           }}
         >
           &#8592;
         </button>
 
-        {/* Защитен архитектурен чертеж */}
+        {/* Чист стандартен архитектурен чертеж */}
         <img
           src={`/images/projects/project${id}/${currentImg}.webp`}
           alt={`${metaData.title} – Visualisierung ${currentImg}`}
-          className="w-full h-full object-cover"
           style={{ 
-            pointerEvents: 'none', 
-            userSelect: 'none',
-            filter: "blur(0.3px) contrast(0.95)" // Защитно омекотяване против четене на коти
+            width: "100%", 
+            height: "100%", 
+            objectFit: "cover",
+            pointerEvents: "none",
+            filter: "blur(0.3px) contrast(0.95)" // Защитно омекотяване
           }}
         />
-        
-        {/* Прозрачен блиндиран параван отгоре срещу десен бутон */}
-        <div 
-          className="absolute inset-0 bg-transparent" 
-          style={{ position: 'absolute', inset: 0, zIndex: 10, pointerEvents: 'none' }} 
-        />
 
-        {/* Физическа Стрелка Надясно (→) - Инжектиран суров CSS */}
+        {/* Физическа Стрелка Надясно (→) */}
         <button
           onClick={nextImg}
           type="button"
           style={{
-            position: 'absolute',
-            right: '16px',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            zIndex: 999999,
-            display: 'flex',
-            alignItems: 'center',
-            justify-content: center,
-            width: '42px',
-            height: '42px',
-            backgroundColor: '#ffffff',
-            color: '#000000',
-            border: '2px solid #000000',
-            borderRadius: '50%',
-            fontSize: '18px',
-            fontWeight: 'bold',
-            cursor: 'pointer',
-            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
-            pointerEvents: 'auto'
+            position: "absolute",
+            right: "12px",
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 9999,
+            display: "block",
+            width: "36px",
+            height: "36px",
+            backgroundColor: "#ffffff",
+            color: "#000000",
+            border: "1px solid #000000",
+            borderRadius: "50%",
+            fontSize: "16px",
+            fontWeight: "bold",
+            cursor: "pointer",
+            boxShadow: "0 2px 10px rgba(0,0,0,0.1)"
           }}
         >
           &#8594;
         </button>
       </div>
 
-      {/* Описание на проекта под чертежа */}
+      {/* Описание на проекта */}
       <div className="flex flex-1 flex-col p-7">
         <span className="eyebrow">Projekt {String(id).padStart(2, "0")}</span>
         <h3 className="mt-3 text-lg font-medium tracking-tight">
@@ -116,16 +106,12 @@ function ProjectCard({ id, metaData }: { id: number; metaData: any }) {
 }
 
 export function ProjectsSection() {
-  const { ids, loading } = useAvailableProjects();
-
   const meta = (id: number) =>
     projects.find((p) => p.id === id) ?? {
       id,
       title: `Projekt ${String(id).padStart(2, "0")}`,
       description: "Architekturprojekt – Planung und Visualisierung.",
     };
-
-  if (!loading && ids.length === 0) return null;
 
   return (
     <section id="projekte" className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
@@ -134,30 +120,11 @@ export function ProjectsSection() {
         Architektur-Projekte
       </h2>
 
-      {loading ? (
-        <div className="mt-10 grid gap-6 sm:grid-cols-2">
-          {[0, 1].map((i) => (
-            <div key={i} className="panel flex animate-pulse flex-col overflow-hidden">
-              <div className="aspect-4/3 w-full bg-muted" />
-              <div className="flex flex-1 flex-col p-7">
-                <div className="h-2.5 w-20 rounded bg-muted" />
-                <div className="mt-4 h-5 w-2/3 rounded bg-muted" />
-                <div className="mt-4 h-3 w-full rounded bg-muted" />
-                <div className="mt-2 h-3 w-5/6 rounded bg-muted" />
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className="mt-10 grid gap-6 sm:grid-cols-2">
-          {[...ids]
-            .sort((a, b) => b - a)
-            .map((id) => (
-              <ProjectCard key={id} id={id} metaData={meta(id)} />
-            ))}
-        </div>
-      )}
+      <div className="mt-10 grid gap-6 sm:grid-cols-2">
+        {projectIds.map((id) => (
+          <ProjectCard key={id} id={id} metaData={meta(id)} />
+        ))}
+      </div>
     </section>
   );
 }
-
