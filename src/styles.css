@@ -1,42 +1,100 @@
-/* АБСОЛЮТЕН НЕВИДИМ ШИТ (БЯЛ ЛИСТ) НАД ЦЕЛИЯ УЕБСАЙТ */
-body {
-  position: relative !important;
-}
-
-body::after {
-  content: "" !important;
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  background: transparent !important; /* Напълно невидим прозрачен лист */
-  z-index: 9999 !important; /* Застава пред всички чертежи и рендери */
-  pointer-events: auto !important; /* Хваща абсолютно всички кликове на мишката */
-}
-
-/* Изключения: Позволяваме на мишката да преминава САМО през бутоните, формите и стрелките */
-button,
-a,
-input,
-textarea,
-select,
-#projekte article button,
-.carousel-btn-left,
-.carousel-btn-right {
-  position: relative !important;
-  z-index: 100000 !important; /* Избутва интерактивните бутони НАД защитния лист */
-  pointer-events: auto !important;
-}
-
-/* Пълна софтуерна забрана за маркиране на текстове и влачене на обекти в целия сайт */
-* {
+/* --- Screenshot / copy deterrents (best-effort only; cannot block OS-level screenshots) --- */
+img {
   -webkit-touch-callout: none !important;
   -webkit-user-select: none !important;
   -khtml-user-select: none !important;
   -moz-user-select: none !important;
   -ms-user-select: none !important;
   user-select: none !important;
+  pointer-events: none !important;
   -webkit-user-drag: none !important;
 }
 
+img[src*="projects"] {
+  filter: contrast(0.92) brightness(1.02);
+  mix-blend-mode: multiply;
+}
+
+/* Hide all visual content when a user tries to print or "print to PDF" */
+@media print {
+  img, picture, figure, canvas, .lightbox {
+    display: none !important;
+  }
+}
+
+/* "White paper" overlay: a near-invisible textured layer sitting on top of
+   each drawing, meant to disrupt clean screenshots/vectorization without
+   visibly degrading the image on screen */
+article:has(img[src*="projects"]) {
+  position: relative !important;
+}
+
+article:has(img[src*="projects"])::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none !important; /* lets clicks pass through to the arrows */
+  z-index: 10 !important;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.035) 0px,
+    rgba(255, 255, 255, 0.035) 1px,
+    transparent 1px,
+    transparent 3px
+  ) !important;
+  backdrop-filter: contrast(1.01) brightness(0.99) !important;
+}
+
+@layer utilities {
+  /* Only the slide arrows are allowed to render inside the portfolio cards */
+  #projekte button:not(.carousel-btn-left):not(.carousel-btn-right) {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  #projekte article button.carousel-btn-left,
+  #projekte article button.carousel-btn-right {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    z-index: 99999 !important;
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #f6f3ef !important;
+    color: #7a7266 !important;
+    border: none !important;
+    border-radius: 50% !important;
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 20px !important;
+    line-height: 1 !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18) !important;
+    cursor: pointer !important;
+  }
+
+  #projekte article button.carousel-btn-left {
+    left: 14px !important;
+  }
+
+  #projekte article button.carousel-btn-right {
+    right: 14px !important;
+  }
+
+  #projekte img {
+    pointer-events: none !important;
+    -webkit-user-drag: none !important;
+  }
+
+  #projekte article {
+    pointer-events: auto !important;
+  }
+}
