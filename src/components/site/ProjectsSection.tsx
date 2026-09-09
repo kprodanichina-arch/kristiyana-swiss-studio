@@ -28,8 +28,6 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
   return (
     <article className="panel flex flex-col overflow-hidden">
       <div style={{ position: "relative", width: "100%", aspectRatio: "4/3", backgroundColor: "#f5f5f5", overflow: "hidden" }}>
-        
-        {/* Луксозно по-голямо сивкаво-бежово кръгче със загладена тънка стрелка Наляво */}
         <button
           onClick={prevImg}
           type="button"
@@ -37,30 +35,27 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
           aria-label="Vorheriges Bild"
           style={{
             position: "absolute",
-            left: "16px",
+            left: "12px",
             top: "50%",
             transform: "translateY(-50%)",
             zIndex: 99999,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            width: "46px", /* По-голям луксозен размер */
-            height: "46px",
-            backgroundColor: "#f2f1ed", /* Сивкаво-бежов луксозен off-white цвят */
-            color: "#111111",
-            border: "none", /* Без грозни черни очертания */
+            width: "36px",
+            height: "36px",
+            backgroundColor: "#ffffff",
+            color: "#000000",
+            border: "1px solid #000000",
             borderRadius: "50%",
-            fontSize: "26px", /* Голям и красив знак */
-            fontWeight: "300", /* Тънък силует */
-            lineHeight: "1",
-            paddingRight: "3px", /* Оптическо центриране за лявата стрелка */
-            paddingBottom: "5px",
+            fontSize: "16px",
+            fontWeight: "bold",
             cursor: "pointer",
             pointerEvents: "auto",
-            boxShadow: "0 4px 14px rgba(0, 0, 0, 0.05), 0 2px 5px rgba(0, 0, 0, 0.03)", /* Лека ефирна сянка */
+            boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
           }}
         >
-          &lsaquo;
+          ←
         </button>
 
         <img
@@ -73,14 +68,13 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
             objectFit: "cover",
             pointerEvents: "none",
             userSelect: "none",
-            filter: "blur(0.3px) contrast(0.95)" /* Защитен филтър */
+            filter: "blur(0.3px) contrast(0.95)" /* Защитен филтър против детайлни скрийншотове */
           }}
         />
 
         {/* Прозрачен защитен параван */}
         <div style={{ position: "absolute", inset: 0, zIndex: 10, backgroundColor: "transparent", pointerEvents: "none" }} />
 
-        {/* Луксозно по-голямо siвкаво-бежово кръгче със загладена тънка стрелка Надясно */}
         <button
           onClick={nextImg}
           type="button"
@@ -88,30 +82,27 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
           aria-label="Nächstes Bild"
           style={{
             position: "absolute",
-            right: "14px",
+            right: "12px",
             top: "50%",
             transform: "translateY(-50%)",
             zIndex: 99999,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            width: "46px", /* По-голям луксозен размер */
-            height: "46px",
-            backgroundColor: "#f2f1ed", /* Сивкаво-бежов луксозен off-white цвят */
-            color: "#111111",
-            border: "none", /* Без грозни черни очертания */
+            width: "36px",
+            height: "36px",
+            backgroundColor: "#ffffff",
+            color: "#000000",
+            border: "1px solid #000000",
             borderRadius: "50%",
-            fontSize: "26px", /* Голям и красив знак */
-            fontWeight: "300", /* Тънък силует */
-            lineHeight: "1",
-            paddingLeft: "4px", /* Оптическо центриране за дясната стрелка */
-            paddingBottom: "5px",
+            fontSize: "16px",
+            fontWeight: "bold",
             cursor: "pointer",
             pointerEvents: "auto",
-            boxShadow: "0 4px 14px rgba(0, 0, 0, 0.05), 0 2px 5px rgba(0, 0, 0, 0.03)", /* Лека ефирна сянка */
+            boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
           }}
         >
-          &rsaquo;
+          →
         </button>
       </div>
 
