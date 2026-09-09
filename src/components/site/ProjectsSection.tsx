@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { Lightbox } from "@/components/Lightbox";
 import { projects } from "./data";
-import { useAvailableProjects } from "@/lib/useImageProbe";
+import { useAvailableProjects, useProjectImages } from "@/lib/useImageProbe";
 
 interface ProjectMeta {
   id: number;
@@ -8,7 +9,7 @@ interface ProjectMeta {
   description: string;
 }
 
-function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
+function ProjectCard({ id, project, onOpen }: { id: number; project: ProjectMeta; onOpen: () => void }) {
   const [currentImg, setCurrentImg] = useState(1);
 
   const prevImg = (e: React.MouseEvent) => {
@@ -55,24 +56,15 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
             boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
           }}
         >
-          ←
+          &#8592;
         </button>
 
         <img
           src={`/images/projects/project${id}/${currentImg}.webp`}
           alt={`${project.title} – Visualisierung ${currentImg}`}
           onError={handleImageError}
-          style={{ 
-            width: "100%", 
-            height: "100%", 
-            objectFit: "cover",
-            pointerEvents: "none",
-            userSelect: "none",
-            filter: "blur(0.3px) contrast(0.95)"
-          }}
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
-
-        <div style={{ position: "absolute", inset: 0, zIndex: 10, backgroundColor: "transparent", pointerEvents: "none" }} />
 
         <button
           onClick={nextImg}
@@ -101,7 +93,7 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
             boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
           }}
         >
-          →
+          &#8594;
         </button>
       </div>
 
@@ -111,13 +103,21 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
         <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
           {project.description}
         </p>
+        <button
+          onClick={onOpen}
+          className="mt-6 self-start border border-foreground px-6 py-3 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:bg-primary hover:text-primary-foreground"
+        >
+          Projekt ansehen
+        </button>
       </div>
     </article>
   );
 }
 
 export function ProjectsSection() {
+  const [openId, setOpenId] = useState<number | null>(null);
   const { ids, loading } = useAvailableProjects();
+  const lightboxImages = useProjectImages(openId);
 
   const meta = (id: number): ProjectMeta =>
     projects.find((p) => p.id === id) ?? {
@@ -145,6 +145,7 @@ export function ProjectsSection() {
                 <div className="mt-4 h-5 w-2/3 rounded bg-muted" />
                 <div className="mt-4 h-3 w-full rounded bg-muted" />
                 <div className="mt-2 h-3 w-5/6 rounded bg-muted" />
+                <div className="mt-6 h-11 w-40 rounded-sm bg-muted" />
               </div>
             </div>
           ))}
@@ -152,10 +153,28 @@ export function ProjectsSection() {
       ) : (
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {[...ids].sort((a, b) => b - a).map((id) => (
-            <ProjectCard key={id} id={id} project={meta(id)} />
+            <ProjectCard key={id} id={id} project={meta(id)} onOpen={() => setOpenId(id)} />
           ))}
         </div>
       )}
+
+      {openId !== null && lightboxImages.length === 0 && (
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-background/98 backdrop-blur-sm">
+          <div className="panel flex w-full max-w-3xl animate-pulse flex-col gap-4 p-6 sm:p-10">
+            <div className="h-4 w-32 rounded bg-muted" />
+            <div className="aspect-4/3 w-full rounded bg-muted" />
+            <div className="mx-auto h-2 w-24 rounded-full bg-muted" />
+          </div>
+          <span className="eyebrow mt-6">Projekt wird geladen …</span>
+        </div>
+      )}
+
+      <Lightbox
+        open={openId !== null && lightboxImages.length > 0}
+        onClose={() => setOpenId(null)}
+        title={openId !== null ? meta(openId).title : ""}
+        images={lightboxImages}
+      />
     </section>
   );
 }
