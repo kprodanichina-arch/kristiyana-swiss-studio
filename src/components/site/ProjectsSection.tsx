@@ -1,47 +1,61 @@
-import { useState } from "react";
+import { useState, type MouseEvent } from "react";
 import { projects } from "./data";
 
-// Твърд масив от 1 до 10 за вашите 10 проекта
-const projectIds =;
+// Fixed array of project IDs 1–10
+const projectIds = Array.from({ length: 10 }, (_, i) => i + 1);
 
-function ProjectCard({ id, metaData }: { id: number; metaData: any }) {
+interface ProjectMeta {
+  id: number;
+  title: string;
+  description: string;
+}
+
+function ProjectCard({ id, metaData }: { id: number; metaData: ProjectMeta }) {
   const [currentImg, setCurrentImg] = useState(1);
 
-  const nextImg = (e: React.MouseEvent) => {
+  const nextImg = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    // Вдигаме лимита на 50, интелигентният onError филтър долу ще рестартира при липсващ файл
+    // Cap at 50; onError below resets to 1 once a file is missing
     setCurrentImg((prev) => (prev < 50 ? prev + 1 : 1));
   };
 
-  const prevImg = (e: React.MouseEvent) => {
+  const prevImg = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
     setCurrentImg((prev) => (prev > 1 ? prev - 1 : 1));
   };
 
-  // Ако следващата снимка не съществува в папката, автоматично връща на първата корица
+  // If the next image file doesn't exist, loop back to the cover image
   const handleImageError = () => {
     setCurrentImg(1);
   };
 
   return (
-    <article className="panel flex flex-col overflow-hidden relative" style={{ position: "relative", display: "flex", flexDirection: "column" }}>
-      
-      {/* Малка защитена мини-галерия */}
-      <div style={{ position: "relative", width: "100%", aspectRatio: "4/3", backgroundColor: "#f5f5f5", overflow: "hidden" }}>
-        
-        {/* Физическа Стрелка Наляво (←) */}
+    <article className="panel flex flex-col overflow-hidden relative">
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          aspectRatio: "4/3",
+          backgroundColor: "#f5f5f5",
+          overflow: "hidden",
+        }}
+      >
         <button
           onClick={prevImg}
           type="button"
+          className="carousel-btn-left"
+          aria-label="Previous image"
           style={{
             position: "absolute",
             left: "12px",
             top: "50%",
             transform: "translateY(-50%)",
-            zIndex: 9999,
-            display: "block",
+            zIndex: 99999,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
             width: "36px",
             height: "36px",
             backgroundColor: "#ffffff",
@@ -51,37 +65,40 @@ function ProjectCard({ id, metaData }: { id: number; metaData: any }) {
             fontSize: "16px",
             fontWeight: "bold",
             cursor: "pointer",
-            boxShadow: "0 2px 10px rgba(0,0,0,0.1)"
+            pointerEvents: "auto",
+            boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
           }}
         >
           &#8592;
         </button>
 
-        {/* Чист стандартен архитектурен чертеж с авто-рестарт при грешка */}
         <img
           src={`/images/projects/project${id}/${currentImg}.webp`}
           alt={`${metaData.title} – Visualisierung ${currentImg}`}
           onError={handleImageError}
-          style={{ 
-            width: "100%", 
-            height: "100%", 
+          style={{
+            width: "100%",
+            height: "100%",
             objectFit: "cover",
             pointerEvents: "none",
-            filter: "blur(0.3px) contrast(0.95)" // Защитно омекотяване
+            filter: "blur(0.3px) contrast(0.95)",
           }}
         />
 
-        {/* Физическа Стрелка Надясно (→) */}
         <button
           onClick={nextImg}
           type="button"
+          className="carousel-btn-right"
+          aria-label="Next image"
           style={{
             position: "absolute",
             right: "12px",
             top: "50%",
             transform: "translateY(-50%)",
-            zIndex: 9999,
-            display: "block",
+            zIndex: 99999,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
             width: "36px",
             height: "36px",
             backgroundColor: "#ffffff",
@@ -91,14 +108,14 @@ function ProjectCard({ id, metaData }: { id: number; metaData: any }) {
             fontSize: "16px",
             fontWeight: "bold",
             cursor: "pointer",
-            boxShadow: "0 2px 10px rgba(0,0,0,0.1)"
+            pointerEvents: "auto",
+            boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
           }}
         >
           &#8594;
         </button>
       </div>
 
-      {/* Описание на проекта под чертежа */}
       <div className="flex flex-1 flex-col p-7">
         <span className="eyebrow">Projekt {String(id).padStart(2, "0")}</span>
         <h3 className="mt-3 text-lg font-medium tracking-tight">
@@ -113,7 +130,7 @@ function ProjectCard({ id, metaData }: { id: number; metaData: any }) {
 }
 
 export function ProjectsSection() {
-  const meta = (id: number) =>
+  const meta = (id: number): ProjectMeta =>
     projects.find((p) => p.id === id) ?? {
       id,
       title: `Projekt ${String(id).padStart(2, "0")}`,
