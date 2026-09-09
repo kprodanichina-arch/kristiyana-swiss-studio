@@ -28,6 +28,8 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
   return (
     <article className="panel flex flex-col overflow-hidden">
       <div style={{ position: "relative", width: "100%", aspectRatio: "4/3", backgroundColor: "#f5f5f5", overflow: "hidden" }}>
+        
+        {/* Красива, по-голяма бяла стрелка Наляво (Без очертания, с лека сянка) */}
         <button
           onClick={prevImg}
           type="button"
@@ -35,24 +37,25 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
           aria-label="Vorheriges Bild"
           style={{
             position: "absolute",
-            left: "12px",
+            left: "14px",
             top: "50%",
             transform: "translateY(-50%)",
             zIndex: 99999,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            width: "36px",
-            height: "36px",
+            width: "44px", /* По-голям и луксозен размер */
+            height: "44px",
             backgroundColor: "#ffffff",
-            color: "#000000",
-            border: "1px solid #000000",
+            color: "#111111",
+            border: "none", /* Премахнато черно очертание */
             borderRadius: "50%",
-            fontSize: "16px",
-            fontWeight: "bold",
+            fontSize: "18px",
+            fontWeight: "normal",
             cursor: "pointer",
             pointerEvents: "auto",
-            boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+            boxShadow: "0 4px 14px rgba(0, 0, 0, 0.06), 0 2px 5px rgba(0, 0, 0, 0.04)", /* Фина, елегантна сянка */
+            transition: "transform 0.2s ease, background-color 0.2s ease",
           }}
         >
           ←
@@ -68,13 +71,14 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
             objectFit: "cover",
             pointerEvents: "none",
             userSelect: "none",
-            filter: "blur(0.3px) contrast(0.95)" /* Защитен филтър против детайлни скрийншотове */
+            filter: "blur(0.3px) contrast(0.95)" /* Защитен филтър */
           }}
         />
 
-        {/* Прозрачен защитен параван */}
+        {/* Прозрачен защитен параван срещу десен бутон */}
         <div style={{ position: "absolute", inset: 0, zIndex: 10, backgroundColor: "transparent", pointerEvents: "none" }} />
 
+        {/* Красива, по-голяма бяла стрелка Надясно (Без очертания, с лека сянка) */}
         <button
           onClick={nextImg}
           type="button"
@@ -82,24 +86,25 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
           aria-label="Nächstes Bild"
           style={{
             position: "absolute",
-            right: "12px",
+            right: "14px",
             top: "50%",
             transform: "translateY(-50%)",
             zIndex: 99999,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            width: "36px",
-            height: "36px",
+            width: "44px", /* По-голям и луксозен размер */
+            height: "44px",
             backgroundColor: "#ffffff",
-            color: "#000000",
-            border: "1px solid #000000",
+            color: "#111111",
+            border: "none", /* Премахнато черно очертание */
             borderRadius: "50%",
-            fontSize: "16px",
-            fontWeight: "bold",
+            fontSize: "18px",
+            fontWeight: "normal",
             cursor: "pointer",
             pointerEvents: "auto",
-            boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+            boxShadow: "0 4px 14px rgba(0, 0, 0, 0.06), 0 2px 5px rgba(0, 0, 0, 0.04)", /* Фина, елегантна сянка */
+            transition: "transform 0.2s ease, background-color 0.2s ease",
           }}
         >
           →
