@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Lightbox } from "@/components/Lightbox";
 import { projects } from "./data";
-import { useAvailableProjects, useProjectImages } from "@/lib/useImageProbe";
+import { useAvailableProjects } from "@/lib/useImageProbe";
 
 interface ProjectMeta {
   id: number;
@@ -9,7 +8,7 @@ interface ProjectMeta {
   description: string;
 }
 
-function ProjectCard({ id, project, onOpen }: { id: number; project: ProjectMeta; onOpen: () => void }) {
+function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
   const [currentImg, setCurrentImg] = useState(1);
 
   const prevImg = (e: React.MouseEvent) => {
@@ -38,7 +37,7 @@ function ProjectCard({ id, project, onOpen }: { id: number; project: ProjectMeta
           aria-label="Vorheriges Bild"
           style={{
             position: "absolute",
-            left: "14px",
+            left: "16px",
             top: "50%",
             transform: "translateY(-50%)",
             zIndex: 99999,
@@ -81,7 +80,7 @@ function ProjectCard({ id, project, onOpen }: { id: number; project: ProjectMeta
         {/* Прозрачен защитен параван */}
         <div style={{ position: "absolute", inset: 0, zIndex: 10, backgroundColor: "transparent", pointerEvents: "none" }} />
 
-        {/* Луксозно по-голямо сивкаво-бежово кръгче със загладена тънка стрелка Надясно */}
+        {/* Луксозно по-голямо siвкаво-бежово кръгче със загладена тънка стрелка Надясно */}
         <button
           onClick={nextImg}
           type="button"
@@ -163,11 +162,10 @@ export function ProjectsSection() {
       ) : (
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {[...ids].sort((a, b) => b - a).map((id) => (
-            <ProjectCard key={id} id={id} project={meta(id)} onOpen={() => {}} />
+            <ProjectCard key={id} id={id} project={meta(id)} />
           ))}
         </div>
       )}
     </section>
   );
 }
-
