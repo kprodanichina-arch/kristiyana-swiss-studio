@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Lightbox } from "@/components/Lightbox";
 import { projects } from "./data";
-import { useAvailableProjects, useProjectImages } from "@/lib/useImageProbe";
+import { useAvailableProjects } from "@/lib/useImageProbe";
 
 interface ProjectMeta {
   id: number;
@@ -9,7 +8,7 @@ interface ProjectMeta {
   description: string;
 }
 
-function ProjectCard({ id, project, onOpen }: { id: number; project: ProjectMeta; onOpen: () => void }) {
+function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
   const [currentImg, setCurrentImg] = useState(1);
 
   const prevImg = (e: React.MouseEvent) => {
@@ -29,6 +28,8 @@ function ProjectCard({ id, project, onOpen }: { id: number; project: ProjectMeta
   return (
     <article className="panel flex flex-col overflow-hidden">
       <div style={{ position: "relative", width: "100%", aspectRatio: "4/3", backgroundColor: "#f5f5f5", overflow: "hidden" }}>
+        
+        {/* Красива, по-голяма бяла стрелка Наляво (Без очертания, с лека сянка) */}
         <button
           onClick={prevImg}
           type="button"
@@ -36,36 +37,48 @@ function ProjectCard({ id, project, onOpen }: { id: number; project: ProjectMeta
           aria-label="Vorheriges Bild"
           style={{
             position: "absolute",
-            left: "12px",
+            left: "14px",
             top: "50%",
             transform: "translateY(-50%)",
             zIndex: 99999,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            width: "36px",
-            height: "36px",
+            width: "44px", /* По-голям и луксозен размер */
+            height: "44px",
             backgroundColor: "#ffffff",
-            color: "#000000",
-            border: "1px solid #000000",
+            color: "#111111",
+            border: "none", /* Премахнато черно очертание */
             borderRadius: "50%",
-            fontSize: "16px",
-            fontWeight: "bold",
+            fontSize: "18px",
+            fontWeight: "normal",
             cursor: "pointer",
             pointerEvents: "auto",
-            boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+            boxShadow: "0 4px 14px rgba(0, 0, 0, 0.06), 0 2px 5px rgba(0, 0, 0, 0.04)", /* Фина, елегантна сянка */
+            transition: "transform 0.2s ease, background-color 0.2s ease",
           }}
         >
-          &#8592;
+          ←
         </button>
 
         <img
           src={`/images/projects/project${id}/${currentImg}.webp`}
           alt={`${project.title} – Visualisierung ${currentImg}`}
           onError={handleImageError}
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          style={{ 
+            width: "100%", 
+            height: "100%", 
+            objectFit: "cover",
+            pointerEvents: "none",
+            userSelect: "none",
+            filter: "blur(0.3px) contrast(0.95)" /* Защитен филтър */
+          }}
         />
 
+        {/* Прозрачен защитен параван срещу десен бутон */}
+        <div style={{ position: "absolute", inset: 0, zIndex: 10, backgroundColor: "transparent", pointerEvents: "none" }} />
+
+        {/* Красива, по-голяма бяла стрелка Надясно (Без очертания, с лека сянка) */}
         <button
           onClick={nextImg}
           type="button"
@@ -73,27 +86,28 @@ function ProjectCard({ id, project, onOpen }: { id: number; project: ProjectMeta
           aria-label="Nächstes Bild"
           style={{
             position: "absolute",
-            right: "12px",
+            right: "14px",
             top: "50%",
             transform: "translateY(-50%)",
             zIndex: 99999,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            width: "36px",
-            height: "36px",
+            width: "44px", /* По-голям и луксозен размер */
+            height: "44px",
             backgroundColor: "#ffffff",
-            color: "#000000",
-            border: "1px solid #000000",
+            color: "#111111",
+            border: "none", /* Премахнато черно очертание */
             borderRadius: "50%",
-            fontSize: "16px",
-            fontWeight: "bold",
+            fontSize: "18px",
+            fontWeight: "normal",
             cursor: "pointer",
             pointerEvents: "auto",
-            boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+            boxShadow: "0 4px 14px rgba(0, 0, 0, 0.06), 0 2px 5px rgba(0, 0, 0, 0.04)", /* Фина, елегантна сянка */
+            transition: "transform 0.2s ease, background-color 0.2s ease",
           }}
         >
-          &#8594;
+          →
         </button>
       </div>
 
@@ -103,21 +117,13 @@ function ProjectCard({ id, project, onOpen }: { id: number; project: ProjectMeta
         <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
           {project.description}
         </p>
-        <button
-          onClick={onOpen}
-          className="mt-6 self-start border border-foreground px-6 py-3 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:bg-primary hover:text-primary-foreground"
-        >
-          Projekt ansehen
-        </button>
       </div>
     </article>
   );
 }
 
 export function ProjectsSection() {
-  const [openId, setOpenId] = useState<number | null>(null);
   const { ids, loading } = useAvailableProjects();
-  const lightboxImages = useProjectImages(openId);
 
   const meta = (id: number): ProjectMeta =>
     projects.find((p) => p.id === id) ?? {
@@ -145,7 +151,6 @@ export function ProjectsSection() {
                 <div className="mt-4 h-5 w-2/3 rounded bg-muted" />
                 <div className="mt-4 h-3 w-full rounded bg-muted" />
                 <div className="mt-2 h-3 w-5/6 rounded bg-muted" />
-                <div className="mt-6 h-11 w-40 rounded-sm bg-muted" />
               </div>
             </div>
           ))}
@@ -153,28 +158,11 @@ export function ProjectsSection() {
       ) : (
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {[...ids].sort((a, b) => b - a).map((id) => (
-            <ProjectCard key={id} id={id} project={meta(id)} onOpen={() => setOpenId(id)} />
+            <ProjectCard key={id} id={id} project={meta(id)} />
           ))}
         </div>
       )}
-
-      {openId !== null && lightboxImages.length === 0 && (
-        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-background/98 backdrop-blur-sm">
-          <div className="panel flex w-full max-w-3xl animate-pulse flex-col gap-4 p-6 sm:p-10">
-            <div className="h-4 w-32 rounded bg-muted" />
-            <div className="aspect-4/3 w-full rounded bg-muted" />
-            <div className="mx-auto h-2 w-24 rounded-full bg-muted" />
-          </div>
-          <span className="eyebrow mt-6">Projekt wird geladen …</span>
-        </div>
-      )}
-
-      <Lightbox
-        open={openId !== null && lightboxImages.length > 0}
-        onClose={() => setOpenId(null)}
-        title={openId !== null ? meta(openId).title : ""}
-        images={lightboxImages}
-      />
     </section>
   );
 }
+
