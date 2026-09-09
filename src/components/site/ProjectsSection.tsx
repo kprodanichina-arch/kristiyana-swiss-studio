@@ -1,13 +1,13 @@
+// ProjectsSection.tsx
 import { useState } from "react";
 import { projects } from "./data";
 import { useAvailableProjects } from "@/lib/useImageProbe";
-
 interface ProjectMeta {
   id: number;
   title: string;
   description: string;
 }
-
+const MAX_IMAGES = 50;
 const arrowButtonStyle: React.CSSProperties = {
   position: "absolute",
   top: "50%",
@@ -18,8 +18,8 @@ const arrowButtonStyle: React.CSSProperties = {
   justifyContent: "center",
   width: "48px",
   height: "48px",
-  backgroundColor: "#f6f3ef", // off-white, not pure white
-  color: "#7a7266", // warm grey-beige
+  backgroundColor: "#f6f3ef", // luxury off-white
+  color: "#7a7266", // muted warm grey-beige
   border: "none",
   borderRadius: "50%",
   fontSize: "20px",
@@ -28,24 +28,19 @@ const arrowButtonStyle: React.CSSProperties = {
   pointerEvents: "auto",
   boxShadow: "0 6px 16px rgba(0,0,0,0.18)",
 };
-
 function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
   const [currentImg, setCurrentImg] = useState(1);
-
   const prevImg = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     setCurrentImg((prev) => (prev > 1 ? prev - 1 : 1));
   };
-
   const nextImg = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setCurrentImg((prev) => (prev < 50 ? prev + 1 : 1));
+    setCurrentImg((prev) => (prev < MAX_IMAGES ? prev + 1 : 1));
   };
-
   const handleImageError = () => setCurrentImg(1);
-
   return (
     <article className="panel flex flex-col overflow-hidden">
       <div
@@ -65,9 +60,8 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
           aria-label="Vorheriges Bild"
           style={{ ...arrowButtonStyle, left: "14px" }}
         >
-          ←
+          {"←"}
         </button>
-
         <img
           src={`/images/projects/project${id}/${currentImg}.webp`}
           alt={`${project.title} – Visualisierung ${currentImg}`}
@@ -82,7 +76,6 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
             userSelect: "none",
           }}
         />
-
         <button
           onClick={nextImg}
           type="button"
@@ -90,10 +83,9 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
           aria-label="Nächstes Bild"
           style={{ ...arrowButtonStyle, right: "14px" }}
         >
-          →
+          {"→"}
         </button>
       </div>
-
       <div className="flex flex-1 flex-col p-7">
         <span className="eyebrow">Projekt {String(id).padStart(2, "0")}</span>
         <h3 className="mt-3 text-lg font-medium tracking-tight">{project.title}</h3>
@@ -104,31 +96,29 @@ function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
     </article>
   );
 }
-
 export function ProjectsSection() {
   const { ids, loading } = useAvailableProjects();
-
   const meta = (id: number): ProjectMeta =>
     projects.find((p) => p.id === id) ?? {
       id,
       title: `Projekt ${String(id).padStart(2, "0")}`,
       description: "Architekturprojekt – Planung und Visualisierung.",
     };
-
   if (!loading && ids.length === 0) return null;
-
   return (
     <section id="projekte" className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
       <p className="eyebrow">04 — Portfolio</p>
       <h2 className="mt-4 text-2xl font-medium tracking-tight sm:text-4xl">
         Architektur-Projekte
       </h2>
-
       {loading ? (
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {[0, 1].map((i) => (
-            <div key={i} className="panel flex animate-pulse flex-col overflow-hidden">
-              <div className="aspect-4/3 w-full bg-muted" />
+            <div
+              key={i}
+              className="panel flex animate-pulse flex-col overflow-hidden"
+            >
+              <div className="aspect-[4/3] w-full bg-muted" />
               <div className="flex flex-1 flex-col p-7">
                 <div className="h-2.5 w-20 rounded bg-muted" />
                 <div className="mt-4 h-5 w-2/3 rounded bg-muted" />
@@ -140,12 +130,13 @@ export function ProjectsSection() {
         </div>
       ) : (
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
-          {[...ids].sort((a, b) => b - a).map((id) => (
-            <ProjectCard key={id} id={id} project={meta(id)} />
-          ))}
+          {[...ids]
+            .sort((a, b) => b - a)
+            .map((id) => (
+              <ProjectCard key={id} id={id} project={meta(id)} />
+            ))}
         </div>
       )}
     </section>
   );
 }
-
