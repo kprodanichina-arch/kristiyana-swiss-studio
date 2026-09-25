@@ -1,3 +1,4 @@
+import { HeroSection } from "@/components/site/HeroSection";
 import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import { ContactSection } from "@/components/site/ContactSection";
@@ -43,7 +44,8 @@ function Index() {
   return (
     <div className="min-h-screen bg-background">
       <Nav />
-      <main>
+     <main>
+        <HeroSection />
         <ContactSection />
         <AboutSection />
         <ExperienceSection />
