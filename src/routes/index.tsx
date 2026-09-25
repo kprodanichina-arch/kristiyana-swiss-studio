@@ -44,16 +44,16 @@ function Index() {
   return (
     <div className="min-h-screen bg-background">
       <Nav />
-     <main>
+    <main>
         <HeroSection />
-        <ContactSection />
         <AboutSection />
         <ExperienceSection />
         <ProjectsSection />
         <RendersSection />
         <BenefitsSection />
+        <ContactSection />
         <ReviewsSection initialReviews={reviews} />
-      </main>
+    </main>
       <Footer />
     </div>
   );
