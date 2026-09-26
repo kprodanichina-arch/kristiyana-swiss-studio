@@ -94,12 +94,12 @@ export function RendersSection() {
           <div className="relative">
             <div className="block w-full overflow-hidden">
               <FadeImage
-                src={ordered[currentIndex]}
-                alt={`Architekturvisualisierung ${currentIndex + 1}`}
-                wrapperClassName="aspect-[16/10] w-full bg-muted"
-                className="h-full w-full object-cover"
-              />
-            </div>
+                  src={ordered[currentIndex]}
+                  alt={`Architekturvisualisierung ${currentIndex + 1}`}
+                  wrapperClassName="aspect-[16/10] w-full bg-muted"
+                  className="h-full w-full object-contain"
+                  />
+          </div>
 
             {ordered.length > 1 && (
               <>
