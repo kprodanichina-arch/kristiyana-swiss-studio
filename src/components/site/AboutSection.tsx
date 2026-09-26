@@ -43,7 +43,7 @@ export function AboutSection() {
       id="ueber-mich"
       className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24"
     >
-      <p className="eyebrow">02 — Profil</p>
+      <p className="eyebrow">05 — Profil</p>
 
       <h2 className="mt-4 text-2xl font-medium tracking-tight sm:text-4xl">
         Über mich
