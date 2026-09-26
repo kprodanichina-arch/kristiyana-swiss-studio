@@ -50,7 +50,7 @@ export const portfolioSections: PortfolioSection[] = [
     title: "Fotorealistische Visualisierungen",
     description:
       "Architekturvisualisierungen für Präsentationen, Projektkommunikation und die Darstellung von Entwurfs- und Planungsvarianten.",
-    price: "Stundensatz ab 55 €",
+    price: "Preis pro Visualisierung: 250–450 €",
     images: [],
   },
   {
@@ -72,6 +72,7 @@ export const portfolioSections: PortfolioSection[] = [
     images: [],
   },
 ];
+
 export const PROJECT_TYPES = [
   "Wohngebäude (über 2.000 m²)",
   "Ausführungs- & Detailplanung",
