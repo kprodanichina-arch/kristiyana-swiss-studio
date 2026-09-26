@@ -13,12 +13,12 @@ export function AblaufSection() {
     {
       number: "03",
       title: "Bearbeitung",
-      text: "Ich übernehme die vereinbarten Aufgaben strukturiert und remote – passend zu Ihrem bestehenden Workflow.",
+      text: "Ich übernehme die vereinbarten Aufgaben strukturiert und remote – auch als Unterstützung in laufenden Projekten.",
     },
     {
       number: "04",
       title: "Übergabe",
-      text: "Die bearbeiteten Pläne, Modelle oder Visualisierungen werden digital und projektbezogen übergeben.",
+      text: "Pläne, Modelle oder Visualisierungen werden digital und projektbezogen in der vereinbarten Struktur und den gewünschten Formaten übergeben.",
     },
   ];
 
