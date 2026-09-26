@@ -29,7 +29,7 @@ export function BenefitsSection() {
       id="vorteile"
       className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24"
     >
-      <p className="eyebrow">06 — Ihre Vorteile</p>
+      <p className="eyebrow">07 — Ihre Vorteile</p>
 
       <h2 className="mt-4 max-w-3xl text-2xl font-medium tracking-tight sm:text-4xl">
         Flexible externe Unterstützung für Ihr Team
