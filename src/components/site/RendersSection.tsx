@@ -109,7 +109,7 @@ export function RendersSection() {
                   aria-label="Vorherige Visualisierung"
                   className="absolute left-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border-0 bg-[#e8dfd2] text-[#343434] shadow-md transition-transform duration-200 hover:scale-105 sm:left-6 sm:h-14 sm:w-14"
                 >
-                  <span className="text-2xl leading-none">←</span>
+                  <span className="text-2xl font-semibold leading-none">‹</span>
                 </button>
 
                 <button
@@ -118,7 +118,7 @@ export function RendersSection() {
                   aria-label="Nächste Visualisierung"
                   className="absolute right-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border-0 bg-[#e8dfd2] text-[#343434] shadow-md transition-transform duration-200 hover:scale-105 sm:right-6 sm:h-14 sm:w-14"
                 >
-                  <span className="text-2xl leading-none">→</span>
+                  <span className="text-2xl font-semibold leading-none">›</span>
                 </button>
               </>
             )}
