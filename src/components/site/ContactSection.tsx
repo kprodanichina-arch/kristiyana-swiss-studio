@@ -24,7 +24,7 @@ export function ContactSection() {
       `Name: ${data.get("name")}`,
       `Firma: ${data.get("company")}`,
       `E-Mail: ${data.get("email")}`,
-      `Projektart: ${data.get("type")}`,
+      `Art der Unterstützung: ${data.get("type")}`,
       `Zeitrahmen: ${data.get("timeframe")}`,
       "",
       String(data.get("message") ?? ""),
@@ -52,9 +52,9 @@ export function ContactSection() {
       </h1>
 
       <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-        Sie suchen kurzfristig zusätzliche Unterstützung oder möchten ein
-        Projekt extern bearbeiten lassen? Beschreiben Sie kurz Ihre
-        Anforderungen – ich melde mich direkt bei Ihnen.
+        Sie suchen kurzfristig zusätzliche Unterstützung oder möchten einzelne
+        Aufgaben in Ihrem Projekt extern bearbeiten lassen? Beschreiben Sie
+        kurz Ihre Anforderungen – ich melde mich direkt bei Ihnen.
       </p>
 
       <div className="mt-12 grid gap-8 lg:grid-cols-2">
@@ -88,7 +88,7 @@ export function ContactSection() {
               className={`${field} appearance-none`}
             >
               <option value="" disabled>
-                Projektart wählen *
+                Art der Unterstützung wählen *
               </option>
 
               {PROJECT_TYPES.map((t) => (
@@ -106,20 +106,25 @@ export function ContactSection() {
               <option value="" disabled>
                 Gewünschter Zeitraum
               </option>
+
               <option value="Kurzfristig">Kurzfristig</option>
+
               <option value="In den nächsten Wochen">
                 In den nächsten Wochen
               </option>
+
               <option value="Laufende Unterstützung">
                 Laufende Unterstützung
               </option>
+
               <option value="Noch offen">Noch offen</option>
             </select>
 
             <textarea
               name="message"
               rows={6}
-              placeholder="Kurzbeschreibung des Projekts oder der benötigten Unterstützung"
+              required
+              placeholder="Kurzbeschreibung des Projekts oder der benötigten Unterstützung *"
               className={`${field} resize-none`}
             />
           </div>
@@ -128,11 +133,12 @@ export function ContactSection() {
             type="submit"
             className="mt-6 w-full bg-primary px-6 py-4 text-xs font-medium uppercase tracking-[0.18em] text-primary-foreground transition-opacity hover:opacity-85"
           >
-            Anfrage senden
+            Anfrage vorbereiten
           </button>
 
           <p className="mt-5 text-[11px] leading-relaxed tracking-wide text-muted-foreground">
-            Die Anfrage wird über Ihr E-Mail-Programm an ArchiK übermittelt.
+            Nach dem Absenden wird Ihr E-Mail-Programm geöffnet und eine
+            vorbereitete Nachricht an ArchiK erstellt.
           </p>
 
           {sent && (
@@ -166,6 +172,7 @@ export function ContactSection() {
               <li className="flex items-center justify-between gap-4 py-5">
                 <span className="flex items-center gap-4">
                   <WhatsAppIcon className="h-4 w-4 text-muted-foreground" />
+
                   <span className="text-sm">
                     WhatsApp {PHONE_DISPLAY}
                   </span>
@@ -192,6 +199,7 @@ export function ContactSection() {
                 >
                   <span className="flex items-center gap-4">
                     <Linkedin className="h-4 w-4 text-muted-foreground" />
+
                     <span className="text-sm">
                       Kristiyana Prodanichina
                     </span>
