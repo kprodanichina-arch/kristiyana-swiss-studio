@@ -72,3 +72,10 @@ export const portfolioSections: PortfolioSection[] = [
     images: [],
   },
 ];
+export const PROJECT_TYPES = [
+  "Wohngebäude (über 2.000 m²)",
+  "Ausführungs- & Detailplanung",
+  "High-End 3D-Visualisierung (Twinmotion / D5 Render)",
+  "2D-Visualisierung & Planaufbereitung",
+  "CAD-Workflows & Datenkonvertierung",
+] as const;
