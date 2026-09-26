@@ -7,26 +7,23 @@ const steps = [
   {
     number: "02",
     title: "Abstimmung",
-    text: "Wir klären Leistungsumfang, vorhandene Unterlagen, Software-Workflow, Dateiformate und Termine.",
+    text: "Wir klären Leistungsumfang, vorhandene Unterlagen, Software, Dateiformate, Schnittstellen und Termine.",
   },
   {
     number: "03",
     title: "Bearbeitung",
-    text: "Ich bearbeite die vereinbarten Aufgaben remote und stimme mich während des Projekts direkt mit Ihnen ab.",
+    text: "Ich bearbeite die vereinbarten Aufgaben remote und stimme mich während des Projekts direkt mit Ihrem Team ab.",
   },
   {
     number: "04",
     title: "Übergabe",
-    text: "Die fertigen Planungsunterlagen, Modelle oder Visualisierungen werden strukturiert übergeben und bei Bedarf angepasst.",
+    text: "Planungsunterlagen, Modelle oder Visualisierungen werden strukturiert und in den vereinbarten Dateiformaten übergeben.",
   },
 ];
 
 export function AblaufSection() {
   return (
-    <section
-      id="ablauf"
-      className="border-b border-border"
-    >
+    <section id="ablauf" className="border-b border-border">
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28">
         <div className="max-w-2xl">
           <p className="eyebrow">Ablauf</p>
