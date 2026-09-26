@@ -1,20 +1,18 @@
-import { LeistungenSection } from "@/components/site/LeistungenSection";
-import { HeroSection } from "@/components/site/HeroSection";
 import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
-import { ContactSection } from "@/components/site/ContactSection";
+import { HeroSection } from "@/components/site/HeroSection";
+import { LeistungenSection } from "@/components/site/LeistungenSection";
 import { AboutSection } from "@/components/site/AboutSection";
 import { ExperienceSection } from "@/components/site/ExperienceSection";
 import { ProjectsSection } from "@/components/site/ProjectsSection";
 import { RendersSection } from "@/components/site/RendersSection";
 import { BenefitsSection } from "@/components/site/BenefitsSection";
-
+import { ContactSection } from "@/components/site/ContactSection";
 import { Footer } from "@/components/site/Footer";
-import { getApprovedReviews } from "@/lib/reviews.functions";
 
-const title = "Kristiyana Prodanichina — Architektin & Visualisierung";
+const title = "ArchiK | BIM- und Architekturleistungen für Architekturbüros";
 const description =
-  "Architekturportfolio von Kristiyana Prodanichina: Ausführungsplanung, ArchiCAD-Konstruktion und High-End-Visualisierungen für Schweizer B2B-Kunden.";
+  "ArchiK unterstützt Architekturbüros in Deutschland, Österreich und der Schweiz mit BIM-Modellierung, Planungsdokumentation, IFC und Architekturvisualisierung.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -27,25 +25,15 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  loader: async () => {
-    try {
-      return { reviews: await getApprovedReviews() };
-    } catch (error) {
-      console.error(error);
-      return { reviews: [] };
-    }
-  },
   component: Index,
 });
 
 function Index() {
-  const loaderData = Route.useLoaderData();
-  const reviews = loaderData?.reviews ?? [];
   return (
     <div className="min-h-screen bg-background">
       <Nav />
-    <main>
-        <main>
+
+      <main>
         <HeroSection />
         <LeistungenSection />
         <AboutSection />
@@ -54,7 +42,8 @@ function Index() {
         <RendersSection />
         <BenefitsSection />
         <ContactSection />
-    </main>
+      </main>
+
       <Footer />
     </div>
   );
