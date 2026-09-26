@@ -68,14 +68,14 @@ export function LeistungenSection() {
           {services.map((service) => (
             <article
               key={service.number}
-              className="border-b border-border py-10 sm:px-8 sm:py-12 first:sm:pl-0 even:sm:pr-0"
+              className="relative border-b border-border py-10 sm:px-8 sm:py-12 first:sm:pl-0 even:sm:pr-0"
             >
-             <div className="grid grid-cols-[40px_1fr] gap-6">
+              <div className="grid grid-cols-[40px_1fr] gap-6">
                 <span className="text-sm text-muted-foreground">
                   {service.number}
                 </span>
 
-            <div className="max-w-xl">
+                <div className="max-w-xl">
                   <h3 className="text-xl font-medium sm:text-2xl">
                     {service.title}
                   </h3>
