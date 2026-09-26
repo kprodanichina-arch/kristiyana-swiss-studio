@@ -70,7 +70,7 @@ export function RendersSection() {
       id="visualisierungen"
       className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24"
     >
-      <p className="eyebrow">05 — Visualisierung</p>
+      <p className="eyebrow">03 — Visualisierung</p>
 
       <h2 className="mt-4 text-2xl font-medium tracking-tight sm:text-4xl">
         Visualisierungen &amp; Renders
