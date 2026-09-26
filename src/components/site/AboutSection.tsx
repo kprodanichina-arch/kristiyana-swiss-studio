@@ -7,7 +7,10 @@ function Portrait() {
 
   return (
     <div className="relative aspect-3/4 w-full overflow-hidden bg-muted shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
-      {state !== "ok" && <div className="absolute inset-0 animate-pulse bg-muted" />}
+      {state !== "ok" && (
+        <div className="absolute inset-0 animate-pulse bg-muted" />
+      )}
+
       {state !== "missing" && (
         <img
           src="/images/kristiyana.webp"
@@ -27,26 +30,36 @@ function Portrait() {
 }
 
 const paragraphs = [
-  "Mein Name ist Kristiyana Prodanichina. Bei mir finden Sie keine Grossagentur mit komplizierten Hierarchien und langen Kommunikationswegen – ich bin Ihre direkte Ansprechpartnerin. Ich zeichne mich durch eine hohe Motivation und den klaren Wunsch nach kontinuierlicher Weiterentwicklung aus. Gerne präsentiere ich Ihnen in diesem Portfolio meinen beruflichen Werdegang und meine bisherigen Erfahrungen.",
-  "Mein primäres Ziel ist es, eine partnerschaftliche und erfolgreiche Zusammenarbeit mit meinen Kunden zu erreichen – unabhängig davon, wie viele Korrekturschleifen bis zum perfekten Ergebnis nötig sind. Gleichzeitig bin ich äusserst flexibel und offen für verschiedene Projektarten, ganz abgestimmt auf Ihre individuellen Bedürfnisse.",
-  "Aktuell fokussiere ich mich in meiner täglichen Arbeit auf ArchiCAD, Twinmotion und D5 Render. Da ich im Laufe der Jahre jedoch auch intensiv mit AutoCAD, Revit, Vectorworks und Lumion gearbeitet habe, kann ich mich schnell und flexibel an Ihre bestehenden Software-Workflows anpassen. Nachfolgend finden Sie eine Auswahl meiner aktuellen Projekte.",
+  "Ich bin Kristiyana Prodanichina, Architektin und Gründerin von ArchiK. Ich unterstütze Architekturbüros als externe Ansprechpartnerin bei der Bearbeitung von Planungs-, BIM- und Visualisierungsaufgaben – direkt, flexibel und remote.",
+
+  "Mein Schwerpunkt liegt auf der digitalen Planung und Bearbeitung von Architekturprojekten. Dabei arbeite ich strukturiert, projektbezogen und mit einem klaren Fokus auf die Anforderungen und bestehenden Arbeitsabläufe des jeweiligen Büros.",
+
+  "Aktuell arbeite ich vor allem mit Archicad, Twinmotion und D5 Render. Durch meine bisherige Erfahrung mit Revit, AutoCAD und weiteren Planungs- und Visualisierungsprogrammen kann ich mich zudem schnell in bestehende Software-Workflows und Projektstrukturen einarbeiten.",
 ];
 
 export function AboutSection() {
   return (
-    <section id="ueber-mich" className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+    <section
+      id="ueber-mich"
+      className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24"
+    >
       <p className="eyebrow">02 — Profil</p>
-      <h2 className="mt-4 text-2xl font-medium tracking-tight sm:text-4xl">Über mich</h2>
+
+      <h2 className="mt-4 text-2xl font-medium tracking-tight sm:text-4xl">
+        Über mich
+      </h2>
 
       <div className="mt-10 panel p-7 sm:p-12">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,340px)_1fr] lg:gap-14">
           <Portrait />
+
           <div className="space-y-6 text-[15px] leading-relaxed text-muted-foreground">
             {paragraphs.map((p) => (
               <p key={p.slice(0, 24)}>{p}</p>
             ))}
           </div>
         </div>
+
         <a
           href={CV_PATH}
           target="_blank"
