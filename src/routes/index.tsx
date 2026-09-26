@@ -8,7 +8,6 @@ import { ExperienceSection } from "@/components/site/ExperienceSection";
 import { ProjectsSection } from "@/components/site/ProjectsSection";
 import { RendersSection } from "@/components/site/RendersSection";
 import { BenefitsSection } from "@/components/site/BenefitsSection";
-import { ReviewsSection } from "@/components/site/ReviewsSection";
 
 import { Footer } from "@/components/site/Footer";
 import { getApprovedReviews } from "@/lib/reviews.functions";
@@ -55,7 +54,6 @@ function Index() {
         <RendersSection />
         <BenefitsSection />
         <ContactSection />
-        <ReviewsSection initialReviews={reviews} />
     </main>
       <Footer />
     </div>
