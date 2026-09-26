@@ -22,6 +22,53 @@ export const Route = createFileRoute("/")({
         content: "https://archikprojekt.com/",
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "ArchiK",
+          legalName: "AY END VI BILD EOOD",
+          url: "https://archikprojekt.com/",
+          email: "k.prodanichina@gmail.com",
+          description:
+            "B2B Architektur-, BIM- und Visualisierungsleistungen für Architekturbüros in Deutschland, Österreich und der Schweiz.",
+          areaServed: [
+            {
+              "@type": "Country",
+              name: "Deutschland",
+            },
+            {
+              "@type": "Country",
+              name: "Österreich",
+            },
+            {
+              "@type": "Country",
+              name: "Schweiz",
+            },
+          ],
+          founder: {
+            "@type": "Person",
+            name: "Kristiyana Prodanichina",
+            jobTitle: "Architektin",
+          },
+          sameAs: [
+            "https://www.linkedin.com/in/kristiyana-prodanichina",
+          ],
+          knowsAbout: [
+            "Architektur",
+            "BIM",
+            "Archicad",
+            "Revit",
+            "IFC",
+            "Ausführungsplanung",
+            "Detailplanung",
+            "Architekturvisualisierung",
+          ],
+        }),
+      },
+    ],
   }),
   component: Index,
 });
