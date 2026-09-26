@@ -74,7 +74,7 @@ export function RendersSection() {
           </p>
 
           <p className="mt-4 text-sm font-medium">
-            Stundensatz ab 55 €
+            Preis pro Visualisierung: 250–450 €
           </p>
         </div>
 
