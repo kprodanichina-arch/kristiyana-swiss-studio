@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type TouchEvent } from "react";
 
 type GalleryImage = {
   src: string;
@@ -144,6 +144,8 @@ function Gallery({
   const total = images.length;
 
   const goTo = (index: number) => {
+    if (total === 0) return;
+
     if (index < 0) {
       setCurrentIndex(total - 1);
     } else if (index >= total) {
@@ -156,14 +158,14 @@ function Gallery({
   const previous = () => goTo(currentIndex - 1);
   const next = () => goTo(currentIndex + 1);
 
-  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
-    setTouchStart(event.touches[0].clientX);
+  const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
+    setTouchStart(event.touches[0]?.clientX ?? null);
   };
 
-  const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+  const handleTouchEnd = (event: TouchEvent<HTMLDivElement>) => {
     if (touchStart === null) return;
 
-    const touchEnd = event.changedTouches[0].clientX;
+    const touchEnd = event.changedTouches[0]?.clientX ?? touchStart;
     const distance = touchStart - touchEnd;
 
     if (Math.abs(distance) > 50) {
@@ -177,6 +179,10 @@ function Gallery({
     setTouchStart(null);
   };
 
+  if (total === 0) {
+    return null;
+  }
+
   const getImage = (offset: number) =>
     images[(currentIndex + offset + total) % total];
 
@@ -188,7 +194,7 @@ function Gallery({
     <section className="border-t border-border py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="mb-10 max-w-3xl">
-          <p className="mb-3 text-sm font-medium tracking-[0.16em] text-muted-foreground uppercase">
+          <p className="mb-3 text-sm font-medium uppercase tracking-[0.16em] text-muted-foreground">
             {section.eyebrow}
           </p>
 
@@ -204,7 +210,7 @@ function Gallery({
         </div>
 
         <div
-          className="relative"
+          className="relative touch-pan-y"
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
@@ -218,6 +224,8 @@ function Gallery({
               <img
                 src={previousImage.src}
                 alt={previousImage.alt}
+                loading="lazy"
+                draggable={false}
                 className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
               />
 
@@ -230,6 +238,8 @@ function Gallery({
               <img
                 src={currentImage.src}
                 alt={currentImage.alt}
+                loading="eager"
+                draggable={false}
                 className="h-full w-full object-contain"
               />
 
@@ -261,6 +271,8 @@ function Gallery({
               <img
                 src={nextImage.src}
                 alt={nextImage.alt}
+                loading="lazy"
+                draggable={false}
                 className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
               />
 
@@ -270,26 +282,28 @@ function Gallery({
             </button>
           </div>
 
-          <div className="mt-5 flex items-center justify-between">
+          <div className="mt-5 flex items-center justify-between gap-4">
+            <button
+              type="button"
+              onClick={previous}
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground md:hidden"
+              aria-label="Vorheriges Bild"
+            >
+              ← Zurück
+            </button>
+
             <span className="text-sm text-muted-foreground">
               {currentIndex + 1} / {total}
             </span>
 
-            <div className="flex gap-2 md:hidden">
-              {images.map((_, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  onClick={() => goTo(index)}
-                  aria-label={`Bild ${index + 1} anzeigen`}
-                  className={`h-1.5 rounded-full transition-all ${
-                    index === currentIndex
-                      ? "w-6 bg-foreground"
-                      : "w-1.5 bg-muted-foreground/40"
-                  }`}
-                />
-              ))}
-            </div>
+            <button
+              type="button"
+              onClick={next}
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground md:hidden"
+              aria-label="Nächstes Bild"
+            >
+              Weiter →
+            </button>
           </div>
         </div>
       </div>
