@@ -139,3 +139,30 @@ export function RendersSection() {
     </section>
   );
 }
+/* --- Renders carousel arrows --- */
+#visualisierungen button {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 20 !important;
+}
+
+#visualisierungen button:first-of-type {
+  left: 1rem !important;
+  right: auto !important;
+}
+
+#visualisierungen button:last-of-type {
+  right: 1rem !important;
+  left: auto !important;
+}
+
+@media (min-width: 640px) {
+  #visualisierungen button:first-of-type {
+    left: 1.5rem !important;
+  }
+
+  #visualisierungen button:last-of-type {
+    right: 1.5rem !important;
+  }
+}
