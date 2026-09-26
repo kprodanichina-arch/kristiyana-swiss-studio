@@ -17,12 +17,15 @@ function NotFoundComponent() {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
+
         <h2 className="mt-4 text-xl font-semibold text-foreground">
           Seite nicht gefunden
         </h2>
+
         <p className="mt-2 text-sm text-muted-foreground">
           Die gesuchte Seite existiert nicht oder wurde verschoben.
         </p>
+
         <div className="mt-6">
           <Link
             to="/"
@@ -47,7 +50,9 @@ function ErrorComponent({
   const router = useRouter();
 
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    reportLovableError(error, {
+      boundary: "tanstack_root_error_component",
+    });
   }, [error]);
 
   return (
@@ -89,6 +94,7 @@ export const Route =
     head: () => ({
       meta: [
         { charSet: "utf-8" },
+
         {
           name: "viewport",
           content: "width=device-width, initial-scale=1",
@@ -193,106 +199,4 @@ export const Route =
         },
 
         {
-          rel: "stylesheet",
-          href:
-            "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap",
-        },
-
-        {
-          rel: "icon",
-          href: "/favicon.ico",
-          type: "image/x-icon",
-        },
-
-        {
-          rel: "canonical",
-          href: "https://archikprojekt.com/",
-        },
-      ],
-    }),
-
-    shellComponent: RootShell,
-    component: RootComponent,
-    notFoundComponent: NotFoundComponent,
-    errorComponent: ErrorComponent,
-  });
-
-function RootShell({ children }: { children: ReactNode }) {
-  return (
-    <html lang="de">
-      <head>
-        <HeadContent />
-      </head>
-
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
-
-function useImageProtection() {
-  useEffect(() => {
-    const isImage = (t: EventTarget | null) =>
-      t instanceof HTMLElement &&
-      (t.tagName === "IMG" || t.closest("[data-protect-image]"));
-
-    const isFormField = (t: EventTarget | null) =>
-      t instanceof HTMLElement &&
-      t.closest(
-        "input, textarea, select, [contenteditable='true']",
-      ) !== null;
-
-    const onContextMenu = (e: MouseEvent) => {
-      if (!isFormField(e.target)) {
-        e.preventDefault();
-      }
-    };
-
-    const onDragStart = (e: DragEvent) => {
-      if (isImage(e.target)) {
-        e.preventDefault();
-      }
-    };
-
-    document.addEventListener("contextmenu", onContextMenu);
-    document.addEventListener("dragstart", onDragStart);
-
-    return () => {
-      document.removeEventListener("contextmenu", onContextMenu);
-      document.removeEventListener("dragstart", onDragStart);
-    };
-  }, []);
-}
-
-function RootComponent() {
-  const { queryClient } = Route.useRouteContext();
-
-  useImageProtection();
-
-  // Strict B2B Geo-blocking for restricted regions (Bulgaria)
-  if (typeof window !== "undefined") {
-    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-
-    if (tz === "Europe/Sofia" || tz.includes("Sofia")) {
-      window.stop();
-
-      document.documentElement.innerHTML = `
-        <div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#fbfbfb;color:#888888;font-family:sans-serif;font-size:14px;letter-spacing:0.15em;text-transform:uppercase;text-align:center;width:100vw;position:fixed;top:0;left:0;z-index:999999;">
-          <div style="border:1px solid #e5e5e5;padding:20px 40px;background:#ffffff;box-shadow:0 4px 20px rgba(0,0,0,0.02);">
-            403 - Zugriff aus dieser Region verweigert
-          </div>
-        </div>
-      `;
-
-      return null;
-    }
-  }
-
-  return (
-    <QueryClientProvider client={queryClient}>
-      <Outlet />
-    </QueryClientProvider>
-  );
-}
+         
