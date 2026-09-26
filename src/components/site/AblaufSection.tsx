@@ -26,7 +26,7 @@ export function AblaufSection() {
     <section id="ablauf" className="border-b border-border">
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28">
         <div className="max-w-2xl">
-          <p className="eyebrow">Ablauf</p>
+          <p className="eyebrow">04 — Ablauf</p>
 
           <h2 className="mt-4 text-3xl font-medium tracking-tight sm:text-4xl">
             Klarer Ablauf, direkte Kommunikation
