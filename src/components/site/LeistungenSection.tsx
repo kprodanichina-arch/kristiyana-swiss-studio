@@ -50,7 +50,7 @@ export function LeistungenSection() {
     <section id="leistungen" className="border-b border-border">
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28">
         <div className="max-w-2xl">
-          <p className="eyebrow">Leistungen</p>
+         <p className="eyebrow">01 — Leistungen</p>
 
           <h2 className="mt-4 text-3xl font-medium tracking-tight sm:text-4xl">
             Flexible Unterstützung für Ihre Projekte
