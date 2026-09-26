@@ -115,7 +115,7 @@ body::after {
   height: 100vh !important;
   background: transparent !important;
   z-index: 9999 !important; /* Стои пред всички чертежи и рендери */
-  pointer-events: auto !important; /* Блокира влаченето и десния бутон */
+  pointer-events: none !important; /* Блокира влаченето и десния бутон */
 }
 
 /* Изключения за паравана: Позволяваме на мишката да натиска само бутоните и формите */
