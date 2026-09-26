@@ -25,7 +25,7 @@ export function Nav() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-xs tracking-wide text-muted-foreground transition-colors hover:text-foreground"
+                className="relative z-[100000] pointer-events-auto text-xs tracking-wide text-muted-foreground transition-colors hover:text-foreground"
               >
                 {l.label}
               </a>
