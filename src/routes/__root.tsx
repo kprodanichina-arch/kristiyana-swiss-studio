@@ -209,11 +209,6 @@ export const Route =
           href: "/favicon.ico",
           type: "image/x-icon",
         },
-
-        {
-          rel: "canonical",
-          href: "https://archikprojekt.com/",
-        },
       ],
     }),
 
