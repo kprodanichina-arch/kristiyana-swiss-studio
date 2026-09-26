@@ -11,90 +11,64 @@ export const VIBER_HREF = "viber://chat?number=%2B359878635060";
 export const LINKEDIN =
   "https://www.linkedin.com/in/kristiyana-prodanichina";
 
-export type Project = {
-  id: number;
-  title: string;
-  description: string;
+export type PortfolioImage = {
+  src: string;
+  alt: string;
 };
 
-export const projects: Project[] = [
+export type PortfolioSection = {
+  id: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  price?: string;
+  images: PortfolioImage[];
+};
+
+export const portfolioSections: PortfolioSection[] = [
   {
-    id: 1,
-    title: "Wohngebäude Alpha",
+    id: "ausfuehrungsplanung",
+    eyebrow: "02 — Ausführungsplanung",
+    title: "Technische Planung & Dokumentation",
     description:
-      "Mehrfamilienhaus, ca. 2.400 m² BGF. Konzept, Ausführungs- und Detailplanung, Projektmappe.",
+      "Ausführungs- und Detailplanung für Architekturprojekte – von der Bearbeitung von Grundrissen, Schnitten und Ansichten bis zur detaillierten Planaufbereitung.",
+    price: "Stundensatz ab 55 €",
+    images: [],
   },
   {
-    id: 2,
-    title: "Wohngebäude Beta",
+    id: "fassaden",
+    eyebrow: "03 — Fassaden & Details",
+    title: "Fassadenplanung & architektonische Details",
     description:
-      "Wohnüberbauung mit Tiefgarage. Grundrisse, Schnitte, Fassadenpläne und Visualisierung.",
+      "Fassaden, Ansichten und ausgewählte architektonische Details aus verschiedenen Projekten.",
+    price: "Stundensatz ab 55 €",
+    images: [],
   },
   {
-    id: 3,
-    title: "Stadtvilla Gamma",
+    id: "visualisierung",
+    eyebrow: "04 — Architekturvisualisierung",
+    title: "Fotorealistische Visualisierungen",
     description:
-      "Einfamilienhaus in Hanglage. Entwurf, Materialisierung und fotorealistische Renders.",
+      "Architekturvisualisierungen für Präsentationen, Projektkommunikation und die Darstellung von Entwurfs- und Planungsvarianten.",
+    price: "Stundensatz ab 55 €",
+    images: [],
   },
   {
-    id: 4,
-    title: "Kleinhaus Delta",
+    id: "bim",
+    eyebrow: "05 — BIM & digitale Planung",
+    title: "Digitale Planungsleistungen",
     description:
-      "Verwaltungsbau mit flexiblen Grundrissen. Ausführungsplanung und Detailschnitte.",
+      "Digitale Bearbeitung von Architekturprojekten mit Fokus auf strukturierte Planungsprozesse und bestehende Software-Workflows.",
+    price: "Stundensatz ab 55 €",
+    images: [],
   },
   {
-    id: 5,
-    title: "Wohnhaus Epsilon",
+    id: "projektunterstuetzung",
+    eyebrow: "06 — Projektunterstützung",
+    title: "Externe Unterstützung für Ihr Planungsteam",
     description:
-      "Umbau und Aufstockung. Bestandsaufnahme, Planungssatz und Visualisierung.",
-  },
-  {
-    id: 6,
-    title: "Foresthouse Zeta",
-    description:
-      "Reihenhauszeile, typisierte Grundrisstypen, Fassadenstudien und Renderserie.",
-  },
-  {
-    id: 7,
-    title: "Lux-Haus Eta",
-    description:
-      "Gewerbe im Erdgeschoss, Wohnen darüber. Nutzungskonzept und Ausführungspläne.",
-  },
-  {
-    id: 8,
-    title: "Exterior Theta",
-    description:
-      "Innenarchitektonisches Konzept, Möblierungspläne und High-End-Innenrenders.",
-  },
-  {
-    id: 9,
-    title: "Wohnkomplex Iota",
-    description:
-      "Grossprojekt über 2.000 m². Projektmappe nach ZUT, Detail- und Ausführungsplanung.",
-  },
-  {
-    id: 10,
-    title: "Wohnblock Kappa",
-    description:
-      "Städtebauliche Volumenstudie mit Varianten, Diagrammen und Aussenvisualisierungen.",
+      "Flexible Unterstützung bei einzelnen Aufgaben oder innerhalb laufender Projekte – angepasst an Ihre Arbeitsweise, Projektstruktur und Kapazitätsbedarf.",
+    price: "Stundensatz ab 55 €",
+    images: [],
   },
 ];
-
-export const projectImages = (id: number) =>
-  Array.from(
-    { length: 10 },
-    (_, i) => `/images/projects/project${id}/${i + 1}.webp`,
-  );
-
-export const renderImages = Array.from(
-  { length: 150 },
-  (_, i) => `/images/renders/${i + 1}.webp`,
-);
-
-export const PROJECT_TYPES = [
-  "Wohngebäude (über 2.000 m²)",
-  "Ausführungs- & Detailplanung",
-  "High-End 3D-Visualisierung (Twinmotion / D5 Render)",
-  "2D-Visualisierung & Planaufbereitung",
-  "CAD-Workflows & Datenkonvertierung",
-] as const;
