@@ -1,73 +1,66 @@
-import { useState } from "react";
-import { FileText } from "lucide-react";
 import { CV_PATH } from "./data";
-
-function Portrait() {
-  const [state, setState] = useState<"loading" | "ok" | "missing">("loading");
-
-  return (
-    <div className="relative aspect-3/4 w-full overflow-hidden bg-muted shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
-      {state !== "ok" && (
-        <div className="absolute inset-0 animate-pulse bg-muted" />
-      )}
-
-      {state !== "missing" && (
-        <img
-          src="/images/kristiyana.webp"
-          alt="Porträt von Kristiyana Prodanichina"
-          loading="lazy"
-          draggable={false}
-          onLoad={() => setState("ok")}
-          onError={() => setState("missing")}
-          onContextMenu={(e) => e.preventDefault()}
-          className={`h-full w-full select-none object-cover transition-opacity duration-500 ${
-            state === "ok" ? "opacity-100" : "opacity-0"
-          }`}
-        />
-      )}
-    </div>
-  );
-}
-
-const paragraphs = [
-  "Ich bin Kristiyana Prodanichina, Architektin und Gründerin von ArchiK. Ich unterstütze Architekturbüros als externe Ansprechpartnerin bei der Bearbeitung von Planungs-, BIM- und Visualisierungsaufgaben – direkt, flexibel und remote.",
-
-  "Mein Schwerpunkt liegt auf der digitalen Planung und Bearbeitung von Architekturprojekten. Dabei arbeite ich strukturiert, projektbezogen und mit einem klaren Fokus auf die Anforderungen und bestehenden Arbeitsabläufe des jeweiligen Büros.",
-
-  "Aktuell arbeite ich vor allem mit Archicad, Twinmotion und D5 Render. Durch meine bisherige Erfahrung mit Revit, AutoCAD und weiteren Planungs- und Visualisierungsprogrammen kann ich mich zudem schnell in bestehende Software-Workflows und Projektstrukturen einarbeiten.",
-];
 
 export function AboutSection() {
   return (
-    <section
-      id="ueber-mich"
-      className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24"
-    >
-      <p className="eyebrow">05 — Profil</p>
+    <section id="ueber-mich" className="border-t border-border">
+      <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
+        <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-20">
+          <div>
+            <div className="overflow-hidden">
+              <img
+                src="/images/kristiyana.webp"
+                alt="Kristiyana Prodanichina – Architektin und Gründerin von ArchiK"
+                className="h-auto w-full object-cover"
+                loading="lazy"
+                draggable={false}
+              />
+            </div>
+          </div>
 
-      <h2 className="mt-4 text-3xl font-medium tracking-tight sm:text-4xl">
-        Über ArchiK
-      </h2>
-      <div className="mt-10 panel p-7 sm:p-12">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,340px)_1fr] lg:gap-14">
-          <Portrait />
+          <div>
+            <p className="text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">
+              06 — Profil
+            </p>
 
-          <div className="space-y-6 text-[15px] leading-relaxed text-muted-foreground">
-            {paragraphs.map((p) => (
-              <p key={p.slice(0, 24)}>{p}</p>
-            ))}
+            <h2 className="mt-4 text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
+              Über ArchiK
+            </h2>
+
+            <div className="mt-8 space-y-5 text-base leading-7 text-muted-foreground sm:text-lg">
+              <p>
+                Ich bin Kristiyana Prodanichina, Architektin und Gründerin von
+                ArchiK. Ich unterstütze Architekturbüros als externe
+                Ansprechpartnerin bei der Bearbeitung von Planungs-, BIM- und
+                Visualisierungsaufgaben – direkt, flexibel und remote.
+              </p>
+
+              <p>
+                Mein Schwerpunkt liegt auf der digitalen Planung und
+                Bearbeitung von Architekturprojekten. Dabei arbeite ich
+                strukturiert, projektbezogen und mit einem klaren Fokus auf die
+                Anforderungen und bestehenden Arbeitsabläufe des jeweiligen
+                Büros.
+              </p>
+
+              <p>
+                Aktuell arbeite ich vor allem mit Archicad, Twinmotion und D5
+                Render. Durch meine bisherige Erfahrung mit Revit, AutoCAD und
+                weiteren Planungs- und Visualisierungsprogrammen kann ich mich
+                zudem schnell in bestehende Software-Workflows und
+                Projektstrukturen einarbeiten.
+              </p>
+            </div>
+
+            <a
+              href={CV_PATH}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex text-sm font-medium underline underline-offset-4 transition-opacity hover:opacity-60"
+            >
+              Lebenslauf ansehen
+            </a>
           </div>
         </div>
-
-        <a
-          href={CV_PATH}
-          target="_blank"
-          rel="noreferrer"
-          className="mt-10 flex w-full items-center justify-center gap-3 border border-foreground px-6 py-5 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:bg-primary hover:text-primary-foreground"
-        >
-          <FileText className="h-4 w-4" />
-          Lebenslauf als PDF ansehen
-        </a>
       </div>
     </section>
   );
