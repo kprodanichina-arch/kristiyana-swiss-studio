@@ -45,10 +45,9 @@ export function AboutSection() {
     >
       <p className="eyebrow">05 — Profil</p>
 
-      <h2 className="mt-4 text-2xl font-medium tracking-tight sm:text-4xl">
-        Über mich
+      <h2 className="mt-4 text-3xl font-medium tracking-tight sm:text-4xl">
+        Über ArchiK
       </h2>
-
       <div className="mt-10 panel p-7 sm:p-12">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,340px)_1fr] lg:gap-14">
           <Portrait />
