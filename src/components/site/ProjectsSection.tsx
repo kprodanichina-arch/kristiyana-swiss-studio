@@ -14,6 +14,11 @@ type GallerySection = {
   images: GalleryImage[];
 };
 
+const image = (project: number, number: number, alt: string): GalleryImage => ({
+  src: `/images/projects/project${project}/${number}.webp`,
+  alt,
+});
+
 const gallerySections: GallerySection[] = [
   {
     id: "ausfuehrungsplanung",
@@ -23,138 +28,47 @@ const gallerySections: GallerySection[] = [
       "Ausführungs- und Detailplanung für Architekturprojekte – von Grundrissen, Schnitten und Dachplänen bis zur detaillierten Planaufbereitung.",
     price: "Stundensatz ab 55 €",
     images: [
-      {
-        src: "/images/projects/project01/2.webp",
-        alt: "Grundriss – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project01/3.webp",
-        alt: "Grundriss – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project01/5.webp",
-        alt: "Schnitt – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project01/6.webp",
-        alt: "Fensterplanung – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project02/2.webp",
-        alt: "Grundriss – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project02/3.webp",
-        alt: "Grundriss – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project02/4.webp",
-        alt: "Dachplan – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project02/6.webp",
-        alt: "Schnitt – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project03/2.webp",
-        alt: "Grundriss – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project03/3.webp",
-        alt: "Dachplan – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project03/4.webp",
-        alt: "Schnitt – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project03/5.webp",
-        alt: "Fensterplanung – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project04/2.webp",
-        alt: "Schnitt – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project04/3.webp",
-        alt: "Grundriss – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project04/4.webp",
-        alt: "Dachplan – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project05/3.webp",
-        alt: "Grundriss – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project05/4.webp",
-        alt: "Dachplan – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project05/5.webp",
-        alt: "Schnitt – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project05/6.webp",
-        alt: "Fensterplanung – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project06/3.webp",
-        alt: "Grundriss – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project06/4.webp",
-        alt: "Schnitt – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project06/5.webp",
-        alt: "Dachplan – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project06/6.webp",
-        alt: "Fensterplanung – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project07/2.webp",
-        alt: "Grundriss – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project07/3.webp",
-        alt: "Dachplan – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project07/4.webp",
-        alt: "Schnitt – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project07/5.webp",
-        alt: "Fensterplanung – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project08/4.webp",
-        alt: "Grundriss – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project08/5.webp",
-        alt: "Grundriss – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project08/6.webp",
-        alt: "Schnitt – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project09/4.webp",
-        alt: "Grundriss – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project09/5.webp",
-        alt: "Grundriss – Ausführungsplanung",
-      },
-      {
-        src: "/images/projects/project09/7.webp",
-        alt: "Schnitt – Ausführungsplanung",
-      },
+      image(1, 2, "Grundriss – Ausführungsplanung"),
+      image(1, 3, "Grundriss – Ausführungsplanung"),
+      image(1, 5, "Schnitt – Ausführungsplanung"),
+      image(1, 6, "Fensterplanung – Ausführungsplanung"),
+
+      image(2, 2, "Grundriss – Ausführungsplanung"),
+      image(2, 3, "Grundriss – Ausführungsplanung"),
+      image(2, 4, "Dachplan – Ausführungsplanung"),
+      image(2, 6, "Schnitt – Ausführungsplanung"),
+
+      image(3, 2, "Grundriss – Ausführungsplanung"),
+      image(3, 3, "Dachplan – Ausführungsplanung"),
+      image(3, 4, "Schnitt – Ausführungsplanung"),
+      image(3, 5, "Fensterplanung – Ausführungsplanung"),
+
+      image(4, 2, "Schnitt – Ausführungsplanung"),
+      image(4, 3, "Grundriss – Ausführungsplanung"),
+      image(4, 4, "Dachplan – Ausführungsplanung"),
+
+      image(5, 3, "Grundriss – Ausführungsplanung"),
+      image(5, 4, "Dachplan – Ausführungsplanung"),
+      image(5, 5, "Schnitt – Ausführungsplanung"),
+      image(5, 6, "Fensterplanung – Ausführungsplanung"),
+
+      image(6, 3, "Grundriss – Ausführungsplanung"),
+      image(6, 4, "Schnitt – Ausführungsplanung"),
+      image(6, 5, "Dachplan – Ausführungsplanung"),
+      image(6, 6, "Fensterplanung – Ausführungsplanung"),
+
+      image(7, 2, "Grundriss – Ausführungsplanung"),
+      image(7, 3, "Dachplan – Ausführungsplanung"),
+      image(7, 4, "Schnitt – Ausführungsplanung"),
+      image(7, 5, "Fensterplanung – Ausführungsplanung"),
+
+      image(8, 4, "Grundriss – Ausführungsplanung"),
+      image(8, 5, "Grundriss – Ausführungsplanung"),
+      image(8, 6, "Schnitt – Ausführungsplanung"),
+
+      image(9, 4, "Grundriss – Ausführungsplanung"),
+      image(9, 5, "Grundriss – Ausführungsplanung"),
+      image(9, 7, "Schnitt – Ausführungsplanung"),
     ],
   },
 
@@ -166,58 +80,19 @@ const gallerySections: GallerySection[] = [
       "Bearbeitung von Fassaden, Ansichten und ausgewählten architektonischen Details für eine klare und präzise Planungsdarstellung.",
     price: "Stundensatz ab 55 €",
     images: [
-      {
-        src: "/images/projects/project01/4.webp",
-        alt: "Fassadenansicht – Architekturplanung",
-      },
-      {
-        src: "/images/projects/project02/5.webp",
-        alt: "Fassadenansicht – Architekturplanung",
-      },
-      {
-        src: "/images/projects/project03/1.webp",
-        alt: "Fassadenansicht – Architekturplanung",
-      },
-      {
-        src: "/images/projects/project04/1.webp",
-        alt: "Fassadenansicht – Architekturplanung",
-      },
-      {
-        src: "/images/projects/project05/1.webp",
-        alt: "Fassadenansicht – Architekturplanung",
-      },
-      {
-        src: "/images/projects/project05/2.webp",
-        alt: "Fassadenansicht – Architekturplanung",
-      },
-      {
-        src: "/images/projects/project06/1.webp",
-        alt: "Fassadenansicht – Architekturplanung",
-      },
-      {
-        src: "/images/projects/project06/2.webp",
-        alt: "Fassadenansicht – Architekturplanung",
-      },
-      {
-        src: "/images/projects/project07/1.webp",
-        alt: "Fassadenansicht – Architekturplanung",
-      },
-      {
-        src: "/images/projects/project08/2.webp",
-        alt: "Fassadenansicht – Architekturplanung",
-      },
-      {
-        src: "/images/projects/project08/3.webp",
-        alt: "Fassadenansicht – Architekturplanung",
-      },
-      {
-        src: "/images/projects/project09/3.webp",
-        alt: "Fassadenansicht – Architekturplanung",
-      },
-      {
-        src: "/images/projects/project09/6.webp",
-        alt: "Fassadenansicht – Architekturplanung",
-      },
+      image(1, 4, "Fassadenansicht – Architekturplanung"),
+      image(2, 5, "Fassadenansicht – Architekturplanung"),
+      image(3, 1, "Fassadenansicht – Architekturplanung"),
+      image(4, 1, "Fassadenansicht – Architekturplanung"),
+      image(5, 1, "Fassadenansicht – Architekturplanung"),
+      image(5, 2, "Fassadenansicht – Architekturplanung"),
+      image(6, 1, "Fassadenansicht – Architekturplanung"),
+      image(6, 2, "Fassadenansicht – Architekturplanung"),
+      image(7, 1, "Fassadenansicht – Architekturplanung"),
+      image(8, 2, "Fassadenansicht – Architekturplanung"),
+      image(8, 3, "Fassadenansicht – Architekturplanung"),
+      image(9, 3, "Fassadenansicht – Architekturplanung"),
+      image(9, 6, "Fassadenansicht – Architekturplanung"),
     ],
   },
 
@@ -229,47 +104,23 @@ const gallerySections: GallerySection[] = [
       "Architekturvisualisierungen für Präsentationen, Projektkommunikation und die überzeugende Darstellung von Entwurfs- und Planungsvarianten.",
     price: "Stundensatz ab 55 €",
     images: [
-      {
-        src: "/images/projects/project01/1.webp",
-        alt: "Architekturvisualisierung",
-      },
-      {
-        src: "/images/projects/project02/1.webp",
-        alt: "Architekturvisualisierung",
-      },
-      {
-        src: "/images/projects/project02/7.webp",
-        alt: "Architekturvisualisierung",
-      },
-      {
-        src: "/images/projects/project08/1.webp",
-        alt: "Architekturvisualisierung",
-      },
-      {
-        src: "/images/projects/project09/1.webp",
-        alt: "Architekturvisualisierung",
-      },
-      {
-        src: "/images/projects/project09/2.webp",
-        alt: "Architekturvisualisierung",
-      },
+      image(1, 1, "Architekturvisualisierung"),
+      image(2, 1, "Architekturvisualisierung"),
+      image(2, 7, "Architekturvisualisierung"),
+      image(8, 1, "Architekturvisualisierung"),
+      image(9, 1, "Architekturvisualisierung"),
+      image(9, 2, "Architekturvisualisierung"),
     ],
   },
 ];
 
-function ServiceGallery({
-  section,
-}: {
-  section: GallerySection;
-}) {
+function ServiceGallery({ section }: { section: GallerySection }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const touchStartX = useRef<number | null>(null);
 
   const imageCount = section.images.length;
 
-  const previousIndex =
-    (currentIndex - 1 + imageCount) % imageCount;
-
+  const previousIndex = (currentIndex - 1 + imageCount) % imageCount;
   const nextIndex = (currentIndex + 1) % imageCount;
 
   const currentImage = section.images[currentIndex];
@@ -289,11 +140,11 @@ function ServiceGallery({
   };
 
   const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
-    if (touchStartX.current === null) {
-      return;
-    }
+    if (touchStartX.current === null) return;
 
-    const touchEndX = event.changedTouches[0]?.clientX ?? touchStartX.current;
+    const touchEndX =
+      event.changedTouches[0]?.clientX ?? touchStartX.current;
+
     const distance = touchEndX - touchStartX.current;
 
     if (Math.abs(distance) > 50) {
@@ -314,7 +165,6 @@ function ServiceGallery({
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        {/* Previous image */}
         <button
           type="button"
           onClick={goPrevious}
@@ -338,20 +188,18 @@ function ServiceGallery({
           </span>
         </button>
 
-        {/* Main image */}
         <div className="flex w-full max-w-[720px] flex-1 items-center justify-center">
           <div className="flex min-h-[280px] w-full items-center justify-center sm:min-h-[360px] lg:min-h-[500px]">
             <img
               src={currentImage.src}
               alt={currentImage.alt}
-              className="max-h-[280px] max-w-full object-contain select-none sm:max-h-[360px] lg:max-h-[500px]"
+              className="max-h-[280px] max-w-full select-none object-contain sm:max-h-[360px] lg:max-h-[500px]"
               draggable={false}
               loading="lazy"
             />
           </div>
         </div>
 
-        {/* Next image */}
         <button
           type="button"
           onClick={goNext}
@@ -376,7 +224,6 @@ function ServiceGallery({
         </button>
       </div>
 
-      {/* Mobile navigation */}
       <div className="mt-5 flex items-center justify-center gap-3 lg:hidden">
         <button
           type="button"
@@ -401,7 +248,6 @@ function ServiceGallery({
         </button>
       </div>
 
-      {/* Desktop counter */}
       <div className="mt-5 hidden text-center text-sm text-muted-foreground lg:block">
         {currentIndex + 1} / {imageCount}
       </div>
@@ -444,9 +290,7 @@ export function ProjectsSection() {
                   {section.description}
                 </p>
 
-                <p className="mt-5 text-sm font-medium">
-                  {section.price}
-                </p>
+                <p className="mt-5 text-sm font-medium">{section.price}</p>
               </div>
 
               <ServiceGallery section={section} />
