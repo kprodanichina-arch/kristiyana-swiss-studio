@@ -22,6 +22,11 @@ const image = (
   alt,
 });
 
+const renderImage = (number: number): GalleryImage => ({
+  src: `/images/renders/${number}.webp`,
+  alt: `Architekturvisualisierung ${number}`,
+});
+
 const shuffle = <T,>(array: T[]): T[] => {
   const shuffled = [...array];
 
@@ -105,6 +110,7 @@ const gallerySections: GallerySection[] = [
       image(6, 2, "Fassadenansicht"),
 
       image(7, 1, "Fassadenansicht"),
+
       image(8, 2, "Fassadenansicht"),
       image(8, 3, "Fassadenansicht"),
 
@@ -115,18 +121,13 @@ const gallerySections: GallerySection[] = [
 
   {
     eyebrow: "04 — Architekturvisualisierung",
-    title: "Fotorealistische Visualisierungen",
+    title: "Fotorealistische Renderings",
     description:
-      "Architekturvisualisierungen für Präsentationen, Projektkommunikation und die Darstellung von Entwurfs- und Planungsvarianten.",
+      "Fotorealistische Architekturvisualisierungen für Präsentationen, Projektkommunikation und die überzeugende Darstellung von Architektur.",
     price: "Stundensatz ab 55 €",
-    images: [
-      image(1, 1, "Architekturvisualisierung"),
-      image(2, 1, "Architekturvisualisierung"),
-      image(2, 7, "Architekturvisualisierung"),
-      image(8, 1, "Architekturvisualisierung"),
-      image(9, 1, "Architekturvisualisierung"),
-      image(9, 2, "Architekturvisualisierung"),
-    ],
+    images: Array.from({ length: 47 }, (_, index) =>
+      renderImage(index + 1),
+    ),
   },
 ];
 
