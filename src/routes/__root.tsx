@@ -7,10 +7,13 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+
+const GA_MEASUREMENT_ID = "G-ENDV0PFY4G";
+const GA_CONSENT_KEY = "archik-analytics-consent";
 
 function NotFoundComponent() {
   return (
@@ -233,6 +236,114 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+function GoogleAnalytics() {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    if (window.localStorage.getItem(GA_CONSENT_KEY) !== "granted") {
+      return;
+    }
+
+    if (document.getElementById("archik-google-analytics")) {
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.id = "archik-google-analytics";
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+
+    document.head.appendChild(script);
+
+    const inlineScript = document.createElement("script");
+    inlineScript.id = "archik-google-analytics-config";
+    inlineScript.innerHTML = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', '${GA_MEASUREMENT_ID}', {
+        anonymize_ip: true
+      });
+    `;
+
+    document.head.appendChild(inlineScript);
+
+    return () => {
+      script.remove();
+      inlineScript.remove();
+    };
+  }, []);
+
+  return null;
+}
+
+function AnalyticsConsentBanner() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const consent = window.localStorage.getItem(GA_CONSENT_KEY);
+
+    if (!consent) {
+      setVisible(true);
+    }
+  }, []);
+
+  const acceptAnalytics = () => {
+    window.localStorage.setItem(GA_CONSENT_KEY, "granted");
+    setVisible(false);
+    window.location.reload();
+  };
+
+  const rejectAnalytics = () => {
+    window.localStorage.setItem(GA_CONSENT_KEY, "denied");
+    setVisible(false);
+  };
+
+  if (!visible) {
+    return null;
+  }
+
+  return (
+    <div className="fixed inset-x-0 bottom-0 z-[100] border-t border-border bg-background/95 p-4 shadow-lg backdrop-blur">
+      <div className="mx-auto flex max-w-5xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="max-w-3xl">
+          <p className="text-sm font-medium text-foreground">
+            Datenschutz & Analyse
+          </p>
+
+          <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+            Wir verwenden Google Analytics, um zu verstehen, wie Besucher
+            unsere Website nutzen und woher sie kommen. Die Analyse erfolgt
+            nur mit Ihrer Zustimmung. Sie können Ihre Auswahl jederzeit
+            ändern.
+          </p>
+        </div>
+
+        <div className="flex shrink-0 gap-2">
+          <button
+            type="button"
+            onClick={rejectAnalytics}
+            className="rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+          >
+            Ablehnen
+          </button>
+
+          <button
+            type="button"
+            onClick={acceptAnalytics}
+            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Akzeptieren
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function useImageProtection() {
   useEffect(() => {
     const isImage = (t: EventTarget | null) =>
@@ -274,7 +385,9 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <GoogleAnalytics />
       <Outlet />
+      <AnalyticsConsentBanner />
     </QueryClientProvider>
   );
 }
