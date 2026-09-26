@@ -4,7 +4,7 @@ const links = [
   { href: "#leistungen", label: "Leistungen" },
   { href: "#projekte", label: "Projekte" },
   { href: "#ablauf", label: "Ablauf" },
-  { href: "#ueber-archik", label: "Über ArchiK" },
+  { href: "#ueber-mich", label: "Über ArchiK" },
   { href: "#kontakt", label: "Kontakt" },
 ];
 export function Nav() {
