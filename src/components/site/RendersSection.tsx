@@ -1,141 +1,324 @@
-import { useEffect, useRef, useState } from "react";
-import { useSequentialImages } from "@/lib/useImageProbe";
-import { FadeImage } from "@/components/FadeImage";
+import { useEffect, useState } from "react";
 
-export function RendersSection() {
+type GalleryImage = {
+  src: string;
+  alt: string;
+};
+
+type GallerySection = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  price: string;
+  images: GalleryImage[];
+};
+
+const image = (
+  project: number,
+  number: number,
+  alt: string,
+): GalleryImage => ({
+  src: `/images/projects/project${project}/${number}.webp`,
+  alt,
+});
+
+const renderImage = (number: number): GalleryImage => ({
+  src: `/images/renders/${number}.webp`,
+  alt: `Architekturvisualisierung ${number}`,
+});
+
+const shuffle = <T,>(array: T[]): T[] => {
+  const shuffled = [...array];
+
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  return shuffled;
+};
+
+const gallerySections: GallerySection[] = [
+  {
+    eyebrow: "02 — Ausführungsplanung",
+    title: "Technische Planung & Dokumentation",
+    description:
+      "Ausführungs- und Detailplanung für Architekturprojekte – von der Bearbeitung von Grundrissen, Schnitten und Ansichten bis zur detaillierten Planaufbereitung.",
+    price: "Stundensatz ab 55 €",
+    images: [
+      image(1, 2, "Grundriss – Ausführungsplanung"),
+      image(1, 3, "Grundriss – Ausführungsplanung"),
+      image(1, 5, "Schnitt – Ausführungsplanung"),
+      image(1, 6, "Fensterdetail – Ausführungsplanung"),
+
+      image(2, 2, "Grundriss – Ausführungsplanung"),
+      image(2, 3, "Grundriss – Ausführungsplanung"),
+      image(2, 4, "Dachaufsicht – Ausführungsplanung"),
+      image(2, 6, "Schnitt – Ausführungsplanung"),
+
+      image(3, 2, "Grundriss – Ausführungsplanung"),
+      image(3, 3, "Dachaufsicht – Ausführungsplanung"),
+      image(3, 4, "Schnitt – Ausführungsplanung"),
+      image(3, 5, "Fensterdetail – Ausführungsplanung"),
+
+      image(4, 2, "Schnitt – Ausführungsplanung"),
+      image(4, 3, "Grundriss – Ausführungsplanung"),
+      image(4, 4, "Dachaufsicht – Ausführungsplanung"),
+
+      image(5, 3, "Grundriss – Ausführungsplanung"),
+      image(5, 4, "Dachaufsicht – Ausführungsplanung"),
+      image(5, 5, "Schnitt – Ausführungsplanung"),
+      image(5, 6, "Fensterdetail – Ausführungsplanung"),
+
+      image(6, 3, "Grundriss – Ausführungsplanung"),
+      image(6, 4, "Schnitt – Ausführungsplanung"),
+      image(6, 5, "Dachaufsicht – Ausführungsplanung"),
+      image(6, 6, "Fensterdetail – Ausführungsplanung"),
+
+      image(7, 2, "Grundriss – Ausführungsplanung"),
+      image(7, 3, "Dachaufsicht – Ausführungsplanung"),
+      image(7, 4, "Schnitt – Ausführungsplanung"),
+      image(7, 5, "Fensterdetail – Ausführungsplanung"),
+
+      image(8, 4, "Grundriss – Ausführungsplanung"),
+      image(8, 5, "Grundriss – Ausführungsplanung"),
+      image(8, 6, "Schnitt – Ausführungsplanung"),
+
+      image(9, 4, "Grundriss – Ausführungsplanung"),
+      image(9, 5, "Grundriss – Ausführungsplanung"),
+      image(9, 7, "Schnitt – Ausführungsplanung"),
+    ],
+  },
+
+  {
+    eyebrow: "03 — Fassaden & Details",
+    title: "Fassadenplanung & architektonische Details",
+    description:
+      "Fassaden, Ansichten und ausgewählte architektonische Details aus verschiedenen Projekten.",
+    price: "Stundensatz ab 55 €",
+    images: [
+      image(1, 4, "Fassadenansicht"),
+      image(2, 5, "Fassadenansicht"),
+
+      image(3, 1, "Fassadenansicht"),
+      image(4, 1, "Fassadenansicht"),
+
+      image(5, 1, "Fassadenansicht"),
+      image(5, 2, "Fassadenansicht"),
+
+      image(6, 1, "Fassadenansicht"),
+      image(6, 2, "Fassadenansicht"),
+
+      image(7, 1, "Fassadenansicht"),
+
+      image(8, 2, "Fassadenansicht"),
+      image(8, 3, "Fassadenansicht"),
+
+      image(9, 3, "Fassadenansicht"),
+      image(9, 6, "Fassadenansicht"),
+    ],
+  },
+
+  {
+    eyebrow: "04 — Architekturvisualisierung",
+    title: "Fotorealistische Renderings",
+    description:
+      "Fotorealistische Architekturvisualisierungen für Präsentationen, Projektkommunikation und die überzeugende Darstellung von Architektur.",
+    price: "Stundensatz ab 55 €",
+    images: Array.from({ length: 47 }, (_, index) =>
+      renderImage(index + 1),
+    ),
+  },
+];
+
+function Gallery({
+  section,
+  images,
+}: {
+  section: GallerySection;
+  images: GalleryImage[];
+}) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
 
-  const touchStartX = useRef<number | null>(null);
-  const touchEndX = useRef<number | null>(null);
+  const total = images.length;
 
-  const { images, loading } = useSequentialImages(
-    (i) => `/images/renders/${i}.webp`,
-    50,
-    8,
-  );
-
-  const ordered = [...images].sort((a, b) => {
-    const n = (s: string) => Number(s.match(/(\d+)\.webp$/)?.[1] ?? 0);
-    return n(b) - n(a);
-  });
-
-  useEffect(() => {
-    if (currentIndex >= ordered.length && ordered.length > 0) {
-      setCurrentIndex(ordered.length - 1);
+  const goTo = (index: number) => {
+    if (index < 0) {
+      setCurrentIndex(total - 1);
+    } else if (index >= total) {
+      setCurrentIndex(0);
+    } else {
+      setCurrentIndex(index);
     }
-  }, [ordered.length, currentIndex]);
-
-  if (!loading && ordered.length === 0) return null;
-
-  const goToPrevious = () => {
-    setCurrentIndex((index) =>
-      index === 0 ? ordered.length - 1 : index - 1,
-    );
   };
 
-  const goToNext = () => {
-    setCurrentIndex((index) =>
-      index === ordered.length - 1 ? 0 : index + 1,
-    );
+  const previous = () => goTo(currentIndex - 1);
+  const next = () => goTo(currentIndex + 1);
+
+  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    setTouchStart(event.touches[0].clientX);
   };
 
-  const handleTouchStart = (event: React.TouchEvent) => {
-    touchStartX.current = event.touches[0].clientX;
-    touchEndX.current = null;
-  };
+  const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+    if (touchStart === null) return;
 
-  const handleTouchMove = (event: React.TouchEvent) => {
-    touchEndX.current = event.touches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    if (touchStartX.current === null || touchEndX.current === null) return;
-
-    const distance = touchStartX.current - touchEndX.current;
+    const touchEnd = event.changedTouches[0].clientX;
+    const distance = touchStart - touchEnd;
 
     if (Math.abs(distance) > 50) {
       if (distance > 0) {
-        goToNext();
+        next();
       } else {
-        goToPrevious();
+        previous();
       }
     }
 
-    touchStartX.current = null;
-    touchEndX.current = null;
+    setTouchStart(null);
   };
 
+  const getImage = (offset: number) =>
+    images[(currentIndex + offset + total) % total];
+
+  const previousImage = getImage(-1);
+  const currentImage = getImage(0);
+  const nextImage = getImage(1);
+
   return (
-    <section
-      id="visualisierungen"
-      className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24"
-    >
-      <p className="eyebrow">03 — Visualisierung</p>
+    <section className="border-t border-border py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <div className="mb-10 max-w-3xl">
+          <p className="mb-3 text-sm font-medium tracking-[0.16em] text-muted-foreground uppercase">
+            {section.eyebrow}
+          </p>
 
-      <h2 className="mt-4 text-2xl font-medium tracking-tight sm:text-4xl">
-        Visualisierungen &amp; Renders
-      </h2>
+          <h2 className="text-3xl font-medium tracking-tight md:text-5xl">
+            {section.title}
+          </h2>
 
-      <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-        Ein Einblick in meine laufenden kreativen und fotorealistischen Arbeiten.
-      </p>
+          <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
+            {section.description}
+          </p>
 
-      <div
-        className="relative mt-10 w-full overflow-hidden"
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-        style={{ touchAction: "pan-y" }}
-      >
-        {loading && ordered.length === 0 ? (
-          <div className="aspect-[4/3] w-full animate-pulse bg-muted" />
-        ) : (
-          <div className="relative w-full">
-            <div className="w-full overflow-hidden">
-              <FadeImage
-                src={ordered[currentIndex]}
-                alt={`Architekturvisualisierung ${currentIndex + 1}`}
-                wrapperClassName="w-full bg-muted"
-                className="block h-auto max-h-[75vh] w-full object-contain"
+          <p className="mt-5 text-sm font-medium">{section.price}</p>
+        </div>
+
+        <div
+          className="relative"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div className="grid grid-cols-1 items-center gap-4 md:grid-cols-[1fr_2.2fr_1fr] md:gap-6">
+            <button
+              type="button"
+              onClick={previous}
+              aria-label="Vorheriges Bild"
+              className="group relative hidden aspect-[4/3] overflow-hidden bg-muted md:block"
+            >
+              <img
+                src={previousImage.src}
+                alt={previousImage.alt}
+                className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
               />
+
+              <span className="absolute inset-y-0 left-0 flex w-16 items-center justify-center bg-black/0 text-white opacity-0 transition-all group-hover:bg-black/20 group-hover:opacity-100">
+                <span className="text-3xl">‹</span>
+              </span>
+            </button>
+
+            <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+              <img
+                src={currentImage.src}
+                alt={currentImage.alt}
+                className="h-full w-full object-contain"
+              />
+
+              <button
+                type="button"
+                onClick={previous}
+                aria-label="Vorheriges Bild"
+                className="absolute left-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center bg-black/35 text-2xl text-white backdrop-blur-sm transition hover:bg-black/55 md:hidden"
+              >
+                ‹
+              </button>
+
+              <button
+                type="button"
+                onClick={next}
+                aria-label="Nächstes Bild"
+                className="absolute right-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center bg-black/35 text-2xl text-white backdrop-blur-sm transition hover:bg-black/55 md:hidden"
+              >
+                ›
+              </button>
             </div>
 
-            {ordered.length > 1 && (
-              <>
-                <button
-                  type="button"
-                  onClick={goToPrevious}
-                  aria-label="Vorherige Visualisierung"
-                  className="absolute left-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border-0 bg-[#e8dfd2] p-0 text-[#343434] shadow-md transition-transform duration-200 hover:scale-105 sm:left-6 sm:h-14 sm:w-14"
-                >
-                  <span className="text-3xl font-semibold leading-none">
-                    ‹
-                  </span>
-                </button>
+            <button
+              type="button"
+              onClick={next}
+              aria-label="Nächstes Bild"
+              className="group relative hidden aspect-[4/3] overflow-hidden bg-muted md:block"
+            >
+              <img
+                src={nextImage.src}
+                alt={nextImage.alt}
+                className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+              />
 
-                <button
-                  type="button"
-                  onClick={goToNext}
-                  aria-label="Nächste Visualisierung"
-                  className="absolute right-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border-0 bg-[#e8dfd2] p-0 text-[#343434] shadow-md transition-transform duration-200 hover:scale-105 sm:right-6 sm:h-14 sm:w-14"
-                >
-                  <span className="text-3xl font-semibold leading-none">
-                    ›
-                  </span>
-                </button>
-              </>
-            )}
+              <span className="absolute inset-y-0 right-0 flex w-16 items-center justify-center bg-black/0 text-white opacity-0 transition-all group-hover:bg-black/20 group-hover:opacity-100">
+                <span className="text-3xl">›</span>
+              </span>
+            </button>
           </div>
-        )}
-      </div>
 
-      {ordered.length > 0 && (
-        <div className="mt-4 flex items-center justify-center">
-          <span className="text-xs tracking-[0.12em] text-muted-foreground">
-            {currentIndex + 1} / {ordered.length}
-          </span>
+          <div className="mt-5 flex items-center justify-between">
+            <span className="text-sm text-muted-foreground">
+              {currentIndex + 1} / {total}
+            </span>
+
+            <div className="flex gap-2 md:hidden">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  onClick={() => goTo(index)}
+                  aria-label={`Bild ${index + 1} anzeigen`}
+                  className={`h-1.5 rounded-full transition-all ${
+                    index === currentIndex
+                      ? "w-6 bg-foreground"
+                      : "w-1.5 bg-muted-foreground/40"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
-      )}
+      </div>
+    </section>
+  );
+}
+
+export function ProjectsSection() {
+  const [shuffledSections, setShuffledSections] =
+    useState<GallerySection[]>(gallerySections);
+
+  useEffect(() => {
+    setShuffledSections(
+      gallerySections.map((section) => ({
+        ...section,
+        images: shuffle(section.images),
+      })),
+    );
+  }, []);
+
+  return (
+    <section id="projekte">
+      {shuffledSections.map((section) => (
+        <Gallery
+          key={section.eyebrow}
+          section={section}
+          images={section.images}
+        />
+      ))}
     </section>
   );
 }
