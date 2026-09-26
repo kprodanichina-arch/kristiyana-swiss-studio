@@ -2,7 +2,7 @@ const services = [
   {
     number: "01",
     title: "BIM-Modellierung",
-    text: "Erstellung und Bearbeitung von digitalen Gebäudemodellen für unterschiedliche Planungsphasen.",
+    text: "Erstellung und Bearbeitung digitaler Gebäudemodelle für unterschiedliche Planungsphasen und Projektanforderungen.",
     items: [
       "Archicad",
       "Revit",
@@ -13,7 +13,7 @@ const services = [
   {
     number: "02",
     title: "Planungs- und Baudokumentation",
-    text: "Unterstützung bei der Erstellung und Aufbereitung von Planungsunterlagen für Architekturprojekte.",
+    text: "Unterstützung bei der Erstellung, Bearbeitung und Aufbereitung von Planungsunterlagen für Architekturprojekte.",
     items: [
       "Grundrisse",
       "Schnitte & Ansichten",
@@ -23,19 +23,19 @@ const services = [
   },
   {
     number: "03",
-    title: "IFC & BIM-Koordination",
-    text: "Unterstützung bei offenen BIM-Workflows, IFC-Austausch und der strukturierten Modellprüfung.",
+    title: "IFC & BIM-Workflows",
+    text: "Unterstützung bei offenen BIM-Workflows, IFC-basiertem Datenaustausch und der strukturierten Modellprüfung.",
     items: [
       "IFC-Modelle",
-      "BIM Quality Assurance",
       "Modellprüfung",
+      "BIM Quality Assurance",
       "BCF / Koordination",
     ],
   },
   {
     number: "04",
     title: "Architekturvisualisierung",
-    text: "Hochwertige architektonische Visualisierungen für Präsentationen, Wettbewerbe und Bauherrenkommunikation.",
+    text: "Hochwertige architektonische Visualisierungen für Präsentationen, Wettbewerbe und die Kommunikation mit Bauherren.",
     items: [
       "Lumion",
       "D5 Render",
@@ -47,10 +47,7 @@ const services = [
 
 export function LeistungenSection() {
   return (
-    <section
-      id="leistungen"
-      className="border-b border-border"
-    >
+    <section id="leistungen" className="border-b border-border">
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28">
         <div className="max-w-2xl">
           <p className="eyebrow">Leistungen</p>
@@ -60,9 +57,9 @@ export function LeistungenSection() {
           </h2>
 
           <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            ArchiK unterstützt Architekturbüros bei der Planung,
-            Dokumentation, BIM-Bearbeitung und Visualisierung – projektbezogen
-            oder als flexible externe Kapazität.
+            ArchiK unterstützt Architekturbüros bei BIM-Modellierung,
+            Planungsdokumentation und Visualisierung – projektbezogen oder als
+            flexible externe Kapazität.
           </p>
         </div>
 
