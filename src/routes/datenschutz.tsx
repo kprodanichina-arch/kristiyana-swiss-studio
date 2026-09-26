@@ -2,6 +2,28 @@ import { createFileRoute } from "@tanstack/react-router";
 import { EMAIL } from "@/components/site/data";
 
 export const Route = createFileRoute("/datenschutz")({
+  head: () => ({
+    links: [
+      {
+        rel: "canonical",
+        href: "https://archikprojekt.com/datenschutz",
+      },
+    ],
+    meta: [
+      {
+        title: "Datenschutz | ArchiK",
+      },
+      {
+        name: "description",
+        content:
+          "Datenschutzerklärung von ArchiK und AY END VI BILD EOOD.",
+      },
+      {
+        property: "og:url",
+        content: "https://archikprojekt.com/datenschutz",
+      },
+    ],
+  }),
   component: DatenschutzPage,
 });
 
@@ -118,116 +140,4 @@ function DatenschutzPage() {
               Die Website enthält ein Formular, mit dem eine vorbereitete
               E-Mail erstellt werden kann. Die Eingaben werden nicht über
               einen eigenen Formularserver an uns übermittelt.
-            </p>
-
-            <p className="mt-4">
-              Nach dem Absenden des Formulars wird das auf Ihrem Gerät
-              eingerichtete E-Mail-Programm geöffnet und eine vorbereitete
-              Nachricht erstellt. Die Übermittlung der Nachricht erfolgt erst,
-              wenn Sie diese über Ihr E-Mail-Programm tatsächlich versenden.
-            </p>
-
-            <p className="mt-4">
-              Die Verarbeitung der von Ihnen eingegebenen Daten richtet sich
-              anschließend nach dem Versand der E-Mail und den dabei
-              verwendeten E-Mail-Diensten.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-medium text-foreground">
-              5. WhatsApp und LinkedIn
-            </h2>
-
-            <p className="mt-4">
-              Auf dieser Website befinden sich Links zu WhatsApp und LinkedIn.
-              Beim Anklicken dieser Links verlassen Sie diese Website und
-              gelangen zu den jeweiligen externen Diensten.
-            </p>
-
-            <p className="mt-4">
-              Für die Verarbeitung personenbezogener Daten auf diesen
-              Plattformen sind die jeweiligen Anbieter verantwortlich. Es
-              gelten die Datenschutzbestimmungen der jeweiligen Anbieter.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-medium text-foreground">
-              6. Cookies und Tracking
-            </h2>
-
-            <p className="mt-4">
-              Diese Website verwendet derzeit keine nicht notwendigen
-              Tracking- oder Marketing-Cookies und keine Analysewerkzeuge zur
-              Erstellung von Nutzerprofilen.
-            </p>
-
-            <p className="mt-4">
-              Technisch erforderliche Daten, die für den sicheren und
-              funktionsfähigen Betrieb der Website notwendig sind, können
-              hiervon unberührt bleiben.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-medium text-foreground">
-              7. Ihre Rechte
-            </h2>
-
-            <p className="mt-4">
-              Soweit die gesetzlichen Voraussetzungen erfüllt sind, haben Sie
-              insbesondere folgende Rechte:
-            </p>
-
-            <ul className="mt-4 list-disc space-y-2 pl-5">
-              <li>Recht auf Auskunft über Ihre personenbezogenen Daten</li>
-              <li>Recht auf Berichtigung unrichtiger Daten</li>
-              <li>Recht auf Löschung</li>
-              <li>Recht auf Einschränkung der Verarbeitung</li>
-              <li>Recht auf Datenübertragbarkeit</li>
-              <li>Recht auf Widerspruch gegen bestimmte Verarbeitungen</li>
-            </ul>
-
-            <p className="mt-4">
-              Sie haben außerdem das Recht, sich bei einer zuständigen
-              Datenschutzaufsichtsbehörde zu beschweren.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-medium text-foreground">
-              8. Speicherdauer
-            </h2>
-
-            <p className="mt-4">
-              Personenbezogene Daten werden nur so lange gespeichert, wie dies
-              für die jeweiligen Zwecke erforderlich ist oder gesetzliche
-              Aufbewahrungspflichten bestehen.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-medium text-foreground">
-              9. Änderungen dieser Datenschutzerklärung
-            </h2>
-
-            <p className="mt-4">
-              Diese Datenschutzerklärung kann angepasst werden, wenn sich die
-              technische oder rechtliche Situation der Website ändert.
-            </p>
-          </section>
-        </div>
-
-        <div className="mt-16 border-t border-border pt-8">
-          <a
-            href="/"
-            className="text-sm font-medium underline underline-offset-4 transition-opacity hover:opacity-60"
-          >
-            ← Zurück zu ArchiK
-          </a>
-        </div>
-      </main>
-    </div>
-  );
-}
+            </
