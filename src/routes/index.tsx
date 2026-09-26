@@ -41,8 +41,6 @@ function Index() {
         <RendersSection />
         <AblaufSection />
         <AboutSection />
-        <ExperienceSection />
-        <BenefitsSection />
         <ContactSection />
       </main>
 
