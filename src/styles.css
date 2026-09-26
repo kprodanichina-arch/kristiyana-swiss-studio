@@ -152,7 +152,8 @@ select,
 }
 
 /* --- Защита на изображенията --- */
-img {
+/* --- Защита на изображенията само в Projects --- */
+#projekte img {
   -webkit-user-select: none !important;
   user-select: none !important;
   pointer-events: none !important;
