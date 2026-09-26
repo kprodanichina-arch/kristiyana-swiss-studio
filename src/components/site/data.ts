@@ -1,9 +1,15 @@
 export const CV_PATH = "/Lebenslauf_Kristiyana_Prodanichina.pdf";
+
 export const EMAIL = "k.prodanichina@gmail.com";
+
 export const PHONE_DISPLAY = "+359 878 63 50 60";
+
 export const WHATSAPP_HREF = "https://wa.me/+359878635060";
+
 export const VIBER_HREF = "viber://chat?number=%2B359878635060";
-export const LINKEDIN = "https://www.linkedin.com/in/kristiyana-prodanichina";
+
+export const LINKEDIN =
+  "https://www.linkedin.com/in/kristiyana-prodanichina";
 
 export type Project = {
   id: number;
@@ -16,7 +22,7 @@ export const projects: Project[] = [
     id: 1,
     title: "Wohngebäude Alpha",
     description:
-      "Mehrfamilienhaus, ca. 2'400 m² BGF. Konzept, Ausführungs- und Detailplanung, Projektmappe.",
+      "Mehrfamilienhaus, ca. 2.400 m² BGF. Konzept, Ausführungs- und Detailplanung, Projektmappe.",
   },
   {
     id: 2,
@@ -26,7 +32,7 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    title: "Stadtvilla Gammа",
+    title: "Stadtvilla Gamma",
     description:
       "Einfamilienhaus in Hanglage. Entwurf, Materialisierung und fotorealistische Renders.",
   },
@@ -50,7 +56,7 @@ export const projects: Project[] = [
   },
   {
     id: 7,
-    title: "Lux-haus Eta",
+    title: "Lux-Haus Eta",
     description:
       "Gewerbe im Erdgeschoss, Wohnen darüber. Nutzungskonzept und Ausführungspläne.",
   },
@@ -64,7 +70,7 @@ export const projects: Project[] = [
     id: 9,
     title: "Wohnkomplex Iota",
     description:
-      "Grossprojekt über 2'000 m². Projektmappe nach ZUT, Detail- und Ausführungsplanung.",
+      "Grossprojekt über 2.000 m². Projektmappe nach ZUT, Detail- und Ausführungsplanung.",
   },
   {
     id: 10,
@@ -75,7 +81,10 @@ export const projects: Project[] = [
 ];
 
 export const projectImages = (id: number) =>
-  Array.from({ length: 10 }, (_, i) => `/images/projects/project${id}/${i + 1}.webp`);
+  Array.from(
+    { length: 10 },
+    (_, i) => `/images/projects/project${id}/${i + 1}.webp`,
+  );
 
 export const renderImages = Array.from(
   { length: 150 },
@@ -83,7 +92,7 @@ export const renderImages = Array.from(
 );
 
 export const PROJECT_TYPES = [
-  "Wohngebäude (über 2000 m²)",
+  "Wohngebäude (über 2.000 m²)",
   "Ausführungs- & Detailplanung",
   "High-End 3D-Visualisierung (Twinmotion / D5 Render)",
   "2D-Visualisierung & Planaufbereitung",
