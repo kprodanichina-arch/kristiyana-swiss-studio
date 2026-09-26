@@ -1,4 +1,3 @@
-```tsx
 import { Logo } from "./Logo";
 
 const links = [
@@ -37,5 +36,3 @@ export function Nav() {
     </header>
   );
 }
-```
-
