@@ -23,49 +23,58 @@ export function AboutSection() {
             </p>
 
             <h2 className="mt-4 text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
-              Über ArchiK
+              Architektur mit technischem Anspruch.
             </h2>
 
             <div className="mt-8 space-y-5 text-base leading-7 text-muted-foreground sm:text-lg">
               <p>
                 Ich bin Kristiyana Prodanichina, Architektin und Gründerin von
                 ArchiK. Ich unterstütze Architekturbüros als externe
-                Ansprechpartnerin bei Planungs-, BIM- und
-                Visualisierungsaufgaben – direkt, flexibel und remote.
+                Projektpartnerin bei der digitalen Bearbeitung von
+                Architekturprojekten – remote, flexibel und projektbezogen.
               </p>
 
               <p>
-                Mein Schwerpunkt liegt auf der digitalen Bearbeitung von
-                Architekturprojekten – von der Ausführungs- und Detailplanung
-                bis zur Visualisierung. Dabei arbeite ich strukturiert,
-                projektbezogen und orientiere mich an den bestehenden
-                Standards und Arbeitsabläufen Ihres Büros.
+                Mein Schwerpunkt liegt auf der Ausführungs- und Detailplanung,
+                der Bearbeitung von Grundrissen, Schnitten und Ansichten sowie
+                der architektonischen Visualisierung. Dabei ist mir wichtig,
+                dass Pläne und Modelle nicht nur vollständig, sondern auch
+                nachvollziehbar und direkt in bestehende Arbeitsabläufe
+                integrierbar sind.
               </p>
 
               <p>
-                Aktuell arbeite ich vor allem mit Archicad, Twinmotion und D5
-                Render. Durch meine Erfahrung mit Revit, AutoCAD und weiteren
-                Planungs- und Visualisierungsprogrammen kann ich mich zudem
-                schnell in bestehende Software-Workflows und Projektstrukturen
-                einarbeiten.
+                Ich arbeite aktuell vor allem mit Archicad, Twinmotion und D5
+                Render. Durch meine Erfahrung mit Revit und AutoCAD kann ich
+                mich auch in andere Softwareumgebungen und bestehende
+                Projektstrukturen schnell einarbeiten.
               </p>
 
               <p>
-                ArchiK ist auf die flexible externe Unterstützung von
-                Architekturbüros ausgerichtet – für einzelne Aufgaben,
-                projektbezogene Unterstützung oder zusätzliche Kapazität in
-                laufenden Projekten.
+                ArchiK richtet sich an Architekturbüros, die für einzelne
+                Aufgaben zusätzliche Kapazität benötigen oder Unterstützung
+                während laufender Projekte suchen – ohne dafür dauerhaft
+                zusätzliche Ressourcen aufbauen zu müssen.
               </p>
             </div>
 
-            <a
-              href={CV_PATH}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex text-sm font-medium underline underline-offset-4 transition-opacity hover:opacity-60"
-            >
-              Lebenslauf ansehen
-            </a>
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <a
+                href={CV_PATH}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex text-sm font-medium underline underline-offset-4 transition-opacity hover:opacity-60"
+              >
+                Lebenslauf ansehen
+              </a>
+
+              <a
+                href="#kontakt"
+                className="inline-flex text-sm font-medium text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground"
+              >
+                Projekt anfragen
+              </a>
+            </div>
           </div>
         </div>
       </div>
