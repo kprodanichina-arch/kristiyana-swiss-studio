@@ -5,7 +5,6 @@ const links = [
   { href: "#projekte", label: "Projekte" },
   { href: "#ablauf", label: "Ablauf" },
   { href: "#ueber-mich", label: "Über ArchiK" },
-  { href: "#kontakt", label: "Kontakt" },
 ];
 
 export function Nav() {
@@ -25,12 +24,21 @@ export function Nav() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="relative z-[100000] pointer-events-auto text-xs tracking-wide text-muted-foreground transition-colors hover:text-foreground"
+                className="text-xs tracking-wide text-muted-foreground transition-colors hover:text-foreground"
               >
                 {l.label}
               </a>
             </li>
           ))}
+
+          <li>
+            <a
+              href="#kontakt"
+              className="border border-foreground px-4 py-2 text-xs font-medium tracking-wide text-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
+            >
+              Kontakt
+            </a>
+          </li>
         </ul>
       </nav>
     </header>
