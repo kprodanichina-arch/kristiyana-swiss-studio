@@ -30,24 +30,31 @@ export function AboutSection() {
               <p>
                 Ich bin Kristiyana Prodanichina, Architektin und Gründerin von
                 ArchiK. Ich unterstütze Architekturbüros als externe
-                Ansprechpartnerin bei der Bearbeitung von Planungs-, BIM- und
+                Ansprechpartnerin bei Planungs-, BIM- und
                 Visualisierungsaufgaben – direkt, flexibel und remote.
               </p>
 
               <p>
-                Mein Schwerpunkt liegt auf der digitalen Planung und
-                Bearbeitung von Architekturprojekten. Dabei arbeite ich
-                strukturiert, projektbezogen und mit einem klaren Fokus auf die
-                Anforderungen und bestehenden Arbeitsabläufe des jeweiligen
-                Büros.
+                Mein Schwerpunkt liegt auf der digitalen Bearbeitung von
+                Architekturprojekten – von der Ausführungs- und Detailplanung
+                bis zur Visualisierung. Dabei arbeite ich strukturiert,
+                projektbezogen und orientiere mich an den bestehenden
+                Standards und Arbeitsabläufen Ihres Büros.
               </p>
 
               <p>
                 Aktuell arbeite ich vor allem mit Archicad, Twinmotion und D5
-                Render. Durch meine bisherige Erfahrung mit Revit, AutoCAD und
-                weiteren Planungs- und Visualisierungsprogrammen kann ich mich
-                zudem schnell in bestehende Software-Workflows und
-                Projektstrukturen einarbeiten.
+                Render. Durch meine Erfahrung mit Revit, AutoCAD und weiteren
+                Planungs- und Visualisierungsprogrammen kann ich mich zudem
+                schnell in bestehende Software-Workflows und Projektstrukturen
+                einarbeiten.
+              </p>
+
+              <p>
+                ArchiK ist auf die flexible externe Unterstützung von
+                Architekturbüros ausgerichtet – für einzelne Aufgaben,
+                projektbezogene Unterstützung oder zusätzliche Kapazität in
+                laufenden Projekten.
               </p>
             </div>
 
