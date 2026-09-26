@@ -8,7 +8,6 @@ export function RendersSection() {
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
 
-  // Scans up to 50 render images.
   const { images, loading } = useSequentialImages(
     (i) => `/images/renders/${i}.webp`,
     50,
@@ -82,24 +81,24 @@ export function RendersSection() {
       </p>
 
       <div
-        className="relative mt-10 overflow-hidden"
+        className="relative mt-10 w-full overflow-hidden"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
         style={{ touchAction: "pan-y" }}
       >
         {loading && ordered.length === 0 ? (
-          <div className="aspect-[16/10] w-full animate-pulse bg-muted" />
+          <div className="aspect-[4/3] w-full animate-pulse bg-muted" />
         ) : (
-          <div className="relative">
-            <div className="block w-full overflow-hidden">
+          <div className="relative w-full">
+            <div className="w-full overflow-hidden">
               <FadeImage
-                  src={ordered[currentIndex]}
-                  alt={`Architekturvisualisierung ${currentIndex + 1}`}
-                  wrapperClassName="aspect-[16/10] w-full bg-muted"
-                  className="h-full w-full object-contain"
-                  />
-          </div>
+                src={ordered[currentIndex]}
+                alt={`Architekturvisualisierung ${currentIndex + 1}`}
+                wrapperClassName="w-full bg-muted"
+                className="block h-auto max-h-[75vh] w-full object-contain"
+              />
+            </div>
 
             {ordered.length > 1 && (
               <>
@@ -107,18 +106,22 @@ export function RendersSection() {
                   type="button"
                   onClick={goToPrevious}
                   aria-label="Vorherige Visualisierung"
-                  className="absolute left-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border-0 bg-[#e8dfd2] text-[#343434] shadow-md transition-transform duration-200 hover:scale-105 sm:left-6 sm:h-14 sm:w-14"
+                  className="absolute left-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border-0 bg-[#e8dfd2] p-0 text-[#343434] shadow-md transition-transform duration-200 hover:scale-105 sm:left-6 sm:h-14 sm:w-14"
                 >
-                  <span className="text-2xl font-semibold leading-none">‹</span>
+                  <span className="text-3xl font-semibold leading-none">
+                    ‹
+                  </span>
                 </button>
 
                 <button
                   type="button"
                   onClick={goToNext}
                   aria-label="Nächste Visualisierung"
-                  className="absolute right-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border-0 bg-[#e8dfd2] text-[#343434] shadow-md transition-transform duration-200 hover:scale-105 sm:right-6 sm:h-14 sm:w-14"
+                  className="absolute right-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border-0 bg-[#e8dfd2] p-0 text-[#343434] shadow-md transition-transform duration-200 hover:scale-105 sm:right-6 sm:h-14 sm:w-14"
                 >
-                  <span className="text-2xl font-semibold leading-none">›</span>
+                  <span className="text-3xl font-semibold leading-none">
+                    ›
+                  </span>
                 </button>
               </>
             )}
