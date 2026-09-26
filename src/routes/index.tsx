@@ -1,3 +1,4 @@
+import { AblaufSection } from "@/components/site/AblaufSection";
 import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import { HeroSection } from "@/components/site/HeroSection";
@@ -36,6 +37,7 @@ function Index() {
       <main>
         <HeroSection />
         <LeistungenSection />
+        <AblaufSection />
         <AboutSection />
         <ExperienceSection />
         <ProjectsSection />
