@@ -1,141 +1,232 @@
-import { useEffect, useRef, useState } from "react";
-import { useSequentialImages } from "@/lib/useImageProbe";
-import { FadeImage } from "@/components/FadeImage";
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
 
-export function RendersSection() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+@custom-variant dark (&:is(.dark *));
 
-  const touchStartX = useRef<number | null>(null);
-  const touchEndX = useRef<number | null>(null);
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 
-  const { images, loading } = useSequentialImages(
-    (i) => `/images/renders/${i}.webp`,
-    50,
-    8,
-  );
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
 
-  const ordered = [...images].sort((a, b) => {
-    const n = (s: string) => Number(s.match(/(\d+)\.webp$/)?.[1] ?? 0);
-    return n(b) - n(a);
-  });
+  --font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  useEffect(() => {
-    if (currentIndex >= ordered.length && ordered.length > 0) {
-      setCurrentIndex(ordered.length - 1);
-    }
-  }, [ordered.length, currentIndex]);
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.03);
+  --shadow-lift: 0 10px 40px rgba(0, 0, 0, 0.07);
+}
 
-  if (!loading && ordered.length === 0) return null;
+:root {
+  --radius: 0.25rem;
 
-  const goToPrevious = () => {
-    setCurrentIndex((index) =>
-      index === 0 ? ordered.length - 1 : index - 1,
-    );
-  };
+  --background: oklch(0.9825 0.0015 264);
+  --foreground: oklch(0.205 0.005 264);
 
-  const goToNext = () => {
-    setCurrentIndex((index) =>
-      index === ordered.length - 1 ? 0 : index + 1,
-    );
-  };
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.205 0.005 264);
 
-  const handleTouchStart = (event: React.TouchEvent) => {
-    touchStartX.current = event.touches[0].clientX;
-    touchEndX.current = null;
-  };
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.205 0.005 264);
 
-  const handleTouchMove = (event: React.TouchEvent) => {
-    touchEndX.current = event.touches[0].clientX;
-  };
+  --primary: oklch(0.205 0.005 264);
+  --primary-foreground: oklch(1 0 0);
 
-  const handleTouchEnd = () => {
-    if (touchStartX.current === null || touchEndX.current === null) return;
+  --secondary: oklch(0.97 0.001 264);
+  --secondary-foreground: oklch(0.205 0.005 264);
 
-    const distance = touchStartX.current - touchEndX.current;
+  --muted: oklch(0.955 0.001 264);
+  --muted-foreground: oklch(0.545 0.008 264);
 
-    if (Math.abs(distance) > 50) {
-      if (distance > 0) {
-        goToNext();
-      } else {
-        goToPrevious();
-      }
-    }
+  --accent: oklch(0.955 0.001 264);
+  --accent-foreground: oklch(0.205 0.005 264);
 
-    touchStartX.current = null;
-    touchEndX.current = null;
-  };
+  --destructive: oklch(0.577 0.245 27.325);
 
-  return (
-    <section
-      id="visualisierungen"
-      className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24"
-    >
-      <p className="eyebrow">05 — Visualisierung</p>
+  --border: oklch(0.918 0.002 264);
+  --input: oklch(0.918 0.002 264);
 
-      <h2 className="mt-4 text-2xl font-medium tracking-tight sm:text-4xl">
-        Visualisierungen &amp; Renders
-      </h2>
+  --ring: oklch(0.6 0.008 264);
+}
 
-      <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-        Ein Einblick in meine laufenden kreativen und fotorealistischen Arbeiten.
-      </p>
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
 
-      <div
-        className="relative mt-10 w-full overflow-hidden"
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-        style={{ touchAction: "pan-y" }}
-      >
-        {loading && ordered.length === 0 ? (
-          <div className="aspect-[4/3] w-full animate-pulse bg-muted" />
-        ) : (
-          <div className="relative w-full">
-            <div className="w-full overflow-hidden">
-              <FadeImage
-                src={ordered[currentIndex]}
-                alt={`Architekturvisualisierung ${currentIndex + 1}`}
-                wrapperClassName="w-full bg-muted"
-                className="block h-auto max-h-[75vh] w-full object-contain"
-              />
-            </div>
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
 
-            {ordered.length > 1 && (
-              <>
-                <button
-                  type="button"
-                  onClick={goToPrevious}
-                  aria-label="Vorherige Visualisierung"
-                  className="absolute left-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border-0 bg-[#e8dfd2] p-0 text-[#343434] shadow-md transition-transform duration-200 hover:scale-105 sm:left-6 sm:h-14 sm:w-14"
-                >
-                  <span className="text-3xl font-semibold leading-none">
-                    ‹
-                  </span>
-                </button>
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
 
-                <button
-                  type="button"
-                  onClick={goToNext}
-                  aria-label="Nächste Visualisierung"
-                  className="absolute right-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border-0 bg-[#e8dfd2] p-0 text-[#343434] shadow-md transition-transform duration-200 hover:scale-105 sm:right-6 sm:h-14 sm:w-14"
-                >
-                  <span className="text-3xl font-semibold leading-none">
-                    ›
-                  </span>
-                </button>
-              </>
-            )}
-          </div>
-        )}
-      </div>
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
 
-      {ordered.length > 0 && (
-        <div className="mt-4 flex items-center justify-center">
-          <span className="text-xs tracking-[0.12em] text-muted-foreground">
-            {currentIndex + 1} / {ordered.length}
-          </span>
-        </div>
-      )}
-    </section>
-  );
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+
+  --destructive: oklch(0.704 0.191 22.216);
+
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+
+  --ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    position: relative !important;
+  }
+}
+
+@utility panel {
+  background-color: #ffffff;
+  box-shadow: var(--shadow-soft);
+  border-radius: var(--radius);
+}
+
+@utility eyebrow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+/* --- Глобален прозрачен параван над целия уебсайт --- */
+body::after {
+  content: "" !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: transparent !important;
+  z-index: 9999 !important;
+  pointer-events: none !important;
+}
+
+/* Интерактивни елементи над паравана */
+button,
+a,
+input,
+textarea,
+select,
+#projekte article button {
+  position: relative !important;
+  z-index: 100000 !important;
+  pointer-events: auto !important;
+}
+
+/* --- Защита на изображенията --- */
+img {
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  pointer-events: none !important;
+  -webkit-user-drag: none !important;
+}
+
+img[src*="projects"] {
+  filter: contrast(0.92) brightness(1.02) blur(0.3px) !important;
+  mix-blend-mode: multiply;
+}
+
+article:has(img[src*="projects"]) {
+  position: relative !important;
+}
+
+@layer utilities {
+  /* Стрелки в Projects */
+  #projekte article button.carousel-btn-left,
+  #projekte article button.carousel-btn-right {
+    display: flex !important;
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: rgba(28, 26, 23, 0.82) !important;
+    color: #efeae1 !important;
+    border-radius: 0px !important;
+    width: 46px !important;
+    height: 84px !important;
+    z-index: 100000 !important;
+  }
+
+  #projekte article button.carousel-btn-left {
+    left: 0px !important;
+  }
+
+  #projekte article button.carousel-btn-right {
+    right: 0px !important;
+  }
+
+  #projekte img {
+    pointer-events: none !important;
+  }
+
+  #projekte article {
+    pointer-events: auto !important;
+  }
+}
+
+/* --- Renders carousel arrows --- */
+#visualisierungen button {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 20 !important;
+}
+
+#visualisierungen button:first-of-type {
+  left: 1rem !important;
+  right: auto !important;
+}
+
+#visualisierungen button:last-of-type {
+  right: 1rem !important;
+  left: auto !important;
+}
+
+@media (min-width: 640px) {
+  #visualisierungen button:first-of-type {
+    left: 1.5rem !important;
+  }
+
+  #visualisierungen button:last-of-type {
+    right: 1.5rem !important;
+  }
 }
