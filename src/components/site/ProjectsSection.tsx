@@ -124,7 +124,7 @@ const gallerySections: GallerySection[] = [
     title: "Fotorealistische Renderings",
     description:
       "Fotorealistische Architekturvisualisierungen für Präsentationen, Projektkommunikation und die überzeugende Darstellung von Architektur.",
-    price: "Stundensatz ab 55 €",
+    price: "Preis pro Visualisierung: 250–450 €",
     images: Array.from({ length: 47 }, (_, index) =>
       renderImage(index + 1),
     ),
