@@ -176,13 +176,76 @@ function DatenschutzPage() {
 
           <section>
             <h2 className="text-lg font-medium text-foreground">
-              6. Cookies und Tracking
+              6. Google Analytics
             </h2>
 
             <p className="mt-4">
-              Diese Website verwendet derzeit keine nicht notwendigen
-              Tracking- oder Marketing-Cookies und keine Analysewerkzeuge zur
-              Erstellung von Nutzerprofilen.
+              Diese Website verwendet Google Analytics 4, einen
+              Webanalysedienst der Google Ireland Limited, Gordon House,
+              Barrow Street, Dublin 4, Irland.
+            </p>
+
+            <p className="mt-4">
+              Google Analytics wird verwendet, um die Nutzung dieser Website
+              statistisch auszuwerten und besser zu verstehen, wie Besucher
+              auf die Website gelangen und welche Inhalte aufgerufen werden.
+            </p>
+
+            <p className="mt-4">
+              Google Analytics wird auf dieser Website nur aktiviert, wenn Sie
+              über das angezeigte Einwilligungsbanner ausdrücklich zugestimmt
+              haben. Wenn Sie die Analyse ablehnen, wird Google Analytics nicht
+              geladen.
+            </p>
+
+            <p className="mt-4">
+              Die Einwilligungsentscheidung wird auf Ihrem Gerät gespeichert,
+              damit Ihre Auswahl bei späteren Besuchen berücksichtigt werden
+              kann.
+            </p>
+
+            <p className="mt-4">
+              Google verarbeitet im Rahmen von Google Analytics insbesondere
+              Informationen über die Nutzung der Website, beispielsweise
+              Seitenaufrufe, Interaktionen, technische Informationen zum
+              verwendeten Gerät und Browser sowie Informationen über die
+              Herkunft des Besuchs.
+            </p>
+
+            <p className="mt-4">
+              Die Verarbeitung erfolgt nur auf Grundlage Ihrer Einwilligung.
+              Rechtsgrundlage ist, soweit die DSGVO Anwendung findet, Art. 6
+              Abs. 1 lit. a DSGVO.
+            </p>
+
+            <p className="mt-4">
+              Sie können Ihre Einwilligung jederzeit widerrufen, indem Sie die
+              gespeicherte Einwilligungsentscheidung in den Einstellungen Ihres
+              Browsers löschen und die Website anschließend erneut aufrufen.
+            </p>
+
+            <p className="mt-4">
+              Weitere Informationen zur Verarbeitung personenbezogener Daten
+              durch Google Analytics und zu den verfügbaren
+              Datenschutzkontrollen finden Sie in den Datenschutzinformationen
+              von Google.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-medium text-foreground">
+              7. Cookies und Einwilligung
+            </h2>
+
+            <p className="mt-4">
+              Google Analytics kann Analyse-Cookies und vergleichbare
+              Technologien verwenden. Diese werden auf dieser Website erst
+              nach einer ausdrücklichen Einwilligung für die Analyse aktiviert.
+            </p>
+
+            <p className="mt-4">
+              Ohne Einwilligung wird Google Analytics nicht geladen und es
+              werden keine Analyse-Cookies durch Google Analytics gesetzt.
             </p>
 
             <p className="mt-4">
@@ -194,7 +257,7 @@ function DatenschutzPage() {
 
           <section>
             <h2 className="text-lg font-medium text-foreground">
-              7. Ihre Rechte
+              8. Ihre Rechte
             </h2>
 
             <p className="mt-4">
@@ -219,7 +282,7 @@ function DatenschutzPage() {
 
           <section>
             <h2 className="text-lg font-medium text-foreground">
-              8. Speicherdauer
+              9. Speicherdauer
             </h2>
 
             <p className="mt-4">
@@ -227,11 +290,17 @@ function DatenschutzPage() {
               für die jeweiligen Zwecke erforderlich ist oder gesetzliche
               Aufbewahrungspflichten bestehen.
             </p>
+
+            <p className="mt-4">
+              Für Google Analytics kann die Speicherdauer der von Google
+              verarbeiteten Daten über die Einstellungen der jeweiligen
+              Analytics-Property festgelegt werden.
+            </p>
           </section>
 
           <section>
             <h2 className="text-lg font-medium text-foreground">
-              9. Änderungen dieser Datenschutzerklärung
+              10. Änderungen dieser Datenschutzerklärung
             </h2>
 
             <p className="mt-4">
