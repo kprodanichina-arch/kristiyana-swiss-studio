@@ -37,11 +37,11 @@ function Index() {
       <main>
         <HeroSection />
         <LeistungenSection />
+        <ProjectsSection />
+        <RendersSection />
         <AblaufSection />
         <AboutSection />
         <ExperienceSection />
-        <ProjectsSection />
-        <RendersSection />
         <BenefitsSection />
         <ContactSection />
       </main>
