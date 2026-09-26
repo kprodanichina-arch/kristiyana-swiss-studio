@@ -6,7 +6,6 @@ import { LeistungenSection } from "@/components/site/LeistungenSection";
 import { AboutSection } from "@/components/site/AboutSection";
 import { ExperienceSection } from "@/components/site/ExperienceSection";
 import { ProjectsSection } from "@/components/site/ProjectsSection";
-import { RendersSection } from "@/components/site/RendersSection";
 import { BenefitsSection } from "@/components/site/BenefitsSection";
 import { ContactSection } from "@/components/site/ContactSection";
 import { Footer } from "@/components/site/Footer";
@@ -38,7 +37,6 @@ function Index() {
         <HeroSection />
         <LeistungenSection />
         <ProjectsSection />
-        <RendersSection />
         <AblaufSection />
         <AboutSection />
         <ContactSection />
