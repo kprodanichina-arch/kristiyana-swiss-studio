@@ -17,16 +17,18 @@ function NotFoundComponent() {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">
+          Seite nicht gefunden
+        </h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+          Die gesuchte Seite existiert nicht oder wurde verschoben.
         </p>
         <div className="mt-6">
           <Link
             to="/"
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Go home
+            Zur Startseite
           </Link>
         </div>
       </div>
@@ -34,9 +36,16 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({
+  error,
+  reset,
+}: {
+  error: Error;
+  reset: () => void;
+}) {
   console.error(error);
   const router = useRouter();
+
   useEffect(() => {
     reportLovableError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
@@ -45,11 +54,13 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
+          Die Seite konnte nicht geladen werden
         </h1>
+
         <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+          Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
         </p>
+
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
             onClick={() => {
@@ -58,13 +69,14 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
             }}
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Try again
+            Erneut versuchen
           </button>
+
           <a
             href="/"
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
-            Go home
+            Zur Startseite
           </a>
         </div>
       </div>
@@ -72,53 +84,146 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
-export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
-      // Front-end security hardening
-      { name: "referrer", content: "strict-origin-when-cross-origin" },
-      {
-        "http-equiv": "Content-Security-Policy",
-        content: "frame-ancestors 'self'",
-      },
-      { "http-equiv": "X-Content-Type-Options", content: "nosniff" },
-    ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap",
-      },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
-    ],
-  }),
-  shellComponent: RootShell,
-  component: RootComponent,
-  notFoundComponent: NotFoundComponent,
-  errorComponent: ErrorComponent,
-});
+export const Route =
+  createRootRouteWithContext<{ queryClient: QueryClient }>()({
+    head: () => ({
+      meta: [
+        { charSet: "utf-8" },
+        {
+          name: "viewport",
+          content: "width=device-width, initial-scale=1",
+        },
+
+        {
+          title:
+            "ArchiK | BIM- und Architekturleistungen für Architekturbüros",
+        },
+
+        {
+          name: "description",
+          content:
+            "ArchiK unterstützt Architekturbüros in Deutschland, Österreich und der Schweiz mit BIM-Modellierung, Planungsdokumentation, IFC und Architekturvisualisierung.",
+        },
+
+        {
+          name: "author",
+          content: "ArchiK",
+        },
+
+        {
+          name: "robots",
+          content: "index, follow",
+        },
+
+        {
+          property: "og:title",
+          content:
+            "ArchiK | BIM- und Architekturleistungen für Architekturbüros",
+        },
+
+        {
+          property: "og:description",
+          content:
+            "BIM- und Architekturleistungen für Architekturbüros in Deutschland, Österreich und der Schweiz.",
+        },
+
+        {
+          property: "og:type",
+          content: "website",
+        },
+
+        {
+          property: "og:url",
+          content: "https://archikprojekt.com/",
+        },
+
+        {
+          property: "og:site_name",
+          content: "ArchiK",
+        },
+
+        {
+          name: "twitter:card",
+          content: "summary_large_image",
+        },
+
+        {
+          name: "twitter:title",
+          content:
+            "ArchiK | BIM- und Architekturleistungen für Architekturbüros",
+        },
+
+        {
+          name: "twitter:description",
+          content:
+            "BIM- und Architekturleistungen für Architekturbüros in Deutschland, Österreich und der Schweiz.",
+        },
+
+        {
+          name: "referrer",
+          content: "strict-origin-when-cross-origin",
+        },
+
+        {
+          "http-equiv": "Content-Security-Policy",
+          content: "frame-ancestors 'self'",
+        },
+
+        {
+          "http-equiv": "X-Content-Type-Options",
+          content: "nosniff",
+        },
+      ],
+
+      links: [
+        {
+          rel: "stylesheet",
+          href: appCss,
+        },
+
+        {
+          rel: "preconnect",
+          href: "https://fonts.googleapis.com",
+        },
+
+        {
+          rel: "preconnect",
+          href: "https://fonts.gstatic.com",
+          crossOrigin: "anonymous",
+        },
+
+        {
+          rel: "stylesheet",
+          href:
+            "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap",
+        },
+
+        {
+          rel: "icon",
+          href: "/favicon.ico",
+          type: "image/x-icon",
+        },
+
+        {
+          rel: "canonical",
+          href: "https://archikprojekt.com/",
+        },
+      ],
+    }),
+
+    shellComponent: RootShell,
+    component: RootComponent,
+    notFoundComponent: NotFoundComponent,
+    errorComponent: ErrorComponent,
+  });
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="de">
       <head>
         <HeadContent />
       </head>
+
       <body>
         {children}
         <Scripts />
@@ -130,22 +235,30 @@ function RootShell({ children }: { children: ReactNode }) {
 function useImageProtection() {
   useEffect(() => {
     const isImage = (t: EventTarget | null) =>
-      t instanceof HTMLElement && (t.tagName === "IMG" || t.closest("[data-protect-image]"));
+      t instanceof HTMLElement &&
+      (t.tagName === "IMG" || t.closest("[data-protect-image]"));
 
-    // Global right-click block, except in form fields so clients keep
-    // copy/paste and spellcheck while filling out the contact form.
     const isFormField = (t: EventTarget | null) =>
       t instanceof HTMLElement &&
-      (t.closest("input, textarea, select, [contenteditable='true']") !== null);
+      t.closest(
+        "input, textarea, select, [contenteditable='true']",
+      ) !== null;
 
     const onContextMenu = (e: MouseEvent) => {
-      if (!isFormField(e.target)) e.preventDefault();
+      if (!isFormField(e.target)) {
+        e.preventDefault();
+      }
     };
+
     const onDragStart = (e: DragEvent) => {
-      if (isImage(e.target)) e.preventDefault();
+      if (isImage(e.target)) {
+        e.preventDefault();
+      }
     };
+
     document.addEventListener("contextmenu", onContextMenu);
     document.addEventListener("dragstart", onDragStart);
+
     return () => {
       document.removeEventListener("contextmenu", onContextMenu);
       document.removeEventListener("dragstart", onDragStart);
@@ -155,13 +268,16 @@ function useImageProtection() {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
   useImageProtection();
 
   // Strict B2B Geo-blocking for restricted regions (Bulgaria)
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    if (tz === 'Europe/Sofia' || tz.includes('Sofia')) {
-      window.stop(); // Спира изтеглянето на чертежите от GitHub папките на мига
+
+    if (tz === "Europe/Sofia" || tz.includes("Sofia")) {
+      window.stop();
+
       document.documentElement.innerHTML = `
         <div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#fbfbfb;color:#888888;font-family:sans-serif;font-size:14px;letter-spacing:0.15em;text-transform:uppercase;text-align:center;width:100vw;position:fixed;top:0;left:0;z-index:999999;">
           <div style="border:1px solid #e5e5e5;padding:20px 40px;background:#ffffff;box-shadow:0 4px 20px rgba(0,0,0,0.02);">
@@ -169,15 +285,14 @@ function RootComponent() {
           </div>
         </div>
       `;
+
       return null;
     }
   }
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
   );
 }
-
