@@ -1,3 +1,4 @@
+import { LeistungenSection } from "@/components/site/LeistungenSection";
 import { HeroSection } from "@/components/site/HeroSection";
 import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
