@@ -45,7 +45,7 @@ export function ContactSection() {
       id="kontakt"
       className="mx-auto max-w-6xl px-5 pb-24 pt-16 sm:px-8 sm:pt-24"
     >
-      <p className="eyebrow">06 — Kontakt</p>
+      <p className="eyebrow">07 — Kontakt</p>
 
       <h1 className="mt-4 max-w-3xl text-3xl font-medium tracking-tight sm:text-5xl">
         Projekt anfragen
