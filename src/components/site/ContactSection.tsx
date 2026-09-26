@@ -1,4 +1,3 @@
-import { useState, type FormEvent } from "react";
 import { Mail, Linkedin, Download, ArrowUpRight } from "lucide-react";
 import {
   CV_PATH,
@@ -13,9 +12,7 @@ import { WhatsAppIcon } from "./icons";
 import { Logo } from "./Logo";
 
 export function ContactSection() {
-  const [sent, setSent] = useState(false);
-
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const data = new FormData(e.currentTarget);
@@ -30,11 +27,12 @@ export function ContactSection() {
       String(data.get("message") ?? ""),
     ].join("\n");
 
-    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(
-      "B2B-Anfrage – " + String(data.get("company") || "ArchiK"),
-    )}&body=${encodeURIComponent(body)}`;
+    const subject =
+      "B2B-Anfrage – " + String(data.get("company") || "ArchiK");
 
-    setSent(true);
+    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(
+      subject,
+    )}&body=${encodeURIComponent(body)}`;
   };
 
   const field =
@@ -133,19 +131,14 @@ export function ContactSection() {
             type="submit"
             className="mt-6 w-full bg-primary px-6 py-4 text-xs font-medium uppercase tracking-[0.18em] text-primary-foreground transition-opacity hover:opacity-85"
           >
-            Anfrage vorbereiten
+            E-Mail-Anfrage erstellen
           </button>
 
           <p className="mt-5 text-[11px] leading-relaxed tracking-wide text-muted-foreground">
-            Nach dem Absenden wird Ihr E-Mail-Programm geöffnet und eine
-            vorbereitete Nachricht an ArchiK erstellt.
+            Beim Absenden wird eine vorbereitete E-Mail mit Ihren Angaben
+            erstellt. Sie können diese anschließend über Ihr eigenes
+            E-Mail-Programm prüfen und versenden.
           </p>
-
-          {sent && (
-            <p className="mt-4 text-xs text-muted-foreground">
-              Ihr E-Mail-Programm wurde geöffnet. Vielen Dank für Ihre Anfrage.
-            </p>
-          )}
         </form>
 
         <div className="panel flex flex-col justify-between p-7 sm:p-10">
@@ -162,6 +155,7 @@ export function ContactSection() {
                 >
                   <span className="flex items-center gap-4">
                     <Mail className="h-4 w-4 text-muted-foreground" />
+
                     <span className="text-sm">{EMAIL}</span>
                   </span>
 
