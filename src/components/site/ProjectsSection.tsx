@@ -123,7 +123,7 @@ export function ProjectsSection() {
 
   return (
     <section id="projekte" className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
-      <p className="eyebrow">04 — Portfolio</p>
+      <p className="eyebrow">02 — Portfolio</p>
       <h2 className="mt-4 text-2xl font-medium tracking-tight sm:text-4xl">
         Architektur-Projekte
       </h2>
