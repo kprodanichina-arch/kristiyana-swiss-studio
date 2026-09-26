@@ -6,31 +6,34 @@ import {
   LINKEDIN,
   PHONE_DISPLAY,
   WHATSAPP_HREF,
-  VIBER_HREF,
   PROJECT_TYPES,
 } from "./data";
 
-import { WhatsAppIcon, ViberIcon } from "./icons";
+import { WhatsAppIcon } from "./icons";
 import { Logo } from "./Logo";
-
 
 export function ContactSection() {
   const [sent, setSent] = useState(false);
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     const data = new FormData(e.currentTarget);
+
     const body = [
       `Name: ${data.get("name")}`,
       `Firma: ${data.get("company")}`,
       `E-Mail: ${data.get("email")}`,
       `Projektart: ${data.get("type")}`,
+      `Zeitrahmen: ${data.get("timeframe")}`,
       "",
       String(data.get("message") ?? ""),
     ].join("\n");
+
     window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(
-      "B2B-Anfrage – " + String(data.get("company") ?? ""),
+      "B2B-Anfrage – " + String(data.get("company") || "ArchiK"),
     )}&body=${encodeURIComponent(body)}`;
+
     setSent(true);
   };
 
@@ -38,50 +41,100 @@ export function ContactSection() {
     "w-full border border-border bg-white px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-foreground";
 
   return (
-    <section id="kontakt" className="mx-auto max-w-6xl px-5 pb-24 pt-16 sm:px-8 sm:pt-24">
+    <section
+      id="kontakt"
+      className="mx-auto max-w-6xl px-5 pb-24 pt-16 sm:px-8 sm:pt-24"
+    >
       <p className="eyebrow">01 — Kontakt</p>
+
       <h1 className="mt-4 max-w-3xl text-3xl font-medium tracking-tight sm:text-5xl">
-        Kontakt &amp; B2B-Zusammenarbeit
+        Projekt anfragen
       </h1>
+
+      <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+        Sie suchen kurzfristig zusätzliche Unterstützung oder möchten ein
+        Projekt extern bearbeiten lassen? Beschreiben Sie kurz Ihre
+        Anforderungen – ich melde mich direkt bei Ihnen.
+      </p>
 
       <div className="mt-12 grid gap-8 lg:grid-cols-2">
         <form onSubmit={onSubmit} className="panel p-7 sm:p-10">
           <div className="grid gap-4">
-            <input name="name" required placeholder="Name" className={field} />
-            <input name="company" placeholder="Firma" className={field} />
+            <input
+              name="name"
+              required
+              placeholder="Name *"
+              className={field}
+            />
+
+            <input
+              name="company"
+              placeholder="Architekturbüro / Firma"
+              className={field}
+            />
+
             <input
               name="email"
               type="email"
               required
-              placeholder="E-Mail"
+              placeholder="E-Mail *"
               className={field}
             />
-            <select name="type" defaultValue="" className={`${field} appearance-none`}>
+
+            <select
+              name="type"
+              defaultValue=""
+              required
+              className={`${field} appearance-none`}
+            >
               <option value="" disabled>
-                Projektart wählen
+                Projektart wählen *
               </option>
+
               {PROJECT_TYPES.map((t) => (
                 <option key={t} value={t}>
                   {t}
                 </option>
               ))}
             </select>
+
+            <select
+              name="timeframe"
+              defaultValue=""
+              className={`${field} appearance-none`}
+            >
+              <option value="" disabled>
+                Gewünschter Zeitraum
+              </option>
+              <option value="Kurzfristig">Kurzfristig</option>
+              <option value="In den nächsten Wochen">
+                In den nächsten Wochen
+              </option>
+              <option value="Laufende Unterstützung">
+                Laufende Unterstützung
+              </option>
+              <option value="Noch offen">Noch offen</option>
+            </select>
+
             <textarea
               name="message"
-              rows={5}
-              placeholder="Nachricht"
+              rows={6}
+              placeholder="Kurzbeschreibung des Projekts oder der benötigten Unterstützung"
               className={`${field} resize-none`}
             />
           </div>
+
           <button
             type="submit"
             className="mt-6 w-full bg-primary px-6 py-4 text-xs font-medium uppercase tracking-[0.18em] text-primary-foreground transition-opacity hover:opacity-85"
           >
             Anfrage senden
           </button>
-          <p className="mt-5 inline-block border border-border px-3 py-2 text-[11px] tracking-wide text-muted-foreground">
-            Professionelle B2B-Abwicklung mit ordnungsgemässer Rechnungsstellung.
+
+          <p className="mt-5 text-[11px] leading-relaxed tracking-wide text-muted-foreground">
+            Die Anfrage wird über Ihr E-Mail-Programm an ArchiK übermittelt.
           </p>
+
           {sent && (
             <p className="mt-4 text-xs text-muted-foreground">
               Ihr E-Mail-Programm wurde geöffnet. Vielen Dank für Ihre Anfrage.
@@ -92,7 +145,9 @@ export function ContactSection() {
         <div className="panel flex flex-col justify-between p-7 sm:p-10">
           <div>
             <Logo className="mb-8 h-24 w-auto sm:h-[150px]" />
+
             <p className="eyebrow">Direkter Kontakt</p>
+
             <ul className="mt-8 divide-y divide-border">
               <li>
                 <a
@@ -103,43 +158,31 @@ export function ContactSection() {
                     <Mail className="h-4 w-4 text-muted-foreground" />
                     <span className="text-sm">{EMAIL}</span>
                   </span>
+
                   <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5" />
                 </a>
               </li>
+
               <li className="flex items-center justify-between gap-4 py-5">
                 <span className="flex items-center gap-4">
                   <WhatsAppIcon className="h-4 w-4 text-muted-foreground" />
-                  <span className="text-sm">WhatsApp {PHONE_DISPLAY}</span>
+                  <span className="text-sm">
+                    WhatsApp {PHONE_DISPLAY}
+                  </span>
                 </span>
-                <div className="flex items-center gap-2">
-                  <a
-                    href={WHATSAPP_HREF}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group inline-flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-foreground"
-                    aria-label="WhatsApp öffnen"
-                  >
-                    Chat
-                    <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5" />
-                  </a>
-                </div>
+
+                <a
+                  href={WHATSAPP_HREF}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group inline-flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-foreground"
+                  aria-label="WhatsApp öffnen"
+                >
+                  Chat
+                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5" />
+                </a>
               </li>
-              <li className="flex items-center justify-between gap-4 py-5">
-                <span className="flex items-center gap-4">
-                  <ViberIcon className="h-4 w-4 text-muted-foreground" />
-                  <span className="text-sm">Viber {PHONE_DISPLAY}</span>
-                </span>
-                <div className="flex items-center gap-2">
-                  <a
-                    href={VIBER_HREF}
-                    className="group inline-flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-foreground"
-                    aria-label="Viber öffnen"
-                  >
-                    Chat
-                    <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5" />
-                  </a>
-                </div>
-              </li>
+
               <li>
                 <a
                   href={LINKEDIN}
@@ -149,8 +192,11 @@ export function ContactSection() {
                 >
                   <span className="flex items-center gap-4">
                     <Linkedin className="h-4 w-4 text-muted-foreground" />
-                    <span className="text-sm">Kristiyana Prodanichina</span>
+                    <span className="text-sm">
+                      Kristiyana Prodanichina
+                    </span>
                   </span>
+
                   <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5" />
                 </a>
               </li>
