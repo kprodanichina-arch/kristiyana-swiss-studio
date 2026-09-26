@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 type GalleryImage = {
   src: string;
@@ -6,7 +6,6 @@ type GalleryImage = {
 };
 
 type GallerySection = {
-  id: string;
   eyebrow: string;
   title: string;
   description: string;
@@ -14,53 +13,67 @@ type GallerySection = {
   images: GalleryImage[];
 };
 
-const image = (project: number, number: number, alt: string): GalleryImage => ({
+const image = (
+  project: number,
+  number: number,
+  alt: string,
+): GalleryImage => ({
   src: `/images/projects/project${project}/${number}.webp`,
   alt,
 });
 
+const shuffle = <T,>(array: T[]): T[] => {
+  const shuffled = [...array];
+
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  return shuffled;
+};
+
 const gallerySections: GallerySection[] = [
   {
-    id: "ausfuehrungsplanung",
     eyebrow: "02 — Ausführungsplanung",
     title: "Technische Planung & Dokumentation",
     description:
-      "Ausführungs- und Detailplanung für Architekturprojekte – von Grundrissen, Schnitten und Dachplänen bis zur detaillierten Planaufbereitung.",
+      "Ausführungs- und Detailplanung für Architekturprojekte – von der Bearbeitung von Grundrissen, Schnitten und Ansichten bis zur detaillierten Planaufbereitung.",
     price: "Stundensatz ab 55 €",
     images: [
       image(1, 2, "Grundriss – Ausführungsplanung"),
       image(1, 3, "Grundriss – Ausführungsplanung"),
       image(1, 5, "Schnitt – Ausführungsplanung"),
-      image(1, 6, "Fensterplanung – Ausführungsplanung"),
+      image(1, 6, "Fensterdetail – Ausführungsplanung"),
 
       image(2, 2, "Grundriss – Ausführungsplanung"),
       image(2, 3, "Grundriss – Ausführungsplanung"),
-      image(2, 4, "Dachplan – Ausführungsplanung"),
+      image(2, 4, "Dachaufsicht – Ausführungsplanung"),
       image(2, 6, "Schnitt – Ausführungsplanung"),
 
       image(3, 2, "Grundriss – Ausführungsplanung"),
-      image(3, 3, "Dachplan – Ausführungsplanung"),
+      image(3, 3, "Dachaufsicht – Ausführungsplanung"),
       image(3, 4, "Schnitt – Ausführungsplanung"),
-      image(3, 5, "Fensterplanung – Ausführungsplanung"),
+      image(3, 5, "Fensterdetail – Ausführungsplanung"),
 
       image(4, 2, "Schnitt – Ausführungsplanung"),
       image(4, 3, "Grundriss – Ausführungsplanung"),
-      image(4, 4, "Dachplan – Ausführungsplanung"),
+      image(4, 4, "Dachaufsicht – Ausführungsplanung"),
 
       image(5, 3, "Grundriss – Ausführungsplanung"),
-      image(5, 4, "Dachplan – Ausführungsplanung"),
+      image(5, 4, "Dachaufsicht – Ausführungsplanung"),
       image(5, 5, "Schnitt – Ausführungsplanung"),
-      image(5, 6, "Fensterplanung – Ausführungsplanung"),
+      image(5, 6, "Fensterdetail – Ausführungsplanung"),
 
       image(6, 3, "Grundriss – Ausführungsplanung"),
       image(6, 4, "Schnitt – Ausführungsplanung"),
-      image(6, 5, "Dachplan – Ausführungsplanung"),
-      image(6, 6, "Fensterplanung – Ausführungsplanung"),
+      image(6, 5, "Dachaufsicht – Ausführungsplanung"),
+      image(6, 6, "Fensterdetail – Ausführungsplanung"),
 
       image(7, 2, "Grundriss – Ausführungsplanung"),
-      image(7, 3, "Dachplan – Ausführungsplanung"),
+      image(7, 3, "Dachaufsicht – Ausführungsplanung"),
       image(7, 4, "Schnitt – Ausführungsplanung"),
-      image(7, 5, "Fensterplanung – Ausführungsplanung"),
+      image(7, 5, "Fensterdetail – Ausführungsplanung"),
 
       image(8, 4, "Grundriss – Ausführungsplanung"),
       image(8, 5, "Grundriss – Ausführungsplanung"),
@@ -73,35 +86,38 @@ const gallerySections: GallerySection[] = [
   },
 
   {
-    id: "fassaden",
     eyebrow: "03 — Fassaden & Details",
     title: "Fassadenplanung & architektonische Details",
     description:
-      "Bearbeitung von Fassaden, Ansichten und ausgewählten architektonischen Details für eine klare und präzise Planungsdarstellung.",
+      "Fassaden, Ansichten und ausgewählte architektonische Details aus verschiedenen Projekten.",
     price: "Stundensatz ab 55 €",
     images: [
-      image(1, 4, "Fassadenansicht – Architekturplanung"),
-      image(2, 5, "Fassadenansicht – Architekturplanung"),
-      image(3, 1, "Fassadenansicht – Architekturplanung"),
-      image(4, 1, "Fassadenansicht – Architekturplanung"),
-      image(5, 1, "Fassadenansicht – Architekturplanung"),
-      image(5, 2, "Fassadenansicht – Architekturplanung"),
-      image(6, 1, "Fassadenansicht – Architekturplanung"),
-      image(6, 2, "Fassadenansicht – Architekturplanung"),
-      image(7, 1, "Fassadenansicht – Architekturplanung"),
-      image(8, 2, "Fassadenansicht – Architekturplanung"),
-      image(8, 3, "Fassadenansicht – Architekturplanung"),
-      image(9, 3, "Fassadenansicht – Architekturplanung"),
-      image(9, 6, "Fassadenansicht – Architekturplanung"),
+      image(1, 4, "Fassadenansicht"),
+      image(2, 5, "Fassadenansicht"),
+
+      image(3, 1, "Fassadenansicht"),
+      image(4, 1, "Fassadenansicht"),
+
+      image(5, 1, "Fassadenansicht"),
+      image(5, 2, "Fassadenansicht"),
+
+      image(6, 1, "Fassadenansicht"),
+      image(6, 2, "Fassadenansicht"),
+
+      image(7, 1, "Fassadenansicht"),
+      image(8, 2, "Fassadenansicht"),
+      image(8, 3, "Fassadenansicht"),
+
+      image(9, 3, "Fassadenansicht"),
+      image(9, 6, "Fassadenansicht"),
     ],
   },
 
   {
-    id: "visualisierung",
     eyebrow: "04 — Architekturvisualisierung",
     title: "Fotorealistische Visualisierungen",
     description:
-      "Architekturvisualisierungen für Präsentationen, Projektkommunikation und die überzeugende Darstellung von Entwurfs- und Planungsvarianten.",
+      "Architekturvisualisierungen für Präsentationen, Projektkommunikation und die Darstellung von Entwurfs- und Planungsvarianten.",
     price: "Stundensatz ab 55 €",
     images: [
       image(1, 1, "Architekturvisualisierung"),
@@ -114,190 +130,194 @@ const gallerySections: GallerySection[] = [
   },
 ];
 
-function ServiceGallery({ section }: { section: GallerySection }) {
+function Gallery({
+  section,
+  images,
+}: {
+  section: GallerySection;
+  images: GalleryImage[];
+}) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const touchStartX = useRef<number | null>(null);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
 
-  const imageCount = section.images.length;
+  const total = images.length;
 
-  const previousIndex = (currentIndex - 1 + imageCount) % imageCount;
-  const nextIndex = (currentIndex + 1) % imageCount;
-
-  const currentImage = section.images[currentIndex];
-  const previousImage = section.images[previousIndex];
-  const nextImage = section.images[nextIndex];
-
-  const goPrevious = () => {
-    setCurrentIndex(previousIndex);
+  const goTo = (index: number) => {
+    if (index < 0) {
+      setCurrentIndex(total - 1);
+    } else if (index >= total) {
+      setCurrentIndex(0);
+    } else {
+      setCurrentIndex(index);
+    }
   };
 
-  const goNext = () => {
-    setCurrentIndex(nextIndex);
-  };
+  const previous = () => goTo(currentIndex - 1);
+  const next = () => goTo(currentIndex + 1);
 
   const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
-    touchStartX.current = event.touches[0]?.clientX ?? null;
+    setTouchStart(event.touches[0].clientX);
   };
 
   const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
-    if (touchStartX.current === null) return;
+    if (touchStart === null) return;
 
-    const touchEndX =
-      event.changedTouches[0]?.clientX ?? touchStartX.current;
-
-    const distance = touchEndX - touchStartX.current;
+    const touchEnd = event.changedTouches[0].clientX;
+    const distance = touchStart - touchEnd;
 
     if (Math.abs(distance) > 50) {
-      if (distance < 0) {
-        goNext();
+      if (distance > 0) {
+        next();
       } else {
-        goPrevious();
+        previous();
       }
     }
 
-    touchStartX.current = null;
+    setTouchStart(null);
   };
 
+  const getImage = (offset: number) =>
+    images[(currentIndex + offset + total) % total];
+
+  const previousImage = getImage(-1);
+  const currentImage = getImage(0);
+  const nextImage = getImage(1);
+
   return (
-    <div className="mt-12">
-      <div
-        className="flex items-center justify-center gap-3 overflow-hidden lg:gap-6"
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-      >
-        <button
-          type="button"
-          onClick={goPrevious}
-          aria-label="Vorheriges Bild"
-          className="group relative hidden w-[18%] max-w-[190px] shrink-0 overflow-hidden lg:block"
-        >
-          <div className="flex h-[150px] items-center justify-center lg:h-[190px]">
-            <img
-              src={previousImage.src}
-              alt={previousImage.alt}
-              className="max-h-full max-w-full object-contain opacity-55 transition-opacity group-hover:opacity-90"
-              draggable={false}
-              loading="lazy"
-            />
-          </div>
+    <section className="border-t border-border py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <div className="mb-10 max-w-3xl">
+          <p className="mb-3 text-sm font-medium tracking-[0.16em] text-muted-foreground uppercase">
+            {section.eyebrow}
+          </p>
 
-          <span className="absolute inset-y-0 right-2 flex items-center">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-background/90 text-lg shadow-sm">
-              ‹
-            </span>
-          </span>
-        </button>
+          <h2 className="text-3xl font-medium tracking-tight md:text-5xl">
+            {section.title}
+          </h2>
 
-        <div className="flex w-full max-w-[720px] flex-1 items-center justify-center">
-          <div className="flex min-h-[280px] w-full items-center justify-center sm:min-h-[360px] lg:min-h-[500px]">
-            <img
-              src={currentImage.src}
-              alt={currentImage.alt}
-              className="max-h-[280px] max-w-full select-none object-contain sm:max-h-[360px] lg:max-h-[500px]"
-              draggable={false}
-              loading="lazy"
-            />
-          </div>
+          <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
+            {section.description}
+          </p>
+
+          <p className="mt-5 text-sm font-medium">{section.price}</p>
         </div>
 
-        <button
-          type="button"
-          onClick={goNext}
-          aria-label="Nächstes Bild"
-          className="group relative hidden w-[18%] max-w-[190px] shrink-0 overflow-hidden lg:block"
+        <div
+          className="relative"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
-          <div className="flex h-[150px] items-center justify-center lg:h-[190px]">
-            <img
-              src={nextImage.src}
-              alt={nextImage.alt}
-              className="max-h-full max-w-full object-contain opacity-55 transition-opacity group-hover:opacity-90"
-              draggable={false}
-              loading="lazy"
-            />
+          <div className="grid grid-cols-1 items-center gap-4 md:grid-cols-[1fr_2.2fr_1fr] md:gap-6">
+            <button
+              type="button"
+              onClick={previous}
+              aria-label="Vorheriges Bild"
+              className="group relative hidden aspect-[4/3] overflow-hidden bg-muted md:block"
+            >
+              <img
+                src={previousImage.src}
+                alt={previousImage.alt}
+                className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+              />
+
+              <span className="absolute inset-y-0 left-0 flex w-16 items-center justify-center bg-black/0 text-white opacity-0 transition-all group-hover:bg-black/20 group-hover:opacity-100">
+                <span className="text-3xl">‹</span>
+              </span>
+            </button>
+
+            <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+              <img
+                src={currentImage.src}
+                alt={currentImage.alt}
+                className="h-full w-full object-contain"
+              />
+
+              <button
+                type="button"
+                onClick={previous}
+                aria-label="Vorheriges Bild"
+                className="absolute left-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center bg-black/35 text-2xl text-white backdrop-blur-sm transition hover:bg-black/55 md:hidden"
+              >
+                ‹
+              </button>
+
+              <button
+                type="button"
+                onClick={next}
+                aria-label="Nächstes Bild"
+                className="absolute right-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center bg-black/35 text-2xl text-white backdrop-blur-sm transition hover:bg-black/55 md:hidden"
+              >
+                ›
+              </button>
+            </div>
+
+            <button
+              type="button"
+              onClick={next}
+              aria-label="Nächstes Bild"
+              className="group relative hidden aspect-[4/3] overflow-hidden bg-muted md:block"
+            >
+              <img
+                src={nextImage.src}
+                alt={nextImage.alt}
+                className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+              />
+
+              <span className="absolute inset-y-0 right-0 flex w-16 items-center justify-center bg-black/0 text-white opacity-0 transition-all group-hover:bg-black/20 group-hover:opacity-100">
+                <span className="text-3xl">›</span>
+              </span>
+            </button>
           </div>
 
-          <span className="absolute inset-y-0 left-2 flex items-center">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-background/90 text-lg shadow-sm">
-              ›
+          <div className="mt-5 flex items-center justify-between">
+            <span className="text-sm text-muted-foreground">
+              {currentIndex + 1} / {total}
             </span>
-          </span>
-        </button>
+
+            <div className="flex gap-2 md:hidden">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  onClick={() => goTo(index)}
+                  aria-label={`Bild ${index + 1} anzeigen`}
+                  className={`h-1.5 rounded-full transition-all ${
+                    index === currentIndex
+                      ? "w-6 bg-foreground"
+                      : "w-1.5 bg-muted-foreground/40"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div className="mt-5 flex items-center justify-center gap-3 lg:hidden">
-        <button
-          type="button"
-          onClick={goPrevious}
-          aria-label="Vorheriges Bild"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-lg transition-colors hover:bg-muted"
-        >
-          ‹
-        </button>
-
-        <span className="min-w-[70px] text-center text-sm text-muted-foreground">
-          {currentIndex + 1} / {imageCount}
-        </span>
-
-        <button
-          type="button"
-          onClick={goNext}
-          aria-label="Nächstes Bild"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-lg transition-colors hover:bg-muted"
-        >
-          ›
-        </button>
-      </div>
-
-      <div className="mt-5 hidden text-center text-sm text-muted-foreground lg:block">
-        {currentIndex + 1} / {imageCount}
-      </div>
-    </div>
+    </section>
   );
 }
 
 export function ProjectsSection() {
+  const [shuffledSections, setShuffledSections] =
+    useState<GallerySection[]>(gallerySections);
+
+  useEffect(() => {
+    setShuffledSections(
+      gallerySections.map((section) => ({
+        ...section,
+        images: shuffle(section.images),
+      })),
+    );
+  }, []);
+
   return (
-    <section id="projekte" className="border-t border-border">
-      <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
-        <div className="max-w-3xl">
-          <p className="text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">
-            Leistungen anhand ausgewählter Arbeiten
-          </p>
-
-          <h2 className="mt-4 text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
-            Was ich für Ihr Büro übernehmen kann
-          </h2>
-
-          <p className="mt-6 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-            Die folgenden Arbeiten zeigen ausgewählte Beispiele meiner
-            technischen Planungs-, Fassaden- und Visualisierungsleistungen.
-          </p>
-        </div>
-
-        <div className="mt-24 space-y-28">
-          {gallerySections.map((section) => (
-            <article key={section.id}>
-              <div className="max-w-3xl">
-                <p className="text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                  {section.eyebrow}
-                </p>
-
-                <h3 className="mt-4 text-2xl font-medium tracking-tight sm:text-3xl">
-                  {section.title}
-                </h3>
-
-                <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground">
-                  {section.description}
-                </p>
-
-                <p className="mt-5 text-sm font-medium">{section.price}</p>
-              </div>
-
-              <ServiceGallery section={section} />
-            </article>
-          ))}
-        </div>
-      </div>
+    <section id="projekte">
+      {shuffledSections.map((section) => (
+        <Gallery
+          key={section.eyebrow}
+          section={section}
+          images={section.images}
+        />
+      ))}
     </section>
   );
 }
