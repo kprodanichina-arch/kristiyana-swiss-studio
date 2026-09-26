@@ -2,6 +2,28 @@ import { createFileRoute } from "@tanstack/react-router";
 import { EMAIL } from "@/components/site/data";
 
 export const Route = createFileRoute("/impressum")({
+  head: () => ({
+    links: [
+      {
+        rel: "canonical",
+        href: "https://archikprojekt.com/impressum",
+      },
+    ],
+    meta: [
+      {
+        title: "Impressum | ArchiK",
+      },
+      {
+        name: "description",
+        content:
+          "Impressum und Anbieterinformationen von ArchiK und AY END VI BILD EOOD.",
+      },
+      {
+        property: "og:url",
+        content: "https://archikprojekt.com/impressum",
+      },
+    ],
+  }),
   component: ImpressumPage,
 });
 
