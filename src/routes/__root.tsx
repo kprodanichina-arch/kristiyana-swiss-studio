@@ -199,4 +199,87 @@ export const Route =
         },
 
         {
-         
+          rel: "stylesheet",
+          href:
+            "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap",
+        },
+
+        {
+          rel: "icon",
+          href: "/favicon.ico",
+          type: "image/x-icon",
+        },
+
+        {
+          rel: "canonical",
+          href: "https://archikprojekt.com/",
+        },
+      ],
+    }),
+
+    shellComponent: RootShell,
+    component: RootComponent,
+    notFoundComponent: NotFoundComponent,
+    errorComponent: ErrorComponent,
+  });
+
+function RootShell({ children }: { children: ReactNode }) {
+  return (
+    <html lang="de">
+      <head>
+        <HeadContent />
+      </head>
+
+      <body>
+        {children}
+        <Scripts />
+      </body>
+    </html>
+  );
+}
+
+function useImageProtection() {
+  useEffect(() => {
+    const isImage = (t: EventTarget | null) =>
+      t instanceof HTMLElement &&
+      (t.tagName === "IMG" || t.closest("[data-protect-image]"));
+
+    const isFormField = (t: EventTarget | null) =>
+      t instanceof HTMLElement &&
+      t.closest(
+        "input, textarea, select, [contenteditable='true']",
+      ) !== null;
+
+    const onContextMenu = (e: MouseEvent) => {
+      if (!isFormField(e.target)) {
+        e.preventDefault();
+      }
+    };
+
+    const onDragStart = (e: DragEvent) => {
+      if (isImage(e.target)) {
+        e.preventDefault();
+      }
+    };
+
+    document.addEventListener("contextmenu", onContextMenu);
+    document.addEventListener("dragstart", onDragStart);
+
+    return () => {
+      document.removeEventListener("contextmenu", onContextMenu);
+      document.removeEventListener("dragstart", onDragStart);
+    };
+  }, []);
+}
+
+function RootComponent() {
+  const { queryClient } = Route.useRouteContext();
+
+  useImageProtection();
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Outlet />
+    </QueryClientProvider>
+  );
+}
