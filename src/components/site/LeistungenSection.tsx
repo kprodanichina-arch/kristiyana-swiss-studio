@@ -24,12 +24,12 @@ const services = [
   {
     number: "03",
     title: "IFC & BIM-Workflows",
-    text: "Unterstützung bei offenen BIM-Workflows, IFC-basiertem Datenaustausch und der strukturierten Modellprüfung.",
+    text: "Unterstützung bei IFC-basiertem Datenaustausch und der strukturierten Weiterverarbeitung von Gebäudemodellen.",
     items: [
       "IFC-Modelle",
-      "Modellprüfung",
-      "BIM Quality Assurance",
-      "BCF / Koordination",
+      "IFC-Export",
+      "Modellstruktur",
+      "Offene BIM-Workflows",
     ],
   },
   {
@@ -37,8 +37,8 @@ const services = [
     title: "Architekturvisualisierung",
     text: "Hochwertige architektonische Visualisierungen für Präsentationen, Wettbewerbe und die Kommunikation mit Bauherren.",
     items: [
-      "Lumion",
       "D5 Render",
+      "Twinmotion",
       "Innen- und Außenvisualisierungen",
       "Präsentationsbilder",
     ],
@@ -50,7 +50,7 @@ export function LeistungenSection() {
     <section id="leistungen" className="border-b border-border">
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28">
         <div className="max-w-2xl">
-         <p className="eyebrow">01 — Leistungen</p>
+          <p className="eyebrow">01 — Leistungen</p>
 
           <h2 className="mt-4 text-3xl font-medium tracking-tight sm:text-4xl">
             Flexible Unterstützung für Ihre Projekte
@@ -58,8 +58,9 @@ export function LeistungenSection() {
 
           <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
             ArchiK unterstützt Architekturbüros bei BIM-Modellierung,
-            Planungsdokumentation und Visualisierung – projektbezogen oder als
-            flexible externe Kapazität.
+            Planungsdokumentation, IFC-basierten Workflows und
+            Architekturvisualisierung – projektbezogen oder als flexible
+            externe Kapazität.
           </p>
         </div>
 
