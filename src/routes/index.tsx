@@ -9,6 +9,20 @@ import { ContactSection } from "@/components/site/ContactSection";
 import { Footer } from "@/components/site/Footer";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    links: [
+      {
+        rel: "canonical",
+        href: "https://archikprojekt.com/",
+      },
+    ],
+    meta: [
+      {
+        property: "og:url",
+        content: "https://archikprojekt.com/",
+      },
+    ],
+  }),
   component: Index,
 });
 
