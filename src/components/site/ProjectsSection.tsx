@@ -1,157 +1,416 @@
-import { useState } from "react";
-import { projects } from "./data";
-import { useAvailableProjects } from "@/lib/useImageProbe";
+import { useEffect, useMemo, useRef, useState } from "react";
 
-interface ProjectMeta {
-  id: number;
-  title: string;
-  description: string;
-}
-
-const MAX_IMAGES = 50;
-
-const arrowButtonStyle: React.CSSProperties = {
-  position: "absolute",
-  top: "50%",
-  transform: "translateY(-50%)",
-  zIndex: 99999,
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  width: "46px",
-  height: "84px",
-  backgroundColor: "rgba(28, 26, 23, 0.82)",
-  color: "#efeae1",
-  border: "none",
-  borderRadius: 0,
-  fontSize: "24px",
-  fontWeight: 600,
-  lineHeight: 1,
-  paddingBottom: "2px",
-  cursor: "pointer",
-  pointerEvents: "auto",
-  boxShadow: "0 8px 24px rgba(0,0,0,0.22)",
+type GalleryImage = {
+  src: string;
+  alt: string;
 };
 
-function ProjectCard({ id, project }: { id: number; project: ProjectMeta }) {
-  const [currentImg, setCurrentImg] = useState(1);
+type GallerySection = {
+  id: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  price: string;
+  images: GalleryImage[];
+};
 
-  const prevImg = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setCurrentImg((prev) => (prev > 1 ? prev - 1 : 1));
+const gallerySections: GallerySection[] = [
+  {
+    id: "ausfuehrungsplanung",
+    eyebrow: "02 — Ausführungsplanung",
+    title: "Technische Planung & Dokumentation",
+    description:
+      "Ausführungs- und Detailplanung für Architekturprojekte – von Grundrissen und Schnitten bis zu Dachplänen und Fensterdetails.",
+    price: "Stundensatz ab 55 €",
+    images: [
+      {
+        src: "/images/projects/project01/2.webp",
+        alt: "Ausführungsplanung – Grundriss",
+      },
+      {
+        src: "/images/projects/project01/3.webp",
+        alt: "Ausführungsplanung – Grundriss",
+      },
+      {
+        src: "/images/projects/project01/5.webp",
+        alt: "Ausführungsplanung – Schnitt",
+      },
+      {
+        src: "/images/projects/project01/6.webp",
+        alt: "Ausführungsplanung – Fensterspezifikation",
+      },
+      {
+        src: "/images/projects/project02/2.webp",
+        alt: "Ausführungsplanung – Grundriss",
+      },
+      {
+        src: "/images/projects/project02/3.webp",
+        alt: "Ausführungsplanung – Grundriss",
+      },
+      {
+        src: "/images/projects/project02/4.webp",
+        alt: "Ausführungsplanung – Dachplan",
+      },
+      {
+        src: "/images/projects/project02/6.webp",
+        alt: "Ausführungsplanung – Schnitt",
+      },
+      {
+        src: "/images/projects/project03/2.webp",
+        alt: "Ausführungsplanung – Grundriss",
+      },
+      {
+        src: "/images/projects/project03/3.webp",
+        alt: "Ausführungsplanung – Dachplan",
+      },
+      {
+        src: "/images/projects/project03/4.webp",
+        alt: "Ausführungsplanung – Schnitt",
+      },
+      {
+        src: "/images/projects/project03/5.webp",
+        alt: "Ausführungsplanung – Fensterdetails",
+      },
+      {
+        src: "/images/projects/project04/2.webp",
+        alt: "Ausführungsplanung – Schnitt",
+      },
+      {
+        src: "/images/projects/project04/3.webp",
+        alt: "Ausführungsplanung – Grundriss",
+      },
+      {
+        src: "/images/projects/project04/4.webp",
+        alt: "Ausführungsplanung – Dachplan",
+      },
+      {
+        src: "/images/projects/project05/3.webp",
+        alt: "Ausführungsplanung – Grundriss",
+      },
+      {
+        src: "/images/projects/project05/4.webp",
+        alt: "Ausführungsplanung – Dachplan",
+      },
+      {
+        src: "/images/projects/project05/5.webp",
+        alt: "Ausführungsplanung – Schnitt",
+      },
+      {
+        src: "/images/projects/project05/6.webp",
+        alt: "Ausführungsplanung – Fensterdetails",
+      },
+      {
+        src: "/images/projects/project06/3.webp",
+        alt: "Ausführungsplanung – Grundriss",
+      },
+      {
+        src: "/images/projects/project06/4.webp",
+        alt: "Ausführungsplanung – Schnitt",
+      },
+      {
+        src: "/images/projects/project06/5.webp",
+        alt: "Ausführungsplanung – Dachplan",
+      },
+      {
+        src: "/images/projects/project06/6.webp",
+        alt: "Ausführungsplanung – Fensterdetails",
+      },
+      {
+        src: "/images/projects/project07/2.webp",
+        alt: "Ausführungsplanung – Grundriss",
+      },
+      {
+        src: "/images/projects/project07/3.webp",
+        alt: "Ausführungsplanung – Dachplan",
+      },
+      {
+        src: "/images/projects/project07/4.webp",
+        alt: "Ausführungsplanung – Schnitt",
+      },
+      {
+        src: "/images/projects/project07/5.webp",
+        alt: "Ausführungsplanung – Fensterdetails",
+      },
+      {
+        src: "/images/projects/project08/4.webp",
+        alt: "Ausführungsplanung – Grundriss",
+      },
+      {
+        src: "/images/projects/project08/5.webp",
+        alt: "Ausführungsplanung – Grundriss",
+      },
+      {
+        src: "/images/projects/project08/6.webp",
+        alt: "Ausführungsplanung – Schnitt",
+      },
+      {
+        src: "/images/projects/project09/4.webp",
+        alt: "Ausführungsplanung – Grundriss",
+      },
+      {
+        src: "/images/projects/project09/5.webp",
+        alt: "Ausführungsplanung – Grundriss",
+      },
+      {
+        src: "/images/projects/project09/7.webp",
+        alt: "Ausführungsplanung – Schnitt",
+      },
+    ],
+  },
+  {
+    id: "fassaden",
+    eyebrow: "03 — Fassaden & Details",
+    title: "Fassadenplanung & architektonische Details",
+    description:
+      "Fassaden und Ansichten aus verschiedenen Architekturprojekten – als Einblick in meine technische und gestalterische Arbeit.",
+    price: "Stundensatz ab 55 €",
+    images: [
+      {
+        src: "/images/projects/project01/4.webp",
+        alt: "Architektur – Fassadenplanung",
+      },
+      {
+        src: "/images/projects/project02/5.webp",
+        alt: "Architektur – Fassadenplanung",
+      },
+      {
+        src: "/images/projects/project03/1.webp",
+        alt: "Architektur – Fassadenplanung",
+      },
+      {
+        src: "/images/projects/project04/1.webp",
+        alt: "Architektur – Fassadenplanung",
+      },
+      {
+        src: "/images/projects/project05/1.webp",
+        alt: "Architektur – Fassadenplanung",
+      },
+      {
+        src: "/images/projects/project05/2.webp",
+        alt: "Architektur – Fassadenplanung",
+      },
+      {
+        src: "/images/projects/project06/1.webp",
+        alt: "Architektur – Fassadenplanung",
+      },
+      {
+        src: "/images/projects/project06/2.webp",
+        alt: "Architektur – Fassadenplanung",
+      },
+      {
+        src: "/images/projects/project07/1.webp",
+        alt: "Architektur – Fassadenplanung",
+      },
+      {
+        src: "/images/projects/project08/2.webp",
+        alt: "Architektur – Fassadenplanung",
+      },
+      {
+        src: "/images/projects/project08/3.webp",
+        alt: "Architektur – Fassadenplanung",
+      },
+      {
+        src: "/images/projects/project09/3.webp",
+        alt: "Architektur – Fassadenplanung",
+      },
+      {
+        src: "/images/projects/project09/6.webp",
+        alt: "Architektur – Fassadenplanung",
+      },
+    ],
+  },
+  {
+    id: "visualisierung",
+    eyebrow: "04 — Architekturvisualisierung",
+    title: "Fotorealistische Visualisierungen",
+    description:
+      "Architekturvisualisierungen für Präsentationen, Projektkommunikation und die Darstellung von Entwurfs- und Planungsvarianten.",
+    price: "Stundensatz ab 55 €",
+    images: [
+      {
+        src: "/images/projects/project01/1.webp",
+        alt: "Architekturvisualisierung",
+      },
+      {
+        src: "/images/projects/project02/1.webp",
+        alt: "Architekturvisualisierung",
+      },
+      {
+        src: "/images/projects/project02/7.webp",
+        alt: "Architekturvisualisierung",
+      },
+      {
+        src: "/images/projects/project08/1.webp",
+        alt: "Architekturvisualisierung",
+      },
+      {
+        src: "/images/projects/project09/1.webp",
+        alt: "Architekturvisualisierung",
+      },
+      {
+        src: "/images/projects/project09/2.webp",
+        alt: "Architekturvisualisierung",
+      },
+    ],
+  },
+];
+
+function ServiceGallery({ section }: { section: GallerySection }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+
+  const total = section.images.length;
+
+  const previousIndex = useMemo(
+    () => (currentIndex - 1 + total) % total,
+    [currentIndex, total],
+  );
+
+  const nextIndex = useMemo(
+    () => (currentIndex + 1) % total,
+    [currentIndex, total],
+  );
+
+  const goPrevious = () => {
+    setCurrentIndex((index) => (index - 1 + total) % total);
   };
 
-  const nextImg = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setCurrentImg((prev) => (prev < MAX_IMAGES ? prev + 1 : 1));
+  const goNext = () => {
+    setCurrentIndex((index) => (index + 1) % total);
   };
 
-  const handleImageError = () => setCurrentImg(1);
+  const handleTouchStart = (event: React.TouchEvent) => {
+    touchStartX.current = event.touches[0]?.clientX ?? null;
+    touchEndX.current = null;
+  };
+
+  const handleTouchMove = (event: React.TouchEvent) => {
+    touchEndX.current = event.touches[0]?.clientX ?? null;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null || touchEndX.current === null) return;
+
+    const distance = touchStartX.current - touchEndX.current;
+
+    if (Math.abs(distance) > 45) {
+      if (distance > 0) {
+        goNext();
+      } else {
+        goPrevious();
+      }
+    }
+
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [section.id]);
+
+  if (total === 0) return null;
+
+  const sideButtonClass =
+    "absolute top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/55 text-2xl font-light text-white shadow-lg backdrop-blur-sm transition-all duration-200 hover:scale-105 hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white/70 sm:h-11 sm:w-11";
 
   return (
-    <article className="panel flex flex-col overflow-hidden">
+    <div className="mt-10">
       <div
-        onContextMenu={(e) => e.preventDefault()}
-        style={{
-          position: "relative",
-          width: "100%",
-          aspectRatio: "4/3",
-          backgroundColor: "#f5f5f5",
-          overflow: "hidden",
-        }}
+        className="relative mx-auto w-full max-w-6xl overflow-hidden"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        style={{ touchAction: "pan-y" }}
       >
-        <button
-          onClick={prevImg}
-          type="button"
-          className="carousel-btn-left"
-          aria-label="Vorheriges Bild"
-          style={{ ...arrowButtonStyle, left: "0px" }}
-        >
-          {"\u2039"}
-        </button>
+        <div className="flex items-center justify-center gap-3 sm:gap-5">
+          <div className="relative flex w-[18%] max-w-[190px] shrink-0 items-center justify-center overflow-hidden opacity-65 transition-all duration-500 sm:w-[22%]">
+            <img
+              src={section.images[previousIndex].src}
+              alt={section.images[previousIndex].alt}
+              draggable={false}
+              className="block h-auto max-h-[150px] w-full object-contain select-none sm:max-h-[190px]"
+            />
 
-        <img
-          src={`/images/projects/project${id}/${currentImg}.webp`}
-          alt={`${project.title} – Visualisierung ${currentImg}`}
-          onError={handleImageError}
-          draggable={false}
-          onContextMenu={(e) => e.preventDefault()}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            pointerEvents: "none",
-            userSelect: "none",
-          }}
-        />
+            <button
+              type="button"
+              onClick={goPrevious}
+              aria-label="Vorherige Darstellung"
+              className={`${sideButtonClass} left-1/2 -translate-x-1/2`}
+            >
+              ‹
+            </button>
+          </div>
 
-        <button
-          onClick={nextImg}
-          type="button"
-          className="carousel-btn-right"
-          aria-label="Nächstes Bild"
-          style={{ ...arrowButtonStyle, right: "0px" }}
-        >
-          {"\u203A"}
-        </button>
+          <div className="relative flex w-[56%] max-w-[650px] shrink-0 items-center justify-center overflow-hidden">
+            <img
+              src={section.images[currentIndex].src}
+              alt={section.images[currentIndex].alt}
+              draggable={false}
+              className="block h-auto max-h-[430px] w-full object-contain select-none sm:max-h-[500px]"
+            />
+          </div>
+
+          <div className="relative flex w-[18%] max-w-[190px] shrink-0 items-center justify-center overflow-hidden opacity-65 transition-all duration-500 sm:w-[22%]">
+            <img
+              src={section.images[nextIndex].src}
+              alt={section.images[nextIndex].alt}
+              draggable={false}
+              className="block h-auto max-h-[150px] w-full object-contain select-none sm:max-h-[190px]"
+            />
+
+            <button
+              type="button"
+              onClick={goNext}
+              aria-label="Nächste Darstellung"
+              className={`${sideButtonClass} left-1/2 -translate-x-1/2`}
+            >
+              ›
+            </button>
+          </div>
+        </div>
+
+        <div className="mt-5 flex items-center justify-center">
+          <span className="text-xs tracking-[0.14em] text-muted-foreground">
+            {currentIndex + 1} / {total}
+          </span>
+        </div>
       </div>
-
-      <div className="flex flex-1 flex-col p-7">
-        <span className="eyebrow">Projekt {String(id).padStart(2, "0")}</span>
-        <h3 className="mt-3 text-lg font-medium tracking-tight">{project.title}</h3>
-        <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-          {project.description}
-        </p>
-      </div>
-    </article>
+    </div>
   );
 }
 
 export function ProjectsSection() {
-  const { ids, loading } = useAvailableProjects();
-
-  const meta = (id: number): ProjectMeta =>
-    projects.find((p) => p.id === id) ?? {
-      id,
-      title: `Projekt ${String(id).padStart(2, "0")}`,
-      description: "Architekturprojekt – Planung und Visualisierung.",
-    };
-
-  if (!loading && ids.length === 0) return null;
-
   return (
-    <section id="projekte" className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
-      <p className="eyebrow">02 — Portfolio</p>
-      <h2 className="mt-4 text-2xl font-medium tracking-tight sm:text-4xl">
-        Architektur-Projekte
-      </h2>
+    <section
+      id="projekte"
+      className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24"
+    >
+      {gallerySections.map((section) => (
+        <article
+          key={section.id}
+          className="border-b border-border py-16 first:pt-0 last:border-b-0 sm:py-24"
+        >
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow">{section.eyebrow}</p>
 
-      {loading ? (
-        <div className="mt-10 grid gap-6 sm:grid-cols-2">
-          {[0, 1].map((i) => (
-            <div key={i} className="panel flex animate-pulse flex-col overflow-hidden">
-              <div className="aspect-[4/3] w-full bg-muted" />
-              <div className="flex flex-1 flex-col p-7">
-                <div className="h-2.5 w-20 rounded bg-muted" />
-                <div className="mt-4 h-5 w-2/3 rounded bg-muted" />
-                <div className="mt-4 h-3 w-full rounded bg-muted" />
-                <div className="mt-2 h-3 w-5/6 rounded bg-muted" />
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className="mt-10 grid gap-6 sm:grid-cols-2">
-          {[...ids]
-            .sort((a, b) => b - a)
-            .map((id) => (
-              <ProjectCard key={id} id={id} project={meta(id)} />
-            ))}
-        </div>
-      )}
+            <h2 className="mt-4 text-2xl font-medium tracking-tight sm:text-4xl">
+              {section.title}
+            </h2>
+
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+              {section.description}
+            </p>
+
+            <p className="mt-5 text-sm font-medium tracking-wide">
+              {section.price}
+            </p>
+          </div>
+
+          <ServiceGallery section={section} />
+        </article>
+      ))}
     </section>
   );
-  // END OF FILE
 }
