@@ -13,11 +13,11 @@ export function HeroSection() {
 
           <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
             Flexible externe Unterstützung für Architekturbüros in Deutschland,
-            Österreich und der Schweiz.
+            Österreich und der Schweiz – direkt, zuverlässig und remote.
           </p>
 
           <p className="mt-5 text-sm tracking-wide text-muted-foreground">
-            BIM-Modellierung · Planungsdokumentation · IFC · Visualisierung
+            BIM-Modellierung · Planungs- und Baudokumentation · Visualisierung
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
