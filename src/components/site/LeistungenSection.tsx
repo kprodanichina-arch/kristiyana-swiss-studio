@@ -78,7 +78,7 @@ export function LeistungenSection() {
               WebkitFontSmoothing: "antialiased",
             }}
           >
-            ArchiK unterstützt Architekturbüros bei Ausführungs- und
+            ArchiKa unterstützt Architekturbüros bei Ausführungs- und
             Detailplanung, Fassaden- und Planaufbereitung, digitaler Planung
             sowie Architekturvisualisierung – projektbezogen oder als
             flexible zusätzliche Kapazität.
