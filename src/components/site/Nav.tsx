@@ -16,8 +16,8 @@ export function Nav() {
         color: "#20201d",
         fontFamily: "'Barlow', Arial, sans-serif",
         fontSize: "15px",
+        lineHeight: "1.5",
         fontWeight: 400,
-        lineHeight: 1.5,
         WebkitFontSmoothing: "antialiased",
         backdropFilter: "blur(18px) saturate(110%)",
         WebkitBackdropFilter: "blur(18px) saturate(110%)",
@@ -35,12 +35,27 @@ export function Nav() {
           <Logo className="h-[90px] w-auto drop-shadow-sm sm:h-[130px]" />
         </a>
 
-        <ul className="ml-auto hidden items-center gap-8 lg:flex">
+        <ul className="ml-auto flex items-center gap-8">
           {links.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-[15px] font-normal leading-[22.5px] tracking-normal transition-opacity duration-200 hover:opacity-60"
+                style={{
+                  fontFamily: "'Barlow', Arial, sans-serif",
+                  fontSize: "15px",
+                  lineHeight: "1.5",
+                  fontWeight: 400,
+                  color: "inherit",
+                  textDecoration: "none",
+                  WebkitTapHighlightColor: "transparent",
+                  transition: "opacity 0.2s",
+                }}
+                onMouseEnter={(event) => {
+                  event.currentTarget.style.opacity = "0.6";
+                }}
+                onMouseLeave={(event) => {
+                  event.currentTarget.style.opacity = "1";
+                }}
               >
                 {link.label}
               </a>
@@ -50,9 +65,18 @@ export function Nav() {
           <li>
             <a
               href="#kontakt"
-              className="border px-5 py-2 text-[15px] font-normal leading-[22.5px] tracking-normal transition-colors duration-200 hover:bg-black/10"
               style={{
-                borderColor: "rgba(32, 32, 29, 0.22)",
+                display: "inline-block",
+                border: "1px solid rgba(32, 32, 29, 0.22)",
+                padding: "8px 20px",
+                fontFamily: "'Barlow', Arial, sans-serif",
+                fontSize: "15px",
+                lineHeight: "1.5",
+                fontWeight: 400,
+                color: "inherit",
+                textDecoration: "none",
+                WebkitTapHighlightColor: "transparent",
+                transition: "background-color 0.2s",
               }}
             >
               Kontakt
