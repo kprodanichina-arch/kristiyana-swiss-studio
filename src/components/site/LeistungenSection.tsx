@@ -47,114 +47,144 @@ const services = [
 
 export function LeistungenSection() {
   return (
-    <section id="leistungen" className="border-b border-border">
-      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28">
-        <div className="max-w-2xl">
-          <p className="eyebrow">01 — Leistungen</p>
-
-          <h2
-            className="mt-4 text-balance sm:text-4xl"
-            style={{
-              fontFamily: "'Instrument Serif Local', Georgia, serif",
-              fontWeight: 400,
-              fontSize: "clamp(42px, 4.2vw, 64px)",
-              lineHeight: "0.96",
-              letterSpacing: "-0.035em",
-              color: "rgba(58, 58, 55, 0.90)",
-              WebkitFontSmoothing: "antialiased",
-            }}
-          >
-            Flexible Unterstützung für Ihre Projekte
-          </h2>
-
-          <p
-            className="mt-6 sm:text-lg"
-            style={{
-              fontFamily: "'Barlow Local', Arial, sans-serif",
-              fontWeight: 400,
-              fontSize: "17px",
-              lineHeight: "1.65",
-              color: "rgba(65, 65, 62, 0.68)",
-              WebkitFontSmoothing: "antialiased",
-            }}
-          >
-            ArchiKa unterstützt Architekturbüros bei Ausführungs- und
-            Detailplanung, Fassaden- und Planaufbereitung, digitaler Planung
-            sowie Architekturvisualisierung – projektbezogen oder als
-            flexible zusätzliche Kapazität.
-          </p>
-        </div>
-
-        <div className="mt-14 grid border-t border-border sm:grid-cols-2">
-          {services.map((service) => (
-            <article
-              key={service.number}
-              className="relative border-b border-border px-0 py-10 sm:px-8 sm:py-12"
+    <section
+      id="leistungen"
+      className="border-b border-border bg-background"
+    >
+      <div className="mx-auto max-w-[1800px] px-6 py-20 sm:px-10 sm:py-28 lg:px-14 xl:px-16">
+        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 xl:gap-28">
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <p
+              className="text-xs uppercase tracking-[0.16em]"
+              style={{
+                color: "rgba(65, 65, 62, 0.56)",
+                fontFamily:
+                  "'Barlow Semi Condensed Local', Arial, sans-serif",
+                fontWeight: 700,
+                WebkitFontSmoothing: "antialiased",
+              }}
             >
-              <div className="grid grid-cols-[40px_1fr] gap-6">
-                <span
-                  style={{
-                    fontFamily:
-                      "'Barlow Semi Condensed Local', Arial, sans-serif",
-                    fontSize: "13px",
-                    fontWeight: 700,
-                    letterSpacing: "0.12em",
-                    color: "rgba(65, 65, 62, 0.52)",
-                    WebkitFontSmoothing: "antialiased",
-                  }}
-                >
-                  {service.number}
-                </span>
+              01 — Leistungen
+            </p>
 
-                <div className="max-w-xl">
-                  <h3
+            <h2
+              className="mt-5 text-balance"
+              style={{
+                fontFamily:
+                  "'Instrument Serif Local', Georgia, serif",
+                fontWeight: 400,
+                fontSize: "clamp(46px, 5vw, 76px)",
+                lineHeight: "0.94",
+                letterSpacing: "-0.04em",
+                color: "rgba(58, 58, 55, 0.90)",
+                WebkitFontSmoothing: "antialiased",
+              }}
+            >
+              Flexible
+              <br />
+              Unterstützung
+              <br />
+              für Ihre Projekte
+            </h2>
+
+            <p
+              className="mt-7 max-w-lg"
+              style={{
+                fontFamily: "'Barlow Local', Arial, sans-serif",
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "1.65",
+                color: "rgba(65, 65, 62, 0.68)",
+                WebkitFontSmoothing: "antialiased",
+              }}
+            >
+              ArchiKa unterstützt Architekturbüros bei Ausführungs- und
+              Detailplanung, Fassaden- und Planaufbereitung, digitaler
+              Planung sowie Architekturvisualisierung – projektbezogen
+              oder als flexible zusätzliche Kapazität.
+            </p>
+          </div>
+
+          <div className="border-t border-[rgba(32,32,29,0.18)]">
+            {services.map((service) => (
+              <article
+                key={service.number}
+                className="group border-b border-[rgba(32,32,29,0.14)] py-9 sm:py-11 lg:py-12"
+              >
+                <div className="grid grid-cols-[42px_1fr] gap-5 sm:grid-cols-[52px_1fr] sm:gap-7 lg:grid-cols-[58px_1fr] lg:gap-8">
+                  <span
+                    className="pt-1"
                     style={{
                       fontFamily:
-                        "'Instrument Serif Local', Georgia, serif",
-                      fontWeight: 400,
-                      fontSize: "clamp(28px, 2.4vw, 36px)",
+                        "'Barlow Semi Condensed Local', Arial, sans-serif",
+                      fontSize: "12px",
                       lineHeight: "1",
-                      letterSpacing: "-0.025em",
-                      color: "rgba(58, 58, 55, 0.90)",
+                      fontWeight: 700,
+                      letterSpacing: "0.14em",
+                      color: "rgba(65, 65, 62, 0.48)",
                       WebkitFontSmoothing: "antialiased",
                     }}
                   >
-                    {service.title}
-                  </h3>
+                    {service.number}
+                  </span>
 
-                  <p
-                    className="mt-4"
-                    style={{
-                      fontFamily: "'Barlow Local', Arial, sans-serif",
-                      fontWeight: 400,
-                      fontSize: "15px",
-                      lineHeight: "1.6",
-                      color: "rgba(65, 65, 62, 0.68)",
-                      WebkitFontSmoothing: "antialiased",
-                    }}
-                  >
-                    {service.text}
-                  </p>
+                  <div>
+                    <h3
+                      style={{
+                        fontFamily:
+                          "'Instrument Serif Local', Georgia, serif",
+                        fontWeight: 400,
+                        fontSize: "clamp(30px, 3vw, 44px)",
+                        lineHeight: "0.98",
+                        letterSpacing: "-0.03em",
+                        color: "rgba(58, 58, 55, 0.90)",
+                        WebkitFontSmoothing: "antialiased",
+                      }}
+                    >
+                      {service.title}
+                    </h3>
 
-                  <ul
-                    className="mt-6 space-y-2"
-                    style={{
-                      fontFamily: "'Barlow Local', Arial, sans-serif",
-                      fontWeight: 400,
-                      fontSize: "14px",
-                      lineHeight: "1.5",
-                      color: "rgba(65, 65, 62, 0.62)",
-                      WebkitFontSmoothing: "antialiased",
-                    }}
-                  >
-                    {service.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
+                    <p
+                      className="mt-4 max-w-2xl"
+                      style={{
+                        fontFamily: "'Barlow Local', Arial, sans-serif",
+                        fontWeight: 400,
+                        fontSize: "15px",
+                        lineHeight: "1.65",
+                        color: "rgba(65, 65, 62, 0.66)",
+                        WebkitFontSmoothing: "antialiased",
+                      }}
+                    >
+                      {service.text}
+                    </p>
+
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {service.items.map((item) => (
+                        <span
+                          key={item}
+                          className="rounded-full border px-3 py-1.5"
+                          style={{
+                            borderColor: "rgba(32, 32, 29, 0.16)",
+                            backgroundColor:
+                              "rgba(238, 232, 220, 0.42)",
+                            fontFamily:
+                              "'Barlow Local', Arial, sans-serif",
+                            fontWeight: 400,
+                            fontSize: "12px",
+                            lineHeight: "1.2",
+                            color: "rgba(65, 65, 62, 0.66)",
+                            WebkitFontSmoothing: "antialiased",
+                          }}
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
