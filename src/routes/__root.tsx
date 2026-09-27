@@ -186,6 +186,11 @@ export const Route =
 
       links: [
         {
+          rel: "canonical",
+          href: "https://archikprojekt.com/",
+        },
+
+        {
           rel: "stylesheet",
           href: appCss,
         },
