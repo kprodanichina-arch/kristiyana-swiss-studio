@@ -78,13 +78,15 @@ export function LeistungenSection() {
     <section
       ref={sectionRef}
       id="leistungen"
-      className="border-b border-border bg-background"
+      className="bg-background"
     >
       <div className="mx-auto max-w-[1800px] px-6 py-20 sm:px-10 sm:py-28 lg:px-14 xl:px-16">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 xl:gap-28">
           <div
             className={`lg:sticky lg:top-28 lg:self-start ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
             } transition-all duration-1000 ease-out motion-reduce:transform-none motion-reduce:opacity-100`}
           >
             <p
