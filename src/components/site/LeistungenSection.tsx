@@ -52,15 +52,36 @@ export function LeistungenSection() {
         <div className="max-w-2xl">
           <p className="eyebrow">01 — Leistungen</p>
 
-          <h2 className="mt-4 text-3xl font-medium tracking-tight sm:text-4xl">
+          <h2
+            className="mt-4 text-balance sm:text-4xl"
+            style={{
+              fontFamily: "'Instrument Serif Local', Georgia, serif",
+              fontWeight: 400,
+              fontSize: "clamp(42px, 4.2vw, 64px)",
+              lineHeight: "0.96",
+              letterSpacing: "-0.035em",
+              color: "rgba(58, 58, 55, 0.90)",
+              WebkitFontSmoothing: "antialiased",
+            }}
+          >
             Flexible Unterstützung für Ihre Projekte
           </h2>
 
-          <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
+          <p
+            className="mt-6 sm:text-lg"
+            style={{
+              fontFamily: "'Barlow Local', Arial, sans-serif",
+              fontWeight: 400,
+              fontSize: "17px",
+              lineHeight: "1.65",
+              color: "rgba(65, 65, 62, 0.68)",
+              WebkitFontSmoothing: "antialiased",
+            }}
+          >
             ArchiK unterstützt Architekturbüros bei Ausführungs- und
-            Detailplanung, Fassaden- und Planaufbereitung, digitaler
-            Planung sowie Architekturvisualisierung – projektbezogen oder
-            als flexible externe Kapazität.
+            Detailplanung, Fassaden- und Planaufbereitung, digitaler Planung
+            sowie Architekturvisualisierung – projektbezogen oder als
+            flexible zusätzliche Kapazität.
           </p>
         </div>
 
@@ -71,24 +92,63 @@ export function LeistungenSection() {
               className="relative border-b border-border px-0 py-10 sm:px-8 sm:py-12"
             >
               <div className="grid grid-cols-[40px_1fr] gap-6">
-                <span className="text-sm text-muted-foreground">
+                <span
+                  style={{
+                    fontFamily:
+                      "'Barlow Semi Condensed Local', Arial, sans-serif",
+                    fontSize: "13px",
+                    fontWeight: 700,
+                    letterSpacing: "0.12em",
+                    color: "rgba(65, 65, 62, 0.52)",
+                    WebkitFontSmoothing: "antialiased",
+                  }}
+                >
                   {service.number}
                 </span>
 
                 <div className="max-w-xl">
-                  <h3 className="text-xl font-medium sm:text-2xl">
+                  <h3
+                    style={{
+                      fontFamily:
+                        "'Instrument Serif Local', Georgia, serif",
+                      fontWeight: 400,
+                      fontSize: "clamp(28px, 2.4vw, 36px)",
+                      lineHeight: "1",
+                      letterSpacing: "-0.025em",
+                      color: "rgba(58, 58, 55, 0.90)",
+                      WebkitFontSmoothing: "antialiased",
+                    }}
+                  >
                     {service.title}
                   </h3>
 
-                  <p className="mt-4 leading-relaxed text-muted-foreground">
+                  <p
+                    className="mt-4"
+                    style={{
+                      fontFamily: "'Barlow Local', Arial, sans-serif",
+                      fontWeight: 400,
+                      fontSize: "15px",
+                      lineHeight: "1.6",
+                      color: "rgba(65, 65, 62, 0.68)",
+                      WebkitFontSmoothing: "antialiased",
+                    }}
+                  >
                     {service.text}
                   </p>
 
-                  <ul className="mt-6 space-y-2 text-sm">
+                  <ul
+                    className="mt-6 space-y-2"
+                    style={{
+                      fontFamily: "'Barlow Local', Arial, sans-serif",
+                      fontWeight: 400,
+                      fontSize: "14px",
+                      lineHeight: "1.5",
+                      color: "rgba(65, 65, 62, 0.62)",
+                      WebkitFontSmoothing: "antialiased",
+                    }}
+                  >
                     {service.items.map((item) => (
-                      <li key={item} className="text-muted-foreground">
-                        {item}
-                      </li>
+                      <li key={item}>{item}</li>
                     ))}
                   </ul>
                 </div>
