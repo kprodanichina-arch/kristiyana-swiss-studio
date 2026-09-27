@@ -37,28 +37,75 @@ export function ExperienceSection() {
       id="berufserfahrung"
       className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24"
     >
-      <p className="eyebrow">06 — Werdegang</p>
-      <h2 className="mt-4 text-2xl font-medium tracking-tight sm:text-4xl">
+      <p
+        className="eyebrow"
+        style={{
+          fontFamily:
+            "'Barlow Semi Condensed Local', Arial, sans-serif",
+          fontSize: "13px",
+          fontWeight: 700,
+          letterSpacing: "0.18em",
+          color: "rgba(65, 65, 62, 0.52)",
+          WebkitFontSmoothing: "antialiased",
+        }}
+      >
+        06 — Werdegang
+      </p>
+
+      <h2
+        className="mt-4 max-w-3xl"
+        style={{
+          fontFamily:
+            "'Instrument Serif Local', Georgia, serif",
+          fontWeight: 400,
+          fontSize: "clamp(42px, 4.2vw, 64px)",
+          lineHeight: "0.96",
+          letterSpacing: "-0.035em",
+          color: "rgba(58, 58, 55, 0.90)",
+          WebkitFontSmoothing: "antialiased",
+        }}
+      >
         Berufserfahrung
       </h2>
 
       <ol className="mt-10 space-y-4">
         {items.map((item) => (
-          <li key={item.title} className="panel p-7 sm:p-9">
-            <div className="grid gap-4 sm:grid-cols-[180px_1fr] sm:gap-10">
-              <span className="eyebrow pt-1">{item.period}</span>
+          <li
+            key={item.title}
+            className="panel p-7 sm:p-9"
+          >
+            <div className="grid gap-5 sm:grid-cols-[180px_1fr] sm:gap-10">
+              <span
+                className="pt-1"
+                style={{
+                  fontFamily:
+                    "'Barlow Semi Condensed Local', Arial, sans-serif",
+                  fontSize: "13px",
+                  fontWeight: 700,
+                  letterSpacing: "0.12em",
+                  color: "rgba(65, 65, 62, 0.52)",
+                  WebkitFontSmoothing: "antialiased",
+                }}
+              >
+                {item.period}
+              </span>
+
               <div>
-                <h3 className="text-base font-medium tracking-tight">{item.title}</h3>
+                <h3
+                  style={{
+                    fontFamily:
+                      "'Instrument Serif Local', Georgia, serif",
+                    fontWeight: 400,
+                    fontSize: "clamp(25px, 2vw, 32px)",
+                    lineHeight: "1.05",
+                    letterSpacing: "-0.02em",
+                    color: "rgba(58, 58, 55, 0.90)",
+                    WebkitFontSmoothing: "antialiased",
+                  }}
+                >
+                  {item.title}
+                </h3>
+
                 {item.text && (
-                  <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-                    {item.text}
-                  </p>
-                )}
-              </div>
-            </div>
-          </li>
-        ))}
-      </ol>
-    </section>
-  );
-}
+                  <p
+                    className="mt-3 max-w-
