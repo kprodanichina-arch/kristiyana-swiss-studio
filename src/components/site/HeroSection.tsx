@@ -31,13 +31,7 @@ export function HeroSection() {
   return (
     <section className="relative overflow-hidden border-b border-border bg-background">
       <div className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-[1800px] flex-col lg:flex-row">
-
-        {/* LEFT — TYPOGRAPHY */}
-
         <div className="relative z-10 flex w-full flex-col justify-between px-6 py-10 sm:px-10 sm:py-12 lg:w-[36%] lg:px-12 lg:py-14 xl:px-16">
-
-          {/* TOP LABEL */}
-
           <div>
             <p
               className="text-xs uppercase tracking-[0.16em]"
@@ -66,10 +60,7 @@ export function HeroSection() {
             </p>
           </div>
 
-          {/* MAIN HERO CONTENT */}
-
           <div className="my-16 lg:my-0">
-
             <p
               className="mb-6 text-[13px] uppercase tracking-[0.14em]"
               style={{
@@ -83,24 +74,42 @@ export function HeroSection() {
               Externe Architekturproduktion
             </p>
 
-            <h1
-              className="text-balance"
+            <div
+              className="relative inline-block"
               style={{
-                color: "rgba(58, 58, 55, 0.90)",
-                fontFamily: "'Instrument Serif', Georgia, serif",
-                fontWeight: 400,
-                fontSize: "clamp(64px, 7vw, 110px)",
-                lineHeight: "0.92",
-                letterSpacing: "-0.045em",
-                maxWidth: "14ch",
-                WebkitFontSmoothing: "antialiased",
-                textShadow: "0 2px 9px rgba(0, 0, 0, 0.12)",
+                isolation: "isolate",
               }}
             >
-              Externe Unterstützung
-              <br />
-              für Ihre Architekturprojekte.
-            </h1>
+              <div
+                className="absolute -inset-x-5 -inset-y-4 -z-10 rounded-[40%]"
+                style={{
+                  background:
+                    "radial-gradient(ellipse at center, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.42) 45%, rgba(255,255,255,0) 78%)",
+                  filter: "blur(12px)",
+                }}
+                aria-hidden="true"
+              />
+
+              <h1
+                className="text-balance"
+                style={{
+                  color: "rgba(58, 58, 55, 0.90)",
+                  fontFamily: "'Instrument Serif', Georgia, serif",
+                  fontWeight: 400,
+                  fontSize: "clamp(64px, 7vw, 110px)",
+                  lineHeight: "0.92",
+                  letterSpacing: "-0.045em",
+                  maxWidth: "14ch",
+                  WebkitFontSmoothing: "antialiased",
+                  textShadow:
+                    "0 1px 3px rgba(255, 255, 255, 0.85)",
+                }}
+              >
+                Externe Unterstützung
+                <br />
+                für Ihre Architekturprojekte.
+              </h1>
+            </div>
 
             <p
               className="mt-8 max-w-md text-[15px] leading-[22.5px]"
@@ -118,10 +127,7 @@ export function HeroSection() {
             </p>
           </div>
 
-          {/* HERO BOTTOM */}
-
           <div className="flex items-end justify-between gap-8">
-
             <p
               className="max-w-[330px] text-[15px] leading-[22.5px]"
               style={{
@@ -161,14 +167,10 @@ export function HeroSection() {
                 Leistungen entdecken
               </span>
             </a>
-
           </div>
         </div>
 
-        {/* RIGHT — IMAGE */}
-
         <div className="relative min-h-[72vh] w-full overflow-hidden bg-muted lg:min-h-screen lg:w-[64%]">
-
           <img
             src="/images/renders/44.webp"
             alt="Architekturvisualisierung von ArchiK"
@@ -178,10 +180,7 @@ export function HeroSection() {
 
           <div className="absolute inset-0 bg-black/5" />
 
-          {/* FLOATING SERVICE CARDS */}
-
           <div className="absolute inset-0">
-
             {services.map((service, index) => {
               const positions = [
                 "left-[7%] top-[12%]",
@@ -210,7 +209,6 @@ export function HeroSection() {
                   }}
                 >
                   <div className="px-5 py-4 sm:px-6 sm:py-5">
-
                     <p
                       className="text-[15px] leading-tight tracking-[-0.01em] sm:text-base"
                       style={{
@@ -236,15 +234,11 @@ export function HeroSection() {
                     >
                       {service.description}
                     </p>
-
                   </div>
                 </div>
               );
             })}
-
           </div>
-
-          {/* IMAGE LABEL — LIGHT TEXT ON IMAGE */}
 
           <div
             className="absolute bottom-6 left-6 hidden text-[10px] uppercase tracking-[0.16em] sm:block"
@@ -259,7 +253,6 @@ export function HeroSection() {
           >
             ArchiK · 2026
           </div>
-
         </div>
       </div>
     </section>
