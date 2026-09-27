@@ -9,7 +9,7 @@ export function AboutSection() {
             <div className="overflow-hidden">
               <img
                 src="/images/kristiyana.webp"
-                alt="Kristiyana Prodanichina – Architektin und Gründerin von ArchiK"
+                alt="Kristiyana Prodanichina – Architektin und Gründerin von ArchiKa"
                 className="h-auto w-full object-cover"
                 loading="lazy"
                 draggable={false}
@@ -18,20 +18,53 @@ export function AboutSection() {
           </div>
 
           <div>
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">
+            <p
+              style={{
+                fontFamily:
+                  "'Barlow Semi Condensed Local', Arial, sans-serif",
+                fontSize: "13px",
+                fontWeight: 700,
+                textTransform: "uppercase",
+                letterSpacing: "0.18em",
+                color: "rgba(65, 65, 62, 0.55)",
+                WebkitFontSmoothing: "antialiased",
+              }}
+            >
               06 — Profil
             </p>
 
-            <h2 className="mt-4 text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
+            <h2
+              className="mt-4"
+              style={{
+                fontFamily:
+                  "'Instrument Serif Local', Georgia, serif",
+                fontWeight: 400,
+                fontSize: "clamp(44px, 4.8vw, 68px)",
+                lineHeight: "0.94",
+                letterSpacing: "-0.035em",
+                color: "rgba(58, 58, 55, 0.90)",
+                WebkitFontSmoothing: "antialiased",
+              }}
+            >
               Architektur mit technischem Anspruch.
             </h2>
 
-            <div className="mt-8 space-y-5 text-base leading-7 text-muted-foreground sm:text-lg">
+            <div
+              className="mt-8 space-y-5"
+              style={{
+                fontFamily: "'Barlow Local', Arial, sans-serif",
+                fontWeight: 400,
+                fontSize: "17px",
+                lineHeight: "1.65",
+                color: "rgba(65, 65, 62, 0.68)",
+                WebkitFontSmoothing: "antialiased",
+              }}
+            >
               <p>
                 Ich bin Kristiyana Prodanichina, Architektin und Gründerin von
-                ArchiK. Ich unterstütze Architekturbüros als externe
-                Projektpartnerin bei der digitalen Bearbeitung von
-                Architekturprojekten – remote, flexibel und projektbezogen.
+                ArchiKa. Ich unterstütze Architekturbüros als Projektpartnerin
+                bei der digitalen Bearbeitung von Architekturprojekten –
+                remote, flexibel und projektbezogen.
               </p>
 
               <p>
@@ -51,7 +84,7 @@ export function AboutSection() {
               </p>
 
               <p>
-                ArchiK richtet sich an Architekturbüros, die für einzelne
+                ArchiKa richtet sich an Architekturbüros, die für einzelne
                 Aufgaben zusätzliche Kapazität benötigen oder Unterstützung
                 während laufender Projekte suchen – ohne dafür dauerhaft
                 zusätzliche Ressourcen aufbauen zu müssen.
@@ -63,14 +96,32 @@ export function AboutSection() {
                 href={CV_PATH}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex text-sm font-medium underline underline-offset-4 transition-opacity hover:opacity-60"
+                style={{
+                  fontFamily:
+                    "'Barlow Semi Condensed Local', Arial, sans-serif",
+                  fontSize: "14px",
+                  fontWeight: 700,
+                  letterSpacing: "0.04em",
+                  color: "rgba(58, 58, 55, 0.78)",
+                  WebkitFontSmoothing: "antialiased",
+                }}
+                className="inline-flex underline underline-offset-4 transition-opacity hover:opacity-60"
               >
                 Lebenslauf ansehen
               </a>
 
               <a
                 href="#kontakt"
-                className="inline-flex text-sm font-medium text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground"
+                style={{
+                  fontFamily:
+                    "'Barlow Semi Condensed Local', Arial, sans-serif",
+                  fontSize: "14px",
+                  fontWeight: 700,
+                  letterSpacing: "0.04em",
+                  color: "rgba(80, 80, 76, 0.62)",
+                  WebkitFontSmoothing: "antialiased",
+                }}
+                className="inline-flex underline underline-offset-4 transition-opacity hover:opacity-60"
               >
                 Projekt anfragen
               </a>
