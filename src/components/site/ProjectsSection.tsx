@@ -1,4 +1,9 @@
-import { useEffect, useState, type TouchEvent } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type TouchEvent,
+} from "react";
 
 type GalleryImage = {
   src: string;
@@ -138,21 +143,77 @@ function Gallery({
   section: GallerySection;
   images: GalleryImage[];
 }) {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const transitionTimeoutRef = useRef<number | null>(null);
+
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [displayedImage, setDisplayedImage] = useState(images[0]);
+  const [isImageVisible, setIsImageVisible] = useState(true);
+  const [isSectionVisible, setIsSectionVisible] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
 
   const total = images.length;
 
+  useEffect(() => {
+    const sectionElement = sectionRef.current;
+
+    if (!sectionElement) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsSectionVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -8% 0px",
+      },
+    );
+
+    observer.observe(sectionElement);
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (transitionTimeoutRef.current !== null) {
+        window.clearTimeout(transitionTimeoutRef.current);
+      }
+    };
+  }, []);
+
   const goTo = (index: number) => {
     if (total === 0) return;
 
+    let nextIndex = index;
+
     if (index < 0) {
-      setCurrentIndex(total - 1);
+      nextIndex = total - 1;
     } else if (index >= total) {
-      setCurrentIndex(0);
-    } else {
-      setCurrentIndex(index);
+      nextIndex = 0;
     }
+
+    if (nextIndex === currentIndex) return;
+
+    const nextImage = images[nextIndex];
+
+    if (transitionTimeoutRef.current !== null) {
+      window.clearTimeout(transitionTimeoutRef.current);
+    }
+
+    setIsImageVisible(false);
+
+    transitionTimeoutRef.current = window.setTimeout(() => {
+      setCurrentIndex(nextIndex);
+      setDisplayedImage(nextImage);
+
+      requestAnimationFrame(() => {
+        setIsImageVisible(true);
+      });
+    }, 160);
   };
 
   const previous = () => goTo(currentIndex - 1);
@@ -193,9 +254,18 @@ function Gallery({
   const nextImage = getImage(1);
 
   return (
-    <section className="border-t border-border py-20 md:py-28">
+    <section
+      ref={sectionRef}
+      className="border-t border-border py-20 md:py-28"
+    >
       <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <div className="mb-10 max-w-3xl">
+        <div
+          className={`mb-10 max-w-3xl transition-all duration-1000 ease-out motion-reduce:transform-none motion-reduce:opacity-100 ${
+            isSectionVisible
+              ? "translate-y-0 opacity-100"
+              : "translate-y-8 opacity-0"
+          }`}
+        >
           <p
             className="mb-3"
             style={{
@@ -259,7 +329,11 @@ function Gallery({
         </div>
 
         <div
-          className="relative touch-pan-y"
+          className={`relative touch-pan-y transition-all duration-1000 delay-150 ease-out motion-reduce:transform-none motion-reduce:opacity-100 ${
+            isSectionVisible
+              ? "translate-y-0 opacity-100"
+              : "translate-y-10 opacity-0"
+          }`}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
@@ -275,28 +349,35 @@ function Gallery({
                 alt={previousImage.alt}
                 loading="lazy"
                 draggable={false}
-                className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                className="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.025] motion-reduce:transform-none"
               />
 
-              <span className="absolute inset-y-0 left-0 flex w-16 items-center justify-center bg-black/0 text-white opacity-0 transition-all group-hover:bg-black/20 group-hover:opacity-100">
-                <span className="text-3xl">‹</span>
+              <span className="absolute inset-y-0 left-0 flex w-16 items-center justify-center bg-black/0 text-white opacity-0 transition-all duration-300 group-hover:bg-black/20 group-hover:opacity-100">
+                <span className="text-3xl transition-transform duration-300 group-hover:-translate-x-1">
+                  ‹
+                </span>
               </span>
             </button>
 
             <div className="relative aspect-[4/3] overflow-hidden bg-muted">
               <img
-                src={currentImage.src}
-                alt={currentImage.alt}
+                key={displayedImage.src}
+                src={displayedImage.src}
+                alt={displayedImage.alt}
                 loading="eager"
                 draggable={false}
-                className="h-full w-full object-contain"
+                className={`h-full w-full object-contain transition-all duration-500 ease-out motion-reduce:transform-none ${
+                  isImageVisible
+                    ? "scale-100 opacity-100"
+                    : "scale-[1.015] opacity-0"
+                }`}
               />
 
               <button
                 type="button"
                 onClick={previous}
                 aria-label="Vorheriges Bild"
-                className="absolute left-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center bg-black/35 text-2xl text-white backdrop-blur-sm transition hover:bg-black/55 md:hidden"
+                className="absolute left-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center bg-black/35 text-2xl text-white backdrop-blur-sm transition-all duration-300 hover:bg-black/55 hover:-translate-x-0.5 md:hidden"
               >
                 ‹
               </button>
@@ -305,7 +386,7 @@ function Gallery({
                 type="button"
                 onClick={next}
                 aria-label="Nächstes Bild"
-                className="absolute right-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center bg-black/35 text-2xl text-white backdrop-blur-sm transition hover:bg-black/55 md:hidden"
+                className="absolute right-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center bg-black/35 text-2xl text-white backdrop-blur-sm transition-all duration-300 hover:bg-black/55 hover:translate-x-0.5 md:hidden"
               >
                 ›
               </button>
@@ -322,11 +403,13 @@ function Gallery({
                 alt={nextImage.alt}
                 loading="lazy"
                 draggable={false}
-                className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                className="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.025] motion-reduce:transform-none"
               />
 
-              <span className="absolute inset-y-0 right-0 flex w-16 items-center justify-center bg-black/0 text-white opacity-0 transition-all group-hover:bg-black/20 group-hover:opacity-100">
-                <span className="text-3xl">›</span>
+              <span className="absolute inset-y-0 right-0 flex w-16 items-center justify-center bg-black/0 text-white opacity-0 transition-all duration-300 group-hover:bg-black/20 group-hover:opacity-100">
+                <span className="text-3xl transition-transform duration-300 group-hover:translate-x-1">
+                  ›
+                </span>
               </span>
             </button>
           </div>
@@ -335,7 +418,7 @@ function Gallery({
             <button
               type="button"
               onClick={previous}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground md:hidden"
+              className="text-sm text-muted-foreground transition-all duration-300 hover:-translate-x-0.5 hover:text-foreground md:hidden"
               aria-label="Vorheriges Bild"
               style={{
                 fontFamily: "'Barlow Local', Arial, sans-serif",
@@ -356,7 +439,7 @@ function Gallery({
             <button
               type="button"
               onClick={next}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground md:hidden"
+              className="text-sm text-muted-foreground transition-all duration-300 hover:translate-x-0.5 hover:text-foreground md:hidden"
               aria-label="Nächstes Bild"
               style={{
                 fontFamily: "'Barlow Local', Arial, sans-serif",
