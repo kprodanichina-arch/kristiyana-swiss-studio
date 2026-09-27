@@ -23,6 +23,7 @@ export function Nav() {
       }}
     >
       <nav className="relative mx-auto flex h-[76px] max-w-6xl items-center justify-between gap-6 px-6 pl-8 sm:px-10 sm:pl-14 lg:px-14 lg:pl-20">
+
         <a
           href="/"
           aria-label="Startseite"
@@ -32,11 +33,12 @@ export function Nav() {
         </a>
 
         <ul className="ml-auto hidden items-center gap-8 lg:flex">
+
           {links.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-[18px] font-normal leading-[27px] tracking-[-0.01em] transition-opacity duration-200 hover:opacity-60"
+                className="text-[15px] font-normal leading-[22.5px] tracking-normal transition-opacity duration-200 hover:opacity-60"
               >
                 {link.label}
               </a>
@@ -46,11 +48,12 @@ export function Nav() {
           <li>
             <a
               href="#kontakt"
-              className="border border-black/25 px-5 py-2.5 text-[18px] font-normal leading-[27px] tracking-[-0.01em] transition-colors duration-200 hover:bg-black/10"
+              className="border border-black/25 px-5 py-2 text-[15px] font-normal leading-[22.5px] tracking-normal transition-colors duration-200 hover:bg-black/10"
             >
               Kontakt
             </a>
           </li>
+
         </ul>
       </nav>
     </header>
