@@ -231,6 +231,32 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="de">
       <head>
         <HeadContent />
+
+        <style>{`
+          @font-face {
+            font-family: "Barlow Local";
+            src: url("/fonts/Barlow-Regular.woff2") format("woff2");
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+          }
+
+          @font-face {
+            font-family: "Barlow Semi Condensed Local";
+            src: url("/fonts/BarlowSemiCondensed-Bold.woff2") format("woff2");
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+          }
+
+          @font-face {
+            font-family: "Instrument Serif Local";
+            src: url("/fonts/InstrumentSerif-Regular.woff2") format("woff2");
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+          }
+        `}</style>
       </head>
 
       <body>
