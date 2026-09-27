@@ -1,23 +1,71 @@
+import { useEffect, useRef, useState } from "react";
 import { CV_PATH } from "./data";
 
 export function AboutSection() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.18,
+        rootMargin: "0px 0px -8% 0px",
+      },
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="ueber-mich" className="border-t border-border">
+    <section
+      ref={sectionRef}
+      id="ueber-mich"
+      className="border-t border-border"
+    >
       <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
         <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-20">
           <div>
-            <div className="overflow-hidden">
+            <div
+              className={`overflow-hidden transition-all duration-[1200ms] ease-out motion-reduce:transform-none motion-reduce:opacity-100 ${
+                isVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-10 opacity-0"
+              }`}
+            >
               <img
                 src="/images/kristiyana.webp"
                 alt="Kristiyana Prodanichina – Architektin und Gründerin von ArchiKa"
-                className="h-auto w-full object-cover"
+                className={`h-auto w-full object-cover transition-transform duration-[1400ms] ease-out motion-reduce:transform-none ${
+                  isVisible ? "scale-100" : "scale-[1.045]"
+                }`}
                 loading="lazy"
                 draggable={false}
               />
             </div>
           </div>
 
-          <div>
+          <div
+            className={`transition-all duration-1000 ease-out motion-reduce:transform-none motion-reduce:opacity-100 ${
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-8 opacity-0"
+            }`}
+            style={{
+              transitionDelay: isVisible ? "180ms" : "0ms",
+            }}
+          >
             <p
               style={{
                 fontFamily:
@@ -60,38 +108,62 @@ export function AboutSection() {
                 WebkitFontSmoothing: "antialiased",
               }}
             >
-              <p>
-                Ich bin Kristiyana Prodanichina, Architektin und Gründerin von
-                ArchiKa. Ich unterstütze Architekturbüros als Projektpartnerin
-                bei der digitalen Bearbeitung von Architekturprojekten –
-                remote, flexibel und projektbezogen.
-              </p>
-
-              <p>
-                Mein Schwerpunkt liegt auf der Ausführungs- und Detailplanung,
-                der Bearbeitung von Grundrissen, Schnitten und Ansichten sowie
-                der architektonischen Visualisierung. Dabei ist mir wichtig,
-                dass Pläne und Modelle nicht nur vollständig, sondern auch
-                nachvollziehbar und direkt in bestehende Arbeitsabläufe
-                integrierbar sind.
-              </p>
-
-              <p>
-                Ich arbeite aktuell vor allem mit Archicad, Twinmotion und D5
-                Render. Durch meine Erfahrung mit Revit und AutoCAD kann ich
-                mich auch in andere Softwareumgebungen und bestehende
-                Projektstrukturen schnell einarbeiten.
-              </p>
-
-              <p>
-                ArchiKa richtet sich an Architekturbüros, die für einzelne
-                Aufgaben zusätzliche Kapazität benötigen oder Unterstützung
-                während laufender Projekte suchen – ohne dafür dauerhaft
-                zusätzliche Ressourcen aufbauen zu müssen.
-              </p>
+              {[
+                <>
+                  Ich bin Kristiyana Prodanichina, Architektin und Gründerin
+                  von ArchiKa. Ich unterstütze Architekturbüros als
+                  Projektpartnerin bei der digitalen Bearbeitung von
+                  Architekturprojekten – remote, flexibel und projektbezogen.
+                </>,
+                <>
+                  Mein Schwerpunkt liegt auf der Ausführungs- und
+                  Detailplanung, der Bearbeitung von Grundrissen, Schnitten
+                  und Ansichten sowie der architektonischen Visualisierung.
+                  Dabei ist mir wichtig, dass Pläne und Modelle nicht nur
+                  vollständig, sondern auch nachvollziehbar und direkt in
+                  bestehende Arbeitsabläufe integrierbar sind.
+                </>,
+                <>
+                  Ich arbeite aktuell vor allem mit Archicad, Twinmotion und
+                  D5 Render. Durch meine Erfahrung mit Revit und AutoCAD kann
+                  ich mich auch in andere Softwareumgebungen und bestehende
+                  Projektstrukturen schnell einarbeiten.
+                </>,
+                <>
+                  ArchiKa richtet sich an Architekturbüros, die für einzelne
+                  Aufgaben zusätzliche Kapazität benötigen oder Unterstützung
+                  während laufender Projekte suchen – ohne dafür dauerhaft
+                  zusätzliche Ressourcen aufbauen zu müssen.
+                </>,
+              ].map((paragraph, index) => (
+                <p
+                  key={index}
+                  className={`transition-all duration-700 ease-out motion-reduce:transform-none motion-reduce:opacity-100 ${
+                    isVisible
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-5 opacity-0"
+                  }`}
+                  style={{
+                    transitionDelay: isVisible
+                      ? `${420 + index * 110}ms`
+                      : "0ms",
+                  }}
+                >
+                  {paragraph}
+                </p>
+              ))}
             </div>
 
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <div
+              className={`mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 transition-all duration-700 ease-out motion-reduce:transform-none motion-reduce:opacity-100 ${
+                isVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-4 opacity-0"
+              }`}
+              style={{
+                transitionDelay: isVisible ? "900ms" : "0ms",
+              }}
+            >
               <a
                 href={CV_PATH}
                 target="_blank"
