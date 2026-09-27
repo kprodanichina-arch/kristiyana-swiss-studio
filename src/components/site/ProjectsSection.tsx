@@ -165,7 +165,9 @@ function Gallery({
   const handleTouchEnd = (event: TouchEvent<HTMLDivElement>) => {
     if (touchStart === null) return;
 
-    const touchEnd = event.changedTouches[0]?.clientX ?? touchStart;
+    const touchEnd =
+      event.changedTouches[0]?.clientX ?? touchStart;
+
     const distance = touchStart - touchEnd;
 
     if (Math.abs(distance) > 50) {
@@ -194,19 +196,66 @@ function Gallery({
     <section className="border-t border-border py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="mb-10 max-w-3xl">
-          <p className="mb-3 text-sm font-medium uppercase tracking-[0.16em] text-muted-foreground">
+          <p
+            className="mb-3"
+            style={{
+              fontFamily:
+                "'Barlow Semi Condensed Local', Arial, sans-serif",
+              fontSize: "13px",
+              fontWeight: 700,
+              letterSpacing: "0.16em",
+              textTransform: "uppercase",
+              color: "rgba(65, 65, 62, 0.55)",
+              WebkitFontSmoothing: "antialiased",
+            }}
+          >
             {section.eyebrow}
           </p>
 
-          <h2 className="text-3xl font-medium tracking-tight md:text-5xl">
+          <h2
+            className="text-balance"
+            style={{
+              fontFamily:
+                "'Instrument Serif Local', Georgia, serif",
+              fontWeight: 400,
+              fontSize: "clamp(44px, 5vw, 72px)",
+              lineHeight: "0.94",
+              letterSpacing: "-0.035em",
+              color: "rgba(58, 58, 55, 0.90)",
+              WebkitFontSmoothing: "antialiased",
+            }}
+          >
             {section.title}
           </h2>
 
-          <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
+          <p
+            className="mt-5 max-w-2xl"
+            style={{
+              fontFamily: "'Barlow Local', Arial, sans-serif",
+              fontWeight: 400,
+              fontSize: "17px",
+              lineHeight: "1.6",
+              color: "rgba(65, 65, 62, 0.68)",
+              WebkitFontSmoothing: "antialiased",
+            }}
+          >
             {section.description}
           </p>
 
-          <p className="mt-5 text-sm font-medium">{section.price}</p>
+          <p
+            className="mt-5"
+            style={{
+              fontFamily:
+                "'Barlow Semi Condensed Local', Arial, sans-serif",
+              fontSize: "14px",
+              fontWeight: 700,
+              letterSpacing: "0.04em",
+              color: "rgba(58, 58, 55, 0.72)",
+              WebkitFontSmoothing: "antialiased",
+            }}
+          >
+            {section.price}
+          </p>
         </div>
 
         <div
@@ -288,11 +337,19 @@ function Gallery({
               onClick={previous}
               className="text-sm text-muted-foreground transition-colors hover:text-foreground md:hidden"
               aria-label="Vorheriges Bild"
+              style={{
+                fontFamily: "'Barlow Local', Arial, sans-serif",
+              }}
             >
               ← Zurück
             </button>
 
-            <span className="text-sm text-muted-foreground">
+            <span
+              className="text-sm text-muted-foreground"
+              style={{
+                fontFamily: "'Barlow Local', Arial, sans-serif",
+              }}
+            >
               {currentIndex + 1} / {total}
             </span>
 
@@ -301,6 +358,9 @@ function Gallery({
               onClick={next}
               className="text-sm text-muted-foreground transition-colors hover:text-foreground md:hidden"
               aria-label="Nächstes Bild"
+              style={{
+                fontFamily: "'Barlow Local', Arial, sans-serif",
+              }}
             >
               Weiter →
             </button>
