@@ -37,7 +37,8 @@ export function HeroSection() {
               className="text-xs uppercase tracking-[0.16em]"
               style={{
                 color: "rgba(65, 65, 62, 0.70)",
-                fontFamily: "'Barlow Semi Condensed', Arial, sans-serif",
+                fontFamily:
+                  "'Barlow Semi Condensed Local', Arial, sans-serif",
                 fontWeight: 700,
                 WebkitFontSmoothing: "antialiased",
                 textShadow: "0 1px 5px rgba(0, 0, 0, 0.08)",
@@ -50,7 +51,8 @@ export function HeroSection() {
               className="mt-3 max-w-[240px] text-[11px] uppercase leading-5 tracking-[0.12em]"
               style={{
                 color: "rgba(65, 65, 62, 0.62)",
-                fontFamily: "'Barlow Semi Condensed', Arial, sans-serif",
+                fontFamily:
+                  "'Barlow Semi Condensed Local', Arial, sans-serif",
                 fontWeight: 700,
                 WebkitFontSmoothing: "antialiased",
                 textShadow: "0 1px 5px rgba(0, 0, 0, 0.07)",
@@ -65,7 +67,8 @@ export function HeroSection() {
               className="mb-6 text-[13px] uppercase tracking-[0.14em]"
               style={{
                 color: "rgba(65, 65, 62, 0.68)",
-                fontFamily: "'Barlow Semi Condensed', Arial, sans-serif",
+                fontFamily:
+                  "'Barlow Semi Condensed Local', Arial, sans-serif",
                 fontWeight: 700,
                 WebkitFontSmoothing: "antialiased",
                 textShadow: "0 1px 6px rgba(0, 0, 0, 0.08)",
@@ -94,7 +97,8 @@ export function HeroSection() {
                 className="text-balance"
                 style={{
                   color: "rgba(58, 58, 55, 0.90)",
-                  fontFamily: "'Instrument Serif', Georgia, serif",
+                  fontFamily:
+                    "'Instrument Serif Local', Georgia, serif",
                   fontWeight: 400,
                   fontSize: "clamp(64px, 7vw, 110px)",
                   lineHeight: "0.92",
@@ -115,7 +119,7 @@ export function HeroSection() {
               className="mt-8 max-w-md text-[15px] leading-[22.5px]"
               style={{
                 color: "rgba(65, 65, 62, 0.70)",
-                fontFamily: "'Barlow', Arial, sans-serif",
+                fontFamily: "'Barlow Local', Arial, sans-serif",
                 fontWeight: 400,
                 WebkitFontSmoothing: "antialiased",
                 textShadow: "0 1px 6px rgba(0, 0, 0, 0.07)",
@@ -132,7 +136,7 @@ export function HeroSection() {
               className="max-w-[330px] text-[15px] leading-[22.5px]"
               style={{
                 color: "rgba(65, 65, 62, 0.68)",
-                fontFamily: "'Barlow', Arial, sans-serif",
+                fontFamily: "'Barlow Local', Arial, sans-serif",
                 fontWeight: 400,
                 WebkitFontSmoothing: "antialiased",
                 textShadow: "0 1px 6px rgba(0, 0, 0, 0.07)",
@@ -155,7 +159,7 @@ export function HeroSection() {
                 className="text-xl leading-none transition-transform duration-300 group-hover:translate-y-1"
                 style={{
                   color: "rgba(65, 65, 62, 0.78)",
-                  fontFamily: "'Barlow', Arial, sans-serif",
+                  fontFamily: "'Barlow Local', Arial, sans-serif",
                   fontWeight: 400,
                   textShadow: "0 1px 6px rgba(0, 0, 0, 0.08)",
                 }}
@@ -213,7 +217,7 @@ export function HeroSection() {
                       className="text-[15px] leading-tight tracking-[-0.01em] sm:text-base"
                       style={{
                         color: "rgba(58, 58, 55, 0.88)",
-                        fontFamily: "'Barlow', Arial, sans-serif",
+                        fontFamily: "'Barlow Local', Arial, sans-serif",
                         fontWeight: 400,
                         WebkitFontSmoothing: "antialiased",
                         textShadow: "0 1px 5px rgba(0, 0, 0, 0.08)",
@@ -226,7 +230,7 @@ export function HeroSection() {
                       className="mt-1.5 text-[11px] leading-[1.4] sm:text-xs"
                       style={{
                         color: "rgba(65, 65, 62, 0.68)",
-                        fontFamily: "'Barlow', Arial, sans-serif",
+                        fontFamily: "'Barlow Local', Arial, sans-serif",
                         fontWeight: 400,
                         WebkitFontSmoothing: "antialiased",
                         textShadow: "0 1px 5px rgba(0, 0, 0, 0.06)",
@@ -244,7 +248,8 @@ export function HeroSection() {
             className="absolute bottom-6 left-6 hidden text-[10px] uppercase tracking-[0.16em] sm:block"
             style={{
               color: "rgba(248, 246, 240, 0.92)",
-              fontFamily: "'Barlow Semi Condensed', Arial, sans-serif",
+              fontFamily:
+                "'Barlow Semi Condensed Local', Arial, sans-serif",
               fontWeight: 700,
               WebkitFontSmoothing: "antialiased",
               textShadow:
