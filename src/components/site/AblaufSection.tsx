@@ -27,11 +27,34 @@ export function AblaufSection() {
       <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
           <div>
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">
+            <p
+              style={{
+                fontFamily:
+                  "'Barlow Semi Condensed Local', Arial, sans-serif",
+                fontSize: "13px",
+                fontWeight: 700,
+                textTransform: "uppercase",
+                letterSpacing: "0.18em",
+                color: "rgba(65, 65, 62, 0.55)",
+                WebkitFontSmoothing: "antialiased",
+              }}
+            >
               05 — Ablauf
             </p>
 
-            <h2 className="mt-4 text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
+            <h2
+              className="mt-4"
+              style={{
+                fontFamily:
+                  "'Instrument Serif Local', Georgia, serif",
+                fontWeight: 400,
+                fontSize: "clamp(44px, 4.8vw, 68px)",
+                lineHeight: "0.94",
+                letterSpacing: "-0.035em",
+                color: "rgba(58, 58, 55, 0.90)",
+                WebkitFontSmoothing: "antialiased",
+              }}
+            >
               Einfach integrierbar.
               <br />
               Klar im Ablauf.
@@ -39,10 +62,20 @@ export function AblaufSection() {
           </div>
 
           <div className="max-w-2xl lg:justify-self-end">
-            <p className="text-base leading-7 text-muted-foreground sm:text-lg">
+            <p
+              style={{
+                fontFamily: "'Barlow Local', Arial, sans-serif",
+                fontWeight: 400,
+                fontSize: "17px",
+                lineHeight: "1.65",
+                color: "rgba(65, 65, 62, 0.68)",
+                WebkitFontSmoothing: "antialiased",
+              }}
+            >
               Ob einzelne Planungsaufgabe oder zusätzliche Kapazität in einem
               laufenden Projekt: Die Zusammenarbeit wird auf Ihren konkreten
-              Bedarf abgestimmt und in Ihre bestehende Arbeitsweise integriert.
+              Bedarf abgestimmt und in Ihre bestehende Arbeitsweise
+              integriert.
             </p>
           </div>
         </div>
@@ -53,13 +86,48 @@ export function AblaufSection() {
               key={step.number}
               className="border-b border-border py-8 md:border-b-0 md:border-r md:px-7 md:first:pl-0 md:last:border-r-0 md:last:pr-0"
             >
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+              <p
+                style={{
+                  fontFamily:
+                    "'Barlow Semi Condensed Local', Arial, sans-serif",
+                  fontSize: "13px",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.18em",
+                  color: "rgba(65, 65, 62, 0.52)",
+                  WebkitFontSmoothing: "antialiased",
+                }}
+              >
                 {step.number}
               </p>
 
-              <h3 className="mt-5 text-xl font-medium">{step.title}</h3>
+              <h3
+                className="mt-5"
+                style={{
+                  fontFamily:
+                    "'Instrument Serif Local', Georgia, serif",
+                  fontWeight: 400,
+                  fontSize: "clamp(27px, 2.2vw, 34px)",
+                  lineHeight: "1",
+                  letterSpacing: "-0.025em",
+                  color: "rgba(58, 58, 55, 0.90)",
+                  WebkitFontSmoothing: "antialiased",
+                }}
+              >
+                {step.title}
+              </h3>
 
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              <p
+                className="mt-3"
+                style={{
+                  fontFamily: "'Barlow Local', Arial, sans-serif",
+                  fontWeight: 400,
+                  fontSize: "15px",
+                  lineHeight: "1.6",
+                  color: "rgba(65, 65, 62, 0.66)",
+                  WebkitFontSmoothing: "antialiased",
+                }}
+              >
                 {step.text}
               </p>
             </div>
