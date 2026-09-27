@@ -152,6 +152,16 @@ export const Route =
         },
 
         {
+          property: "og:image",
+          content: "https://archikprojekt.com/images/renders/44.webp",
+        },
+
+        {
+          property: "og:image:alt",
+          content: "Architekturvisualisierung von ArchiKa",
+        },
+
+        {
           name: "twitter:card",
           content: "summary_large_image",
         },
@@ -166,6 +176,11 @@ export const Route =
           name: "twitter:description",
           content:
             "Externe Architektur- und BIM-Unterstützung für Architekturbüros in Deutschland, Österreich und der Schweiz – remote und projektbezogen.",
+        },
+
+        {
+          name: "twitter:image",
+          content: "https://archikprojekt.com/images/renders/44.webp",
         },
 
         {
