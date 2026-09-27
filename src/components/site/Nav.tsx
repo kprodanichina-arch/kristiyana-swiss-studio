@@ -14,7 +14,7 @@ export function Nav() {
       style={{
         backgroundColor: "rgba(238, 232, 220, 0.78)",
         color: "#20201d",
-        fontFamily: "'Barlow', Arial, sans-serif",
+        fontFamily: "'Barlow Local', Arial, sans-serif",
         fontSize: "15px",
         lineHeight: "1.5",
         fontWeight: 400,
@@ -41,7 +41,7 @@ export function Nav() {
               <a
                 href={link.href}
                 style={{
-                  fontFamily: "'Barlow', Arial, sans-serif",
+                  fontFamily: "'Barlow Local', Arial, sans-serif",
                   fontSize: "15px",
                   lineHeight: "1.5",
                   fontWeight: 400,
@@ -69,7 +69,7 @@ export function Nav() {
                 display: "inline-block",
                 border: "1px solid rgba(32, 32, 29, 0.22)",
                 padding: "8px 20px",
-                fontFamily: "'Barlow', Arial, sans-serif",
+                fontFamily: "'Barlow Local', Arial, sans-serif",
                 fontSize: "15px",
                 lineHeight: "1.5",
                 fontWeight: 400,
