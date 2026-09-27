@@ -10,16 +10,16 @@ const links = [
 export function Nav() {
   return (
     <header
-      className="sticky top-0 z-40 border-b border-white/50"
+      className="sticky top-0 z-40 border-b border-white/45"
       style={{
-        backgroundColor: "rgba(238, 232, 220, 0.68)",
-        color: "rgba(32, 32, 29, 0.76)",
+        backgroundColor: "rgba(175, 177, 174, 0.62)",
+        color: "rgba(58, 58, 55, 0.88)",
         fontFamily: "'Barlow', Arial, sans-serif",
         WebkitFontSmoothing: "antialiased",
-        backdropFilter: "blur(16px) saturate(115%)",
-        WebkitBackdropFilter: "blur(16px) saturate(115%)",
+        backdropFilter: "blur(18px) saturate(110%)",
+        WebkitBackdropFilter: "blur(18px) saturate(110%)",
         boxShadow:
-          "0 10px 24px -14px rgba(20, 25, 20, 0.28), 0 18px 38px -20px rgba(20, 25, 20, 0.20)",
+          "0 10px 24px -14px rgba(20, 20, 18, 0.22), 0 18px 38px -20px rgba(20, 20, 18, 0.14)",
       }}
     >
       <nav className="relative mx-auto flex h-[76px] max-w-6xl items-center justify-between gap-6 px-6 pl-8 sm:px-10 sm:pl-14 lg:px-14 lg:pl-20">
@@ -39,6 +39,9 @@ export function Nav() {
               <a
                 href={link.href}
                 className="text-[15px] font-normal leading-[22.5px] tracking-normal transition-opacity duration-200 hover:opacity-60"
+                style={{
+                  textShadow: "0 1px 5px rgba(0, 0, 0, 0.08)",
+                }}
               >
                 {link.label}
               </a>
@@ -49,6 +52,9 @@ export function Nav() {
             <a
               href="#kontakt"
               className="border border-black/25 px-5 py-2 text-[15px] font-normal leading-[22.5px] tracking-normal transition-colors duration-200 hover:bg-black/10"
+              style={{
+                textShadow: "0 1px 5px rgba(0, 0, 0, 0.08)",
+              }}
             >
               Kontakt
             </a>
