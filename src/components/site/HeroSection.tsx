@@ -6,6 +6,11 @@ type Color = {
   b: number;
 };
 
+type Service = {
+  title: string;
+  description: string;
+};
+
 const fallbackColors: Color[] = [
   { r: 58, g: 72, b: 76 },
   { r: 92, g: 67, b: 58 },
@@ -13,11 +18,23 @@ const fallbackColors: Color[] = [
   { r: 82, g: 69, b: 82 },
 ];
 
-const services = [
-  "AUSFÜHRUNGS- & DETAILPLANUNG",
-  "FASSADEN & DETAILS",
-  "BIM & DIGITALE PLANUNG",
-  "ARCHITEKTURVISUALISIERUNG",
+const services: Service[] = [
+  {
+    title: "Ausführungsplanung",
+    description: "Grundrisse, Schnitte, Ansichten und Detailplanung.",
+  },
+  {
+    title: "Fassaden & Details",
+    description: "Fassaden, Ansichten und technische Planunterlagen.",
+  },
+  {
+    title: "BIM & digitale Planung",
+    description: "Archicad, Revit und strukturierte IFC-Workflows.",
+  },
+  {
+    title: "Architekturvisualisierung",
+    description: "Fotorealistische Außenvisualisierungen für Ihre Projekte.",
+  },
 ];
 
 function colorDistance(a: Color, b: Color) {
@@ -154,41 +171,42 @@ export function HeroSection() {
   return (
     <section className="relative overflow-hidden border-b border-border bg-background">
       <div className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-[1800px] flex-col lg:flex-row">
+
         {/* LEFT — TYPOGRAPHY */}
 
         <div className="relative z-10 flex w-full flex-col justify-between px-6 py-10 sm:px-10 sm:py-12 lg:w-[36%] lg:px-12 lg:py-14 xl:px-16">
+
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">
               ArchiK
             </p>
 
-            <p className="mt-3 max-w-[220px] text-[10px] uppercase leading-5 tracking-[0.18em] text-muted-foreground">
+            <p className="mt-3 max-w-[240px] text-[10px] uppercase leading-5 tracking-[0.18em] text-muted-foreground">
               Architektur · BIM · Visualisierung
             </p>
           </div>
 
           <div className="my-16 lg:my-0">
-            <p className="mb-6 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+
+            <p className="mb-6 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
               Externe Architekturproduktion
             </p>
 
             <h1
-              className="max-w-[680px] text-[3.5rem] font-medium leading-[0.88] tracking-[-0.055em] text-foreground sm:text-6xl lg:text-[4.8rem] xl:text-[5.8rem]"
+              className="max-w-[620px] text-[3.1rem] font-medium leading-[0.98] tracking-[-0.045em] text-foreground sm:text-5xl lg:text-[4.2rem] xl:text-[4.8rem]"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
-              Externe
+              Externe Unterstützung
               <br />
-              Architektur-
+              für Architektur-
               <br />
-              und BIM-
-              <br />
-              Unterstützung
+              und BIM-Projekte
             </h1>
 
             <p className="mt-8 max-w-md text-base leading-7 text-muted-foreground sm:text-lg">
-              Für Architekturbüros in Deutschland, Österreich und der
-              Schweiz – projektbezogen oder als zusätzliche Kapazität in
-              laufenden Projekten.
+              Flexible Unterstützung für Architekturbüros in Deutschland,
+              Österreich und der Schweiz – projektbezogen oder als
+              zusätzliche Kapazität in laufenden Projekten.
             </p>
 
             <a
@@ -209,6 +227,7 @@ export function HeroSection() {
         {/* RIGHT — IMAGE + FLOATING SERVICE CARDS */}
 
         <div className="relative min-h-[72vh] w-full overflow-hidden bg-muted lg:min-h-screen lg:w-[64%]">
+
           <img
             src="/images/renders/44.webp"
             alt="Architekturvisualisierung von ArchiK"
@@ -221,46 +240,54 @@ export function HeroSection() {
           {/* Floating service cards */}
 
           <div className="absolute inset-0">
+
             {services.map((service, index) => {
               const color = colors[index % colors.length];
 
               const positions = [
-                "left-[7%] top-[13%]",
-                "right-[7%] top-[31%]",
-                "left-[10%] bottom-[19%]",
-                "right-[9%] bottom-[8%]",
+                "left-[7%] top-[12%]",
+                "right-[7%] top-[30%]",
+                "left-[10%] bottom-[18%]",
+                "right-[9%] bottom-[7%]",
               ];
 
               const sizes = [
-                "w-[230px] sm:w-[270px]",
-                "w-[210px] sm:w-[250px]",
-                "w-[205px] sm:w-[245px]",
                 "w-[245px] sm:w-[290px]",
+                "w-[230px] sm:w-[275px]",
+                "w-[230px] sm:w-[275px]",
+                "w-[250px] sm:w-[300px]",
               ];
 
               return (
                 <div
-                  key={service}
+                  key={service.title}
                   className={`absolute ${positions[index]} ${sizes[index]}`}
                   style={{
                     backgroundColor: rgbToCss(color),
                     boxShadow:
-                      "0 10px 28px rgba(255,255,255,0.20), 0 18px 40px rgba(0,0,0,0.18)",
+                      "0 8px 24px rgba(255,255,255,0.22), 0 18px 42px rgba(0,0,0,0.20)",
                   }}
                 >
                   <div className="px-5 py-4 sm:px-6 sm:py-5">
+
                     <p
-                      className="text-[11px] font-medium leading-[1.35] tracking-[0.13em] text-white sm:text-xs"
+                      className="text-sm font-medium leading-tight tracking-[-0.01em] text-white sm:text-[15px]"
                       style={{
                         fontFamily: "'Space Grotesk', sans-serif",
                       }}
                     >
-                      {service}
+                      {service.title}
                     </p>
+
+                    <p className="mt-2 max-w-[230px] text-[10px] leading-[1.5] tracking-[0.04em] text-white/80 sm:text-[11px]">
+                      {service.description}
+                    </p>
+
                   </div>
                 </div>
               );
             })}
+
           </div>
 
           {/* Small visual marker */}
@@ -268,6 +295,7 @@ export function HeroSection() {
           <div className="absolute bottom-6 left-6 hidden text-[10px] font-medium uppercase tracking-[0.18em] text-white/80 sm:block">
             ArchiK · 2026
           </div>
+
         </div>
       </div>
     </section>
