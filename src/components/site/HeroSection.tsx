@@ -44,7 +44,7 @@ export function HeroSection() {
                 textShadow: "0 1px 5px rgba(0, 0, 0, 0.08)",
               }}
             >
-              ArchiK
+              ArchiKa
             </p>
 
             <p
@@ -176,7 +176,7 @@ export function HeroSection() {
         <div className="relative min-h-[72vh] w-full overflow-hidden bg-muted lg:min-h-screen lg:w-[64%]">
           <img
             src="/images/renders/44.webp"
-            alt="Architekturvisualisierung von ArchiK"
+            alt="Architekturvisualisierung von ArchiKa"
             className="absolute inset-0 h-full w-full object-cover"
             draggable={false}
           />
@@ -216,7 +216,8 @@ export function HeroSection() {
                       className="text-[15px] leading-tight tracking-[-0.01em] sm:text-base"
                       style={{
                         color: "rgba(58, 58, 55, 0.88)",
-                        fontFamily: "'Barlow Local', Arial, sans-serif",
+                        fontFamily:
+                          "'Barlow Local', Arial, sans-serif",
                         fontWeight: 400,
                         WebkitFontSmoothing: "antialiased",
                         textShadow: "0 1px 5px rgba(0, 0, 0, 0.08)",
@@ -229,7 +230,8 @@ export function HeroSection() {
                       className="mt-1.5 text-[11px] leading-[1.4] sm:text-xs"
                       style={{
                         color: "rgba(65, 65, 62, 0.68)",
-                        fontFamily: "'Barlow Local', Arial, sans-serif",
+                        fontFamily:
+                          "'Barlow Local', Arial, sans-serif",
                         fontWeight: 400,
                         WebkitFontSmoothing: "antialiased",
                         textShadow: "0 1px 5px rgba(0, 0, 0, 0.06)",
@@ -255,7 +257,7 @@ export function HeroSection() {
                 "0 0 3px rgba(255, 255, 255, 0.45), 0 2px 10px rgba(255, 255, 255, 0.28)",
             }}
           >
-            ArchiK · 2026
+            ArchiKa · 2026
           </div>
         </div>
       </div>
