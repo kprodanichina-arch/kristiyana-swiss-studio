@@ -11,12 +11,12 @@ export const Route = createFileRoute("/datenschutz")({
     ],
     meta: [
       {
-        title: "Datenschutz | ArchiK",
+        title: "Datenschutz | ArchiKa",
       },
       {
         name: "description",
         content:
-          "Datenschutzerklärung von ArchiK und AY END VI BILD EOOD.",
+          "Datenschutzerklärung von ArchiKa und AY END VI BILD EOOD.",
       },
       {
         property: "og:url",
@@ -315,7 +315,7 @@ function DatenschutzPage() {
             href="/"
             className="text-sm font-medium underline underline-offset-4 transition-opacity hover:opacity-60"
           >
-            ← Zurück zu ArchiK
+            ← Zurück zu ArchiKa
           </a>
         </div>
       </main>
