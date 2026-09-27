@@ -63,20 +63,6 @@ export function HeroSection() {
           </div>
 
           <div className="my-16 lg:my-0">
-            <p
-              className="mb-6 text-[13px] uppercase tracking-[0.14em]"
-              style={{
-                color: "rgba(65, 65, 62, 0.68)",
-                fontFamily:
-                  "'Barlow Semi Condensed Local', Arial, sans-serif",
-                fontWeight: 700,
-                WebkitFontSmoothing: "antialiased",
-                textShadow: "0 1px 6px rgba(0, 0, 0, 0.08)",
-              }}
-            >
-              Architektur · BIM · Visualisierung
-            </p>
-
             <div
               className="relative inline-block"
               style={{
