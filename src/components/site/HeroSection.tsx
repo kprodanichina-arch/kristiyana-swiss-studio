@@ -172,34 +172,35 @@ export function HeroSection() {
           <div className="absolute inset-0">
             {services.map((service, index) => {
               const positions = [
-                "left-[7%] top-[12%]",
-                "right-[7%] top-[30%]",
-                "left-[10%] bottom-[18%]",
-                "right-[9%] bottom-[7%]",
+                "left-[5%] top-[8%] sm:left-[7%] sm:top-[12%]",
+                "right-[5%] top-[29%] sm:right-[7%] sm:top-[30%]",
+                "left-[5%] bottom-[29%] sm:left-[10%] sm:bottom-[18%]",
+                "right-[5%] bottom-[8%] sm:right-[9%] sm:bottom-[7%]",
               ];
 
               const sizes = [
-                "w-[250px] sm:w-[300px]",
-                "w-[235px] sm:w-[285px]",
-                "w-[235px] sm:w-[285px]",
-                "w-[255px] sm:w-[310px]",
+                "w-[43%] max-w-[190px] sm:w-[300px]",
+                "w-[43%] max-w-[180px] sm:w-[285px]",
+                "w-[43%] max-w-[180px] sm:w-[285px]",
+                "w-[43%] max-w-[195px] sm:w-[310px]",
               ];
 
               return (
                 <div
                   key={service.title}
-                  className={`absolute ${positions[index]} ${sizes[index]} rounded-2xl border border-white/60`}
+                  className={`absolute ${positions[index]} ${sizes[index]} rounded-xl sm:rounded-2xl`}
                   style={{
+                    border: "1px solid rgba(255, 255, 255, 0.60)",
                     backgroundColor: service.background,
                     backdropFilter: "blur(16px) saturate(115%)",
                     WebkitBackdropFilter: "blur(16px) saturate(115%)",
                     boxShadow:
-                      "0 16px 24px -8px rgba(20, 25, 20, 0.38), 0 28px 50px -14px rgba(20, 25, 20, 0.30)",
+                      "0 12px 20px -8px rgba(20, 25, 20, 0.34), 0 22px 40px -14px rgba(20, 25, 20, 0.26)",
                   }}
                 >
-                  <div className="px-5 py-4 sm:px-6 sm:py-5">
+                  <div className="px-3.5 py-3 sm:px-6 sm:py-5">
                     <p
-                      className="text-[15px] leading-tight tracking-[-0.01em] sm:text-base"
+                      className="text-[12px] leading-tight tracking-[-0.01em] sm:text-base"
                       style={{
                         color: "rgba(58, 58, 55, 0.88)",
                         fontFamily:
@@ -213,7 +214,7 @@ export function HeroSection() {
                     </p>
 
                     <p
-                      className="mt-1.5 text-[11px] leading-[1.4] sm:text-xs"
+                      className="mt-1 text-[9px] leading-[1.35] sm:mt-1.5 sm:text-xs sm:leading-[1.4]"
                       style={{
                         color: "rgba(65, 65, 62, 0.68)",
                         fontFamily:
