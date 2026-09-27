@@ -38,15 +38,21 @@ export function HeroSection() {
 
           <div>
             <p
-              className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground"
-              style={{ fontFamily: "'Barlow', Arial, sans-serif" }}
+              className="text-xs font-medium uppercase tracking-[0.2em]"
+              style={{
+                color: "rgba(32, 32, 29, 0.58)",
+                fontFamily: "'Barlow Semi Condensed', Arial, sans-serif",
+              }}
             >
               ArchiK
             </p>
 
             <p
-              className="mt-3 max-w-[240px] text-[10px] uppercase leading-5 tracking-[0.16em] text-muted-foreground"
-              style={{ fontFamily: "'Barlow', Arial, sans-serif" }}
+              className="mt-3 max-w-[240px] text-[11px] uppercase leading-5 tracking-[0.12em]"
+              style={{
+                color: "rgba(32, 32, 29, 0.52)",
+                fontFamily: "'Barlow Semi Condensed', Arial, sans-serif",
+              }}
             >
               Architektur · BIM · Visualisierung
             </p>
@@ -55,15 +61,21 @@ export function HeroSection() {
           <div className="my-16 lg:my-0">
 
             <p
-              className="mb-6 text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground"
-              style={{ fontFamily: "'Barlow', Arial, sans-serif" }}
+              className="mb-6 text-[13px] font-medium uppercase tracking-[0.14em]"
+              style={{
+                color: "rgba(32, 32, 29, 0.58)",
+                fontFamily: "'Barlow Semi Condensed', Arial, sans-serif",
+              }}
             >
               Externe Architekturproduktion
             </p>
 
             <h1
-              className="max-w-[620px] text-[3.1rem] font-medium leading-[1.02] tracking-[-0.035em] text-foreground sm:text-5xl lg:text-[4rem] xl:text-[4.6rem]"
-              style={{ fontFamily: "'Barlow', Arial, sans-serif" }}
+              className="max-w-[620px] text-[3.5rem] font-normal leading-[0.94] tracking-[-0.025em] sm:text-6xl lg:text-[4.6rem] xl:text-[5.15rem]"
+              style={{
+                color: "rgba(32, 32, 29, 0.82)",
+                fontFamily: "'Instrument Serif', Georgia, serif",
+              }}
             >
               Externe Unterstützung
               <br />
@@ -73,8 +85,11 @@ export function HeroSection() {
             </h1>
 
             <p
-              className="mt-8 max-w-md text-base leading-7 text-muted-foreground sm:text-lg"
-              style={{ fontFamily: "'Barlow', Arial, sans-serif" }}
+              className="mt-8 max-w-md text-base leading-7 sm:text-lg"
+              style={{
+                color: "rgba(32, 32, 29, 0.62)",
+                fontFamily: "'Barlow', Arial, sans-serif",
+              }}
             >
               Flexible Unterstützung für Architekturbüros in Deutschland,
               Österreich und der Schweiz – projektbezogen oder als
@@ -83,8 +98,12 @@ export function HeroSection() {
 
             <a
               href="#kontakt"
-              className="mt-8 inline-flex items-center justify-center bg-foreground px-6 py-3 text-sm font-medium text-background transition-opacity hover:opacity-75"
-              style={{ fontFamily: "'Barlow', Arial, sans-serif" }}
+              className="mt-8 inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-opacity hover:opacity-75"
+              style={{
+                backgroundColor: "rgba(32, 32, 29, 0.86)",
+                color: "rgb(238, 232, 220)",
+                fontFamily: "'Barlow', Arial, sans-serif",
+              }}
             >
               Projekt anfragen
             </a>
@@ -92,8 +111,11 @@ export function HeroSection() {
 
           <div className="hidden lg:block">
             <p
-              className="text-[10px] uppercase tracking-[0.16em] text-muted-foreground"
-              style={{ fontFamily: "'Barlow', Arial, sans-serif" }}
+              className="text-[11px] uppercase tracking-[0.14em]"
+              style={{
+                color: "rgba(32, 32, 29, 0.48)",
+                fontFamily: "'Barlow Semi Condensed', Arial, sans-serif",
+              }}
             >
               Deutschland · Österreich · Schweiz
             </p>
@@ -148,8 +170,9 @@ export function HeroSection() {
                   <div className="px-5 py-4 sm:px-6 sm:py-5">
 
                     <p
-                      className="text-[15px] font-medium leading-tight tracking-[-0.01em] text-black sm:text-base"
+                      className="text-[15px] font-medium leading-tight tracking-[-0.01em] sm:text-base"
                       style={{
+                        color: "rgba(32, 32, 29, 0.78)",
                         fontFamily: "'Barlow', Arial, sans-serif",
                       }}
                     >
@@ -157,8 +180,9 @@ export function HeroSection() {
                     </p>
 
                     <p
-                      className="mt-1.5 text-[11px] leading-[1.4] text-black/65 sm:text-xs"
+                      className="mt-1.5 text-[11px] leading-[1.4] sm:text-xs"
                       style={{
+                        color: "rgba(32, 32, 29, 0.60)",
                         fontFamily: "'Barlow', Arial, sans-serif",
                       }}
                     >
@@ -172,7 +196,13 @@ export function HeroSection() {
 
           </div>
 
-          <div className="absolute bottom-6 left-6 hidden text-[10px] font-medium uppercase tracking-[0.16em] text-white/80 sm:block">
+          <div
+            className="absolute bottom-6 left-6 hidden text-[10px] font-medium uppercase tracking-[0.16em] sm:block"
+            style={{
+              color: "rgba(238, 232, 220, 0.78)",
+              fontFamily: "'Barlow Semi Condensed', Arial, sans-serif",
+            }}
+          >
             ArchiK · 2026
           </div>
 
