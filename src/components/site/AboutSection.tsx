@@ -111,29 +111,32 @@ export function AboutSection() {
               {[
                 <>
                   Ich bin Kristiyana Prodanichina, Architektin und Gründerin
-                  von ArchiKa. Ich unterstütze Architekturbüros als
-                  Projektpartnerin bei der digitalen Bearbeitung von
-                  Architekturprojekten – remote, flexibel und projektbezogen.
+                  von ArchiKa. Ich unterstütze Architekturbüros als flexible
+                  externe Projektpartnerin bei der digitalen Bearbeitung von
+                  Architekturprojekten – remote, strukturiert und
+                  projektbezogen.
                 </>,
                 <>
                   Mein Schwerpunkt liegt auf der Ausführungs- und
                   Detailplanung, der Bearbeitung von Grundrissen, Schnitten
                   und Ansichten sowie der architektonischen Visualisierung.
-                  Dabei ist mir wichtig, dass Pläne und Modelle nicht nur
-                  vollständig, sondern auch nachvollziehbar und direkt in
-                  bestehende Arbeitsabläufe integrierbar sind.
+                  Dabei lege ich besonderen Wert auf klare Planstrukturen,
+                  nachvollziehbare Bearbeitung und Ergebnisse, die sich
+                  direkt in bestehende Projektabläufe integrieren lassen.
                 </>,
                 <>
                   Ich arbeite aktuell vor allem mit Archicad, Twinmotion und
                   D5 Render. Durch meine Erfahrung mit Revit und AutoCAD kann
                   ich mich auch in andere Softwareumgebungen und bestehende
-                  Projektstrukturen schnell einarbeiten.
+                  Projektstrukturen schnell und zuverlässig einarbeiten.
                 </>,
                 <>
-                  ArchiKa richtet sich an Architekturbüros, die für einzelne
-                  Aufgaben zusätzliche Kapazität benötigen oder Unterstützung
-                  während laufender Projekte suchen – ohne dafür dauerhaft
-                  zusätzliche Ressourcen aufbauen zu müssen.
+                  ArchiKa unterstützt Architekturbüros insbesondere dann, wenn
+                  kurzfristig zusätzliche Kapazität benötigt wird – für
+                  einzelne Planungsaufgaben, definierte Projektphasen oder
+                  während laufender Projekte. So können Aufgaben flexibel
+                  ausgelagert werden, ohne dauerhaft zusätzliche Ressourcen
+                  aufbauen zu müssen.
                 </>,
               ].map((paragraph, index) => (
                 <p
