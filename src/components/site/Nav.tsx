@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Logo } from "./Logo";
 
 const links = [
@@ -8,6 +9,12 @@ const links = [
 ];
 
 export function Nav() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <header
       className="sticky top-0 z-40 border-b"
@@ -31,11 +38,13 @@ export function Nav() {
           href="/"
           aria-label="Startseite"
           className="pointer-events-auto absolute left-8 top-2 z-50 flex items-center sm:left-14 lg:left-20"
+          onClick={closeMenu}
         >
           <Logo className="h-[90px] w-auto drop-shadow-sm sm:h-[130px]" />
         </a>
 
-        <ul className="ml-auto flex items-center gap-8">
+        {/* Desktop navigation */}
+        <ul className="ml-auto hidden items-center gap-8 md:flex">
           {links.map((link) => (
             <li key={link.href}>
               <a
@@ -83,7 +92,81 @@ export function Nav() {
             </a>
           </li>
         </ul>
+
+        {/* Mobile menu button */}
+        <button
+          type="button"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
+          aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
+          onClick={() => setMenuOpen((open) => !open)}
+          className="ml-auto flex items-center border border-[rgba(32,32,29,0.22)] px-4 py-2 md:hidden"
+          style={{
+            fontFamily:
+              "'Barlow Semi Condensed Local', Arial, sans-serif",
+            fontSize: "13px",
+            fontWeight: 700,
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            color: "#20201d",
+            WebkitTapHighlightColor: "transparent",
+          }}
+        >
+          {menuOpen ? "Schließen" : "Menü"}
+        </button>
       </nav>
+
+      {/* Mobile navigation */}
+      <div
+        id="mobile-navigation"
+        className={`overflow-hidden transition-[max-height,opacity] duration-300 md:hidden ${
+          menuOpen
+            ? "max-h-[420px] opacity-100"
+            : "pointer-events-none max-h-0 opacity-0"
+        }`}
+      >
+        <div className="mx-auto max-w-6xl px-6 pb-6 pt-3 sm:px-10">
+          <div className="border-t border-[rgba(32,32,29,0.14)]">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={closeMenu}
+                className="block border-b border-[rgba(32,32,29,0.12)] py-4"
+                style={{
+                  fontFamily: "'Barlow Local', Arial, sans-serif",
+                  fontSize: "16px",
+                  fontWeight: 400,
+                  color: "#20201d",
+                  textDecoration: "none",
+                  WebkitTapHighlightColor: "transparent",
+                }}
+              >
+                {link.label}
+              </a>
+            ))}
+
+            <a
+              href="#kontakt"
+              onClick={closeMenu}
+              className="mt-4 block border border-[rgba(32,32,29,0.24)] px-5 py-3 text-center"
+              style={{
+                fontFamily:
+                  "'Barlow Semi Condensed Local', Arial, sans-serif",
+                fontSize: "13px",
+                fontWeight: 700,
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                color: "#20201d",
+                textDecoration: "none",
+                WebkitTapHighlightColor: "transparent",
+              }}
+            >
+              Kontakt
+            </a>
+          </div>
+        </div>
+      </div>
     </header>
   );
 }
