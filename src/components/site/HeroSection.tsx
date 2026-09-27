@@ -36,12 +36,16 @@ export function HeroSection() {
 
         <div className="relative z-10 flex w-full flex-col justify-between px-6 py-10 sm:px-10 sm:py-12 lg:w-[36%] lg:px-12 lg:py-14 xl:px-16">
 
+          {/* TOP LABEL */}
+
           <div>
             <p
-              className="text-xs font-medium uppercase tracking-[0.2em]"
+              className="text-xs uppercase tracking-[0.16em]"
               style={{
                 color: "rgba(32, 32, 29, 0.58)",
                 fontFamily: "'Barlow Semi Condensed', Arial, sans-serif",
+                fontWeight: 700,
+                WebkitFontSmoothing: "antialiased",
               }}
             >
               ArchiK
@@ -52,73 +56,102 @@ export function HeroSection() {
               style={{
                 color: "rgba(32, 32, 29, 0.52)",
                 fontFamily: "'Barlow Semi Condensed', Arial, sans-serif",
+                fontWeight: 700,
+                WebkitFontSmoothing: "antialiased",
               }}
             >
               Architektur · BIM · Visualisierung
             </p>
           </div>
 
+          {/* MAIN HERO CONTENT */}
+
           <div className="my-16 lg:my-0">
 
             <p
-              className="mb-6 text-[13px] font-medium uppercase tracking-[0.14em]"
+              className="mb-6 text-[13px] uppercase tracking-[0.14em]"
               style={{
                 color: "rgba(32, 32, 29, 0.58)",
                 fontFamily: "'Barlow Semi Condensed', Arial, sans-serif",
+                fontWeight: 700,
+                WebkitFontSmoothing: "antialiased",
               }}
             >
               Externe Architekturproduktion
             </p>
 
             <h1
-              className="max-w-[620px] text-[3.5rem] font-normal leading-[0.94] tracking-[-0.025em] sm:text-6xl lg:text-[4.6rem] xl:text-[5.15rem]"
+              className="text-balance"
               style={{
-                color: "rgba(32, 32, 29, 0.82)",
+                color: "#20201d",
                 fontFamily: "'Instrument Serif', Georgia, serif",
+                fontWeight: 400,
+                fontSize: "clamp(64px, 7vw, 110px)",
+                lineHeight: "0.92",
+                letterSpacing: "-0.045em",
+                maxWidth: "14ch",
+                WebkitFontSmoothing: "antialiased",
               }}
             >
               Externe Unterstützung
               <br />
-              für Architektur-
-              <br />
-              und BIM-Projekte
+              für Ihre Architekturprojekte.
             </h1>
 
             <p
-              className="mt-8 max-w-md text-base leading-7 sm:text-lg"
+              className="mt-8 max-w-md text-[15px] leading-[22.5px]"
               style={{
                 color: "rgba(32, 32, 29, 0.62)",
                 fontFamily: "'Barlow', Arial, sans-serif",
+                fontWeight: 400,
+                WebkitFontSmoothing: "antialiased",
               }}
             >
               Flexible Unterstützung für Architekturbüros in Deutschland,
               Österreich und der Schweiz – projektbezogen oder als
               zusätzliche Kapazität in laufenden Projekten.
             </p>
-
-            <a
-              href="#kontakt"
-              className="mt-8 inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-opacity hover:opacity-75"
-              style={{
-                backgroundColor: "rgba(32, 32, 29, 0.86)",
-                color: "rgb(238, 232, 220)",
-                fontFamily: "'Barlow', Arial, sans-serif",
-              }}
-            >
-              Projekt anfragen
-            </a>
           </div>
 
-          <div className="hidden lg:block">
+          {/* HERO BOTTOM */}
+
+          <div className="flex items-end justify-between gap-8">
+
             <p
-              className="text-[11px] uppercase tracking-[0.14em]"
+              className="max-w-[330px] text-[15px] leading-[22.5px]"
               style={{
-                color: "rgba(32, 32, 29, 0.48)",
-                fontFamily: "'Barlow Semi Condensed', Arial, sans-serif",
+                color: "rgba(32, 32, 29, 0.62)",
+                fontFamily: "'Barlow', Arial, sans-serif",
+                fontWeight: 400,
+                WebkitFontSmoothing: "antialiased",
               }}
             >
-              Deutschland · Österreich · Schweiz
+              Von der technischen Planung bis zur Visualisierung – flexibel
+              integriert in Ihre bestehenden Projektabläufe.
             </p>
+
+            <a
+              href="#leistungen"
+              aria-label="Leistungen entdecken"
+              className="group flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-black/25 transition-all duration-300 hover:bg-black/5"
+            >
+              <span
+                aria-hidden="true"
+                className="text-xl leading-none transition-transform duration-300 group-hover:translate-y-1"
+                style={{
+                  color: "rgba(32, 32, 29, 0.72)",
+                  fontFamily: "'Barlow', Arial, sans-serif",
+                  fontWeight: 400,
+                }}
+              >
+                ↓
+              </span>
+
+              <span className="sr-only">
+                Leistungen entdecken
+              </span>
+            </a>
+
           </div>
         </div>
 
@@ -140,7 +173,6 @@ export function HeroSection() {
           <div className="absolute inset-0">
 
             {services.map((service, index) => {
-
               const positions = [
                 "left-[7%] top-[12%]",
                 "right-[7%] top-[30%]",
@@ -170,10 +202,12 @@ export function HeroSection() {
                   <div className="px-5 py-4 sm:px-6 sm:py-5">
 
                     <p
-                      className="text-[15px] font-medium leading-tight tracking-[-0.01em] sm:text-base"
+                      className="text-[15px] leading-tight tracking-[-0.01em] sm:text-base"
                       style={{
                         color: "rgba(32, 32, 29, 0.78)",
                         fontFamily: "'Barlow', Arial, sans-serif",
+                        fontWeight: 400,
+                        WebkitFontSmoothing: "antialiased",
                       }}
                     >
                       {service.title}
@@ -184,6 +218,8 @@ export function HeroSection() {
                       style={{
                         color: "rgba(32, 32, 29, 0.60)",
                         fontFamily: "'Barlow', Arial, sans-serif",
+                        fontWeight: 400,
+                        WebkitFontSmoothing: "antialiased",
                       }}
                     >
                       {service.description}
@@ -196,11 +232,15 @@ export function HeroSection() {
 
           </div>
 
+          {/* IMAGE LABEL */}
+
           <div
-            className="absolute bottom-6 left-6 hidden text-[10px] font-medium uppercase tracking-[0.16em] sm:block"
+            className="absolute bottom-6 left-6 hidden text-[10px] uppercase tracking-[0.16em] sm:block"
             style={{
               color: "rgba(238, 232, 220, 0.78)",
               fontFamily: "'Barlow Semi Condensed', Arial, sans-serif",
+              fontWeight: 700,
+              WebkitFontSmoothing: "antialiased",
             }}
           >
             ArchiK · 2026
