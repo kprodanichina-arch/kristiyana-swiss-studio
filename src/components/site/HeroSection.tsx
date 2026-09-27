@@ -134,7 +134,7 @@ export function HeroSection() {
             <a
               href="#leistungen"
               aria-label="Leistungen entdecken"
-              className="group flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-black/25 transition-all duration-300 hover:bg-black/5"
+              className="group flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-black/25 transition-all duration-300 hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-black/20 focus:ring-offset-2"
               style={{
                 boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
               }}
