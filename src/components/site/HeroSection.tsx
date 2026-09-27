@@ -42,10 +42,11 @@ export function HeroSection() {
             <p
               className="text-xs uppercase tracking-[0.16em]"
               style={{
-                color: "rgba(32, 32, 29, 0.58)",
+                color: "rgba(65, 65, 62, 0.70)",
                 fontFamily: "'Barlow Semi Condensed', Arial, sans-serif",
                 fontWeight: 700,
                 WebkitFontSmoothing: "antialiased",
+                textShadow: "0 1px 5px rgba(0, 0, 0, 0.08)",
               }}
             >
               ArchiK
@@ -54,10 +55,11 @@ export function HeroSection() {
             <p
               className="mt-3 max-w-[240px] text-[11px] uppercase leading-5 tracking-[0.12em]"
               style={{
-                color: "rgba(32, 32, 29, 0.52)",
+                color: "rgba(65, 65, 62, 0.62)",
                 fontFamily: "'Barlow Semi Condensed', Arial, sans-serif",
                 fontWeight: 700,
                 WebkitFontSmoothing: "antialiased",
+                textShadow: "0 1px 5px rgba(0, 0, 0, 0.07)",
               }}
             >
               Architektur · BIM · Visualisierung
@@ -71,10 +73,11 @@ export function HeroSection() {
             <p
               className="mb-6 text-[13px] uppercase tracking-[0.14em]"
               style={{
-                color: "rgba(32, 32, 29, 0.58)",
+                color: "rgba(65, 65, 62, 0.68)",
                 fontFamily: "'Barlow Semi Condensed', Arial, sans-serif",
                 fontWeight: 700,
                 WebkitFontSmoothing: "antialiased",
+                textShadow: "0 1px 6px rgba(0, 0, 0, 0.08)",
               }}
             >
               Externe Architekturproduktion
@@ -83,7 +86,7 @@ export function HeroSection() {
             <h1
               className="text-balance"
               style={{
-                color: "#20201d",
+                color: "rgba(58, 58, 55, 0.90)",
                 fontFamily: "'Instrument Serif', Georgia, serif",
                 fontWeight: 400,
                 fontSize: "clamp(64px, 7vw, 110px)",
@@ -91,6 +94,7 @@ export function HeroSection() {
                 letterSpacing: "-0.045em",
                 maxWidth: "14ch",
                 WebkitFontSmoothing: "antialiased",
+                textShadow: "0 2px 9px rgba(0, 0, 0, 0.12)",
               }}
             >
               Externe Unterstützung
@@ -101,10 +105,11 @@ export function HeroSection() {
             <p
               className="mt-8 max-w-md text-[15px] leading-[22.5px]"
               style={{
-                color: "rgba(32, 32, 29, 0.62)",
+                color: "rgba(65, 65, 62, 0.70)",
                 fontFamily: "'Barlow', Arial, sans-serif",
                 fontWeight: 400,
                 WebkitFontSmoothing: "antialiased",
+                textShadow: "0 1px 6px rgba(0, 0, 0, 0.07)",
               }}
             >
               Flexible Unterstützung für Architekturbüros in Deutschland,
@@ -120,10 +125,11 @@ export function HeroSection() {
             <p
               className="max-w-[330px] text-[15px] leading-[22.5px]"
               style={{
-                color: "rgba(32, 32, 29, 0.62)",
+                color: "rgba(65, 65, 62, 0.68)",
                 fontFamily: "'Barlow', Arial, sans-serif",
                 fontWeight: 400,
                 WebkitFontSmoothing: "antialiased",
+                textShadow: "0 1px 6px rgba(0, 0, 0, 0.07)",
               }}
             >
               Von der technischen Planung bis zur Visualisierung – flexibel
@@ -134,14 +140,18 @@ export function HeroSection() {
               href="#leistungen"
               aria-label="Leistungen entdecken"
               className="group flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-black/25 transition-all duration-300 hover:bg-black/5"
+              style={{
+                boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
+              }}
             >
               <span
                 aria-hidden="true"
                 className="text-xl leading-none transition-transform duration-300 group-hover:translate-y-1"
                 style={{
-                  color: "rgba(32, 32, 29, 0.72)",
+                  color: "rgba(65, 65, 62, 0.78)",
                   fontFamily: "'Barlow', Arial, sans-serif",
                   fontWeight: 400,
+                  textShadow: "0 1px 6px rgba(0, 0, 0, 0.08)",
                 }}
               >
                 ↓
@@ -204,10 +214,11 @@ export function HeroSection() {
                     <p
                       className="text-[15px] leading-tight tracking-[-0.01em] sm:text-base"
                       style={{
-                        color: "rgba(32, 32, 29, 0.78)",
+                        color: "rgba(58, 58, 55, 0.88)",
                         fontFamily: "'Barlow', Arial, sans-serif",
                         fontWeight: 400,
                         WebkitFontSmoothing: "antialiased",
+                        textShadow: "0 1px 5px rgba(0, 0, 0, 0.08)",
                       }}
                     >
                       {service.title}
@@ -216,10 +227,11 @@ export function HeroSection() {
                     <p
                       className="mt-1.5 text-[11px] leading-[1.4] sm:text-xs"
                       style={{
-                        color: "rgba(32, 32, 29, 0.60)",
+                        color: "rgba(65, 65, 62, 0.68)",
                         fontFamily: "'Barlow', Arial, sans-serif",
                         fontWeight: 400,
                         WebkitFontSmoothing: "antialiased",
+                        textShadow: "0 1px 5px rgba(0, 0, 0, 0.06)",
                       }}
                     >
                       {service.description}
@@ -232,15 +244,17 @@ export function HeroSection() {
 
           </div>
 
-          {/* IMAGE LABEL */}
+          {/* IMAGE LABEL — LIGHT TEXT ON IMAGE */}
 
           <div
             className="absolute bottom-6 left-6 hidden text-[10px] uppercase tracking-[0.16em] sm:block"
             style={{
-              color: "rgba(238, 232, 220, 0.78)",
+              color: "rgba(248, 246, 240, 0.92)",
               fontFamily: "'Barlow Semi Condensed', Arial, sans-serif",
               fontWeight: 700,
               WebkitFontSmoothing: "antialiased",
+              textShadow:
+                "0 0 3px rgba(255, 255, 255, 0.45), 0 2px 10px rgba(255, 255, 255, 0.28)",
             }}
           >
             ArchiK · 2026
