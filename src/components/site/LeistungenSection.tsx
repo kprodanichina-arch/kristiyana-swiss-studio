@@ -1,45 +1,45 @@
 const services = [
   {
     number: "01",
-    title: "BIM-Modellierung",
-    text: "Erstellung und Bearbeitung digitaler Gebäudemodelle für unterschiedliche Planungsphasen und Projektanforderungen.",
-    items: [
-      "Archicad",
-      "Revit",
-      "Bestandsmodellierung",
-      "Planableitung",
-    ],
-  },
-  {
-    number: "02",
-    title: "Planungs- und Baudokumentation",
-    text: "Unterstützung bei der Erstellung, Bearbeitung und Aufbereitung von Planungsunterlagen für Architekturprojekte.",
+    title: "Ausführungs- & Detailplanung",
+    text: "Unterstützung bei der technischen Bearbeitung von Architekturprojekten – von Grundrissen, Schnitten und Ansichten bis zur detaillierten Ausführungsplanung.",
     items: [
       "Grundrisse",
       "Schnitte & Ansichten",
-      "Werk- und Detailplanung",
+      "Ausführungs- und Detailplanung",
       "DWG / PDF",
     ],
   },
   {
-    number: "03",
-    title: "IFC & BIM-Workflows",
-    text: "Unterstützung bei IFC-basiertem Datenaustausch und der strukturierten Weiterverarbeitung von Gebäudemodellen.",
+    number: "02",
+    title: "Fassaden & Planaufbereitung",
+    text: "Bearbeitung und Aufbereitung von Fassaden, Ansichten und technischen Planunterlagen für eine klare und konsistente Projektdokumentation.",
     items: [
-      "IFC-Modelle",
-      "IFC-Export",
-      "Modellstruktur",
-      "Offene BIM-Workflows",
+      "Fassadenplanung",
+      "Ansichten",
+      "Planaufbereitung",
+      "Technische Dokumentation",
+    ],
+  },
+  {
+    number: "03",
+    title: "BIM & digitale Planung",
+    text: "Digitale Bearbeitung von Architekturprojekten mit Archicad und praktischer Erfahrung mit Revit. Unterstützung bei strukturierten BIM- und IFC-basierten Workflows.",
+    items: [
+      "Archicad",
+      "Revit",
+      "IFC",
+      "Digitale Planungsprozesse",
     ],
   },
   {
     number: "04",
     title: "Architekturvisualisierung",
-    text: "Hochwertige architektonische Visualisierungen für Präsentationen, Wettbewerbe und die Kommunikation mit Bauherren.",
+    text: "Fotorealistische Architekturvisualisierungen für Präsentationen, Projektkommunikation und die überzeugende Darstellung von Architektur.",
     items: [
       "D5 Render",
       "Twinmotion",
-      "Innen- und Außenvisualisierungen",
+      "Außenvisualisierungen",
       "Präsentationsbilder",
     ],
   },
@@ -57,10 +57,10 @@ export function LeistungenSection() {
           </h2>
 
           <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
-            ArchiK unterstützt Architekturbüros bei BIM-Modellierung,
-            Planungsdokumentation, IFC-basierten Workflows und
-            Architekturvisualisierung – projektbezogen oder als flexible
-            externe Kapazität.
+            ArchiK unterstützt Architekturbüros bei Ausführungs- und
+            Detailplanung, Fassaden- und Planaufbereitung, digitaler
+            Planung sowie Architekturvisualisierung – projektbezogen oder
+            als flexible externe Kapazität.
           </p>
         </div>
 
