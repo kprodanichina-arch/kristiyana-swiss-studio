@@ -13,7 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 const GA_MEASUREMENT_ID = "G-ENDV0PFY4G";
-const GA_CONSENT_KEY = "archik-analytics-consent";
+const GA_CONSENT_KEY = "archika-analytics-consent";
 
 function NotFoundComponent() {
   return (
@@ -105,18 +105,18 @@ export const Route =
 
         {
           title:
-            "ArchiK | BIM- und Architekturleistungen für Architekturbüros",
+            "ArchiKa | Externe Architektur- und BIM-Unterstützung für Architekturbüros",
         },
 
         {
           name: "description",
           content:
-            "ArchiK unterstützt Architekturbüros in Deutschland, Österreich und der Schweiz mit BIM-Modellierung, Planungsdokumentation, IFC und Architekturvisualisierung.",
+            "ArchiKa unterstützt Architekturbüros in Deutschland, Österreich und der Schweiz mit Ausführungsplanung, BIM, IFC und Architekturvisualisierung – remote und projektbezogen.",
         },
 
         {
           name: "author",
-          content: "ArchiK",
+          content: "ArchiKa",
         },
 
         {
@@ -127,13 +127,13 @@ export const Route =
         {
           property: "og:title",
           content:
-            "ArchiK | BIM- und Architekturleistungen für Architekturbüros",
+            "ArchiKa | Externe Architektur- und BIM-Unterstützung für Architekturbüros",
         },
 
         {
           property: "og:description",
           content:
-            "BIM- und Architekturleistungen für Architekturbüros in Deutschland, Österreich und der Schweiz.",
+            "Externe Architektur- und BIM-Unterstützung für Architekturbüros in Deutschland, Österreich und der Schweiz – remote und projektbezogen.",
         },
 
         {
@@ -148,7 +148,7 @@ export const Route =
 
         {
           property: "og:site_name",
-          content: "ArchiK",
+          content: "ArchiKa",
         },
 
         {
@@ -159,13 +159,13 @@ export const Route =
         {
           name: "twitter:title",
           content:
-            "ArchiK | BIM- und Architekturleistungen für Architekturbüros",
+            "ArchiKa | Externe Architektur- und BIM-Unterstützung für Architekturbüros",
         },
 
         {
           name: "twitter:description",
           content:
-            "BIM- und Architekturleistungen für Architekturbüros in Deutschland, Österreich und der Schweiz.",
+            "Externe Architektur- und BIM-Unterstützung für Architekturbüros in Deutschland, Österreich und der Schweiz – remote und projektbezogen.",
         },
 
         {
@@ -193,23 +193,6 @@ export const Route =
         {
           rel: "stylesheet",
           href: appCss,
-        },
-
-        {
-          rel: "preconnect",
-          href: "https://fonts.googleapis.com",
-        },
-
-        {
-          rel: "preconnect",
-          href: "https://fonts.gstatic.com",
-          crossOrigin: "anonymous",
-        },
-
-        {
-          rel: "stylesheet",
-          href:
-            "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap",
         },
 
         {
@@ -275,19 +258,19 @@ function GoogleAnalytics() {
       return;
     }
 
-    if (document.getElementById("archik-google-analytics")) {
+    if (document.getElementById("archika-google-analytics")) {
       return;
     }
 
     const script = document.createElement("script");
-    script.id = "archik-google-analytics";
+    script.id = "archika-google-analytics";
     script.async = true;
     script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
 
     document.head.appendChild(script);
 
     const inlineScript = document.createElement("script");
-    inlineScript.id = "archik-google-analytics-config";
+    inlineScript.id = "archika-google-analytics-config";
     inlineScript.innerHTML = `
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
