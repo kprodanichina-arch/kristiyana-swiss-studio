@@ -94,7 +94,9 @@ export function HeroSection() {
               >
                 BIM, Planung und
                 <br />
-                Visualisierung für Ihre Projekte
+                Visualisierung für
+                <br />
+                Architekturbüros
               </h1>
             </div>
 
