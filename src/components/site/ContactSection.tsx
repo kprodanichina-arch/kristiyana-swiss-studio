@@ -96,7 +96,7 @@ export function ContactSection() {
           07 — Kontakt
         </p>
 
-        <h1
+        <h2
           className="mt-4 max-w-3xl"
           style={{
             fontFamily:
@@ -110,7 +110,7 @@ export function ContactSection() {
           }}
         >
           Projekt anfragen
-        </h1>
+        </h2>
 
         <p
           className="mt-6 max-w-2xl"
@@ -308,7 +308,7 @@ export function ContactSection() {
               WebkitFontSmoothing: "antialiased",
             }}
           >
-            E-Mail-Anfrage erstellen
+            E-Mail vorbereiten
           </button>
 
           <p
@@ -364,110 +364,4 @@ export function ContactSection() {
                   className="group flex items-center justify-between gap-4 py-5"
                 >
                   <span className="flex items-center gap-4">
-                    <Mail className="h-4 w-4 text-muted-foreground" />
-
-                    <span
-                      style={{
-                        fontFamily:
-                          "'Barlow Local', Arial, sans-serif",
-                        fontSize: "15px",
-                        color: "rgba(65, 65, 62, 0.78)",
-                      }}
-                    >
-                      {EMAIL}
-                    </span>
-                  </span>
-
-                  <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5" />
-                </a>
-              </li>
-
-              <li className="flex items-center justify-between gap-4 py-5">
-                <span className="flex items-center gap-4">
-                  <WhatsAppIcon className="h-4 w-4 text-muted-foreground" />
-
-                  <span
-                    style={{
-                      fontFamily:
-                        "'Barlow Local', Arial, sans-serif",
-                      fontSize: "15px",
-                      color: "rgba(65, 65, 62, 0.78)",
-                    }}
-                  >
-                    WhatsApp {PHONE_DISPLAY}
-                  </span>
-                </span>
-
-                <a
-                  href={WHATSAPP_HREF}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group inline-flex items-center gap-1 transition-colors hover:text-foreground"
-                  aria-label="WhatsApp öffnen"
-                  style={{
-                    fontFamily:
-                      "'Barlow Semi Condensed Local', Arial, sans-serif",
-                    fontSize: "13px",
-                    fontWeight: 700,
-                    letterSpacing: "0.04em",
-                    color: "rgba(65, 65, 62, 0.58)",
-                  }}
-                >
-                  Chat
-
-                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5" />
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href={LINKEDIN}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group flex items-center justify-between gap-4 py-5"
-                >
-                  <span className="flex items-center gap-4">
-                    <Linkedin className="h-4 w-4 text-muted-foreground" />
-
-                    <span
-                      style={{
-                        fontFamily:
-                          "'Barlow Local', Arial, sans-serif",
-                        fontSize: "15px",
-                        color: "rgba(65, 65, 62, 0.78)",
-                      }}
-                    >
-                      Kristiyana Prodanichina
-                    </span>
-                  </span>
-
-                  <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5" />
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <a
-            href={CV_PATH}
-            download
-            className="mt-10 inline-flex items-center justify-center gap-3 border px-6 py-4 transition-colors hover:bg-[#20201d] hover:text-[#eee8dc]"
-            style={{
-              fontFamily:
-                "'Barlow Semi Condensed Local', Arial, sans-serif",
-              fontSize: "13px",
-              fontWeight: 700,
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
-              color: "#20201d",
-              borderColor: "rgba(32, 32, 29, 0.30)",
-              WebkitFontSmoothing: "antialiased",
-            }}
-          >
-            <Download className="h-4 w-4" />
-            Lebenslauf herunterladen (PDF)
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
+                    <Mail className="h-4 w-
