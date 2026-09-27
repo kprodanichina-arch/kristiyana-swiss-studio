@@ -93,43 +93,38 @@ export function HeroSection() {
                 aria-hidden="true"
               />
 
-              <h1
-                className="text-balance"
-                style={{
-                  color: "rgba(58, 58, 55, 0.90)",
-                  fontFamily:
-                    "'Instrument Serif Local', Georgia, serif",
-                  fontWeight: 400,
-                  fontSize: "clamp(64px, 7vw, 110px)",
-                  lineHeight: "0.92",
-                  letterSpacing: "-0.045em",
-                  maxWidth: "14ch",
-                  WebkitFontSmoothing: "antialiased",
-                  textShadow:
-                    "0 1px 3px rgba(255, 255, 255, 0.85)",
-                }}
-              >
-                Externe Unterstützung
-                <br />
-                für Ihre Architekturprojekte.
-              </h1>
-            </div>
+             <h1
+  className="text-balance"
+  style={{
+    color: "rgba(58, 58, 55, 0.90)",
+    fontFamily: "'Instrument Serif Local', Georgia, serif",
+    fontWeight: 400,
+    fontSize: "clamp(64px, 7vw, 110px)",
+    lineHeight: "0.92",
+    letterSpacing: "-0.045em",
+    maxWidth: "14ch",
+    WebkitFontSmoothing: "antialiased",
+    textShadow: "0 1px 3px rgba(255, 255, 255, 0.85)",
+  }}
+>
+  BIM, Planung und
+  <br />
+  Visualisierung für Ihre Projekte.
+</h1>
 
-            <p
-              className="mt-8 max-w-md text-[15px] leading-[22.5px]"
-              style={{
-                color: "rgba(65, 65, 62, 0.70)",
-                fontFamily: "'Barlow Local', Arial, sans-serif",
-                fontWeight: 400,
-                WebkitFontSmoothing: "antialiased",
-                textShadow: "0 1px 6px rgba(0, 0, 0, 0.07)",
-              }}
-            >
-              Flexible Unterstützung für Architekturbüros in Deutschland,
-              Österreich und der Schweiz – projektbezogen oder als
-              zusätzliche Kapazität in laufenden Projekten.
-            </p>
-          </div>
+<p
+  className="mt-8 max-w-md text-[15px] leading-[22.5px]"
+  style={{
+    color: "rgba(65, 65, 62, 0.70)",
+    fontFamily: "'Barlow Local', Arial, sans-serif",
+    fontWeight: 400,
+    WebkitFontSmoothing: "antialiased",
+    textShadow: "0 1px 6px rgba(0, 0, 0, 0.07)",
+  }}
+>
+  Flexible Unterstützung für Architekturbüros – projektbezogen oder als
+  zusätzliche Kapazität in laufenden Projekten.
+</p>
 
           <div className="flex items-end justify-between gap-8">
             <p
