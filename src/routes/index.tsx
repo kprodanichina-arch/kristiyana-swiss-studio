@@ -28,12 +28,13 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "ArchiK",
+          "@id": "https://archikprojekt.com/#organization",
+          name: "ArchiKa",
           legalName: "AY END VI BILD EOOD",
           url: "https://archikprojekt.com/",
           email: "k.prodanichina@gmail.com",
           description:
-            "B2B Architektur-, BIM- und Visualisierungsleistungen für Architekturbüros in Deutschland, Österreich und der Schweiz.",
+            "B2B Architektur-, BIM- und Visualisierungsleistungen für Architekturbüros in Deutschland, Österreich und der Schweiz – remote und projektbezogen.",
           areaServed: [
             {
               "@type": "Country",
@@ -58,12 +59,13 @@ export const Route = createFileRoute("/")({
           ],
           knowsAbout: [
             "Architektur",
+            "Ausführungsplanung",
+            "Detailplanung",
+            "Fassadenplanung",
             "BIM",
             "Archicad",
             "Revit",
             "IFC",
-            "Ausführungsplanung",
-            "Detailplanung",
             "Architekturvisualisierung",
           ],
         }),
