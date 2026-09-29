@@ -126,7 +126,7 @@ const gallerySections: GallerySection[] = [
     title: "Fotorealistische Renderings",
     description:
       "Fotorealistische Architekturvisualisierungen für Präsentationen, Projektkommunikation und die überzeugende Darstellung von Architektur.",
-    images: Array.from({ length: 47 }, (_, index) =>
+    images: Array.from({ length: 62 }, (_, index) =>
       renderImage(index + 1),
     ),
   },
@@ -180,6 +180,12 @@ function Gallery({
       }
     };
   }, []);
+
+  useEffect(() => {
+    setCurrentIndex(0);
+    setDisplayedImage(images[0]);
+    setIsImageVisible(true);
+  }, [images]);
 
   const goTo = (index: number) => {
     if (total === 0) return;
@@ -419,7 +425,10 @@ export function ProjectsSection() {
     setShuffledSections(
       gallerySections.map((section) => ({
         ...section,
-        images: shuffle(section.images),
+        images:
+          section.eyebrow === "04 — Architekturvisualisierung"
+            ? shuffle(section.images).slice(0, 20)
+            : shuffle(section.images),
       })),
     );
   }, []);
@@ -433,163 +442,6 @@ export function ProjectsSection() {
           images={section.images}
         />
       ))}
-
-      <section className="border-t border-border py-16 md:py-20">
-        <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <div className="max-w-4xl">
-            <p
-              className="mb-3"
-              style={{
-                fontFamily:
-                  "'Barlow Semi Condensed Local', Arial, sans-serif",
-                fontSize: "13px",
-                fontWeight: 700,
-                letterSpacing: "0.16em",
-                textTransform: "uppercase",
-                color: "rgba(65, 65, 62, 0.55)",
-                WebkitFontSmoothing: "antialiased",
-              }}
-            >
-              Konditionen
-            </p>
-
-            <h2
-              className="text-balance"
-              style={{
-                fontFamily:
-                  "'Instrument Serif Local', Georgia, serif",
-                fontWeight: 400,
-                fontSize: "clamp(38px, 4vw, 58px)",
-                lineHeight: "0.96",
-                letterSpacing: "-0.035em",
-                color: "rgba(58, 58, 55, 0.90)",
-                WebkitFontSmoothing: "antialiased",
-              }}
-            >
-              Transparente Konditionen.
-            </h2>
-
-            <div className="mt-8 grid gap-8 md:grid-cols-2 md:gap-12">
-              <div>
-                <p
-                  style={{
-                    fontFamily:
-                      "'Barlow Semi Condensed Local', Arial, sans-serif",
-                    fontSize: "13px",
-                    fontWeight: 700,
-                    letterSpacing: "0.12em",
-                    textTransform: "uppercase",
-                    color: "rgba(65, 65, 62, 0.55)",
-                    WebkitFontSmoothing: "antialiased",
-                  }}
-                >
-                  Planungs- & BIM-Leistungen
-                </p>
-
-                <p
-                  className="mt-2"
-                  style={{
-                    fontFamily:
-                      "'Instrument Serif Local', Georgia, serif",
-                    fontWeight: 400,
-                    fontSize: "clamp(30px, 3vw, 42px)",
-                    lineHeight: "1",
-                    letterSpacing: "-0.025em",
-                    color: "rgba(58, 58, 55, 0.90)",
-                    WebkitFontSmoothing: "antialiased",
-                  }}
-                >
-                  ab 55 €/Std.
-                </p>
-
-                <p
-                  className="mt-4 max-w-xl"
-                  style={{
-                    fontFamily: "'Barlow Local', Arial, sans-serif",
-                    fontWeight: 400,
-                    fontSize: "16px",
-                    lineHeight: "1.6",
-                    color: "rgba(65, 65, 62, 0.68)",
-                    WebkitFontSmoothing: "antialiased",
-                  }}
-                >
-                  Ausführungsplanung, Detailplanung, Fassadenplanung,
-                  Archicad sowie BIM- und digitale Planungsleistungen
-                  werden je nach Projektumfang nach Aufwand oder als
-                  Pauschale angeboten.
-                </p>
-              </div>
-
-              <div>
-                <p
-                  style={{
-                    fontFamily:
-                      "'Barlow Semi Condensed Local', Arial, sans-serif",
-                    fontSize: "13px",
-                    fontWeight: 700,
-                    letterSpacing: "0.12em",
-                    textTransform: "uppercase",
-                    color: "rgba(65, 65, 62, 0.55)",
-                    WebkitFontSmoothing: "antialiased",
-                  }}
-                >
-                  Architekturvisualisierung
-                </p>
-
-                <p
-                  className="mt-2"
-                  style={{
-                    fontFamily:
-                      "'Instrument Serif Local', Georgia, serif",
-                    fontWeight: 400,
-                    fontSize: "clamp(30px, 3vw, 42px)",
-                    lineHeight: "1",
-                    letterSpacing: "-0.025em",
-                    color: "rgba(58, 58, 55, 0.90)",
-                    WebkitFontSmoothing: "antialiased",
-                  }}
-                >
-                  ab 250 € pro Visualisierung
-                </p>
-
-                <p
-                  className="mt-4 max-w-xl"
-                  style={{
-                    fontFamily: "'Barlow Local', Arial, sans-serif",
-                    fontWeight: 400,
-                    fontSize: "16px",
-                    lineHeight: "1.6",
-                    color: "rgba(65, 65, 62, 0.68)",
-                    WebkitFontSmoothing: "antialiased",
-                  }}
-                >
-                  Der konkrete Preis richtet sich nach Projektumfang,
-                  vorhandenen 3D-Daten, gewünschter Perspektive,
-                  Detailgrad und Korrekturschleifen.
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-10 border-t border-border pt-6">
-              <p
-                className="max-w-3xl"
-                style={{
-                  fontFamily: "'Barlow Local', Arial, sans-serif",
-                  fontWeight: 400,
-                  fontSize: "15px",
-                  lineHeight: "1.6",
-                  color: "rgba(65, 65, 62, 0.68)",
-                  WebkitFontSmoothing: "antialiased",
-                }}
-              >
-                Für klar definierte Leistungen erstelle ich gerne ein
-                transparentes Angebot auf Basis Ihrer
-                Projektunterlagen.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
     </section>
   );
 }
