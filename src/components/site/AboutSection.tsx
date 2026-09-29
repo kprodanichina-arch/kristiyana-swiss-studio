@@ -117,12 +117,15 @@ export function AboutSection() {
                   projektbezogen.
                 </>,
                 <>
+                  <span className="text-foreground">
+                    Von der Idee ins Detail:
+                  </span>{" "}
                   Mein Schwerpunkt liegt auf der Ausführungs- und
                   Detailplanung, der Bearbeitung von Grundrissen, Schnitten
                   und Ansichten sowie der architektonischen Visualisierung.
                   Dabei lege ich besonderen Wert auf klare Planstrukturen,
-                  nachvollziehbare Bearbeitung und Ergebnisse, die sich
-                  direkt in bestehende Projektabläufe integrieren lassen.
+                  nachvollziehbare Bearbeitung und Ergebnisse, die sich direkt
+                  in bestehende Projektabläufe integrieren lassen.
                 </>,
                 <>
                   Ich arbeite aktuell vor allem mit Archicad, Twinmotion und
@@ -131,12 +134,16 @@ export function AboutSection() {
                   Projektstrukturen schnell und zuverlässig einarbeiten.
                 </>,
                 <>
+                  <span className="text-foreground">
+                    Sie behalten den Überblick. Ich halte Ihnen den Rücken
+                    frei.
+                  </span>
+                  <br />
+                  Für einzelne Arbeitspakete. Für ganze Projektphasen.
+                  <br />
                   ArchiKa unterstützt Architekturbüros insbesondere dann, wenn
-                  kurzfristig zusätzliche Kapazität benötigt wird – für
-                  einzelne Planungsaufgaben, definierte Projektphasen oder
-                  während laufender Projekte. So können Aufgaben flexibel
-                  ausgelagert werden, ohne dauerhaft zusätzliche Ressourcen
-                  aufbauen zu müssen.
+                  kurzfristig zusätzliche Kapazität benötigt wird – ohne
+                  dauerhaft zusätzliche Ressourcen aufbauen zu müssen.
                 </>,
               ].map((paragraph, index) => (
                 <p
