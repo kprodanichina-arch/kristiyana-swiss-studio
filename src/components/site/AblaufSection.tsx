@@ -3,22 +3,22 @@ import { useEffect, useRef, useState } from "react";
 const steps = [
   {
     number: "01",
-    title: "Projekt senden",
-    text: "Sie senden mir die vorhandenen Pläne, Modelle oder Projektdaten und beschreiben kurz, wobei Sie Unterstützung benötigen.",
+    title: "Aufgabe klären.",
+    text: "Sie senden mir die vorhandenen Pläne, Modelle oder Projektdaten und wir klären gemeinsam, wobei Unterstützung benötigt wird.",
   },
   {
     number: "02",
-    title: "Aufgabe abstimmen",
-    text: "Wir klären Leistungsumfang, Software, vorhandene Daten, gewünschte Formate und den benötigten Zeitrahmen.",
+    title: "Standard abstimmen.",
+    text: "Wir stimmen Ihren Bürostandard, Vorlagen, Software, vorhandene Daten, gewünschte Formate und den benötigten Zeitrahmen ab.",
   },
   {
     number: "03",
-    title: "Bearbeitung",
-    text: "Ich übernehme die vereinbarten Aufgaben remote und arbeite mich in Ihre bestehende Projektstruktur und Arbeitsweise ein.",
+    title: "Bearbeiten.",
+    text: "Ich übernehme die vereinbarten Aufgaben remote und arbeite nach Ihren Standards und in Ihrer bestehenden Projektstruktur.",
   },
   {
     number: "04",
-    title: "Übergabe",
+    title: "Übergeben.",
     text: "Die fertigen Pläne, Modelle oder Visualisierungen werden digital in den vereinbarten Formaten und der gewünschten Struktur übergeben.",
   },
 ];
@@ -110,16 +110,15 @@ export function AblaufSection() {
                 WebkitFontSmoothing: "antialiased",
               }}
             >
-              Ob einzelne Planungsaufgabe oder zusätzliche Kapazität in einem
-              laufenden Projekt: Die Zusammenarbeit wird auf Ihren konkreten
-              Bedarf abgestimmt und in Ihre bestehende Arbeitsweise
-              integriert.
+              Nicht neben dem Team, sondern im Workflow.
+              <br />
+              Die Zusammenarbeit wird auf Ihren konkreten Bedarf abgestimmt
+              und in Ihre bestehende Arbeitsweise integriert.
             </p>
           </div>
         </div>
 
         <div className="relative mt-16">
-          {/* Desktop progress line */}
           <div className="absolute left-0 right-0 top-0 hidden h-px bg-[rgba(32,32,29,0.12)] md:block">
             <div
               className="h-full origin-left bg-[rgba(58,58,55,0.55)] transition-transform duration-[1800ms] ease-out motion-reduce:transition-none"
@@ -129,7 +128,6 @@ export function AblaufSection() {
             />
           </div>
 
-          {/* Mobile progress line */}
           <div className="absolute bottom-0 left-[5px] top-0 w-px bg-[rgba(32,32,29,0.12)] md:hidden">
             <div
               className="h-full origin-top bg-[rgba(58,58,55,0.55)] transition-transform duration-[1800ms] ease-out motion-reduce:transition-none"
@@ -167,9 +165,7 @@ export function AblaufSection() {
                   }}
                 />
 
-                <div
-                  className="transition-transform duration-500 ease-out group-hover:-translate-y-1 motion-reduce:transform-none"
-                >
+                <div className="transition-transform duration-500 ease-out group-hover:-translate-y-1 motion-reduce:transform-none">
                   <p
                     style={{
                       fontFamily:
