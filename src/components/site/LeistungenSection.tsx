@@ -4,7 +4,7 @@ const services = [
   {
     number: "01",
     title: "Ausführungs- & Detailplanung",
-    text: "Unterstützung bei der technischen Bearbeitung von Architekturprojekten – von Grundrissen, Schnitten und Ansichten bis zur detaillierten Ausführungsplanung.",
+    text: "Von der Idee ins Detail. Unterstützung bei der technischen Bearbeitung von Architekturprojekten – von Grundrissen, Schnitten und Ansichten bis zur detaillierten Ausführungsplanung.",
     items: [
       "Grundrisse",
       "Schnitte & Ansichten",
@@ -26,7 +26,7 @@ const services = [
   {
     number: "03",
     title: "BIM & digitale Planung",
-    text: "Digitale Bearbeitung von Architekturprojekten mit Archicad und praktischer Erfahrung mit Revit. Unterstützung bei strukturierten BIM- und IFC-basierten Workflows.",
+    text: "BIM dort einsetzen, wo es im Projekt einen Unterschied macht. Digitale Bearbeitung von Architekturprojekten mit Archicad und praktischer Erfahrung mit Revit. Unterstützung bei strukturierten BIM- und IFC-basierten Workflows.",
     items: [
       "Archicad",
       "Revit",
@@ -37,7 +37,7 @@ const services = [
   {
     number: "04",
     title: "Architekturvisualisierung",
-    text: "Fotorealistische Architekturvisualisierungen für Präsentationen, Projektkommunikation und die überzeugende Darstellung von Architektur.",
+    text: "Zwischen Plan und Realität liegt manchmal ein gutes Bild. Fotorealistische Architekturvisualisierungen für Präsentationen, Projektkommunikation und die überzeugende Darstellung von Architektur.",
     items: [
       "D5 Render",
       "Twinmotion",
@@ -133,10 +133,12 @@ export function LeistungenSection() {
                 WebkitFontSmoothing: "antialiased",
               }}
             >
+              Gute Planung braucht Zeit. Projekte oft mehr, als vorhanden
+              ist.
+              <br />
               ArchiKa unterstützt Architekturbüros bei Ausführungs- und
               Detailplanung, Fassaden- und Planaufbereitung, digitaler
-              Planung sowie Architekturvisualisierung – projektbezogen
-              oder als flexible zusätzliche Kapazität.
+              Planung sowie Architekturvisualisierung.
             </p>
           </div>
 
