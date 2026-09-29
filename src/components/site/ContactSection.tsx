@@ -128,9 +128,23 @@ export function ContactSection() {
             WebkitFontSmoothing: "antialiased",
           }}
         >
-          Sie suchen kurzfristig zusätzliche Unterstützung oder möchten
-          einzelne Aufgaben in Ihrem Projekt bearbeiten lassen? Beschreiben
-          Sie kurz Ihre Anforderungen – ich melde mich direkt bei Ihnen.
+          Sie haben die Aufgabe. Wir haben die Kapazität.
+          <br />
+          Beschreiben Sie kurz Ihre Anforderungen – ich melde mich direkt bei
+          Ihnen.
+        </p>
+
+        <p
+          className="mt-3"
+          style={{
+            fontFamily: "'Barlow Local', Arial, sans-serif",
+            fontSize: "14px",
+            lineHeight: "1.6",
+            color: "rgba(65, 65, 62, 0.56)",
+            WebkitFontSmoothing: "antialiased",
+          }}
+        >
+          Ihr Standard. Unsere Kapazität.
         </p>
       </div>
 
@@ -362,7 +376,20 @@ export function ContactSection() {
               Direkter Kontakt
             </p>
 
-            <ul className="mt-8 divide-y divide-border">
+            <p
+              className="mt-4"
+              style={{
+                fontFamily: "'Barlow Local', Arial, sans-serif",
+                fontSize: "16px",
+                lineHeight: "1.55",
+                color: "rgba(65, 65, 62, 0.68)",
+                WebkitFontSmoothing: "antialiased",
+              }}
+            >
+              Nicht neben dem Team, sondern im Workflow.
+            </p>
+
+            <ul className="mt-5 divide-y divide-border">
               <li>
                 <a
                   href={`mailto:${EMAIL}`}
