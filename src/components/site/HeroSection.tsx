@@ -110,8 +110,10 @@ export function HeroSection() {
                 textShadow: "0 1px 6px rgba(0, 0, 0, 0.07)",
               }}
             >
-              Flexible Unterstützung für Architekturbüros – projektbezogen
-              oder als zusätzliche Kapazität in laufenden Projekten.
+              Ihr Team bleibt klein. Ihre Kapazität wächst.
+              <br />
+              Flexible Unterstützung für einzelne Arbeitspakete und ganze
+              Projektphasen – remote und projektbezogen.
             </p>
           </div>
 
@@ -126,8 +128,7 @@ export function HeroSection() {
                 textShadow: "0 1px 6px rgba(0, 0, 0, 0.07)",
               }}
             >
-              Von der technischen Planung bis zur Visualisierung – flexibel
-              integriert in Ihre bestehenden Projektabläufe.
+              Ihre Standards. Ihre Vorlagen. Ihr Workflow.
             </p>
 
             <a
