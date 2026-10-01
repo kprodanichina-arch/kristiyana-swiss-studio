@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { CV_PATH } from "./data";
 
 export function AboutSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -18,7 +17,7 @@ export function AboutSection() {
         }
       },
       {
-        threshold: 0.18,
+        threshold: 0.12,
         rootMargin: "0px 0px -8% 0px",
       },
     );
@@ -32,181 +31,185 @@ export function AboutSection() {
     <section
       ref={sectionRef}
       id="ueber-mich"
-      className="border-t border-border"
+      className="bg-background"
     >
-      <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
-        <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-20">
-          <div>
-            <div
-              className={`overflow-hidden transition-all duration-[1200ms] ease-out motion-reduce:transform-none motion-reduce:opacity-100 ${
-                isVisible
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-10 opacity-0"
-              }`}
-            >
-              <img
-                src="/images/kristiyana.webp"
-                alt="Kristiyana Prodanichina – Architektin und Gründerin von ArchiKa"
-                className={`h-auto w-full object-cover transition-transform duration-[1400ms] ease-out motion-reduce:transform-none ${
-                  isVisible ? "scale-100" : "scale-[1.045]"
-                }`}
-                loading="lazy"
-                draggable={false}
-              />
-            </div>
-          </div>
-
+      <div className="mx-auto max-w-[1800px] px-6 py-20 sm:px-10 sm:py-28 lg:px-14 xl:px-16">
+        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 xl:gap-28">
           <div
-            className={`transition-all duration-1000 ease-out motion-reduce:transform-none motion-reduce:opacity-100 ${
+            className={`lg:sticky lg:top-28 lg:self-start ${
               isVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-8 opacity-0"
-            }`}
-            style={{
-              transitionDelay: isVisible ? "180ms" : "0ms",
-            }}
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
+            } transition-all duration-1000 ease-out motion-reduce:transform-none motion-reduce:opacity-100`}
           >
             <p
+              className="text-xs uppercase tracking-[0.16em]"
               style={{
+                color: "rgba(65, 65, 62, 0.56)",
                 fontFamily:
                   "'Barlow Semi Condensed Local', Arial, sans-serif",
-                fontSize: "13px",
                 fontWeight: 700,
-                textTransform: "uppercase",
-                letterSpacing: "0.18em",
-                color: "rgba(65, 65, 62, 0.55)",
                 WebkitFontSmoothing: "antialiased",
               }}
             >
-              06 — Profil
+              02 — Über mich
             </p>
 
             <h2
-              className="mt-4"
+              className="mt-5 text-balance"
               style={{
                 fontFamily:
                   "'Instrument Serif Local', Georgia, serif",
                 fontWeight: 400,
-                fontSize: "clamp(44px, 4.8vw, 68px)",
+                fontSize: "clamp(46px, 5vw, 76px)",
                 lineHeight: "0.94",
-                letterSpacing: "-0.035em",
+                letterSpacing: "-0.04em",
                 color: "rgba(58, 58, 55, 0.90)",
                 WebkitFontSmoothing: "antialiased",
               }}
             >
-              Architektur mit technischem Anspruch.
+              Architektur
+              <br />
+              digital
+              <br />
+              gedacht
             </h2>
+          </div>
 
-            <div
-              className="mt-8 space-y-5"
+          <div
+            className={`max-w-3xl ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            } transition-all duration-1000 delay-150 ease-out motion-reduce:transform-none motion-reduce:opacity-100`}
+          >
+            <p
               style={{
                 fontFamily: "'Barlow Local', Arial, sans-serif",
                 fontWeight: 400,
-                fontSize: "17px",
-                lineHeight: "1.65",
+                fontSize: "clamp(19px, 2vw, 25px)",
+                lineHeight: "1.55",
+                color: "rgba(58, 58, 55, 0.88)",
+                WebkitFontSmoothing: "antialiased",
+              }}
+            >
+              Ich bin Architektin mit Schwerpunkt auf digitaler
+              Planung und der technischen Bearbeitung von
+              Architekturprojekten.
+            </p>
+
+            <p
+              className="mt-6"
+              style={{
+                fontFamily: "'Barlow Local', Arial, sans-serif",
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "1.7",
                 color: "rgba(65, 65, 62, 0.68)",
                 WebkitFontSmoothing: "antialiased",
               }}
             >
-              {[
-                <>
-                  Ich bin Kristiyana Prodanichina, Architektin und Gründerin
-                  von ArchiKa. Ich unterstütze Architekturbüros als flexible
-                  externe Projektpartnerin bei der digitalen Bearbeitung von
-                  Architekturprojekten – remote, strukturiert und
-                  projektbezogen.
-                </>,
-                <>
-                  <span className="text-foreground">
-                    Von der Idee ins Detail:
-                  </span>{" "}
-                  Mein Schwerpunkt liegt auf der Ausführungs- und
-                  Detailplanung, der Bearbeitung von Grundrissen, Schnitten
-                  und Ansichten sowie der architektonischen Visualisierung.
-                  Dabei lege ich besonderen Wert auf klare Planstrukturen,
-                  nachvollziehbare Bearbeitung und Ergebnisse, die sich direkt
-                  in bestehende Projektabläufe integrieren lassen.
-                </>,
-                <>
-                  Ich arbeite aktuell vor allem mit Archicad, Twinmotion und
-                  D5 Render. Durch meine Erfahrung mit Revit und AutoCAD kann
-                  ich mich auch in andere Softwareumgebungen und bestehende
-                  Projektstrukturen schnell und zuverlässig einarbeiten.
-                </>,
-                <>
-                  <span className="text-foreground">
-                    Sie behalten den Überblick. Ich halte Ihnen den Rücken
-                    frei.
-                  </span>
-                  <br />
-                  Für einzelne Arbeitspakete. Für ganze Projektphasen.
-                  <br />
-                  ArchiKa unterstützt Architekturbüros insbesondere dann, wenn
-                  kurzfristig zusätzliche Kapazität benötigt wird – ohne
-                  dauerhaft zusätzliche Ressourcen aufbauen zu müssen.
-                </>,
-              ].map((paragraph, index) => (
-                <p
-                  key={index}
-                  className={`transition-all duration-700 ease-out motion-reduce:transform-none motion-reduce:opacity-100 ${
-                    isVisible
-                      ? "translate-y-0 opacity-100"
-                      : "translate-y-5 opacity-0"
-                  }`}
-                  style={{
-                    transitionDelay: isVisible
-                      ? `${420 + index * 110}ms`
-                      : "0ms",
-                  }}
-                >
-                  {paragraph}
-                </p>
-              ))}
-            </div>
+              Mein Fokus liegt auf BIM-basierten Planungsprozessen,
+              Archicad, IFC, Mengenermittlung sowie der Erstellung
+              und Bearbeitung von Grundrissen, Schnitten und
+              Fassaden. Dabei verbinde ich architektonisches
+              Verständnis mit strukturierten digitalen
+              Arbeitsprozessen.
+            </p>
 
-            <div
-              className={`mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 transition-all duration-700 ease-out motion-reduce:transform-none motion-reduce:opacity-100 ${
-                isVisible
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-4 opacity-0"
-              }`}
+            <p
+              className="mt-6"
               style={{
-                transitionDelay: isVisible ? "900ms" : "0ms",
+                fontFamily: "'Barlow Local', Arial, sans-serif",
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "1.7",
+                color: "rgba(65, 65, 62, 0.68)",
+                WebkitFontSmoothing: "antialiased",
               }}
             >
-              <a
-                href={CV_PATH}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  fontFamily:
-                    "'Barlow Semi Condensed Local', Arial, sans-serif",
-                  fontSize: "14px",
-                  fontWeight: 700,
-                  letterSpacing: "0.04em",
-                  color: "rgba(58, 58, 55, 0.78)",
-                  WebkitFontSmoothing: "antialiased",
-                }}
-                className="inline-flex underline underline-offset-4 transition-opacity hover:opacity-60"
-              >
-                Lebenslauf ansehen
-              </a>
+              Einen weiteren Schwerpunkt bildet die Arbeit mit
+              Punktwolken und Bestandsdaten. Vorhandene
+              Punktwolken können aufbereitet und für die
+              anschließende Scan-to-BIM-Modellierung in Archicad
+              genutzt werden. Ziel ist ein strukturiertes
+              Bestandsmodell, das für weitere Planungsschritte
+              und IFC-basierte Workflows eingesetzt werden kann.
+            </p>
 
-              <a
-                href="#kontakt"
-                style={{
-                  fontFamily:
-                    "'Barlow Semi Condensed Local', Arial, sans-serif",
-                  fontSize: "14px",
-                  fontWeight: 700,
-                  letterSpacing: "0.04em",
-                  color: "rgba(80, 80, 76, 0.62)",
-                  WebkitFontSmoothing: "antialiased",
-                }}
-                className="inline-flex underline underline-offset-4 transition-opacity hover:opacity-60"
-              >
-                Projekt anfragen
-              </a>
+            <p
+              className="mt-6"
+              style={{
+                fontFamily: "'Barlow Local', Arial, sans-serif",
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "1.7",
+                color: "rgba(65, 65, 62, 0.68)",
+                WebkitFontSmoothing: "antialiased",
+              }}
+            >
+              Zusätzlich unterstütze ich Architekturbüros bei der
+              technischen Planbearbeitung und bei
+              Architekturvisualisierungen. Je nach Projekt kann
+              ich einzelne Aufgaben übernehmen oder als
+              flexible externe Unterstützung in bestehende
+              Arbeitsabläufe integriert werden.
+            </p>
+
+            <div className="mt-10 grid gap-6 border-t border-[rgba(32,32,29,0.14)] pt-8 sm:grid-cols-2">
+              <div>
+                <p
+                  className="text-xs uppercase tracking-[0.14em]"
+                  style={{
+                    fontFamily:
+                      "'Barlow Semi Condensed Local', Arial, sans-serif",
+                    fontWeight: 700,
+                    color: "rgba(65, 65, 62, 0.48)",
+                  }}
+                >
+                  Schwerpunkt
+                </p>
+
+                <p
+                  className="mt-2"
+                  style={{
+                    fontFamily: "'Barlow Local', Arial, sans-serif",
+                    fontSize: "15px",
+                    lineHeight: "1.55",
+                    color: "rgba(65, 65, 62, 0.72)",
+                  }}
+                >
+                  BIM · Archicad · IFC · Punktwolken ·
+                  Bestandsmodellierung
+                </p>
+              </div>
+
+              <div>
+                <p
+                  className="text-xs uppercase tracking-[0.14em]"
+                  style={{
+                    fontFamily:
+                      "'Barlow Semi Condensed Local', Arial, sans-serif",
+                    fontWeight: 700,
+                    color: "rgba(65, 65, 62, 0.48)",
+                  }}
+                >
+                  Technische Planung
+                </p>
+
+                <p
+                  className="mt-2"
+                  style={{
+                    fontFamily: "'Barlow Local', Arial, sans-serif",
+                    fontSize: "15px",
+                    lineHeight: "1.55",
+                    color: "rgba(65, 65, 62, 0.72)",
+                  }}
+                >
+                  Grundrisse · Schnitte · Fassaden ·
+                  Mengenermittlung
+                </p>
+              </div>
             </div>
           </div>
         </div>
