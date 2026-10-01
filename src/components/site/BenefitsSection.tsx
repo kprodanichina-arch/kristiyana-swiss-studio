@@ -1,25 +1,30 @@
-import { Building2, Workflow, Layers, Receipt } from "lucide-react";
+import {
+  Building2,
+  Workflow,
+  ScanLine,
+  Layers,
+} from "lucide-react";
 
 const items = [
   {
     icon: Building2,
     title: "Zusätzliche Kapazität",
-    text: "Unterstützung bei erhöhtem Projektaufkommen, zeitlichen Engpässen oder einzelnen Planungsaufgaben – ohne dass dafür dauerhaft zusätzliche Kapazitäten im eigenen Team aufgebaut werden müssen.",
+    text: "Entlastung bei hohem Projektaufkommen, engen Fristen oder fehlenden internen Kapazitäten – ohne dauerhaft zusätzliches Personal aufbauen zu müssen.",
   },
   {
     icon: Workflow,
-    title: "Direkte Zusammenarbeit",
-    text: "Sie arbeiten direkt mit einer Architektin zusammen. Aufgaben, Rückfragen und Korrekturen können ohne zusätzliche Kommunikationswege abgestimmt werden.",
+    title: "Direkt in Ihren Workflow",
+    text: "Ich arbeite projektbezogen und passe mich an Ihre bestehenden Strukturen, Vorlagen und Arbeitsweisen an. Aufgaben, Rückfragen und Korrekturen stimmen wir direkt ab.",
+  },
+  {
+    icon: ScanLine,
+    title: "Von der Punktwolke zum BIM-Modell",
+    text: "Vorhandene Punktwolken können aufbereitet und für die Bestandsmodellierung in Archicad genutzt werden. Daraus entstehen strukturierte digitale Bestandsmodelle und IFC-fähige Daten.",
   },
   {
     icon: Layers,
-    title: "Anpassung an Ihren Workflow",
-    text: "Ich arbeite mit Archicad und verfüge über praktische Erfahrung mit Revit, AutoCAD, Vectorworks und verschiedenen Visualisierungs-Workflows. Dadurch kann ich mich auf bestehende Projektstrukturen und Arbeitsweisen einstellen.",
-  },
-  {
-    icon: Receipt,
-    title: "Flexible Zusammenarbeit",
-    text: "Je nach Projekt können einzelne Aufgaben oder auch laufende Unterstützung übernommen werden. Umfang, Aufgaben und zeitlicher Rahmen werden individuell abgestimmt.",
+    title: "Flexible Unterstützung",
+    text: "Ob einzelne Arbeitspakete oder laufende Projektunterstützung: Umfang, Aufgaben und zeitlicher Rahmen werden individuell auf Ihr Projekt abgestimmt.",
   },
 ];
 
@@ -57,8 +62,25 @@ export function BenefitsSection() {
           WebkitFontSmoothing: "antialiased",
         }}
       >
-        Flexible Unterstützung für Ihr Team
+        Mehr Kapazität.
+        <br />
+        Ohne zusätzliches Team.
       </h2>
+
+      <p
+        className="mt-6 max-w-2xl"
+        style={{
+          fontFamily: "'Barlow Local', Arial, sans-serif",
+          fontWeight: 400,
+          fontSize: "16px",
+          lineHeight: "1.65",
+          color: "rgba(65, 65, 62, 0.68)",
+          WebkitFontSmoothing: "antialiased",
+        }}
+      >
+        Flexible Unterstützung für Architektur- und Planungsbüros –
+        von einzelnen Arbeitspaketen bis zur laufenden Projektunterstützung.
+      </p>
 
       <div className="mt-10 grid gap-6 md:grid-cols-2">
         {items.map(({ icon: Icon, title, text }) => (
