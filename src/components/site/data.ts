@@ -37,10 +37,10 @@ export const portfolioSections: PortfolioSection[] = [
   },
   {
     id: "fassaden",
-    eyebrow: "03 — Fassaden & Details",
-    title: "Fassadenplanung & architektonische Details",
+    eyebrow: "03 — Fassaden & Ansichten",
+    title: "Fassadenplanung & architektonische Ansichten",
     description:
-      "Fassaden, Ansichten und ausgewählte architektonische Details aus verschiedenen Projekten.",
+      "Bearbeitung von Fassaden, Ansichten und technischen Planunterlagen für eine klare und konsistente Projektdokumentation.",
     price: "Stundensatz ab 55 €",
     images: [],
   },
@@ -56,15 +56,24 @@ export const portfolioSections: PortfolioSection[] = [
   {
     id: "bim",
     eyebrow: "05 — BIM & digitale Planung",
-    title: "Digitale Planungsleistungen",
+    title: "BIM-basierte Planungsleistungen",
     description:
-      "Digitale Bearbeitung von Architekturprojekten mit Fokus auf strukturierte Planungsprozesse und bestehende Software-Workflows.",
+      "Digitale Bearbeitung von Architekturprojekten mit Archicad und IFC-basierten Workflows – einschließlich strukturierter Modellierung, Mengenermittlung und digitaler Planungsprozesse.",
+    price: "Stundensatz ab 55 €",
+    images: [],
+  },
+  {
+    id: "scan-to-bim",
+    eyebrow: "06 — Scan-to-BIM",
+    title: "Punktwolken & Bestandsmodellierung",
+    description:
+      "Aufbereitung vorhandener Punktwolken und anschließende Modellierung von Bestandsgebäuden in Archicad. Übergabe strukturierter BIM-Modelle und IFC-fähiger Projektdaten.",
     price: "Stundensatz ab 55 €",
     images: [],
   },
   {
     id: "projektunterstuetzung",
-    eyebrow: "06 — Projektunterstützung",
+    eyebrow: "07 — Projektunterstützung",
     title: "Externe Unterstützung für Ihr Planungsteam",
     description:
       "Flexible Unterstützung bei einzelnen Aufgaben oder innerhalb laufender Projekte – angepasst an Ihre Arbeitsweise, Projektstruktur und Kapazitätsbedarf.",
@@ -74,9 +83,14 @@ export const portfolioSections: PortfolioSection[] = [
 ];
 
 export const PROJECT_TYPES = [
-  "Wohngebäude (über 2.000 m²)",
   "Ausführungs- & Detailplanung",
-  "High-End 3D-Visualisierung (Twinmotion / D5 Render)",
-  "2D-Visualisierung & Planaufbereitung",
-  "CAD-Workflows & Datenkonvertierung",
+  "BIM & IFC",
+  "Mengenermittlung",
+  "Schnitte & Ansichten",
+  "Fassadenplanung",
+  "Scan-to-BIM / Punktwolken",
+  "Bestandsmodellierung in Archicad",
+  "IFC-Export & BIM-Daten",
+  "Architekturvisualisierung",
+  "Laufende Projektunterstützung",
 ] as const;
