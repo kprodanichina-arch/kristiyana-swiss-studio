@@ -6,18 +6,18 @@ type Service = {
 
 const services: Service[] = [
   {
-    title: "Ausführungsplanung",
-    description: "Grundrisse · Schnitte · Ansichten · Details",
+    title: "BIM & digitale Planung",
+    description: "Archicad · IFC · Mengenermittlung",
     background: "rgba(221, 207, 183, 0.68)",
   },
   {
-    title: "Fassaden & Details",
-    description: "Fassaden · Ansichten · technische Planung",
+    title: "Scan-to-BIM",
+    description: "Punktwolken · Bestandsmodellierung · IFC",
     background: "rgba(246, 243, 235, 0.72)",
   },
   {
-    title: "BIM & digitale Planung",
-    description: "Archicad · Revit · IFC-Workflows",
+    title: "Technische Planung",
+    description: "Grundrisse · Schnitte · Fassaden · Details",
     background: "rgba(201, 214, 195, 0.70)",
   },
   {
@@ -48,7 +48,7 @@ export function HeroSection() {
             </p>
 
             <p
-              className="mt-3 max-w-[240px] text-[11px] uppercase leading-5 tracking-[0.12em]"
+              className="mt-3 max-w-[280px] text-[11px] uppercase leading-5 tracking-[0.12em]"
               style={{
                 color: "rgba(65, 65, 62, 0.62)",
                 fontFamily:
@@ -58,7 +58,7 @@ export function HeroSection() {
                 textShadow: "0 1px 5px rgba(0, 0, 0, 0.07)",
               }}
             >
-              Architektur · BIM · Visualisierung
+              Architektur · BIM · Scan-to-BIM
             </p>
           </div>
 
@@ -94,9 +94,9 @@ export function HeroSection() {
               >
                 BIM, Planung und
                 <br />
-                Visualisierung für
+                Bestandsmodelle
                 <br />
-                Architekturbüros
+                für Architekturbüros
               </h1>
             </div>
 
@@ -110,10 +110,11 @@ export function HeroSection() {
                 textShadow: "0 1px 6px rgba(0, 0, 0, 0.07)",
               }}
             >
-              Ihr Team bleibt klein. Ihre Kapazität wächst.
+              Flexible Unterstützung für Architektur- und
+              Planungsbüros – von technischer Planung und BIM bis
+              zur Bestandsmodellierung aus Punktwolken.
               <br />
-              Flexible Unterstützung für einzelne Arbeitspakete und ganze
-              Projektphasen – remote und projektbezogen.
+              Remote und projektbezogen.
             </p>
           </div>
 
@@ -128,7 +129,7 @@ export function HeroSection() {
                 textShadow: "0 1px 6px rgba(0, 0, 0, 0.07)",
               }}
             >
-              Ihre Standards. Ihre Vorlagen. Ihr Workflow.
+              Archicad · IFC · Punktwolken · Scan-to-BIM
             </p>
 
             <a
