@@ -4,7 +4,7 @@ const services = [
   {
     number: "01",
     title: "Ausführungs- & Detailplanung",
-    text: "Von der Idee ins Detail. Unterstützung bei der technischen Bearbeitung von Architekturprojekten – von Grundrissen, Schnitten und Ansichten bis zur detaillierten Ausführungsplanung.",
+    text: "Unterstützung bei der technischen Bearbeitung von Architekturprojekten – von Grundrissen, Schnitten und Ansichten bis zur Ausführungs- und Detailplanung.",
     items: [
       "Grundrisse",
       "Schnitte & Ansichten",
@@ -26,18 +26,29 @@ const services = [
   {
     number: "03",
     title: "BIM & digitale Planung",
-    text: "BIM dort einsetzen, wo es im Projekt einen Unterschied macht. Digitale Bearbeitung von Architekturprojekten mit Archicad und praktischer Erfahrung mit Revit. Unterstützung bei strukturierten BIM- und IFC-basierten Workflows.",
+    text: "Strukturierte BIM-Bearbeitung mit Archicad und IFC-basierten Workflows – einschließlich Mengenermittlung, Modellstruktur und digitaler Planungsprozesse.",
     items: [
       "Archicad",
-      "Revit",
-      "IFC",
+      "BIM & IFC",
+      "Mengenermittlung",
       "Digitale Planungsprozesse",
     ],
   },
   {
     number: "04",
+    title: "Scan-to-BIM & Bestandsmodellierung",
+    text: "Aus vorhandenen Punktwolken entstehen strukturierte digitale Bestandsmodelle. Aufbereitung der Punktwolke, Modellierung in Archicad und Übergabe als IFC-fähiges BIM-Modell.",
+    items: [
+      "Punktwolken",
+      "Punktwolkenaufbereitung",
+      "Archicad-Bestandsmodelle",
+      "IFC-Export",
+    ],
+  },
+  {
+    number: "05",
     title: "Architekturvisualisierung",
-    text: "Zwischen Plan und Realität liegt manchmal ein gutes Bild. Fotorealistische Architekturvisualisierungen für Präsentationen, Projektkommunikation und die überzeugende Darstellung von Architektur.",
+    text: "Fotorealistische Architekturvisualisierungen für Präsentationen, Projektkommunikation und die überzeugende Darstellung von Architektur.",
     items: [
       "D5 Render",
       "Twinmotion",
@@ -137,8 +148,8 @@ export function LeistungenSection() {
               ist.
               <br />
               ArchiKa unterstützt Architekturbüros bei Ausführungs- und
-              Detailplanung, Fassaden- und Planaufbereitung, digitaler
-              Planung sowie Architekturvisualisierung.
+              Detailplanung, Fassaden- und Planaufbereitung, BIM,
+              Scan-to-BIM sowie Architekturvisualisierung.
             </p>
           </div>
 
