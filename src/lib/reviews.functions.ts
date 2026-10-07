@@ -5,8 +5,8 @@ export type Review = {
   id: string;
   company_name: string;
   speed_rating: number;
-  complexity_rating: number;
   quality_rating: number;
+  communication_rating: number;
   message: string | null;
   status: string;
   created_at: string;
@@ -16,11 +16,12 @@ export const submitReview = createServerFn({ method: "POST" })
   .validator((data) => reviewSchema.parse(data))
   .handler(async ({ data }) => {
     const supabase = createReviewsClient();
+
     const { error } = await supabase.from("reviews").insert({
       company_name: data.companyName,
       speed_rating: data.speedRating,
-      complexity_rating: data.complexityRating,
       quality_rating: data.qualityRating,
+      communication_rating: data.communicationRating,
       message: data.message,
       status: "pending",
     });
@@ -35,6 +36,7 @@ export const submitReview = createServerFn({ method: "POST" })
 export const getApprovedReviews = createServerFn({ method: "GET" })
   .handler(async () => {
     const supabase = createReviewsClient();
+
     const { data, error } = await supabase
       .from("reviews")
       .select("*")
