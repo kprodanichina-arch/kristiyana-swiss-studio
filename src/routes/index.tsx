@@ -13,11 +13,19 @@ import { getApprovedReviews } from "@/lib/reviews.functions";
 
 export const Route = createFileRoute("/")({
   loader: async () => {
-    const reviews = await getApprovedReviews();
+    try {
+      const reviews = await getApprovedReviews();
 
-    return {
-      reviews,
-    };
+      return {
+        reviews,
+      };
+    } catch {
+      // Reviews are optional content. A database/configuration problem
+      // must never prevent the main website from rendering.
+      return {
+        reviews: [],
+      };
+    }
   },
 
   head: () => ({
