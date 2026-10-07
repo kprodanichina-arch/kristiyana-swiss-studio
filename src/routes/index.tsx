@@ -9,25 +9,8 @@ import { AboutSection } from "@/components/site/AboutSection";
 import { ReviewsSection } from "@/components/site/ReviewsSection";
 import { ContactSection } from "@/components/site/ContactSection";
 import { Footer } from "@/components/site/Footer";
-import { getApprovedReviews } from "@/lib/reviews.functions";
 
 export const Route = createFileRoute("/")({
-  loader: async () => {
-    try {
-      const reviews = await getApprovedReviews();
-
-      return {
-        reviews,
-      };
-    } catch {
-      // Reviews are optional content. A database/configuration problem
-      // must never prevent the main website from rendering.
-      return {
-        reviews: [],
-      };
-    }
-  },
-
   head: () => ({
     links: [
       {
@@ -55,18 +38,9 @@ export const Route = createFileRoute("/")({
           description:
             "B2B Architektur-, BIM- und Visualisierungsleistungen für Architekturbüros in Deutschland, Österreich und der Schweiz – remote und projektbezogen.",
           areaServed: [
-            {
-              "@type": "Country",
-              name: "Deutschland",
-            },
-            {
-              "@type": "Country",
-              name: "Österreich",
-            },
-            {
-              "@type": "Country",
-              name: "Schweiz",
-            },
+            { "@type": "Country", name: "Deutschland" },
+            { "@type": "Country", name: "Österreich" },
+            { "@type": "Country", name: "Schweiz" },
           ],
           founder: {
             "@type": "Person",
@@ -96,8 +70,6 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const { reviews } = Route.useLoaderData();
-
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
@@ -113,7 +85,7 @@ function Index() {
 
         <AboutSection />
 
-        <ReviewsSection initialReviews={reviews} />
+        <ReviewsSection />
 
         <ContactSection />
       </main>
