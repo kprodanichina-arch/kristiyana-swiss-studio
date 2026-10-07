@@ -1,8 +1,18 @@
 import { useState, type FormEvent } from "react";
-import { useServerFn } from "@tanstack/react-start";
 import { Star } from "lucide-react";
-import { submitReview, type Review } from "@/lib/reviews.functions";
+
 import { EMAIL } from "./data";
+
+type Review = {
+  id: string;
+  company_name: string;
+  speed_rating: number;
+  quality_rating: number;
+  communication_rating: number;
+  message: string | null;
+  status: string;
+  created_at: string;
+};
 
 const ratingLabels = {
   speed: "Schnelligkeit",
@@ -105,8 +115,7 @@ function ReviewCard({ review }: { review: Review }) {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h3
           style={{
-            fontFamily:
-              "'Instrument Serif Local', Georgia, serif",
+            fontFamily: "'Instrument Serif Local', Georgia, serif",
             fontWeight: 400,
             fontSize: "clamp(25px, 2vw, 32px)",
             lineHeight: "1.05",
@@ -124,8 +133,7 @@ function ReviewCard({ review }: { review: Review }) {
           <span
             className="tabular-nums"
             style={{
-              fontFamily:
-                "'Barlow Semi Condensed Local', Arial, sans-serif",
+              fontFamily: "'Barlow Semi Condensed Local', Arial, sans-serif",
               fontSize: "12px",
               fontWeight: 700,
               color: "rgba(65, 65, 62, 0.62)",
@@ -200,20 +208,33 @@ function ReviewCard({ review }: { review: Review }) {
   );
 }
 
-/**
- * Manuell gepflegte Referenzen. Hier können echte Bewertungen ergänzt werden —
- * freigegebene Bewertungen aus der Datenbank haben Vorrang.
+/*
+ * Freigegebene Referenzen können hier später manuell ergänzt werden.
+ *
+ * Beispiel:
+ *
+ * const MANUAL_REVIEWS: Review[] = [
+ *   {
+ *     id: "1",
+ *     company_name: "Beispiel GmbH",
+ *     speed_rating: 5,
+ *     quality_rating: 5,
+ *     communication_rating: 5,
+ *     message: "Sehr gute Zusammenarbeit.",
+ *     status: "approved",
+ *     created_at: "2026-10-07",
+ *   },
+ * ];
  */
 const MANUAL_REVIEWS: Review[] = [];
 
 export function ReviewsSection({
-  initialReviews,
+  initialReviews = [],
 }: {
-  initialReviews: Review[];
+  initialReviews?: Review[];
 }) {
-  const [reviews] = useState<Review[]>(
-    initialReviews.length > 0 ? initialReviews : MANUAL_REVIEWS,
-  );
+  const reviews =
+    initialReviews.length > 0 ? initialReviews : MANUAL_REVIEWS;
 
   const [showForm, setShowForm] = useState(false);
 
@@ -228,8 +249,6 @@ export function ReviewsSection({
   const [status, setStatus] = useState<
     "idle" | "submitting" | "sent" | "error"
   >("idle");
-
-  const submit = useServerFn(submitReview);
 
   const field =
     "w-full border border-border bg-white px-4 py-3 outline-none transition-colors placeholder:text-muted-foreground focus:border-foreground";
@@ -251,8 +270,6 @@ export function ReviewsSection({
     setStatus("submitting");
 
     try {
-      await submit({ data: form });
-
       const body = [
         `Name des Unternehmens / Privatperson: ${form.companyName}`,
         "",
@@ -264,14 +281,16 @@ export function ReviewsSection({
         "Persönliche Nachricht:",
         form.message,
         "",
-        "Hinweis: Diese Bewertung wurde in die Datenbank eingetragen und wartet auf Freigabe.",
+        "Hinweis: Diese Bewertung wurde zur Prüfung an ArchiKa gesendet und wird erst nach Freigabe veröffentlicht.",
       ].join("\n");
 
-      window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(
+      const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent(
         "Neue Kundenbewertung – " + form.companyName,
       )}&body=${encodeURIComponent(body)}`;
 
       setStatus("sent");
+
+      window.location.href = mailto;
 
       setForm({
         companyName: "",
@@ -293,8 +312,7 @@ export function ReviewsSection({
       <p
         className="eyebrow"
         style={{
-          fontFamily:
-            "'Barlow Semi Condensed Local', Arial, sans-serif",
+          fontFamily: "'Barlow Semi Condensed Local', Arial, sans-serif",
           fontSize: "13px",
           fontWeight: 700,
           letterSpacing: "0.18em",
@@ -308,8 +326,7 @@ export function ReviewsSection({
       <h2
         className="mt-4 max-w-3xl"
         style={{
-          fontFamily:
-            "'Instrument Serif Local', Georgia, serif",
+          fontFamily: "'Instrument Serif Local', Georgia, serif",
           fontWeight: 400,
           fontSize: "clamp(42px, 4.2vw, 64px)",
           lineHeight: "0.96",
@@ -361,8 +378,7 @@ export function ReviewsSection({
           >
             <h3
               style={{
-                fontFamily:
-                  "'Instrument Serif Local', Georgia, serif",
+                fontFamily: "'Instrument Serif Local', Georgia, serif",
                 fontWeight: 400,
                 fontSize: "clamp(28px, 2.4vw, 36px)",
                 lineHeight: "1",
@@ -477,8 +493,7 @@ export function ReviewsSection({
                 type="button"
                 onClick={() => setShowForm(false)}
                 style={{
-                  fontFamily:
-                    "'Barlow Local', Arial, sans-serif",
+                  fontFamily: "'Barlow Local', Arial, sans-serif",
                   fontSize: "12px",
                   color: "rgba(65, 65, 62, 0.58)",
                   WebkitFontSmoothing: "antialiased",
@@ -493,16 +508,16 @@ export function ReviewsSection({
               <p
                 className="mt-4"
                 style={{
-                  fontFamily:
-                    "'Barlow Local', Arial, sans-serif",
+                  fontFamily: "'Barlow Local', Arial, sans-serif",
                   fontSize: "12px",
                   lineHeight: "1.55",
                   color: "rgba(65, 65, 62, 0.58)",
                   WebkitFontSmoothing: "antialiased",
                 }}
               >
-                Vielen Dank. Ihre Bewertung wurde zur Überprüfung
-                übermittelt.
+                Vielen Dank. Ihr E-Mail-Programm wurde geöffnet. Bitte
+                senden Sie die vorbereitete Bewertung ab. Danach prüfen wir
+                sie und veröffentlichen sie nach Freigabe.
               </p>
             )}
 
@@ -510,8 +525,7 @@ export function ReviewsSection({
               <p
                 className="mt-4"
                 style={{
-                  fontFamily:
-                    "'Barlow Local', Arial, sans-serif",
+                  fontFamily: "'Barlow Local', Arial, sans-serif",
                   fontSize: "12px",
                   lineHeight: "1.55",
                   color: "var(--destructive)",
@@ -530,8 +544,7 @@ export function ReviewsSection({
         <p
           className="eyebrow"
           style={{
-            fontFamily:
-              "'Barlow Semi Condensed Local', Arial, sans-serif",
+            fontFamily: "'Barlow Semi Condensed Local', Arial, sans-serif",
             fontSize: "13px",
             fontWeight: 700,
             letterSpacing: "0.18em",
@@ -545,18 +558,14 @@ export function ReviewsSection({
         {reviews.length > 0 ? (
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             {reviews.map((review) => (
-              <ReviewCard
-                key={review.id}
-                review={review}
-              />
+              <ReviewCard key={review.id} review={review} />
             ))}
           </div>
         ) : (
           <div className="panel mt-8 max-w-2xl p-8 sm:p-10">
             <p
               style={{
-                fontFamily:
-                  "'Barlow Local', Arial, sans-serif",
+                fontFamily: "'Barlow Local', Arial, sans-serif",
                 fontSize: "15px",
                 lineHeight: "1.6",
                 color: "rgba(65, 65, 62, 0.68)",
