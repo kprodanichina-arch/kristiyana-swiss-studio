@@ -7,27 +7,27 @@ export function AboutSection() {
       className="border-t border-border bg-background py-24 sm:py-32"
     >
       <div className="container mx-auto px-6">
-        <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
-          <div>
-            <p className="mb-5 text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">
-              Über mich
-            </p>
+        <div className="mb-16">
+          <p className="mb-5 text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">
+            Über mich
+          </p>
 
-            <h2 className="max-w-xl text-4xl font-light leading-tight tracking-tight sm:text-5xl">
-              Architektur digital gedacht.
-            </h2>
+          <h2 className="max-w-3xl text-4xl font-light leading-tight tracking-tight sm:text-5xl">
+            Architektur digital gedacht.
+          </h2>
+        </div>
+
+        <div className="grid gap-12 lg:grid-cols-[280px_1fr] lg:gap-20">
+          <div className="flex items-start justify-start">
+            <img
+              src="/images/kristiyana.webp"
+              alt="Kristiyana Prodanichina – Architektin"
+              className="h-auto w-full max-w-[280px] object-cover"
+              loading="lazy"
+            />
           </div>
 
           <div className="max-w-2xl">
-            <div className="mb-10 flex justify-start">
-              <img
-                src="/images/kristiyana.webp"
-                alt="Kristiyana Prodanichina – Architektin"
-                className="h-auto w-[190px] object-cover"
-                loading="lazy"
-              />
-            </div>
-
             <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
               <p>
                 Ich bin Kristiyana Prodanichina, Architektin mit Erfahrung in
