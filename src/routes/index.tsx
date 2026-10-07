@@ -1,14 +1,25 @@
 import { createFileRoute } from "@tanstack/react-router";
+
 import { Nav } from "@/components/site/Nav";
 import { HeroSection } from "@/components/site/HeroSection";
 import { LeistungenSection } from "@/components/site/LeistungenSection";
 import { ProjectsSection } from "@/components/site/ProjectsSection";
 import { AblaufSection } from "@/components/site/AblaufSection";
 import { AboutSection } from "@/components/site/AboutSection";
+import { ReviewsSection } from "@/components/site/ReviewsSection";
 import { ContactSection } from "@/components/site/ContactSection";
 import { Footer } from "@/components/site/Footer";
+import { getApprovedReviews } from "@/lib/reviews.functions";
 
 export const Route = createFileRoute("/")({
+  loader: async () => {
+    const reviews = await getApprovedReviews();
+
+    return {
+      reviews,
+    };
+  },
+
   head: () => ({
     links: [
       {
@@ -72,20 +83,30 @@ export const Route = createFileRoute("/")({
       },
     ],
   }),
+
   component: Index,
 });
 
 function Index() {
+  const { reviews } = Route.useLoaderData();
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
 
       <main>
         <HeroSection />
+
         <LeistungenSection />
+
         <ProjectsSection />
+
         <AblaufSection />
+
         <AboutSection />
+
+        <ReviewsSection initialReviews={reviews} />
+
         <ContactSection />
       </main>
 
