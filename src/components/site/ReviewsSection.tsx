@@ -5,9 +5,9 @@ import { submitReview, type Review } from "@/lib/reviews.functions";
 import { EMAIL } from "./data";
 
 const ratingLabels = {
-  speed: "Geschwindigkeit der Umsetzung",
-  complexity: "Projektkomplexität",
-  quality: "Gesamtqualität der Dienstleistung",
+  speed: "Schnelligkeit",
+  quality: "Qualität",
+  communication: "Kommunikation & Feedback",
 } as const;
 
 function StarRatingInput({
@@ -94,8 +94,8 @@ function ReviewCard({ review }: { review: Review }) {
   const average =
     Math.round(
       ((review.speed_rating +
-        review.complexity_rating +
-        review.quality_rating) /
+        review.quality_rating +
+        review.communication_rating) /
         3) *
         10,
     ) / 10;
@@ -153,9 +153,9 @@ function ReviewCard({ review }: { review: Review }) {
 
       <dl className="mt-6 space-y-3 border-t border-border pt-5">
         {[
-          ["Geschwindigkeit", review.speed_rating],
-          ["Projektkomplexität", review.complexity_rating],
-          ["Gesamtqualität", review.quality_rating],
+          ["Schnelligkeit", review.speed_rating],
+          ["Qualität", review.quality_rating],
+          ["Kommunikation & Feedback", review.communication_rating],
         ].map(([label, value]) => (
           <div
             key={label as string}
@@ -220,8 +220,8 @@ export function ReviewsSection({
   const [form, setForm] = useState({
     companyName: "",
     speedRating: 0,
-    complexityRating: 0,
     qualityRating: 0,
+    communicationRating: 0,
     message: "",
   });
 
@@ -239,8 +239,8 @@ export function ReviewsSection({
 
     if (
       form.speedRating < 1 ||
-      form.complexityRating < 1 ||
       form.qualityRating < 1 ||
+      form.communicationRating < 1 ||
       !form.companyName.trim() ||
       !form.message.trim()
     ) {
@@ -257,9 +257,9 @@ export function ReviewsSection({
         `Name des Unternehmens / Privatperson: ${form.companyName}`,
         "",
         "Bewertungen:",
-        `- Geschwindigkeit der Umsetzung: ${form.speedRating}/5`,
-        `- Projektkomplexität: ${form.complexityRating}/5`,
-        `- Gesamtqualität der Dienstleistung: ${form.qualityRating}/5`,
+        `- Schnelligkeit: ${form.speedRating}/5`,
+        `- Qualität: ${form.qualityRating}/5`,
+        `- Kommunikation & Feedback: ${form.communicationRating}/5`,
         "",
         "Persönliche Nachricht:",
         form.message,
@@ -276,8 +276,8 @@ export function ReviewsSection({
       setForm({
         companyName: "",
         speedRating: 0,
-        complexityRating: 0,
         qualityRating: 0,
+        communicationRating: 0,
         message: "",
       });
     } catch {
@@ -302,7 +302,7 @@ export function ReviewsSection({
           WebkitFontSmoothing: "antialiased",
         }}
       >
-        08 — Kundenmeinungen &amp; Referenzen
+        08 — Kundenmeinungen
       </p>
 
       <h2
@@ -318,7 +318,7 @@ export function ReviewsSection({
           WebkitFontSmoothing: "antialiased",
         }}
       >
-        Kundenmeinungen &amp; Referenzen
+        Kundenmeinungen
       </h2>
 
       <p
@@ -332,8 +332,8 @@ export function ReviewsSection({
           WebkitFontSmoothing: "antialiased",
         }}
       >
-        Teilen Sie Ihre Erfahrungen mit uns. Jede Bewertung wird vor der
-        Veröffentlichung von unserem Team überprüft.
+        Teilen Sie Ihre Erfahrungen mit uns. Eingereichte Bewertungen
+        werden vor der Veröffentlichung geprüft.
       </p>
 
       <div className="mt-12">
@@ -408,23 +408,23 @@ export function ReviewsSection({
                 />
 
                 <StarRatingInput
-                  label={ratingLabels.complexity}
-                  value={form.complexityRating}
-                  onChange={(v) =>
-                    setForm((f) => ({
-                      ...f,
-                      complexityRating: v,
-                    }))
-                  }
-                />
-
-                <StarRatingInput
                   label={ratingLabels.quality}
                   value={form.qualityRating}
                   onChange={(v) =>
                     setForm((f) => ({
                       ...f,
                       qualityRating: v,
+                    }))
+                  }
+                />
+
+                <StarRatingInput
+                  label={ratingLabels.communication}
+                  value={form.communicationRating}
+                  onChange={(v) =>
+                    setForm((f) => ({
+                      ...f,
+                      communicationRating: v,
                     }))
                   }
                 />
