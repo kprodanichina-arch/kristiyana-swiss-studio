@@ -3,17 +3,38 @@ import { useEffect, useRef, useState } from "react";
 const services = [
   {
     number: "01",
-    title: "Ausführungs- & Detailplanung",
-    text: "Unterstützung bei der technischen Bearbeitung von Architekturprojekten – von Grundrissen, Schnitten und Ansichten bis zur Ausführungs- und Detailplanung.",
+    title: "Ausführungsplanung & Archicad Automatisierung",
+    text: "Technische Ausführungs- und Detailplanung sowie effiziente Bearbeitung und Optimierung von Archicad-Projekten – von der Planaufbereitung bis zur strukturierten Modellprüfung und Automatisierung wiederkehrender Arbeitsschritte.",
     items: [
-      "Grundrisse",
-      "Schnitte & Ansichten",
       "Ausführungs- und Detailplanung",
-      "DWG / PDF",
+      "Archicad",
+      "Modellprüfung",
+      "BIM-Modellbereinigung",
+      "Bauteil- und Elementnummerierung",
+      "Auswertungen & Listen",
+      "Automatisierte Dokumentation",
+      "Büro- und Projektstandards",
+      "Individuelle Archicad-Workflows",
+      "Datenexport",
     ],
   },
   {
     number: "02",
+    title: "IFC Koordination, OpenBIM & BIMcloud",
+    text: "Strukturierte Koordination und Verwaltung von BIM-Modellen mit IFC, OpenBIM und BIMcloud – für einen zuverlässigen Datenaustausch und eine effiziente Zusammenarbeit zwischen Planungspartnern.",
+    items: [
+      "IFC Koordination",
+      "OpenBIM",
+      "BIMcloud",
+      "IFC Import & Export",
+      "Fachmodellkoordination",
+      "Modellzusammenführung",
+      "IFC-Datenprüfung",
+      "BIM-Datenmanagement",
+    ],
+  },
+  {
+    number: "03",
     title: "Fassaden & Planaufbereitung",
     text: "Bearbeitung und Aufbereitung von Fassaden, Ansichten und technischen Planunterlagen für eine klare und konsistente Projektdokumentation.",
     items: [
@@ -21,17 +42,6 @@ const services = [
       "Ansichten",
       "Planaufbereitung",
       "Technische Dokumentation",
-    ],
-  },
-  {
-    number: "03",
-    title: "BIM & digitale Planung",
-    text: "Strukturierte BIM-Bearbeitung mit Archicad und IFC-basierten Workflows – einschließlich Mengenermittlung, Modellstruktur und digitaler Planungsprozesse.",
-    items: [
-      "Archicad",
-      "BIM & IFC",
-      "Mengenermittlung",
-      "Digitale Planungsprozesse",
     ],
   },
   {
@@ -148,8 +158,8 @@ export function LeistungenSection() {
               ist.
               <br />
               ArchiKa unterstützt Architekturbüros bei Ausführungs- und
-              Detailplanung, Fassaden- und Planaufbereitung, BIM,
-              Scan-to-BIM sowie Architekturvisualisierung.
+              Detailplanung, Archicad-Optimierung, IFC-Koordination,
+              OpenBIM, BIMcloud, Scan-to-BIM sowie Architekturvisualisierung.
             </p>
           </div>
 
