@@ -28,16 +28,25 @@ export type PortfolioSection = {
 export const portfolioSections: PortfolioSection[] = [
   {
     id: "ausfuehrungsplanung",
-    eyebrow: "02 — Ausführungsplanung",
-    title: "Technische Planung & Dokumentation",
+    eyebrow: "02 — Ausführungsplanung & Archicad Automatisierung",
+    title: "Technische Planung & effiziente Archicad-Workflows",
     description:
-      "Ausführungs- und Detailplanung für Architekturprojekte – von der Bearbeitung von Grundrissen, Schnitten und Ansichten bis zur detaillierten Planaufbereitung.",
+      "Ausführungs- und Detailplanung sowie strukturierte Bearbeitung und Optimierung von Archicad-Projekten – einschließlich Modellprüfung, Auswertungen, Dokumentation und Automatisierung wiederkehrender Arbeitsschritte.",
+    price: "Stundensatz ab 55 €",
+    images: [],
+  },
+  {
+    id: "ifc-openbim-bimcloud",
+    eyebrow: "03 — IFC Koordination, OpenBIM & BIMcloud",
+    title: "Strukturierte BIM-Koordination",
+    description:
+      "Koordination und Verwaltung von BIM-Modellen mit IFC, OpenBIM und BIMcloud – einschließlich Modellzusammenführung, IFC-Datenprüfung und strukturiertem Datenaustausch zwischen Planungspartnern.",
     price: "Stundensatz ab 55 €",
     images: [],
   },
   {
     id: "fassaden",
-    eyebrow: "03 — Fassaden & Ansichten",
+    eyebrow: "04 — Fassaden & Ansichten",
     title: "Fassadenplanung & architektonische Ansichten",
     description:
       "Bearbeitung von Fassaden, Ansichten und technischen Planunterlagen für eine klare und konsistente Projektdokumentation.",
@@ -46,20 +55,11 @@ export const portfolioSections: PortfolioSection[] = [
   },
   {
     id: "visualisierung",
-    eyebrow: "04 — Architekturvisualisierung",
+    eyebrow: "05 — Architekturvisualisierung",
     title: "Fotorealistische Visualisierungen",
     description:
       "Architekturvisualisierungen für Präsentationen, Projektkommunikation und die Darstellung von Entwurfs- und Planungsvarianten.",
     price: "Preis pro Visualisierung: 250–450 €",
-    images: [],
-  },
-  {
-    id: "bim",
-    eyebrow: "05 — BIM & digitale Planung",
-    title: "BIM-basierte Planungsleistungen",
-    description:
-      "Digitale Bearbeitung von Architekturprojekten mit Archicad und IFC-basierten Workflows – einschließlich strukturierter Modellierung, Mengenermittlung und digitaler Planungsprozesse.",
-    price: "Stundensatz ab 55 €",
     images: [],
   },
   {
@@ -84,13 +84,19 @@ export const portfolioSections: PortfolioSection[] = [
 
 export const PROJECT_TYPES = [
   "Ausführungs- & Detailplanung",
-  "BIM & IFC",
-  "Mengenermittlung",
-  "Schnitte & Ansichten",
-  "Fassadenplanung",
+  "Archicad",
+  "Archicad Automatisierung",
+  "Modellprüfung & Qualitätskontrolle",
+  "BIM-Modellbereinigung",
+  "IFC Koordination",
+  "OpenBIM",
+  "BIMcloud",
+  "IFC-Export & BIM-Daten",
   "Scan-to-BIM / Punktwolken",
   "Bestandsmodellierung in Archicad",
-  "IFC-Export & BIM-Daten",
+  "Fassadenplanung",
+  "Mengenermittlung",
+  "Schnitte & Ansichten",
   "Architekturvisualisierung",
   "Laufende Projektunterstützung",
 ] as const;
