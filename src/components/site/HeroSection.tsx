@@ -114,6 +114,16 @@ export function HeroSection() {
               Planungsbüros – von technischer Planung und BIM bis
               zur Bestandsmodellierung aus Punktwolken.
               <br />
+              <span
+                className="mt-2 inline-block"
+                style={{
+                  color: "rgba(58, 58, 55, 0.82)",
+                  fontWeight: 500,
+                }}
+              >
+                Schnell, unkompliziert und direkt einsatzbereit.
+              </span>
+              <br />
               Remote und projektbezogen.
             </p>
           </div>
