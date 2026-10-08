@@ -1,4 +1,5 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
+import { CV_PATH } from "./data";
 
 export function AboutSection() {
   return (
@@ -47,13 +48,22 @@ export function AboutSection() {
               </p>
             </div>
 
-            <div className="mt-10">
+            <div className="mt-10 flex flex-wrap items-center gap-6">
               <a
                 href="#kontakt"
                 className="inline-flex items-center gap-2 text-sm font-medium transition-opacity hover:opacity-60"
               >
                 Kontakt aufnehmen
                 <ArrowRight className="h-4 w-4" />
+              </a>
+
+              <a
+                href={CV_PATH}
+                download="Lebenslauf_Kristiyana_Prodanichina.pdf"
+                className="inline-flex items-center gap-2 rounded-full border border-[rgba(32,32,29,0.18)] px-5 py-3 text-sm font-medium text-[rgba(65,65,62,0.78)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[rgba(32,32,29,0.35)] hover:bg-black/[0.025]"
+              >
+                <Download className="h-4 w-4" />
+                Lebenslauf herunterladen
               </a>
             </div>
           </div>
