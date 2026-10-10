@@ -44,6 +44,18 @@ const shuffle = <T,>(array: T[]): T[] => {
 
 const gallerySections: GallerySection[] = [
   {
+    eyebrow: "Scan-to-BIM & BIM-Workflows",
+    title: "Von der Punktwolke zum prüfbaren BIM-Modell",
+    description:
+      "Übungsprojekt auf Basis eines öffentlichen Laserscan-Datensatzes (Leica BLK360): Auswertung der klassifizierten Punktwolke, Modellierung in Archicad mit IFC-Klassifizierung, IFC-Export und Scan-vs-BIM-Abweichungsanalyse. Datengrundlage: „Indoor point cloud dataset for BIM related applications“, INESC TEC (2023).",
+    images: [
+      { src: "/images/workflows/scan-to-bim-punktwolke.webp", alt: "Punktwolke als Draufsicht – Ausgangsdaten für Scan-to-BIM" },
+      { src: "/images/workflows/scan-to-bim-modell-ueberlagerung.webp", alt: "Archicad-Modell deckungsgleich über der Punktwolke" },
+      { src: "/images/workflows/scan-vs-bim-abweichung.webp", alt: "Scan-vs-BIM-Abweichungsanalyse der Wände" },
+    ],
+  },
+
+  {
     eyebrow: "Ausführungsplanung",
     title: "Technische Planung & Dokumentation",
     description:
@@ -426,7 +438,9 @@ export function ProjectsSection() {
       gallerySections.map((section) => ({
         ...section,
         images:
-          section.eyebrow === "Architekturvisualisierung"
+          section.eyebrow === "Scan-to-BIM & BIM-Workflows"
+            ? section.images
+            : section.eyebrow === "Architekturvisualisierung"
             ? shuffle(section.images).slice(0, 20)
             : shuffle(section.images),
       })),
