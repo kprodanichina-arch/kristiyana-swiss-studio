@@ -264,6 +264,7 @@ function Gallery({
   const previousImage = getImage(-1);
   const currentImage = getImage(0);
   const nextImage = getImage(1);
+  const single = total === 1;
 
   return (
     <section
@@ -334,8 +335,8 @@ function Gallery({
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          <div className="grid grid-cols-1 items-center gap-4 md:grid-cols-[1fr_2.2fr_1fr] md:gap-6">
-            <button
+          <div className={single ? "mx-auto max-w-3xl" : "grid grid-cols-1 items-center gap-4 md:grid-cols-[1fr_2.2fr_1fr] md:gap-6"}>
+            {!single && (<button
               type="button"
               onClick={previous}
               aria-label="Vorheriges Bild"
@@ -354,9 +355,9 @@ function Gallery({
                   ‹
                 </span>
               </span>
-            </button>
+            </button>)}
 
-            <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+            <div className={`relative overflow-hidden bg-muted ${single ? "aspect-[4/5]" : "aspect-[4/3]"}`}>
               <img
                 key={displayedImage.src}
                 src={displayedImage.src}
@@ -370,7 +371,7 @@ function Gallery({
                 }`}
               />
 
-              <button
+              {!single && (<><button
                 type="button"
                 onClick={previous}
                 aria-label="Vorheriges Bild"
@@ -386,10 +387,10 @@ function Gallery({
                 className="absolute right-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center bg-black/35 text-2xl text-white backdrop-blur-sm transition-all duration-300 hover:bg-black/55 hover:translate-x-0.5 md:hidden"
               >
                 ›
-              </button>
+              </button></>)}
             </div>
 
-            <button
+            {!single && (<button
               type="button"
               onClick={next}
               aria-label="Nächstes Bild"
@@ -408,9 +409,10 @@ function Gallery({
                   ›
                 </span>
               </span>
-            </button>
+            </button>)}
           </div>
 
+          {!single && (
           <div className="mt-5 flex justify-center">
             <span
               className="text-sm text-muted-foreground"
@@ -421,6 +423,7 @@ function Gallery({
               {currentIndex + 1} / {total}
             </span>
           </div>
+          )}
         </div>
       </div>
     </section>
