@@ -46,7 +46,7 @@ export function BenefitsSection() {
           WebkitFontSmoothing: "antialiased",
         }}
       >
-        07 — Ihre Vorteile
+        Ihre Vorteile
       </p>
 
       <h2

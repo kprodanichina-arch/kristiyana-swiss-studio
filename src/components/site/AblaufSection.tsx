@@ -77,7 +77,7 @@ export function AblaufSection() {
                 WebkitFontSmoothing: "antialiased",
               }}
             >
-              05 — Ablauf
+              Ablauf
             </p>
 
             <h2
