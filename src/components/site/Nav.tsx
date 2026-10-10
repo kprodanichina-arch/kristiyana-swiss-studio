@@ -1,11 +1,11 @@
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 
 const links = [
-  { href: "#leistungen", label: "Leistungen" },
-  { href: "#projekte", label: "Projekte" },
-  { href: "#ablauf", label: "Ablauf" },
-  { href: "#ueber-mich", label: "Über ArchiKa" },
+  { href: "/ueber-uns", label: "Über uns" },
+  { href: "/projekte", label: "Projekte" },
+  { href: "/blog", label: "Blog" },
 ];
 
 export function Nav() {
@@ -34,21 +34,22 @@ export function Nav() {
       }}
     >
       <nav className="relative mx-auto flex h-[76px] max-w-6xl items-center justify-between gap-6 px-6 pl-8 sm:px-10 sm:pl-14 lg:px-14 lg:pl-20">
-        <a
-          href="/"
+        <Link
+          to="/"
           aria-label="Startseite"
           className="pointer-events-auto absolute left-8 top-2 z-50 flex items-center sm:left-14 lg:left-20"
           onClick={closeMenu}
         >
           <Logo className="h-[90px] w-auto drop-shadow-sm sm:h-[130px]" />
-        </a>
+        </Link>
 
         {/* Desktop navigation */}
         <ul className="ml-auto hidden items-center gap-8 md:flex">
           {links.map((link) => (
             <li key={link.href}>
-              <a
-                href={link.href}
+              <Link
+                to={link.href}
+                activeProps={{ style: { textDecoration: "underline", textUnderlineOffset: "6px" } }}
                 style={{
                   fontFamily: "'Barlow Local', Arial, sans-serif",
                   fontSize: "15px",
@@ -67,13 +68,13 @@ export function Nav() {
                 }}
               >
                 {link.label}
-              </a>
+              </Link>
             </li>
           ))}
 
           <li>
-            <a
-              href="#kontakt"
+            <Link
+              to="/kontakt"
               style={{
                 display: "inline-block",
                 border: "1px solid rgba(32, 32, 29, 0.22)",
@@ -89,7 +90,7 @@ export function Nav() {
               }}
             >
               Kontakt
-            </a>
+            </Link>
           </li>
         </ul>
 
@@ -128,9 +129,9 @@ export function Nav() {
         <div className="mx-auto max-w-6xl px-6 pb-6 pt-3 sm:px-10">
           <div className="border-t border-[rgba(32,32,29,0.14)]">
             {links.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
+                to={link.href}
                 onClick={closeMenu}
                 className="block border-b border-[rgba(32,32,29,0.12)] py-4"
                 style={{
@@ -143,11 +144,11 @@ export function Nav() {
                 }}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
 
-            <a
-              href="#kontakt"
+            <Link
+              to="/kontakt"
               onClick={closeMenu}
               className="mt-4 block border border-[rgba(32,32,29,0.24)] px-5 py-3 text-center"
               style={{
@@ -163,7 +164,7 @@ export function Nav() {
               }}
             >
               Kontakt
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -60,7 +60,7 @@ export function RendersSection() {
       <div className="container mx-auto px-6">
         <div className="mb-12 max-w-3xl">
           <p className="mb-4 text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">
-            04 — Architekturvisualisierung
+            Architekturvisualisierung
           </p>
 
           <h2 className="text-3xl font-medium tracking-tight md:text-5xl">

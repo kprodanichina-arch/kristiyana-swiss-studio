@@ -44,7 +44,7 @@ export function ExperienceSection() {
           WebkitFontSmoothing: "antialiased",
         }}
       >
-        06 — Werdegang
+        Werdegang
       </p>
 
       <h2

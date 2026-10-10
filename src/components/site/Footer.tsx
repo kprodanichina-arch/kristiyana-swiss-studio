@@ -66,7 +66,7 @@ export function Footer() {
                 WebkitFontSmoothing: "antialiased",
               }}
             >
-              © Kristiyana Prodanichina. All rights reserved.
+              © ArchiKa. Alle Rechte vorbehalten.
             </p>
           </div>
 

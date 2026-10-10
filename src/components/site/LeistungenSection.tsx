@@ -120,7 +120,7 @@ export function LeistungenSection() {
                 WebkitFontSmoothing: "antialiased",
               }}
             >
-              01 — Leistungen
+              Leistungen
             </p>
 
             <h2
@@ -166,7 +166,7 @@ export function LeistungenSection() {
           <div className="border-t border-[rgba(32,32,29,0.18)]">
             {services.map((service, index) => (
               <article
-                key={service.number}
+                key={service.title}
                 className={`group border-b border-[rgba(32,32,29,0.14)] py-9 sm:py-11 lg:py-12 ${
                   isVisible
                     ? "opacity-100 translate-y-0"
@@ -178,22 +178,8 @@ export function LeistungenSection() {
                     : "0ms",
                 }}
               >
-                <div className="grid grid-cols-[42px_1fr] gap-5 sm:grid-cols-[52px_1fr] sm:gap-7 lg:grid-cols-[58px_1fr] lg:gap-8">
-                  <span
-                    className="pt-1 transition-transform duration-500 ease-out group-hover:translate-x-1 motion-reduce:transform-none"
-                    style={{
-                      fontFamily:
-                        "'Barlow Semi Condensed Local', Arial, sans-serif",
-                      fontSize: "12px",
-                      lineHeight: "1",
-                      fontWeight: 700,
-                      letterSpacing: "0.14em",
-                      color: "rgba(65, 65, 62, 0.48)",
-                      WebkitFontSmoothing: "antialiased",
-                    }}
-                  >
-                    {service.number}
-                  </span>
+                <div>
+                  
 
                   <div>
                     <h3

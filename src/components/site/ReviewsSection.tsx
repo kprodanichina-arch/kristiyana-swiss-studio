@@ -320,7 +320,7 @@ export function ReviewsSection({
           WebkitFontSmoothing: "antialiased",
         }}
       >
-        08 — Kundenmeinungen
+        Kundenmeinungen
       </p>
 
       <h2
@@ -540,43 +540,29 @@ export function ReviewsSection({
         )}
       </div>
 
-      <div className="mt-16">
-        <p
-          className="eyebrow"
-          style={{
-            fontFamily: "'Barlow Semi Condensed Local', Arial, sans-serif",
-            fontSize: "13px",
-            fontWeight: 700,
-            letterSpacing: "0.18em",
-            color: "rgba(65, 65, 62, 0.52)",
-            WebkitFontSmoothing: "antialiased",
-          }}
-        >
-          Freigegebene Bewertungen
-        </p>
+      {reviews.length > 0 && (
+        <div className="mt-16">
+          <p
+            className="eyebrow"
+            style={{
+              fontFamily: "'Barlow Semi Condensed Local', Arial, sans-serif",
+              fontSize: "13px",
+              fontWeight: 700,
+              letterSpacing: "0.18em",
+              color: "rgba(65, 65, 62, 0.52)",
+              WebkitFontSmoothing: "antialiased",
+            }}
+          >
+            Freigegebene Bewertungen
+          </p>
 
-        {reviews.length > 0 ? (
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             {reviews.map((review) => (
               <ReviewCard key={review.id} review={review} />
             ))}
           </div>
-        ) : (
-          <div className="panel mt-8 max-w-2xl p-8 sm:p-10">
-            <p
-              style={{
-                fontFamily: "'Barlow Local', Arial, sans-serif",
-                fontSize: "15px",
-                lineHeight: "1.6",
-                color: "rgba(65, 65, 62, 0.68)",
-                WebkitFontSmoothing: "antialiased",
-              }}
-            >
-              Noch keine Bewertungen vorhanden.
-            </p>
-          </div>
-        )}
-      </div>
+        </div>
+      )}
     </section>
   );
 }

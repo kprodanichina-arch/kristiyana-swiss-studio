@@ -44,7 +44,7 @@ const shuffle = <T,>(array: T[]): T[] => {
 
 const gallerySections: GallerySection[] = [
   {
-    eyebrow: "02 — Ausführungsplanung",
+    eyebrow: "Ausführungsplanung",
     title: "Technische Planung & Dokumentation",
     description:
       "Ausführungs- und Detailplanung für Architekturbüros – von Grundrissen, Schnitten und Ansichten bis zur detaillierten Planaufbereitung und technischen Dokumentation.",
@@ -94,7 +94,7 @@ const gallerySections: GallerySection[] = [
   },
 
   {
-    eyebrow: "03 — Fassaden & Details",
+    eyebrow: "Fassaden & Details",
     title: "Fassadenplanung & architektonische Details",
     description:
       "Bearbeitung von Fassaden, Ansichten und architektonischen Details für eine klare und konsistente Projektdokumentation.",
@@ -122,7 +122,7 @@ const gallerySections: GallerySection[] = [
   },
 
   {
-    eyebrow: "04 — Architekturvisualisierung",
+    eyebrow: "Architekturvisualisierung",
     title: "Fotorealistische Renderings",
     description:
       "Fotorealistische Architekturvisualisierungen für Präsentationen, Projektkommunikation und die überzeugende Darstellung von Architektur.",
@@ -426,7 +426,7 @@ export function ProjectsSection() {
       gallerySections.map((section) => ({
         ...section,
         images:
-          section.eyebrow === "04 — Architekturvisualisierung"
+          section.eyebrow === "Architekturvisualisierung"
             ? shuffle(section.images).slice(0, 20)
             : shuffle(section.images),
       })),

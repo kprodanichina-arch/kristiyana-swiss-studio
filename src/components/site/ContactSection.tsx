@@ -57,7 +57,7 @@ export function ContactSection() {
                 WebkitFontSmoothing: "antialiased",
               }}
             >
-              08 — Kontakt
+              Kontakt
             </p>
 
             <h2

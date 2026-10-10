@@ -28,7 +28,7 @@ export type PortfolioSection = {
 export const portfolioSections: PortfolioSection[] = [
   {
     id: "ausfuehrungsplanung",
-    eyebrow: "02 — Ausführungsplanung & Archicad Automatisierung",
+    eyebrow: "Ausführungsplanung & Archicad Automatisierung",
     title: "Technische Planung & effiziente Archicad-Workflows",
     description:
       "Ausführungs- und Detailplanung sowie strukturierte Bearbeitung und Optimierung von Archicad-Projekten – einschließlich Modellprüfung, Auswertungen, Dokumentation und Automatisierung wiederkehrender Arbeitsschritte.",
@@ -37,7 +37,7 @@ export const portfolioSections: PortfolioSection[] = [
   },
   {
     id: "ifc-openbim-bimcloud",
-    eyebrow: "03 — IFC Koordination, OpenBIM & BIMcloud",
+    eyebrow: "IFC Koordination, OpenBIM & BIMcloud",
     title: "Strukturierte BIM-Koordination",
     description:
       "Koordination und Verwaltung von BIM-Modellen mit IFC, OpenBIM und BIMcloud – einschließlich Modellzusammenführung, IFC-Datenprüfung und strukturiertem Datenaustausch zwischen Planungspartnern.",
@@ -46,7 +46,7 @@ export const portfolioSections: PortfolioSection[] = [
   },
   {
     id: "fassaden",
-    eyebrow: "04 — Fassaden & Ansichten",
+    eyebrow: "Fassaden & Ansichten",
     title: "Fassadenplanung & architektonische Ansichten",
     description:
       "Bearbeitung von Fassaden, Ansichten und technischen Planunterlagen für eine klare und konsistente Projektdokumentation.",
@@ -55,7 +55,7 @@ export const portfolioSections: PortfolioSection[] = [
   },
   {
     id: "visualisierung",
-    eyebrow: "05 — Architekturvisualisierung",
+    eyebrow: "Architekturvisualisierung",
     title: "Fotorealistische Visualisierungen",
     description:
       "Architekturvisualisierungen für Präsentationen, Projektkommunikation und die Darstellung von Entwurfs- und Planungsvarianten.",
@@ -64,7 +64,7 @@ export const portfolioSections: PortfolioSection[] = [
   },
   {
     id: "scan-to-bim",
-    eyebrow: "06 — Scan-to-BIM",
+    eyebrow: "Scan-to-BIM",
     title: "Punktwolken & Bestandsmodellierung",
     description:
       "Aufbereitung vorhandener Punktwolken und anschließende Modellierung von Bestandsgebäuden in Archicad. Übergabe strukturierter BIM-Modelle und IFC-fähiger Projektdaten.",
@@ -73,7 +73,7 @@ export const portfolioSections: PortfolioSection[] = [
   },
   {
     id: "projektunterstuetzung",
-    eyebrow: "07 — Projektunterstützung",
+    eyebrow: "Projektunterstützung",
     title: "Externe Unterstützung für Ihr Planungsteam",
     description:
       "Flexible Unterstützung bei einzelnen Aufgaben oder innerhalb laufender Projekte – angepasst an Ihre Arbeitsweise, Projektstruktur und Kapazitätsbedarf.",
