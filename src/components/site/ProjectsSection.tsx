@@ -44,6 +44,21 @@ const shuffle = <T,>(array: T[]): T[] => {
 
 const gallerySections: GallerySection[] = [
   {
+    eyebrow: "Scan-to-BIM & BIM-Workflows",
+    title: "Von der Punktwolke zum prüfbaren BIM-Modell",
+    description:
+      "Übungsprojekt auf Basis eines öffentlichen Laserscan-Datensatzes (Leica BLK360): Auswertung der klassifizierten Punktwolke, Modellierung in Archicad mit IFC-Klassifizierung, IFC-Export und Scan-vs-BIM-Abweichungsanalyse. Datengrundlage: „Indoor point cloud dataset for BIM related applications“, INESC TEC (2023).",
+    images: [
+      { src: "/images/workflows/archicad-punktwolke.webp", alt: "Archicad: eingeladene Punktwolke (Leica BLK360, 48,7 Mio. Punkte) in der 3D-Ansicht – ohne Modell" },
+      { src: "/images/workflows/scan-to-bim-punktwolke.webp", alt: "Punktwolke (Leica BLK360) als Draufsicht – Ausgangsdaten für Scan-to-BIM" },
+      { src: "/images/workflows/archicad-modell-punktwolke.webp", alt: "Archicad: BIM-Modell mit eingeladener Punktwolke – Wände und Decken deckungsgleich" },
+      { src: "/images/workflows/archicad-plan-3d-vergleich.webp", alt: "Grundriss und 3D-Modell in Archicad – Scan-to-BIM Übungsprojekt" },
+      { src: "/images/workflows/archicad-ifc-klassifizierung.webp", alt: "Archicad Elementeinstellungen mit IFC-Klassifizierung (IfcWall) und Element-ID" },
+      { src: "/images/workflows/scan-vs-bim-abweichung.webp", alt: "Scan-vs-BIM-Abweichungsanalyse der Wände" },
+    ],
+  },
+
+  {
     eyebrow: "Ausführungsplanung",
     title: "Technische Planung & Dokumentation",
     description:
@@ -254,6 +269,7 @@ function Gallery({
   const previousImage = getImage(-1);
   const currentImage = getImage(0);
   const nextImage = getImage(1);
+  const single = total === 1;
 
   return (
     <section
@@ -324,8 +340,8 @@ function Gallery({
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          <div className="grid grid-cols-1 items-center gap-4 md:grid-cols-[1fr_2.2fr_1fr] md:gap-6">
-            <button
+          <div className={single ? "mx-auto max-w-3xl" : "grid grid-cols-1 items-center gap-4 md:grid-cols-[1fr_2.2fr_1fr] md:gap-6"}>
+            {!single && (<button
               type="button"
               onClick={previous}
               aria-label="Vorheriges Bild"
@@ -344,9 +360,9 @@ function Gallery({
                   ‹
                 </span>
               </span>
-            </button>
+            </button>)}
 
-            <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+            <div className={`relative overflow-hidden bg-muted ${single ? "aspect-[4/5]" : "aspect-[4/3]"}`}>
               <img
                 key={displayedImage.src}
                 src={displayedImage.src}
@@ -360,7 +376,7 @@ function Gallery({
                 }`}
               />
 
-              <button
+              {!single && (<><button
                 type="button"
                 onClick={previous}
                 aria-label="Vorheriges Bild"
@@ -376,10 +392,10 @@ function Gallery({
                 className="absolute right-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center bg-black/35 text-2xl text-white backdrop-blur-sm transition-all duration-300 hover:bg-black/55 hover:translate-x-0.5 md:hidden"
               >
                 ›
-              </button>
+              </button></>)}
             </div>
 
-            <button
+            {!single && (<button
               type="button"
               onClick={next}
               aria-label="Nächstes Bild"
@@ -398,9 +414,10 @@ function Gallery({
                   ›
                 </span>
               </span>
-            </button>
+            </button>)}
           </div>
 
+          {!single && (
           <div className="mt-5 flex justify-center">
             <span
               className="text-sm text-muted-foreground"
@@ -411,6 +428,7 @@ function Gallery({
               {currentIndex + 1} / {total}
             </span>
           </div>
+          )}
         </div>
       </div>
     </section>
@@ -426,7 +444,9 @@ export function ProjectsSection() {
       gallerySections.map((section) => ({
         ...section,
         images:
-          section.eyebrow === "Architekturvisualisierung"
+          section.eyebrow === "Scan-to-BIM & BIM-Workflows"
+            ? section.images
+            : section.eyebrow === "Architekturvisualisierung"
             ? shuffle(section.images).slice(0, 20)
             : shuffle(section.images),
       })),
