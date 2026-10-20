@@ -2,8 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 
 const PROFILE_FACTS = [
-  { label: "Projekte", value: "8 Projekte, gross und klein" },
-  { label: "Planungsvolumen", value: "ca. 70.000 m² gesamt, grösstes 16.000 m²" },
+  { label: "Planungserfahrung", value: "über 100.000 m²" },
   { label: "Software", value: "Archicad, BIMcloud · Revit, Rhino, Grasshopper" },
   { label: "Sprachen", value: "Deutsch B2 · Englisch B2" },
   { label: "Arbeitsweise", value: "Remote, Vor-Ort-Termine nach Absprache" },
