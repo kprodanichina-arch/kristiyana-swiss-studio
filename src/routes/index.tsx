@@ -52,6 +52,8 @@ export const Route = createFileRoute("/")({
             "BIM",
             "Archicad",
             "Revit",
+            "Rhino",
+            "Grasshopper",
             "IFC",
             "Architekturvisualisierung",
           ],

@@ -5,7 +5,7 @@ const teasers = [
   {
     to: "/ueber-uns",
     title: "Über uns",
-    text: "Leistungen, Arbeitsweise und das Team hinter ArchiKa.",
+    text: "Leistungen, Pakete mit Festpreis und Ihre Ansprechpartnerin.",
   },
   {
     to: "/projekte",

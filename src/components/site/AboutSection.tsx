@@ -1,6 +1,14 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Download } from "lucide-react";
-import { CV_PATH } from "./data";
+import { ArrowRight } from "lucide-react";
+
+const PROFILE_FACTS = [
+  { label: "Projekte", value: "8 Projekte, gross und klein" },
+  { label: "Planungsvolumen", value: "ca. 70.000 m² gesamt, grösstes 16.000 m²" },
+  { label: "Software", value: "Archicad, BIMcloud · Revit, Rhino, Grasshopper" },
+  { label: "Sprachen", value: "Deutsch B2 · Englisch B2" },
+  { label: "Arbeitsweise", value: "Remote, Vor-Ort-Termine nach Absprache" },
+  { label: "Ausbildung", value: "Master Architektur, UACEG Sofia" },
+];
 
 export function AboutSection() {
   return (
@@ -74,23 +82,35 @@ export function AboutSection() {
               </p>
             </div>
 
+            <dl className="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 border-t border-[rgba(32,32,29,0.14)] pt-8 sm:grid-cols-3">
+              {PROFILE_FACTS.map((fact) => (
+                <div key={fact.label}>
+                  <dt className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                    {fact.label}
+                  </dt>
+                  <dd className="mt-2 text-base leading-snug text-foreground/80">
+                    {fact.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+
             <div className="mt-10 flex flex-wrap items-center gap-6">
               <Link
                 to="/kontakt"
-                className="inline-flex items-center gap-2 text-sm font-medium transition-opacity hover:opacity-60"
+                className="inline-flex items-center gap-2 rounded-full border border-[rgba(32,32,29,0.18)] px-5 py-3 text-sm font-medium text-[rgba(65,65,62,0.78)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[rgba(32,32,29,0.35)] hover:bg-black/[0.025]"
               >
-                Projekt anfragen
+                Pilotprojekt anfragen
                 <ArrowRight className="h-4 w-4" />
               </Link>
 
-              <a
-                href={CV_PATH}
-                download="Lebenslauf_Kristiyana_Prodanichina.pdf"
-                className="inline-flex items-center gap-2 rounded-full border border-[rgba(32,32,29,0.18)] px-5 py-3 text-sm font-medium text-[rgba(65,65,62,0.78)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[rgba(32,32,29,0.35)] hover:bg-black/[0.025]"
+              <Link
+                to="/ueber-uns"
+                hash="pakete"
+                className="inline-flex items-center gap-2 text-sm font-medium transition-opacity hover:opacity-60"
               >
-                <Download className="h-4 w-4" />
-                Lebenslauf herunterladen
-              </a>
+                Pakete & Preise
+              </Link>
             </div>
           </div>
         </div>
