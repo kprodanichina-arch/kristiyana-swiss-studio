@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { PageShell } from "@/components/site/PageShell";
 import { LeistungenSection } from "@/components/site/LeistungenSection";
+import { PaketeSection } from "@/components/site/PaketeSection";
 import { AblaufSection } from "@/components/site/AblaufSection";
 import { AboutSection } from "@/components/site/AboutSection";
 import { ReviewsSection } from "@/components/site/ReviewsSection";
@@ -12,7 +13,7 @@ export const Route = createFileRoute("/ueber-uns")({
     pageHead(
       "/ueber-uns",
       "Über uns & Leistungen | ArchiKa",
-      "ArchiKa unterstützt Architekturbüros in Deutschland, Österreich und der Schweiz mit Ausführungsplanung, BIM, IFC-Koordination, Scan-to-BIM und Visualisierung.",
+      "ArchiKa unterstützt Architekturbüros in Deutschland, Österreich und der Schweiz mit Ausführungsplanung, BIM, IFC-Koordination, Scan-to-BIM und Visualisierung – Pilotprojekt zum Festpreis.",
     ),
   component: UeberUnsPage,
 });
@@ -22,6 +23,7 @@ function UeberUnsPage() {
     <PageShell>
       <AboutSection />
       <LeistungenSection />
+      <PaketeSection />
       <AblaufSection />
       <ReviewsSection />
     </PageShell>

@@ -57,6 +57,18 @@ const services = [
   },
   {
     number: "05",
+    title: "Weitere Programme: Vectorworks, Rhino & Grasshopper",
+    text: "Archicad ist unser Hauptwerkzeug. Arbeitet Ihr Büro mit anderer Software, unterstützen wir auch in Vectorworks sowie in Rhino und Grasshopper – etwa bei Planbearbeitung, Formfindung oder parametrischen Fassadenstudien.",
+    items: [
+      "Vectorworks",
+      "Rhino",
+      "Grasshopper",
+      "Parametrische Studien",
+      "Datenaustausch mit Archicad",
+    ],
+  },
+  {
+    number: "06",
     title: "Architekturvisualisierung",
     text: "Fotorealistische Architekturvisualisierungen für Präsentationen, Projektkommunikation und die überzeugende Darstellung von Architektur.",
     items: [
@@ -159,7 +171,9 @@ export function LeistungenSection() {
               <br />
               ArchiKa unterstützt Architekturbüros bei Ausführungs- und
               Detailplanung, Archicad-Optimierung, IFC-Koordination,
-              OpenBIM, BIMcloud, Scan-to-BIM sowie Architekturvisualisierung.
+              OpenBIM, BIMcloud, Scan-to-BIM sowie Architekturvisualisierung –
+              in Archicad, auf Wunsch auch in Vectorworks, Rhino und
+              Grasshopper.
             </p>
           </div>
 

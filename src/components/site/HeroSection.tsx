@@ -124,7 +124,7 @@ export function HeroSection() {
                 Schnell, unkompliziert und direkt einsatzbereit.
               </span>
               <br />
-              Remote und projektbezogen.
+              Remote und projektbezogen – Einstieg mit Pilotprojekt zum Festpreis.
             </p>
           </div>
 
@@ -139,7 +139,7 @@ export function HeroSection() {
                 textShadow: "0 1px 6px rgba(0, 0, 0, 0.07)",
               }}
             >
-              Archicad · IFC · Punktwolken · Scan-to-BIM
+              Archicad · Vectorworks · Rhino · IFC · Scan-to-BIM
             </p>
 
             <a
