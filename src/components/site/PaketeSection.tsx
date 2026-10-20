@@ -56,6 +56,19 @@ export function PaketeSection() {
             Alle Pakete werden nach Sichtung Ihrer Unterlagen verbindlich
             angeboten – Abrechnung als B2B-Auftrag, keine Anstellung.
           </p>
+
+          <p
+            className="mt-4 max-w-xl"
+            style={{
+              fontFamily: sans,
+              fontSize: "16px",
+              lineHeight: "1.65",
+              color: "rgba(58, 58, 55, 0.86)",
+            }}
+          >
+            Unsere Preise sind niedrig, weil unsere Fixkosten niedrig sind –
+            nicht, weil wir an der Sorgfalt sparen.
+          </p>
         </div>
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
