@@ -30,7 +30,7 @@ export const portfolioSections: PortfolioSection[] = [
     title: "Technische Planung & effiziente Archicad-Workflows",
     description:
       "Ausführungs- und Detailplanung sowie strukturierte Bearbeitung und Optimierung von Archicad-Projekten – einschließlich Modellprüfung, Auswertungen, Dokumentation und Automatisierung wiederkehrender Arbeitsschritte.",
-    price: "Stundensatz ab 55 € · CH ab 70 CHF",
+    price: "Stundensatz ab 45 € · CH ab 60 CHF",
     images: [],
   },
   {
@@ -39,7 +39,7 @@ export const portfolioSections: PortfolioSection[] = [
     title: "Strukturierte BIM-Koordination",
     description:
       "Koordination und Verwaltung von BIM-Modellen mit IFC, OpenBIM und BIMcloud – einschließlich Modellzusammenführung, IFC-Datenprüfung und strukturiertem Datenaustausch zwischen Planungspartnern.",
-    price: "Stundensatz ab 55 € · CH ab 70 CHF",
+    price: "Stundensatz ab 45 € · CH ab 60 CHF",
     images: [],
   },
   {
@@ -48,7 +48,7 @@ export const portfolioSections: PortfolioSection[] = [
     title: "Fassadenplanung & architektonische Ansichten",
     description:
       "Bearbeitung von Fassaden, Ansichten und technischen Planunterlagen für eine klare und konsistente Projektdokumentation.",
-    price: "Stundensatz ab 55 € · CH ab 70 CHF",
+    price: "Stundensatz ab 45 € · CH ab 60 CHF",
     images: [],
   },
   {
@@ -66,7 +66,7 @@ export const portfolioSections: PortfolioSection[] = [
     title: "Punktwolken & Bestandsmodellierung",
     description:
       "Aufbereitung vorhandener Punktwolken und anschließende Modellierung von Bestandsgebäuden in Archicad. Übergabe strukturierter BIM-Modelle und IFC-fähiger Projektdaten.",
-    price: "Stundensatz ab 55 € · CH ab 70 CHF",
+    price: "Stundensatz ab 45 € · CH ab 60 CHF",
     images: [],
   },
   {
@@ -75,7 +75,7 @@ export const portfolioSections: PortfolioSection[] = [
     title: "Externe Unterstützung für Ihr Planungsteam",
     description:
       "Flexible Unterstützung bei einzelnen Aufgaben oder innerhalb laufender Projekte – angepasst an Ihre Arbeitsweise, Projektstruktur und Kapazitätsbedarf.",
-    price: "Stundensatz ab 55 € · CH ab 70 CHF",
+    price: "Stundensatz ab 45 € · CH ab 60 CHF",
     images: [],
   },
 ];
@@ -85,8 +85,8 @@ export const PRIMARY_TOOL = "Archicad";
 export const SECONDARY_TOOLS = ["Revit", "Rhino", "Grasshopper"] as const;
 
 export const HOURLY_RATE = {
-  eu: "55 €/h",
-  ch: "70 CHF/h",
+  eu: "ab 45 €/h",
+  ch: "ab 60 CHF/h",
 };
 
 export type Package = {
