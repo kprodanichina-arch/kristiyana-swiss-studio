@@ -113,8 +113,8 @@ export const PACKAGES: Package[] = [
       "Übergabe in 2–3 Werktagen",
       "Feedbackgespräch danach",
     ],
-    priceEU: "360 € Festpreis",
-    priceCH: "Schweiz: 480 CHF",
+    priceEU: "300 € Festpreis",
+    priceCH: "Schweiz: 400 CHF",
     highlight: true,
   },
   {
@@ -142,8 +142,8 @@ export const PACKAGES: Package[] = [
       "Bemaßung & Beschriftung nach Bürostandard",
       "Planlayout & PDF/DWG-Ausgabe",
     ],
-    priceEU: "ab 1.200 €",
-    priceCH: "Schweiz: ab 1.600 CHF",
+    priceEU: "ab 400 €",
+    priceCH: "Schweiz: ab 550 CHF",
   },
   {
     id: "kontingent",
@@ -156,8 +156,8 @@ export const PACKAGES: Package[] = [
       "feste Ansprechpartnerin",
       "Abrechnung nach Leistungsnachweis",
     ],
-    priceEU: "1.920 € (48 €/h)",
-    priceCH: "Schweiz: 2.560 CHF (64 CHF/h)",
+    priceEU: "ab 1.700 €",
+    priceCH: "Schweiz: ab 2.300 CHF",
   },
 ];
 
