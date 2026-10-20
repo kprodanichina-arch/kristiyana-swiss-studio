@@ -114,7 +114,7 @@ export const PACKAGES: Package[] = [
       "Feedbackgespräch danach",
     ],
     priceEU: "300 € Festpreis",
-    priceCH: "Schweiz: 400 CHF",
+    priceCH: "bzw. 400 CHF",
     highlight: true,
   },
   {
@@ -129,7 +129,7 @@ export const PACKAGES: Package[] = [
       "IFC-Export mit Prüfprotokoll",
     ],
     priceEU: "ab 450 €",
-    priceCH: "Schweiz: ab 600 CHF",
+    priceCH: "bzw. ab 600 CHF",
   },
   {
     id: "werkplanung",
@@ -143,7 +143,7 @@ export const PACKAGES: Package[] = [
       "Planlayout & PDF/DWG-Ausgabe",
     ],
     priceEU: "ab 400 €",
-    priceCH: "Schweiz: ab 550 CHF",
+    priceCH: "bzw. ab 550 CHF",
   },
   {
     id: "kontingent",
@@ -157,7 +157,7 @@ export const PACKAGES: Package[] = [
       "Abrechnung nach Leistungsnachweis",
     ],
     priceEU: "ab 1.700 €",
-    priceCH: "Schweiz: ab 2.300 CHF",
+    priceCH: "bzw. ab 2.300 CHF",
   },
 ];
 

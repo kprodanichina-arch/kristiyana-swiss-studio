@@ -171,7 +171,7 @@ export function PaketeSection() {
               color: "rgba(65, 65, 62, 0.62)",
             }}
           >
-            Aufgaben außerhalb der Pakete: {HOURLY_RATE.eu} · Schweiz{" "}
+            Aufgaben außerhalb der Pakete: {HOURLY_RATE.eu} bzw.{" "}
             {HOURLY_RATE.ch}. Preise netto. Bearbeitung in {PRIMARY_TOOL}, auf
             Wunsch auch in {SECONDARY_TOOLS.join(", ").replace(/, ([^,]*)$/, " und $1")}.
           </p>

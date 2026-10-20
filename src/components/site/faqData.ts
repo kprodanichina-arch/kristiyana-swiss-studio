@@ -4,17 +4,17 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Was macht ArchiKa?",
     answer:
-      "ArchiKa unterstützt Architektur- und Planungsbüros in Deutschland, Österreich und der Schweiz remote und projektbezogen: Ausführungs- und Detailplanung, Modellprüfung, IFC-Koordination, Scan-to-BIM und Architekturvisualisierung. Hauptwerkzeug ist Archicad, auf Wunsch arbeiten wir auch in Revit, Rhino und Grasshopper.",
+      "ArchiKa unterstützt Architektur- und Planungsbüros remote und projektbezogen: Ausführungs- und Detailplanung, Modellprüfung, IFC-Koordination, Scan-to-BIM und Architekturvisualisierung. Hauptwerkzeug ist Archicad, auf Wunsch arbeiten wir auch in Revit, Rhino und Grasshopper.",
   },
   {
     question: "Was kostet externe Werkplanung?",
     answer:
-      "Werkplanung je Geschoss bieten wir ab 400 € an (Schweiz ab 550 CHF). Aufgaben außerhalb der Pakete rechnen wir ab 45 €/h ab (Schweiz ab 60 CHF/h). Ein Stundenkontingent von 40 Stunden kostet ab 1.700 €. Alle Preise sind netto und werden nach Sichtung Ihrer Unterlagen verbindlich angeboten.",
+      "Werkplanung je Geschoss bieten wir ab 400 € an (bzw. ab 550 CHF). Aufgaben außerhalb der Pakete rechnen wir ab 45 €/h ab (bzw. ab 60 CHF/h). Ein Stundenkontingent von 40 Stunden kostet ab 1.700 €. Alle Preise sind netto und werden nach Sichtung Ihrer Unterlagen verbindlich angeboten.",
   },
   {
     question: "Wie funktioniert das Pilotprojekt?",
     answer:
-      "Sie wählen eine klar abgegrenzte Aufgabe aus einem laufenden Projekt, bis zu 8 Arbeitsstunden. Wir bearbeiten sie in Ihrem Bürostandard und übergeben in 2–3 Werktagen. Der Festpreis beträgt 300 € (Schweiz 400 CHF). Danach besprechen wir gemeinsam Qualität und Zusammenarbeit.",
+      "Sie wählen eine klar abgegrenzte Aufgabe aus einem laufenden Projekt, bis zu 8 Arbeitsstunden. Wir bearbeiten sie in Ihrem Bürostandard und übergeben in 2–3 Werktagen. Der Festpreis beträgt 300 € (bzw. 400 CHF). Danach besprechen wir gemeinsam Qualität und Zusammenarbeit.",
   },
   {
     question: "Arbeiten Sie nach unserem Bürostandard?",
@@ -44,11 +44,11 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Wer steht hinter ArchiKa?",
     answer:
-      "ArchiKa wird von Kristiyana Prodanichina geleitet, Architektin mit Master in Architektur (UACEG Sofia). Sie hat an 8 Projekten mit insgesamt rund 70.000 m² mitgearbeitet, das grösste mit 16.000 m². Sie betreut jedes Projekt persönlich und spricht Deutsch und Englisch.",
+      "ArchiKa wird von Kristiyana Prodanichina geleitet, Architektin mit Master in Architektur (UACEG Sofia). Sie betreut jedes Projekt persönlich und spricht Deutsch und Englisch. Bei grösserem Kapazitätsbedarf wird sie von Kolleginnen und Kollegen unterstützt.",
   },
   {
     question: "Für welche Länder arbeiten Sie?",
     answer:
-      "Für Architektur- und Planungsbüros in Deutschland, Österreich und der Schweiz. Preise geben wir in Euro und für die Schweiz in Franken an.",
+      "Wir arbeiten remote für Architektur- und Planungsbüros unabhängig vom Standort. Preise geben wir in Euro und in Schweizer Franken an.",
   },
 ];

@@ -11,7 +11,7 @@ export const Route = createFileRoute("/faq")({
     const base = pageHead(
       "/faq",
       "Häufige Fragen | ArchiKa",
-      "Antworten zu Kosten, Pilotprojekt, Software, Bürostandard und Zusammenarbeit mit ArchiKa – externe Planungsunterstützung für Architekturbüros in DACH.",
+      "Antworten zu Kosten, Pilotprojekt, Software, Bürostandard und Zusammenarbeit mit ArchiKa – externe Planungsunterstützung für Architekturbüros.",
     );
     return {
       ...base,

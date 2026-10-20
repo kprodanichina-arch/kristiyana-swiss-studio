@@ -111,7 +111,7 @@ export const Route =
         {
           name: "description",
           content:
-            "ArchiKa unterstützt Architekturbüros in Deutschland, Österreich und der Schweiz mit Ausführungsplanung, BIM, IFC und Architekturvisualisierung – remote und projektbezogen.",
+            "ArchiKa unterstützt Architekturbüros mit Ausführungsplanung, BIM, IFC und Architekturvisualisierung – remote und projektbezogen.",
         },
 
         {
@@ -133,7 +133,7 @@ export const Route =
         {
           property: "og:description",
           content:
-            "Externe Architektur- und BIM-Unterstützung für Architekturbüros in Deutschland, Österreich und der Schweiz – remote und projektbezogen.",
+            "Externe Architektur- und BIM-Unterstützung für Architekturbüros – remote und projektbezogen.",
         },
 
         {
@@ -175,7 +175,7 @@ export const Route =
         {
           name: "twitter:description",
           content:
-            "Externe Architektur- und BIM-Unterstützung für Architekturbüros in Deutschland, Österreich und der Schweiz – remote und projektbezogen.",
+            "Externe Architektur- und BIM-Unterstützung für Architekturbüros – remote und projektbezogen.",
         },
 
         {

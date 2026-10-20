@@ -30,8 +30,8 @@ export function AboutSection() {
         <div className="max-w-3xl space-y-6 text-lg leading-relaxed text-muted-foreground">
           <p>
             ArchiKa ist ein Planungsstudio für Architektur, BIM und
-            Visualisierung. Wir unterstützen Architektur- und Planungsbüros in
-            Deutschland, Österreich und der Schweiz – remote, projektbezogen
+            Visualisierung. Wir unterstützen Architektur- und Planungsbüros –
+            remote, projektbezogen
             und mit kurzen, direkten Kommunikationswegen.
           </p>
 

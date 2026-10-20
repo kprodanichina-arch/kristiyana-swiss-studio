@@ -30,12 +30,7 @@ export const Route = createFileRoute("/")({
           url: "https://archikprojekt.com/",
           email: "k.prodanichina@gmail.com",
           description:
-            "B2B Architektur-, BIM- und Visualisierungsleistungen für Architekturbüros in Deutschland, Österreich und der Schweiz – remote und projektbezogen.",
-          areaServed: [
-            { "@type": "Country", name: "Deutschland" },
-            { "@type": "Country", name: "Österreich" },
-            { "@type": "Country", name: "Schweiz" },
-          ],
+            "B2B Architektur-, BIM- und Visualisierungsleistungen für Architekturbüros – remote und projektbezogen.",
           founder: {
             "@type": "Person",
             name: "Kristiyana Prodanichina",
