@@ -82,7 +82,7 @@ export const portfolioSections: PortfolioSection[] = [
 
 /** Main tool and additional tools offered on request. */
 export const PRIMARY_TOOL = "Archicad";
-export const SECONDARY_TOOLS = ["Vectorworks", "Rhino", "Grasshopper"] as const;
+export const SECONDARY_TOOLS = ["Revit", "Rhino", "Grasshopper"] as const;
 
 export const HOURLY_RATE = {
   eu: "55 €/h",
@@ -165,7 +165,7 @@ export const PROJECT_TYPES = [
   "Pilotprojekt (Festpreis)",
   "Ausführungs- & Detailplanung",
   "Archicad",
-  "Vectorworks",
+  "Revit",
   "Rhino / Grasshopper",
   "Archicad Automatisierung",
   "Modellprüfung & Qualitätskontrolle",

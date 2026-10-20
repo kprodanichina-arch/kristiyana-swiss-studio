@@ -51,7 +51,7 @@ export const Route = createFileRoute("/")({
             "Fassadenplanung",
             "BIM",
             "Archicad",
-            "Vectorworks",
+            "Revit",
             "Rhino",
             "Grasshopper",
             "IFC",

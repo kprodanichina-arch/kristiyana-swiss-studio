@@ -139,7 +139,7 @@ export function HeroSection() {
                 textShadow: "0 1px 6px rgba(0, 0, 0, 0.07)",
               }}
             >
-              Archicad · Vectorworks · Rhino · IFC · Scan-to-BIM
+              Archicad · Revit · Rhino · IFC · Scan-to-BIM
             </p>
 
             <a
