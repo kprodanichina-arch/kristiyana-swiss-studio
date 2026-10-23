@@ -108,13 +108,13 @@ export const PACKAGES: Package[] = [
     description:
       "Eine klar abgegrenzte Testaufgabe aus Ihrem laufenden Projekt – zum Kennenlernen ohne Risiko.",
     includes: [
-      "bis 8 Arbeitsstunden",
+      "4 Arbeitsstunden – 30 % unter dem Stundensatz",
       "Arbeit in Ihrem Bürostandard",
       "Übergabe in 2–3 Werktagen",
       "Feedbackgespräch danach",
     ],
-    priceEU: "300 € Festpreis",
-    priceCH: "bzw. 400 CHF",
+    priceEU: "126 € Festpreis für 4 Stunden",
+    priceCH: "bzw. 168 CHF",
     highlight: true,
   },
   {

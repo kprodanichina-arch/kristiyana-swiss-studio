@@ -14,7 +14,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Wie funktioniert das Pilotprojekt?",
     answer:
-      "Sie wählen eine klar abgegrenzte Aufgabe aus einem laufenden Projekt, bis zu 8 Arbeitsstunden. Wir bearbeiten sie in Ihrem Bürostandard und übergeben in 2–3 Werktagen. Der Festpreis beträgt 300 € (bzw. 400 CHF). Danach besprechen wir gemeinsam Qualität und Zusammenarbeit.",
+      "Sie wählen eine klar abgegrenzte Aufgabe aus einem laufenden Projekt, im Umfang von 4 Arbeitsstunden. Wir bearbeiten sie in Ihrem Bürostandard und übergeben in 2–3 Werktagen. Der Festpreis für die 4 Stunden beträgt 126 € (bzw. 168 CHF) – 30 % unter unserem regulären Stundensatz. Danach besprechen wir gemeinsam Qualität und Zusammenarbeit.",
   },
   {
     question: "Arbeiten Sie nach unserem Bürostandard?",
