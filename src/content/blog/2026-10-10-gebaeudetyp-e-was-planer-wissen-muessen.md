@@ -39,7 +39,7 @@ Gerade bei einfacheren Standards gilt also: Die Planung wird nicht unbedingt ein
 
 ## Unser Fazit
 
-Der Gebäudetyp E kann Bauen in Deutschland günstiger und flexibler machen. Ob das gelingt, entscheidet sich weniger auf der Baustelle als in der Planung – bei klaren Vereinbarungen, eindeutigen Leistungsbeschreibungen und gut strukturierten Modellen. Wir verfolgen das Gesetzgebungsverfahren weiter und berichten, sobald der Kabinettsentwurf vorliegt.
+Der Gebäudetyp E kann Bauen in Deutschland günstiger und flexibler machen. Ob das gelingt, entscheidet sich weniger auf der Baustelle als in der Planung – bei klaren Vereinbarungen, eindeutigen Leistungsbeschreibungen und gut strukturierten Modellen. Wir verfolgen das Gesetzgebungsverfahren weiter und berichten, sobald der Kabinettsentwurf vorliegt. Als unkomplizierter Einstieg bieten wir ein [Pilotprojekt](/ueber-uns#pakete) an: 4 Stunden zum Festpreis von 126 € (bzw. 168 CHF). Anfragen gern über das [Kontaktformular](/kontakt).
 
 *Dieser Beitrag dient der allgemeinen Information und ersetzt keine Rechtsberatung.*
 

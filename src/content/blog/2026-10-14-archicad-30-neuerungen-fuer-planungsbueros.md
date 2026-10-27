@@ -57,7 +57,7 @@ Unsere Empfehlung für den Umstieg:
 
 ## Unser Fazit
 
-Archicad 30 ist keine Revolution, sondern ein solides Arbeitsupdate mit einer klaren Botschaft: bessere Daten, bessere Ordnung, mehr Anbindung an KI. Für die Zusammenarbeit über IFC ist die Abbildung von Zonen als IfcSpatialZone der spannendste Schritt. Wir testen die neue Version derzeit in unseren eigenen Vorlagen und unterstützen Büros gern beim Übergang – von der Template-Anpassung bis zur IFC-Abstimmung mit Fachplanern.
+Archicad 30 ist keine Revolution, sondern ein solides Arbeitsupdate mit einer klaren Botschaft: bessere Daten, bessere Ordnung, mehr Anbindung an KI. Für die Zusammenarbeit über IFC ist die Abbildung von Zonen als IfcSpatialZone der spannendste Schritt. Wir testen die neue Version derzeit in unseren eigenen Vorlagen und unterstützen Büros gern beim Übergang – von der Template-Anpassung bis zur IFC-Abstimmung mit Fachplanern. Wie der IFC-Export konkret aussieht, lesen Sie in [Archicad 30 IFC-Export: Zonen als IfcSpatialZone übergeben](/blog/2026-10-27-archicad-30-ifc-export-fachplaner). Als unkomplizierter Einstieg bieten wir ein [Pilotprojekt](/ueber-uns#pakete) an: 4 Stunden zum Festpreis von 126 € (bzw. 168 CHF). Anfragen gern über das [Kontaktformular](/kontakt).
 
 ### Quellen
 

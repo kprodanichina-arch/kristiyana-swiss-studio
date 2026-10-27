@@ -43,7 +43,7 @@ Mehr Spielraum im Recht bedeutet nicht weniger Planungsaufwand. Im Gegenteil: We
 
 ## Unser Fazit
 
-Die aktuellen Zahlen und die neue Bauordnung in NRW zeigen in dieselbe Richtung: Der Bestand wird zur zentralen Bauaufgabe. Das ist gut für Ressourcen und Stadtentwicklung – stellt Planungsbüros aber vor höhere Anforderungen an Aufmaß, Dokumentation und Abstimmung. Wir unterstützen Büros dabei mit Scan-to-BIM, Bestandsmodellen in Archicad und der Ausführungsplanung für Umbau und Aufstockung.
+Die aktuellen Zahlen und die neue Bauordnung in NRW zeigen in dieselbe Richtung: Der Bestand wird zur zentralen Bauaufgabe. Das ist gut für Ressourcen und Stadtentwicklung – stellt Planungsbüros aber vor höhere Anforderungen an Aufmaß, Dokumentation und Abstimmung. Wir unterstützen Büros dabei mit Scan-to-BIM, Bestandsmodellen in Archicad und der Ausführungsplanung für Umbau und Aufstockung. Als unkomplizierter Einstieg bieten wir ein [Pilotprojekt](/ueber-uns#pakete) an: 4 Stunden zum Festpreis von 126 € (bzw. 168 CHF). Anfragen gern über das [Kontaktformular](/kontakt).
 
 *Dieser Beitrag dient der allgemeinen Information und ersetzt keine Rechtsberatung.*
 
