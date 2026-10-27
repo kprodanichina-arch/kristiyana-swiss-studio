@@ -33,5 +33,18 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.archikprojekt.com"
+        }
+      ],
+      "destination": "https://archikprojekt.com/$1",
+      "permanent": true
+    }
   ]
 }
