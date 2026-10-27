@@ -265,6 +265,34 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+/**
+ * Vercel Web Analytics: cookielos, daher ohne Einwilligung zulässig.
+ * Zählt alle Besuche (Google Analytics nur nach Cookie-Zustimmung).
+ * Das Skript liefert Vercel unter /_vercel/insights/script.js aus, sobald
+ * Web Analytics im Projekt aktiviert ist.
+ */
+function VercelAnalytics() {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (document.getElementById("archika-vercel-analytics")) return;
+
+    const w = window as unknown as { va?: (...args: unknown[]) => void; vaq?: unknown[] };
+    w.va =
+      w.va ||
+      function (...args: unknown[]) {
+        (w.vaq = w.vaq || []).push(args);
+      };
+
+    const script = document.createElement("script");
+    script.id = "archika-vercel-analytics";
+    script.defer = true;
+    script.src = "/_vercel/insights/script.js";
+    document.head.appendChild(script);
+  }, []);
+
+  return null;
+}
+
 function GoogleAnalytics() {
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -415,6 +443,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <GoogleAnalytics />
+      <VercelAnalytics />
       <Outlet />
       <AnalyticsConsentBanner />
     </QueryClientProvider>
