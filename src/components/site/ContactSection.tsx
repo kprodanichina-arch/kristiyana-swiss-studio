@@ -97,8 +97,23 @@ export function ContactSection() {
               Ihnen.
             </p>
 
+            <ul
+              className="mt-6 space-y-1.5"
+              style={{
+                fontFamily: "'Barlow Local', Arial, sans-serif",
+                fontSize: "16px",
+                lineHeight: "1.5",
+                color: "rgba(58, 58, 55, 0.88)",
+                fontWeight: 500,
+              }}
+            >
+              <li>Antwort in 1–2 Werktagen</li>
+              <li>Remote und projektbezogen, ohne Anstellung</li>
+              <li>Pilotprojekt: 4 Stunden, 126 € / 168 CHF Festpreis</li>
+            </ul>
+
             <p
-              className="mt-3"
+              className="mt-6"
               style={{
                 fontFamily: "'Barlow Local', Arial, sans-serif",
                 fontSize: "14px",

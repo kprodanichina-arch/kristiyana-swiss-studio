@@ -7,6 +7,7 @@ import { QualitaetSection } from "@/components/site/QualitaetSection";
 import { AblaufSection } from "@/components/site/AblaufSection";
 import { AboutSection } from "@/components/site/AboutSection";
 import { ReviewsSection } from "@/components/site/ReviewsSection";
+import { SummaryStrip } from "@/components/site/SummaryStrip";
 import { pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/ueber-uns")({
@@ -22,9 +23,10 @@ export const Route = createFileRoute("/ueber-uns")({
 function UeberUnsPage() {
   return (
     <PageShell>
+      <SummaryStrip />
       <AboutSection />
-      <LeistungenSection />
       <PaketeSection />
+      <LeistungenSection />
       <QualitaetSection />
       <AblaufSection />
       <ReviewsSection />

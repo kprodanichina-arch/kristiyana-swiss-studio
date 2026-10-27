@@ -42,6 +42,9 @@ export const Route = createFileRoute("/blog/$slug")({
 
 function BlogPostPage() {
   const { post } = Route.useLoaderData();
+  const splitAt = post.body.search(/\r?\n\s*\r?\n/);
+  const firstBlock = splitAt === -1 ? post.body : post.body.slice(0, splitAt);
+  const rest = splitAt === -1 ? "" : post.body.slice(splitAt).trimStart();
 
   return (
     <PageShell>
@@ -93,7 +96,30 @@ function BlogPostPage() {
         </p>
 
         <div className="mt-10">
-          <Markdown source={post.body} />
+          <Markdown source={firstBlock} />
+          <aside
+            className="my-8 border border-border bg-[rgba(238,232,220,0.4)] px-6 py-5"
+            style={{
+              fontFamily: "'Barlow Local', Arial, sans-serif",
+              fontSize: "16px",
+              lineHeight: "1.55",
+              color: "rgba(58, 58, 55, 0.88)",
+            }}
+          >
+            <p>
+              <strong>Sie brauchen Unterstützung bei diesem Thema?</strong> Pilotprojekt: 4 Stunden, 126 € / 168 CHF
+              Festpreis.{" "}
+              <Link to="/kontakt" className="underline underline-offset-4 hover:opacity-60">
+                Jetzt anfragen
+              </Link>{" "}
+              oder{" "}
+              <a href="/ueber-uns#pakete" className="underline underline-offset-4 hover:opacity-60">
+                Pakete ansehen
+              </a>
+              .
+            </p>
+          </aside>
+          {rest && <Markdown source={rest} />}
         </div>
 
         <div className="mt-16 border-t border-border pt-10">
