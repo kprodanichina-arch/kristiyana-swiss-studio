@@ -123,9 +123,51 @@ export function HeroSection() {
               >
                 Schnell, unkompliziert und direkt einsatzbereit.
               </span>
-              <br />
-              Remote und projektbezogen – Einstieg mit Pilotprojekt zum Festpreis.
             </p>
+
+            <ul
+              className="mt-6 max-w-md space-y-1.5 text-[15px] leading-[22px]"
+              style={{
+                color: "rgba(58, 58, 55, 0.88)",
+                fontFamily: "'Barlow Local', Arial, sans-serif",
+                fontWeight: 500,
+                WebkitFontSmoothing: "antialiased",
+              }}
+            >
+              <li>Archicad · BIM/IFC · Ausführungsplanung</li>
+              <li>Pilotprojekt: 4 Stunden, 126 € / 168 CHF Festpreis</li>
+              <li>Remote, Antwort in 1–2 Werktagen</li>
+            </ul>
+
+            <div className="mt-7 flex flex-wrap gap-3">
+              <a
+                href="/kontakt"
+                className="inline-flex items-center justify-center bg-primary px-5 py-3.5 text-primary-foreground transition-opacity hover:opacity-85"
+                style={{
+                  fontFamily: "'Barlow Semi Condensed Local', Arial, sans-serif",
+                  fontSize: "13px",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.16em",
+                }}
+              >
+                Pilotprojekt anfragen
+              </a>
+              <a
+                href="/ueber-uns#pakete"
+                className="inline-flex items-center justify-center border border-black/30 px-5 py-3.5 transition-colors hover:bg-black/5"
+                style={{
+                  color: "rgba(58, 58, 55, 0.90)",
+                  fontFamily: "'Barlow Semi Condensed Local', Arial, sans-serif",
+                  fontSize: "13px",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.16em",
+                }}
+              >
+                Pakete ansehen
+              </a>
+            </div>
           </div>
 
           <div className="flex items-end justify-between gap-6">
