@@ -11,6 +11,8 @@ Kaum ein Thema beschäftigt die deutsche Planungs- und Baubranche derzeit so seh
 
 Ein erster Gesetzentwurf wurde bereits im November 2024 vom Bundeskabinett beschlossen, scheiterte dann aber mit dem Ende der damaligen Regierung. Die aktuelle Koalition hat das Thema neu aufgegriffen: Im November 2025 legten Bundesjustizministerin Stefanie Hubig und Bauministerin Verena Hubertz Eckpunkte vor, im Juli 2026 erklärte das Justizministerium den neuen Entwurf für fertig. Ein Kabinettsbeschluss ist für die zweite Jahreshälfte 2026 angekündigt.
 
+**Update 05.11.2026:** Am 26. Oktober 2026 hat das Bundesjustizministerium in Abstimmung mit dem Bauministerium einen Referentenentwurf veröffentlicht, der einen gesetzlichen Basisstandard (Gebäudetyp E) im Bauvertragsrecht des BGB vorsieht (Opt-in-Modell). Länder und Verbände können bis zum 9. November 2026 Stellung nehmen; ein Kabinettsbeschluss liegt noch nicht vor. Was im Entwurf steht, lesen Sie in [Gebäudetyp E Referentenentwurf: Was Planer jetzt wissen](/blog/2026-11-05-gebaeudetyp-e-referentenentwurf).
+
 Wichtig: Solange das Gesetz nicht in Kraft ist, gilt das bisherige Bauvertragsrecht unverändert. Die Details können sich im parlamentarischen Verfahren noch ändern.
 
 ## Der Kern: ein eigener Gebäudetyp-E-Vertrag
