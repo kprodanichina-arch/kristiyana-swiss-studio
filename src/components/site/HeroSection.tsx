@@ -58,7 +58,7 @@ export function HeroSection() {
                 textShadow: "0 1px 5px rgba(0, 0, 0, 0.07)",
               }}
             >
-              Architektur · BIM · Scan-to-BIM
+              Architektur · Ausführungsplanung · BIM
             </p>
           </div>
 
@@ -92,11 +92,11 @@ export function HeroSection() {
                     "0 1px 3px rgba(255, 255, 255, 0.85)",
                 }}
               >
-                BIM, Planung und
+                Ausführungsplanung
                 <br />
-                Bestandsmodelle
+                und BIM für
                 <br />
-                für Architekturbüros
+                Architekturbüros
               </h1>
             </div>
 
@@ -111,8 +111,8 @@ export function HeroSection() {
               }}
             >
               Flexible Unterstützung für Architektur- und
-              Planungsbüros – von technischer Planung und BIM bis
-              zur Bestandsmodellierung aus Punktwolken.
+              Planungsbüros – von der Ausführungs- und Detailplanung
+              über BIM/IFC bis zur Visualisierung.
               <br />
               <span
                 className="mt-2 inline-block"
@@ -121,7 +121,7 @@ export function HeroSection() {
                   fontWeight: 500,
                 }}
               >
-                Schnell, unkompliziert und direkt einsatzbereit.
+                Übergabe als PLN, IFC, PDF oder DWG – nach Ihren Bürostandards.
               </span>
             </p>
 

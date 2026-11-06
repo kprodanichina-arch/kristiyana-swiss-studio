@@ -26,28 +26,15 @@ export function AboutSection() {
           </h1>
         </div>
 
-        <div className="max-w-3xl space-y-6 text-lg leading-relaxed text-muted-foreground">
+        <div className="max-w-3xl text-lg leading-relaxed text-muted-foreground">
           <p>
-            ArchiKa ist ein Planungsstudio für Architektur, BIM und
-            Visualisierung. Wir unterstützen Architektur- und Planungsbüros –
-            remote, projektbezogen
-            und mit kurzen, direkten Kommunikationswegen.
-          </p>
-
-          <p>
-            Unser Schwerpunkt liegt auf Ausführungs- und Detailplanung, BIM-
-            und IFC-Koordination in Archicad und BIMcloud, Scan-to-BIM sowie
-            hochwertigen Architekturvisualisierungen.
-          </p>
-
-          <p>
-            Unser Anspruch ist es, technische Präzision mit einem klaren
-            Verständnis für Architektur zu verbinden – zuverlässig,
-            strukturiert und termingerecht.
+            ArchiKa unterstützt Architektur- und Planungsbüros remote und
+            projektbezogen – bei Ausführungs- und Detailplanung, BIM/IFC in
+            Archicad und BIMcloud, Scan-to-BIM und Visualisierung.
           </p>
         </div>
 
-        <div className="mt-20 grid gap-12 border-t border-border pt-16 lg:grid-cols-[280px_1fr] lg:gap-20">
+        <div className="mt-14 grid gap-12 border-t border-border pt-14 lg:grid-cols-[280px_1fr] lg:gap-20">
           <div className="flex items-start justify-start">
             <img
               src="/images/kristiyana.webp"
@@ -66,28 +53,26 @@ export function AboutSection() {
               Kristiyana Prodanichina
             </h2>
 
-            <div className="mt-6 space-y-6 text-lg leading-relaxed text-muted-foreground">
-              <p>
-                Architektin (Master, UACEG Sofia) und Mitglied der Kammer der
-                Architekten in Bulgarien. Sie leitet ArchiKa und betreut jedes
-                Projekt persönlich – vom ersten Gespräch bis zur Übergabe.
-              </p>
+            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+              Architektin und Mitglied der Kammer der Architekten in
+              Bulgarien. Planung grosser Wohngebäude vom Konzept bis zur
+              Ausführungs- und Detailplanung. Sie leitet ArchiKa und betreut
+              jedes Projekt persönlich.
+            </p>
 
-              <p>
-                Ihre Praxis umfasst die Planung grosser Wohngebäude von der
-                Konzeptphase über die Ausführungs- und Detailplanung bis zur
-                Visualisierung – mit Fokus auf Archicad, BIMcloud und
-                IFC-basierte Zusammenarbeit.
-              </p>
-            </div>
-
-            <dl className="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 border-t border-[rgba(32,32,29,0.14)] pt-8 sm:grid-cols-3">
+            <dl className="mt-8 grid grid-cols-2 gap-x-8 gap-y-6 border-t border-[rgba(32,32,29,0.14)] pt-8 sm:grid-cols-3">
               {PROFILE_FACTS.map((fact) => (
                 <div key={fact.label}>
                   <dt className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
                     {fact.label}
                   </dt>
-                  <dd className="mt-2 text-base leading-snug text-foreground/80">
+                  <dd
+                    className={
+                      fact.label === "Planungserfahrung"
+                        ? "mt-1 text-2xl leading-snug text-foreground/90"
+                        : "mt-2 text-base leading-snug text-foreground/80"
+                    }
+                  >
                     {fact.value}
                   </dd>
                 </div>
