@@ -47,12 +47,12 @@ const gallerySections: GallerySection[] = [
     eyebrow: "Scan-to-BIM & BIM-Workflows",
     title: "Von der Punktwolke zum prüfbaren BIM-Modell",
     description:
-      "Übungsprojekt auf Basis eines öffentlichen Laserscan-Datensatzes (Leica BLK360): Auswertung der klassifizierten Punktwolke, Modellierung in Archicad mit IFC-Klassifizierung, IFC-Export und Scan-vs-BIM-Abweichungsanalyse. Datengrundlage: „Indoor point cloud dataset for BIM related applications“, INESC TEC (2023).",
+      "Scan-to-BIM-Workflow an einem Laserscan-Datensatz (Leica BLK360): Auswertung der klassifizierten Punktwolke, Modellierung in Archicad mit IFC-Klassifizierung, IFC-Export und Scan-vs-BIM-Abweichungsanalyse. Datengrundlage: „Indoor point cloud dataset for BIM related applications“, INESC TEC (2023).",
     images: [
       { src: "/images/workflows/archicad-punktwolke.webp", alt: "Archicad: eingeladene Punktwolke (Leica BLK360, 48,7 Mio. Punkte) in der 3D-Ansicht – ohne Modell" },
       { src: "/images/workflows/scan-to-bim-punktwolke.webp", alt: "Punktwolke (Leica BLK360) als Draufsicht – Ausgangsdaten für Scan-to-BIM" },
       { src: "/images/workflows/archicad-modell-punktwolke.webp", alt: "Archicad: BIM-Modell mit eingeladener Punktwolke – Wände und Decken deckungsgleich" },
-      { src: "/images/workflows/archicad-plan-3d-vergleich.webp", alt: "Grundriss und 3D-Modell in Archicad – Scan-to-BIM Übungsprojekt" },
+      { src: "/images/workflows/archicad-plan-3d-vergleich.webp", alt: "Grundriss und 3D-Modell in Archicad – Scan-to-BIM-Workflow" },
       { src: "/images/workflows/archicad-ifc-klassifizierung.webp", alt: "Archicad Elementeinstellungen mit IFC-Klassifizierung (IfcWall) und Element-ID" },
       { src: "/images/workflows/scan-vs-bim-abweichung.webp", alt: "Scan-vs-BIM-Abweichungsanalyse der Wände" },
     ],
