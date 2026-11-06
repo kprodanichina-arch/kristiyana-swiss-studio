@@ -31,6 +31,11 @@ export function ContactSection() {
       if (response.ok) {
         form.reset();
         setStatus("success");
+        // Kontaktanfrage als Ereignis messen (GA nur bei Zustimmung geladen)
+        const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+        if (typeof w.gtag === "function") {
+          w.gtag("event", "generate_lead", { form_name: "kontakt" });
+        }
       } else {
         setStatus("error");
       }
