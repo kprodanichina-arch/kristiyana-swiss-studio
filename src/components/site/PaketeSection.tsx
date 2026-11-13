@@ -58,7 +58,7 @@ export function PaketeSection() {
 
         </div>
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {PACKAGES.map((pkg) => (
             <article
               key={pkg.id}

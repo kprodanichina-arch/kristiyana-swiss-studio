@@ -100,6 +100,18 @@ export const PACKAGES: Package[] = [
     ],
   },
   {
+    id: "scan-to-bim",
+    eyebrow: "Scan-to-BIM",
+    title: "Punktwolke zum Bestandsmodell",
+    description:
+      "Aufbereitung vorhandener Punktwolken und Modellierung des Bestandsgebäudes in Archicad – als Grundlage für Umbau, Sanierung oder Aufstockung.",
+    includes: [
+      "Import & Bereinigung der Punktwolke (z. B. E57)",
+      "Bestandsmodell in Archicad, LOD nach Absprache",
+      "Bestandspläne & IFC-Übergabe",
+    ],
+  },
+  {
     id: "werkplanung",
     eyebrow: "Ausführungsplanung",
     title: "Werkplanung je Geschoss",
