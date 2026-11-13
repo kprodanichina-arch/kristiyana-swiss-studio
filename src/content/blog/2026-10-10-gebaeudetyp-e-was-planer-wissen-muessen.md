@@ -17,13 +17,13 @@ Wichtig: Solange das Gesetz nicht in Kraft ist, gilt das bisherige Bauvertragsre
 
 ## Der Kern: ein eigener Gebäudetyp-E-Vertrag
 
-Nach den bisher bekannten Eckpunkten sollen die Vertragsparteien in einem **Gebäudetyp-E-Vertrag** einfachere Standards vereinbaren können. Die Abweichung von den „anerkannten Regeln der Technik“ soll dann nicht mehr automatisch als Mangel gelten. Maßstab bleiben die technischen Baubestimmungen der Länder – wo diese schweigen, soll ein einfacher Standard geschuldet sein. Ohne eine solche Vereinbarung gelten weiterhin die üblichen Standards.
+Nach den bisher bekannten Eckpunkten sollen die Vertragsparteien in einem **Gebäudetyp-E-Vertrag** einfachere Standards vereinbaren können. Die Abweichung von den „anerkannten Regeln der Technik“ soll dann nicht mehr automatisch als Mangel gelten. Massstab bleiben die technischen Baubestimmungen der Länder – wo diese schweigen, soll ein einfacher Standard geschuldet sein. Ohne eine solche Vereinbarung gelten weiterhin die üblichen Standards.
 
 Ein oft zitiertes Beispiel von Ministerin Hubig: die Anzahl der Steckdosen pro Raum. Wer weniger braucht, soll weniger bauen dürfen – ohne Haftungsrisiko. Sicherheit, Brandschutz und Standsicherheit stehen dagegen nicht zur Disposition.
 
 ## Warum das für Planer mehr Arbeit am Anfang bedeutet
 
-Der Gebäudetyp E verschiebt Verantwortung nach vorn – in die Phase, in der festgelegt wird, *was* eigentlich geschuldet ist. Für Planungsbüros heißt das:
+Der Gebäudetyp E verschiebt Verantwortung nach vorn – in die Phase, in der festgelegt wird, *was* eigentlich geschuldet ist. Für Planungsbüros heisst das:
 
 - **Abweichungen müssen bewusst vereinbart werden.** Jede Reduktion gegenüber dem üblichen Standard sollte klar benannt, begründet und vom Bauherrn bestätigt sein.
 - **Die Leistungsbeschreibung wird zum zentralen Dokument.** Was nicht eindeutig beschrieben ist, wird im Streitfall wieder am üblichen Standard gemessen.
@@ -31,9 +31,9 @@ Der Gebäudetyp E verschiebt Verantwortung nach vorn – in die Phase, in der fe
 
 ## Die Rolle von BIM: vereinbarte Standards im Modell abbilden
 
-Hier sehen wir eine große Chance für die digitale Planung. Wenn Standards projektspezifisch vereinbart werden, müssen sie für alle Beteiligten nachvollziehbar sein – vom Tragwerksplaner bis zum ausführenden Handwerk. Ein sauber strukturiertes BIM-Modell kann genau das leisten:
+Hier sehen wir eine grosse Chance für die digitale Planung. Wenn Standards projektspezifisch vereinbart werden, müssen sie für alle Beteiligten nachvollziehbar sein – vom Tragwerksplaner bis zum ausführenden Handwerk. Ein sauber strukturiertes BIM-Modell kann genau das leisten:
 
-- **Eigenschaften statt Fußnoten:** Vereinbarte Abweichungen lassen sich als Bauteil- oder Raumeigenschaften im Modell hinterlegen, etwa in Archicad über eigene Eigenschaften oder Klassifizierungen.
+- **Eigenschaften statt Fussnoten:** Vereinbarte Abweichungen lassen sich als Bauteil- oder Raumeigenschaften im Modell hinterlegen, etwa in Archicad über eigene Eigenschaften oder Klassifizierungen.
 - **IFC als gemeinsame Sprache:** Über IFC und BCF werden diese Informationen herstellerneutral an Fachplaner weitergegeben – niemand muss in PDF-Anhängen suchen.
 - **Nachvollziehbarkeit über die Zeit:** Mit einer Teamwork-Umgebung wie BIMcloud ist dokumentiert, wer wann welche Änderung vorgenommen hat.
 
@@ -41,7 +41,7 @@ Gerade bei einfacheren Standards gilt also: Die Planung wird nicht unbedingt ein
 
 ## Unser Fazit
 
-Der Gebäudetyp E kann Bauen in Deutschland günstiger und flexibler machen. Ob das gelingt, entscheidet sich weniger auf der Baustelle als in der Planung – bei klaren Vereinbarungen, eindeutigen Leistungsbeschreibungen und gut strukturierten Modellen. Wir verfolgen das Gesetzgebungsverfahren weiter und berichten, sobald der Kabinettsentwurf vorliegt. Als unkomplizierter Einstieg bieten wir ein [Pilotprojekt](/ueber-uns#pakete) an: 4 Stunden zum Festpreis von 126 € (bzw. 168 CHF). Anfragen gern über das [Kontaktformular](/kontakt).
+Der Gebäudetyp E kann Bauen in Deutschland günstiger und flexibler machen. Ob das gelingt, entscheidet sich weniger auf der Baustelle als in der Planung – bei klaren Vereinbarungen, eindeutigen Leistungsbeschreibungen und gut strukturierten Modellen. Wir verfolgen das Gesetzgebungsverfahren weiter und berichten, sobald der Kabinettsentwurf vorliegt. Unterstützung bei Ausführungsplanung und BIM können Sie gern über das [Kontaktformular](/kontakt).
 
 *Dieser Beitrag dient der allgemeinen Information und ersetzt keine Rechtsberatung.*
 

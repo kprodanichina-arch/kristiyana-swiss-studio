@@ -19,7 +19,6 @@ export type PortfolioSection = {
   eyebrow: string;
   title: string;
   description: string;
-  price?: string;
   images: PortfolioImage[];
 };
 
@@ -29,8 +28,7 @@ export const portfolioSections: PortfolioSection[] = [
     eyebrow: "Ausführungsplanung & Archicad Automatisierung",
     title: "Technische Planung & effiziente Archicad-Workflows",
     description:
-      "Ausführungs- und Detailplanung sowie strukturierte Bearbeitung und Optimierung von Archicad-Projekten – einschließlich Modellprüfung, Auswertungen, Dokumentation und Automatisierung wiederkehrender Arbeitsschritte.",
-    price: "Stundensatz ab 45 € · CH ab 60 CHF",
+      "Ausführungs- und Detailplanung sowie strukturierte Bearbeitung und Optimierung von Archicad-Projekten – einschliesslich Modellprüfung, Auswertungen, Dokumentation und Automatisierung wiederkehrender Arbeitsschritte.",
     images: [],
   },
   {
@@ -38,8 +36,7 @@ export const portfolioSections: PortfolioSection[] = [
     eyebrow: "IFC Koordination, OpenBIM & BIMcloud",
     title: "Strukturierte BIM-Koordination",
     description:
-      "Koordination und Verwaltung von BIM-Modellen mit IFC, OpenBIM und BIMcloud – einschließlich Modellzusammenführung, IFC-Datenprüfung und strukturiertem Datenaustausch zwischen Planungspartnern.",
-    price: "Stundensatz ab 45 € · CH ab 60 CHF",
+      "Koordination und Verwaltung von BIM-Modellen mit IFC, OpenBIM und BIMcloud – einschliesslich Modellzusammenführung, IFC-Datenprüfung und strukturiertem Datenaustausch zwischen Planungspartnern.",
     images: [],
   },
   {
@@ -48,7 +45,6 @@ export const portfolioSections: PortfolioSection[] = [
     title: "Fassadenplanung & architektonische Ansichten",
     description:
       "Bearbeitung von Fassaden, Ansichten und technischen Planunterlagen für eine klare und konsistente Projektdokumentation.",
-    price: "Stundensatz ab 45 € · CH ab 60 CHF",
     images: [],
   },
   {
@@ -57,7 +53,6 @@ export const portfolioSections: PortfolioSection[] = [
     title: "Fotorealistische Visualisierungen",
     description:
       "Architekturvisualisierungen für Präsentationen, Projektkommunikation und die Darstellung von Entwurfs- und Planungsvarianten.",
-    price: "Preis pro Visualisierung: 250–450 €",
     images: [],
   },
   {
@@ -65,8 +60,7 @@ export const portfolioSections: PortfolioSection[] = [
     eyebrow: "Scan-to-BIM",
     title: "Punktwolken & Bestandsmodellierung",
     description:
-      "Aufbereitung vorhandener Punktwolken und anschließende Modellierung von Bestandsgebäuden in Archicad. Übergabe strukturierter BIM-Modelle und IFC-fähiger Projektdaten.",
-    price: "Stundensatz ab 45 € · CH ab 60 CHF",
+      "Aufbereitung vorhandener Punktwolken und anschliessende Modellierung von Bestandsgebäuden in Archicad. Übergabe strukturierter BIM-Modelle und IFC-fähiger Projektdaten.",
     images: [],
   },
   {
@@ -75,7 +69,6 @@ export const portfolioSections: PortfolioSection[] = [
     title: "Externe Unterstützung für Ihr Planungsteam",
     description:
       "Flexible Unterstützung bei einzelnen Aufgaben oder innerhalb laufender Projekte – angepasst an Ihre Arbeitsweise, Projektstruktur und Kapazitätsbedarf.",
-    price: "Stundensatz ab 45 € · CH ab 60 CHF",
     images: [],
   },
 ];
@@ -84,39 +77,16 @@ export const portfolioSections: PortfolioSection[] = [
 export const PRIMARY_TOOL = "Archicad";
 export const SECONDARY_TOOLS = ["Revit", "Rhino", "Grasshopper"] as const;
 
-export const HOURLY_RATE = {
-  eu: "ab 45 €/h",
-  ch: "ab 60 CHF/h",
-};
-
 export type Package = {
   id: string;
   eyebrow: string;
   title: string;
   description: string;
   includes: string[];
-  priceEU: string;
-  priceCH: string;
   highlight?: boolean;
 };
 
 export const PACKAGES: Package[] = [
-  {
-    id: "pilot",
-    eyebrow: "Einstieg",
-    title: "Pilotprojekt",
-    description:
-      "Eine klar abgegrenzte Testaufgabe aus Ihrem laufenden Projekt – zum Kennenlernen ohne Risiko.",
-    includes: [
-      "4 Arbeitsstunden – 30 % unter dem Stundensatz",
-      "Arbeit in Ihrem Bürostandard",
-      "Übergabe in 2–3 Werktagen",
-      "Feedbackgespräch danach",
-    ],
-    priceEU: "126 € Festpreis für 4 Stunden",
-    priceCH: "bzw. 168 CHF",
-    highlight: true,
-  },
   {
     id: "modellcheck",
     eyebrow: "BIM / IFC",
@@ -128,8 +98,6 @@ export const PACKAGES: Package[] = [
       "Klassifizierung & Attribute",
       "IFC-Export mit Prüfprotokoll",
     ],
-    priceEU: "ab 450 €",
-    priceCH: "bzw. ab 600 CHF",
   },
   {
     id: "werkplanung",
@@ -139,11 +107,9 @@ export const PACKAGES: Package[] = [
       "Ausführungspläne für ein Geschoss oder einen Bauabschnitt – Grundriss, Schnitte, Ansichten.",
     includes: [
       "Grundriss, Schnitte, Ansichten",
-      "Bemaßung & Beschriftung nach Bürostandard",
+      "Bemassung & Beschriftung nach Bürostandard",
       "Planlayout & PDF/DWG-Ausgabe",
     ],
-    priceEU: "ab 400 €",
-    priceCH: "bzw. ab 550 CHF",
   },
   {
     id: "kontingent",
@@ -152,17 +118,14 @@ export const PACKAGES: Package[] = [
     description:
       "Flexible Kapazität für Spitzenzeiten – abrufbar über bis zu zwei Monate.",
     includes: [
-      "40 Stunden zum reduzierten Satz",
+      "40 Stunden, flexibel abrufbar",
       "feste Ansprechpartnerin",
       "Abrechnung nach Leistungsnachweis",
     ],
-    priceEU: "ab 1.700 €",
-    priceCH: "bzw. ab 2.300 CHF",
   },
 ];
 
 export const PROJECT_TYPES = [
-  "Pilotprojekt (Festpreis)",
   "Ausführungs- & Detailplanung",
   "Archicad",
   "Revit",

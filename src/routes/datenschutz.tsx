@@ -151,7 +151,7 @@ function DatenschutzPage() {
 
             <p className="mt-4">
               Die Verarbeitung der von Ihnen eingegebenen Daten richtet sich
-              anschließend nach dem Versand der E-Mail und den dabei
+              anschliessend nach dem Versand der E-Mail und den dabei
               verwendeten E-Mail-Diensten.
             </p>
           </section>
@@ -221,7 +221,7 @@ function DatenschutzPage() {
             <p className="mt-4">
               Sie können Ihre Einwilligung jederzeit widerrufen, indem Sie die
               gespeicherte Einwilligungsentscheidung in den Einstellungen Ihres
-              Browsers löschen und die Website anschließend erneut aufrufen.
+              Browsers löschen und die Website anschliessend erneut aufrufen.
             </p>
 
             <p className="mt-4">
@@ -275,7 +275,7 @@ function DatenschutzPage() {
             </ul>
 
             <p className="mt-4">
-              Sie haben außerdem das Recht, sich bei einer zuständigen
+              Sie haben ausserdem das Recht, sich bei einer zuständigen
               Datenschutzaufsichtsbehörde zu beschweren.
             </p>
           </section>

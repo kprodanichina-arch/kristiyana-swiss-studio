@@ -84,7 +84,7 @@ export function AboutSection() {
                 to="/kontakt"
                 className="inline-flex items-center gap-2 rounded-full border border-[rgba(32,32,29,0.18)] px-5 py-3 text-sm font-medium text-[rgba(65,65,62,0.78)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[rgba(32,32,29,0.35)] hover:bg-black/[0.025]"
               >
-                Pilotprojekt anfragen
+                Projekt anfragen
                 <ArrowRight className="h-4 w-4" />
               </Link>
 
@@ -93,7 +93,7 @@ export function AboutSection() {
                 hash="pakete"
                 className="inline-flex items-center gap-2 text-sm font-medium transition-opacity hover:opacity-60"
               >
-                Pakete & Preise
+                Leistungspakete
               </Link>
             </div>
           </div>

@@ -1,7 +1,7 @@
 ---
 title: Gebäudetyp E Referentenentwurf: Was Planer jetzt wissen
 date: 2026-11-05
-excerpt: Gebäudetyp E Referentenentwurf: Opt-in, Textform, Basisstandard im BGB. Was das für Leistungsbeschreibung, Detailplanung und Haftung im Planungsbüro heißt.
+excerpt: Gebäudetyp E Referentenentwurf: Opt-in, Textform, Basisstandard im BGB. Was das für Leistungsbeschreibung, Detailplanung und Haftung im Planungsbüro heisst.
 tags: Baurecht, Gebäudetyp E, Ausführungsplanung, BIM
 ---
 
@@ -15,7 +15,7 @@ Der Entwurf trägt den Titel „Entwurf eines Gesetzes zur Regelung des gesetzli
 
 - **Opt-in:** Die Vertragsparteien können vereinbaren, dass der Basisstandard gilt. Dafür genügt die **Textform** (§ 126b BGB) – also zum Beispiel eine E-Mail. Ohne diese Vereinbarung bleibt alles beim Alten.
 - **„Genug ist genug“:** Wo die Technischen Baubestimmungen der Länder Anforderungen stellen, ist ein Gebäude mangelfrei, wenn es diese erfüllt – auch wenn vergleichbare Gebäude oder DIN-Normen höher liegen. Höhere Standards müssen ausdrücklich vereinbart werden.
-- **Außerhalb der Technischen Baubestimmungen** bleibt der übliche Standard geschuldet. Eine Abweichung nach unten ist aber möglich – mit einem klaren Hinweis in Textform vor Vertragsschluss, **ohne** umfassende Aufklärung über Folgen und Risiken.
+- **Ausserhalb der Technischen Baubestimmungen** bleibt der übliche Standard geschuldet. Eine Abweichung nach unten ist aber möglich – mit einem klaren Hinweis in Textform vor Vertragsschluss, **ohne** umfassende Aufklärung über Folgen und Risiken.
 - **Kein Hinweis nötig**, wenn der Besteller die wesentlichen Planungsvorgaben selbst gemacht hat oder die Abweichung bei verkehrsüblicher Sorgfalt erkennen konnte.
 - **Verbraucherbauverträge:** Die Baubeschreibung muss den Gebäudetyp E ausdrücklich nennen, den Schallschutzstandard angeben und die eingesparten Kosten grob schätzen.
 - **Architekten- und Ingenieurverträge:** Die neuen Regeln sollen auch für sie gelten (laut Zusammenfassung von HOAI.de über § 650q BGB-E).
@@ -73,7 +73,7 @@ Nach dem Entwurf sollen die Regeln auch für Architekten- und Ingenieurverträge
 
 Der Referentenentwurf zum Gebäudetyp E macht einfacheres Bauen vertraglich leichter – aber nur, wenn die Abweichungen sauber vereinbart, beschrieben und in der Planung abgebildet sind. Die Arbeit verschiebt sich damit in die Leistungsbeschreibung, die Ausführungs- und Detailplanung und die Modelldaten. Wir verfolgen das Verfahren weiter und aktualisieren diesen Beitrag, wenn es Neuigkeiten gibt.
 
-Wenn Sie in einem laufenden Projekt Unterstützung brauchen – etwa beim Hinterlegen vereinbarter Standards im Archicad-Modell oder bei Details der Ausführungsplanung – testen Sie die Zusammenarbeit mit unserem **Pilotprojekt**: eine klar abgegrenzte Aufgabe von 4 Stunden zum Festpreis von **126 € (bzw. 168 CHF)**, Übergabe in 2–3 Werktagen. Alle Pakete finden Sie unter [Pakete & Konditionen](/ueber-uns#pakete); für eine Anfrage nutzen Sie bitte unser [Kontaktformular](/kontakt).
+Wenn Sie in einem laufenden Projekt Unterstützung brauchen – etwa beim Hinterlegen vereinbarter Standards im Archicad-Modell oder bei Details der Ausführungsplanung – testen Sie die Zusammenarbeit mit einer klar abgegrenzten Aufgabe aus Ihrem Projekt. Unsere [Leistungspakete](/ueber-uns#pakete) finden Sie auf der Seite Über uns; für eine Anfrage nutzen Sie bitte unser [Kontaktformular](/kontakt).
 
 *Dieser Beitrag dient der allgemeinen Information und ersetzt keine Rechtsberatung.*
 

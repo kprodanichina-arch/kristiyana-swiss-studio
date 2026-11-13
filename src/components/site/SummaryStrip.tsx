@@ -4,7 +4,7 @@ const sans = "'Barlow Local', Arial, sans-serif";
 const items = [
   { k: "Was", v: "Ausführungsplanung, BIM/IFC, Scan-to-BIM, Visualisierung" },
   { k: "Für wen", v: "Architektur- und Planungsbüros (DACH), remote" },
-  { k: "Pilotprojekt", v: "4 Stunden, 126 € / 168 CHF Festpreis" },
+  { k: "Erreichbar", v: "Mo–Fr, 8–17 Uhr (MEZ)" },
   { k: "Start", v: "Kurze Anfrage – Antwort in 1–2 Werktagen" },
 ];
 
