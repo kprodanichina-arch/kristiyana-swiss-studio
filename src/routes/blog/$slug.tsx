@@ -107,16 +107,11 @@ function BlogPostPage() {
             }}
           >
             <p>
-              <strong>Sie brauchen Unterstützung bei diesem Thema?</strong> Pilotprojekt: 4 Stunden, 126 € / 168 CHF
-              Festpreis.{" "}
+              <strong>Sie brauchen Unterstützung bei diesem Thema?</strong>{" "}
               <Link to="/kontakt" className="underline underline-offset-4 hover:opacity-60">
                 Jetzt anfragen
               </Link>{" "}
-              oder{" "}
-              <a href="/ueber-uns#pakete" className="underline underline-offset-4 hover:opacity-60">
-                Pakete ansehen
-              </a>
-              .
+              – wir melden uns in 1–2 Werktagen.
             </p>
           </aside>
           {rest && <Markdown source={rest} />}

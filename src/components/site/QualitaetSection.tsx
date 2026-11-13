@@ -12,8 +12,8 @@ const points = [
     text: "Jede Lieferung wird intern geprüft und geht als Entwurf zur Freigabe an Sie.",
   },
   {
-    title: "EU-Unternehmen, DSGVO",
-    text: "Auftragnehmer ist ein Unternehmen mit Sitz in der EU. Ihre Projektdaten werden nach DSGVO verarbeitet, die Abrechnung erfolgt als B2B-Leistung.",
+    title: "EU-Unternehmen, DSGVO & DSG",
+    text: "Auftragnehmer ist ein Unternehmen mit Sitz in der EU. Ihre Projektdaten werden nach DSGVO und – für Auftraggeber in der Schweiz – im Einklang mit dem Schweizer DSG verarbeitet, die Abrechnung erfolgt als B2B-Leistung.",
   },
 ];
 

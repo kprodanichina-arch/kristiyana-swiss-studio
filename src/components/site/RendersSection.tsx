@@ -72,10 +72,6 @@ export function RendersSection() {
             Projektkommunikation und die überzeugende Darstellung von
             Architektur.
           </p>
-
-          <p className="mt-4 text-sm font-medium">
-            Preis pro Visualisierung: 250–450 €
-          </p>
         </div>
 
         <div className="relative mx-auto max-w-6xl">

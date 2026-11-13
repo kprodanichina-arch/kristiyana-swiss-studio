@@ -11,7 +11,7 @@ Die allgemeinen Neuerungen der Version haben wir bereits in unserem Beitrag [Arc
 
 ## Was ist neu beim IFC-Export in Archicad 30?
 
-Nach den Angaben von Graphisoft können Archicad-Klassifizierungen für **Zonen** oder **Morphs** beim Export mit der Typ-Zuordnung für IFC4 bzw. IFC4x3 als `IfcSpatialZone` ausgegeben werden. Diese Elemente erscheinen anschließend auch im IFC Project Manager. Das heißt: Bereiche wie Nutzungseinheiten, Brandabschnitte oder andere Zonen müssen nicht mehr zwangsläufig in Raumlisten oder Eigenschaften „versteckt“ werden, sondern können als eigene räumliche Einheiten im Modell mitreisen.
+Nach den Angaben von Graphisoft können Archicad-Klassifizierungen für **Zonen** oder **Morphs** beim Export mit der Typ-Zuordnung für IFC4 bzw. IFC4x3 als `IfcSpatialZone` ausgegeben werden. Diese Elemente erscheinen anschliessend auch im IFC Project Manager. Das heisst: Bereiche wie Nutzungseinheiten, Brandabschnitte oder andere Zonen müssen nicht mehr zwangsläufig in Raumlisten oder Eigenschaften „versteckt“ werden, sondern können als eigene räumliche Einheiten im Modell mitreisen.
 
 Zusätzlich nennt Graphisoft einen erweiterten IFC4x3-Import und eine überarbeitete Projektinfo, die direkt auf IfcProject und IfcSite abgebildet wird. Für den Export in der täglichen Praxis ist aber vor allem die Zonen-Abbildung relevant.
 
@@ -23,7 +23,7 @@ Aus unserer Projektpraxis sind es vier Stellen, an denen Übergaben scheitern od
 
 1. **Schema und Model View Definition.** Archicad unterscheidet bei IFC4 die *Reference View* (Referenzmodell, Daten laufen überwiegend in eine Richtung) und die *Design Transfer View* (für Fälle, in denen der Empfänger Geometrie weiterbearbeiten muss). Welche Variante passt, entscheidet der Fachplaner – nicht das Architekturbüro. Laut Graphisoft sollten Sie IFC4 nur wählen, wenn die empfangende Software IFC4 unterstützt.
 2. **Typ-Zuordnung.** Hier legen Sie fest, welches Archicad-Element als welche IFC-Klasse (ObjectType, PredefinedType) ausgegeben wird. Die neue Zonen-Abbildung hängt an dieser Zuordnung.
-3. **Eigenschaften-Zuordnung.** Property Sets wie `Pset_…Common` (z. B. Tragend, Außenbauteil) werden über Zuordnungsregeln befüllt. Dort entscheidet sich, ob Fachplaner mit den Daten etwas anfangen können.
+3. **Eigenschaften-Zuordnung.** Property Sets wie `Pset_…Common` (z. B. Tragend, Aussenbauteil) werden über Zuordnungsregeln befüllt. Dort entscheidet sich, ob Fachplaner mit den Daten etwas anfangen können.
 4. **Projektinfo.** Name, Phase, Standortangaben und Kontakte werden auf IfcProject, IfcSite und IfcBuilding abgebildet. Fehlende oder inkonsistente Angaben fallen im Koordinationsmodell sofort auf.
 
 ## Wie testen Sie die Übergabe an Fachplaner?
@@ -56,7 +56,7 @@ Wenn mehrere Fachplaner mit unterschiedlichen Anforderungen beteiligt sind und i
 
 Mit Archicad 30 wird die Übergabe räumlicher Bereiche über IFC einfacher – aber nur, wenn Klassifizierung, Typ-Zuordnung und Eigenschaften im Büro sauber vorbereitet sind. Testen Sie den Export an einem kleinen Modell und stimmen Sie ihn mit Ihren Fachplanern ab, bevor ein Projekt migriert wird.
 
-Wenn Sie das nicht selbst aufsetzen möchten: Wir bieten als Einstieg ein **Pilotprojekt** an – eine klar abgegrenzte Aufgabe von 4 Stunden zum Festpreis von **126 € (bzw. 168 CHF)**, zum Beispiel einen Modell-Check mit IFC-Testexport. Pakete und Konditionen finden Sie unter [Pakete & Konditionen](/ueber-uns#pakete); für eine Anfrage nutzen Sie bitte unser [Kontaktformular](/kontakt).
+Wenn Sie das nicht selbst aufsetzen möchten: Ein guter Einstieg ist eine klar abgegrenzte Aufgabe, zum Beispiel ein Modell-Check mit IFC-Testexport. Unsere [Leistungspakete](/ueber-uns#pakete) finden Sie auf der Seite Über uns; für eine Anfrage nutzen Sie bitte unser [Kontaktformular](/kontakt).
 
 ### Quellen
 

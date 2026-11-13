@@ -11,26 +11,26 @@ Wir schreiben dabei aus der Perspektive eines Büros, das genau diese Leistung f
 
 ## Wann lohnt es sich, die Ausführungsplanung auszulagern?
 
-Die Ausführungsplanung ist zeitintensiv: Nach § 34 HOAI entfallen bei Gebäuden 25 Prozent der Grundleistungen auf die Leistungsphase 5 – nach der Objektüberwachung der größte Einzelanteil. Gleichzeitig ist sie gut planbar und lässt sich in klar abgegrenzte Pakete teilen. Das macht sie zu einem typischen Kandidaten für externe Unterstützung.
+Die Ausführungsplanung ist zeitintensiv: Nach § 34 HOAI entfallen bei Gebäuden 25 Prozent der Grundleistungen auf die Leistungsphase 5 – nach der Objektüberwachung der grösste Einzelanteil. Gleichzeitig ist sie gut planbar und lässt sich in klar abgegrenzte Pakete teilen. Das macht sie zu einem typischen Kandidaten für externe Unterstützung.
 
 Sinnvoll ist das vor allem in diesen Situationen:
 
 - **Kapazitätsspitzen:** Mehrere Projekte erreichen gleichzeitig die LPH 5, und eine Festanstellung lohnt sich für einen begrenzten Zeitraum nicht.
-- **Klar umrissene Aufgaben:** Geschosspläne, Schnitte und Ansichten im Maßstab 1:50, Detailserien oder die Fortschreibung von Plänen nach Planungsänderungen.
+- **Klar umrissene Aufgaben:** Geschosspläne, Schnitte und Ansichten im Massstab 1:50, Detailserien oder die Fortschreibung von Plänen nach Planungsänderungen.
 - **Spezialthemen:** Fassadendetails, Bestandsmodelle aus Punktwolken oder die IFC-Koordination mit Fachplanern.
 - **Engpässe bei Software-Know-how:** Wenn im Team niemand die Bürovorlage, Teamwork oder den IFC-Export sicher beherrscht.
 
-Weniger geeignet ist externe Ausführungsplanung, wenn der Entwurf noch nicht stabil ist. Wer die Genehmigungsplanung noch grundlegend ändert, verschiebt den Abstimmungsaufwand nur nach außen.
+Weniger geeignet ist externe Ausführungsplanung, wenn der Entwurf noch nicht stabil ist. Wer die Genehmigungsplanung noch grundlegend ändert, verschiebt den Abstimmungsaufwand nur nach aussen.
 
 ## Was gehört zur Leistungsphase 5 – und was wird extern vergeben?
 
-Die HOAI beschreibt in Anlage 10.1 die Grundleistungen der Ausführungsplanung, unter anderem das Erarbeiten der Ausführungsplanung „mit allen für die Ausführung notwendigen Einzelangaben“, Ausführungs-, Detail- und Konstruktionszeichnungen – bei Gebäuden etwa „im Maßstab 1:50 bis 1:1“ –, die Koordination und Integration der Leistungen der Fachplaner sowie die Fortschreibung der Ausführungsplanung während der Bauausführung. In der Schweiz entspricht dem im Wesentlichen die Teilphase 51 (Ausführungsprojekt) nach SIA 102.
+Die HOAI beschreibt in Anlage 10.1 die Grundleistungen der Ausführungsplanung, unter anderem das Erarbeiten der Ausführungsplanung „mit allen für die Ausführung notwendigen Einzelangaben“, Ausführungs-, Detail- und Konstruktionszeichnungen – bei Gebäuden etwa „im Massstab 1:50 bis 1:1“ –, die Koordination und Integration der Leistungen der Fachplaner sowie die Fortschreibung der Ausführungsplanung während der Bauausführung. In der Schweiz entspricht dem im Wesentlichen die Teilphase 51 (Ausführungsprojekt) nach SIA 102.
 
 Wenn Sie die **Werkplanung extern vergeben**, sollten Sie diese Grundleistungen nicht pauschal weitergeben, sondern in konkrete Lieferungen übersetzen. Bewährt hat sich eine kurze Leistungsbeschreibung je Paket:
 
 1. **Gegenstand:** z. B. „Grundrisse 1:50 EG bis 2. OG, zwei Schnitte, vier Ansichten“ oder „Fassadendetails Fensteranschlüsse, Sockel, Attika 1:10/1:5“.
 2. **Grundlage:** Stand der Genehmigungsplanung, gültiger Planstand der Tragwerks- und TGA-Planung, Bürovorlage, Planköpfe, Layerstruktur.
-3. **Detaillierungsgrad:** Was wird bemaßt, beschriftet, im Modell geführt – und was bleibt 2D-Ergänzung?
+3. **Detaillierungsgrad:** Was wird bemasst, beschriftet, im Modell geführt – und was bleibt 2D-Ergänzung?
 4. **Format der Lieferung:** PLN bzw. Teamwork-Projekt, IFC-Export, PDF- und DWG-Pläne.
 5. **Termine und Abstimmungsrunden:** Zwischenstand, Korrekturrunde, Endlieferung.
 
@@ -48,25 +48,25 @@ Wichtig ist in allen Fällen, dass Bürovorlage, Bibliotheken und Planköpfe vor
 
 ## Qualität sichern: Checkliste für die externe Ausführungsplanung
 
-Damit ausgelagerte Pläne ohne große Nacharbeit ins Projekt passen, prüfen wir mit unseren Kunden vor dem Start diese Punkte:
+Damit ausgelagerte Pläne ohne grosse Nacharbeit ins Projekt passen, prüfen wir mit unseren Kunden vor dem Start diese Punkte:
 
-- Bürostandard dokumentiert: Layer, Stifte, Schraffuren, Bemaßungs- und Beschriftungsregeln
+- Bürostandard dokumentiert: Layer, Stifte, Schraffuren, Bemassungs- und Beschriftungsregeln
 - Aktueller Planstand der Fachplaner liegt vor und ist als verbindlich markiert
 - Ansprechpartner im Büro mit Entscheidungsbefugnis benannt
 - Offene Punkte werden zentral gesammelt, nicht in verstreuten E-Mails
 - Zwischenstand nach einem vereinbarten Teilumfang, bevor das ganze Paket bearbeitet wird
 - Prüfung der Lieferung gegen die Leistungsbeschreibung, nicht gegen nachträgliche Wünsche
 
-Typische Fehler, die wir in der Praxis sehen: Der Umfang wird nur mündlich besprochen; Planänderungen der Fachplaner erreichen den externen Planer zu spät; die Bürovorlage wird erst nach der Lieferung erklärt; und es fehlt eine Testphase, in der sich beide Seiten kennenlernen. Gerade der letzte Punkt lässt sich mit einer kleinen Pilotaufgabe einfach lösen.
+Typische Fehler, die wir in der Praxis sehen: Der Umfang wird nur mündlich besprochen; Planänderungen der Fachplaner erreichen den externen Planer zu spät; die Bürovorlage wird erst nach der Lieferung erklärt; und es fehlt eine Testphase, in der sich beide Seiten kennenlernen. Gerade der letzte Punkt lässt sich mit einer kleinen Testaufgabe einfach lösen.
 
 ## Was kostet externe Ausführungsplanung?
 
-Seriöse Pauschalpreise für „die Ausführungsplanung“ eines Projekts gibt es nicht – zu unterschiedlich sind Größe, Detaillierungsgrad und Planstand. In der Praxis sind zwei Modelle üblich:
+Seriöse Pauschalpreise für „die Ausführungsplanung“ eines Projekts gibt es nicht – zu unterschiedlich sind Grösse, Detaillierungsgrad und Planstand. In der Praxis sind zwei Modelle üblich:
 
 - **Abrechnung nach Stunden** mit Leistungsnachweis – flexibel, gut für laufende Unterstützung und wechselnde Aufgaben.
 - **Festpreis je Paket**, z. B. je Geschoss oder je Detailserie – planbar, setzt aber eine klare Leistungsbeschreibung voraus.
 
-Bei uns beginnt der Stundensatz bei 45 € (bzw. 60 CHF). Für die Werkplanung eines Geschosses oder Bauabschnitts bieten wir Festpreise ab 400 € (bzw. 550 CHF), für laufende **Planungsunterstützung im Architekturbüro** ein Kontingent von 40 Stunden ab 1.700 € (bzw. 2.300 CHF). Die aktuellen Konditionen finden Sie unter [Pakete & Konditionen](/ueber-uns#pakete).
+Bei uns erhalten Sie nach Sichtung Ihrer Unterlagen ein verbindliches Angebot – als Festpreis je Paket, etwa für die Werkplanung eines Geschosses, oder nach Aufwand für laufende **Planungsunterstützung im Architekturbüro**. Unsere [Leistungspakete](/ueber-uns#pakete) finden Sie auf der Seite Über uns.
 
 ## Häufige Fragen
 
@@ -80,13 +80,13 @@ Für die eigentliche Werkplanung ist dieselbe Software klar von Vorteil, weil nu
 
 ### Wie schnell kann externe Unterstützung starten?
 
-Das hängt vom Umfang ab. Eine klar abgegrenzte Testaufgabe lässt sich oft innerhalb weniger Tage erledigen; größere Pakete brauchen eine kurze Abstimmung von Vorlage, Zugängen und Planstand.
+Das hängt vom Umfang ab. Eine klar abgegrenzte Testaufgabe lässt sich oft innerhalb weniger Tage erledigen; grössere Pakete brauchen eine kurze Abstimmung von Vorlage, Zugängen und Planstand.
 
 ## Unser Fazit
 
 Die Ausführungsplanung auszulagern lohnt sich, wenn der Entwurf steht, der Umfang klar beschrieben ist und die Übergabe von Modell und Plänen vorab getestet wurde. Entscheidend ist nicht, ob extern gearbeitet wird, sondern wie gut die Schnittstelle definiert ist: Leistungsbeschreibung, Bürostandard, Datenformat und ein fester Ansprechpartner.
 
-Am einfachsten finden Sie das mit einer kleinen Aufgabe aus einem laufenden Projekt heraus. Dafür bieten wir ein **Pilotprojekt** an: eine klar abgegrenzte Aufgabe von 4 Stunden zum Festpreis von **126 € (bzw. 168 CHF)**, 30 % unter dem regulären Stundensatz, in Ihrem Bürostandard und mit Übergabe in 2–3 Werktagen – zum Beispiel ein Detail, ein Schnitt oder die Überarbeitung eines Grundrisses. Alle Pakete finden Sie unter [Pakete & Konditionen](/ueber-uns#pakete); Referenzen zeigen wir unter [Projekte](/projekte). Für eine Anfrage nutzen Sie bitte unser [Kontaktformular](/kontakt).
+Am einfachsten finden Sie das mit einer kleinen Aufgabe aus einem laufenden Projekt heraus. Gut geeignet ist eine klar abgegrenzte Aufgabe in Ihrem Bürostandard – zum Beispiel ein Detail, ein Schnitt oder die Überarbeitung eines Grundrisses. Unsere [Leistungspakete](/ueber-uns#pakete) finden Sie auf der Seite Über uns; Referenzen zeigen wir unter [Projekte](/projekte). Für eine Anfrage nutzen Sie bitte unser [Kontaktformular](/kontakt).
 
 ### Quellen
 

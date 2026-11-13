@@ -15,7 +15,7 @@ Laut Graphisoft öffnet Archicad 30 Projekte ab **Version 17** direkt. Ältere D
 
 Der umgekehrte Weg ist enger: Archicad 30 kann Projektdateien unter den früheren Formaten **nur als Archicad 29** speichern (*Datei > Speichern unter*, Dateityp „Archicad 29 Project“ in der englischen Oberfläche). Bibliothekselemente, die für Version 30 überarbeitet wurden, werden dabei automatisch durch ihre Vorgänger ersetzt. Elemente, die Parameter oder Funktionen nutzen, die es in 29 noch nicht gibt, erscheinen dort als *fehlend*. Wer mit einem Partnerbüro zusammenarbeitet, das noch auf 28 oder älter arbeitet, muss sich darauf einstellen, Schritt für Schritt über jede Zwischenversion zurückzuspeichern – Graphisoft erlaubt das Rückspeichern jeweils nur eine Version zurück.
 
-Für die Praxis heißt das: Klären Sie vor dem Wechsel, mit wem Sie PLN-Dateien austauschen. Bei gemischten Versionen ist der Austausch über IFC oder Module oft der stabilere Weg.
+Für die Praxis heisst das: Klären Sie vor dem Wechsel, mit wem Sie PLN-Dateien austauschen. Bei gemischten Versionen ist der Austausch über IFC oder Module oft der stabilere Weg.
 
 ## Wie migriere ich die Bürovorlage auf Archicad 30?
 
@@ -42,13 +42,13 @@ Für Teamwork-Projekte auf dem BIMcloud gibt Graphisoft einen festen Ablauf vor.
 1. Alle Teammitglieder senden ihre Änderungen und verlassen das Projekt. Wer das nicht tut, verliert laut Graphisoft seine nicht gesendeten Änderungen.
 2. In der alten Version das Projekt für die Migration vorbereiten (in der englischen Oberfläche: *Teamwork > Project > Migrate Project > Prepare for Migration*; die Bezeichnungen in der deutschen Version können abweichen).
 3. In Archicad 30 über *Migrate Prepared Projects* das vorbereitete Projekt wählen, Zielserver angeben, Optionen prüfen und migrieren.
-4. Das Originalprojekt anschließend manuell vom Server löschen – aber erst, wenn das migrierte Projekt geprüft ist.
+4. Das Originalprojekt anschliessend manuell vom Server löschen – aber erst, wenn das migrierte Projekt geprüft ist.
 
 Wichtig: **Projektprotokoll, Kommentare, Nachrichten und Reservierungen werden bei der Migration gelöscht.** Offene Abstimmungen aus den Teamwork-Nachrichten sollten Sie vorher dokumentieren. Hotlink-Module und verknüpfte Zeichnungen müssen ebenfalls migriert werden; liegen sie auf einem anderen Server, sind sie manuell neu zu verknüpfen. Die Option „Monolithische Bibliotheken migrieren“ betrifft nur Projekte mit versionsgebundenen Bibliotheken aus Archicad 27 und älter. Objekte, die direkt nach der Migration als „vorübergehend fehlend“ angezeigt werden, erscheinen laut Graphisoft wieder, sobald die anderen Nutzer *Senden & Empfangen* ausführen.
 
 ## Checkliste und typische Fehler beim Umstieg
 
-- **Kein Wechsel mitten in der Abgabe:** Laufende Projekte kurz vor Werkplanungs- oder Ausschreibungsabgabe besser in der alten Version abschließen.
+- **Kein Wechsel mitten in der Abgabe:** Laufende Projekte kurz vor Werkplanungs- oder Ausschreibungsabgabe besser in der alten Version abschliessen.
 - **Partner abfragen:** Wer bekommt PLN-Dateien, wer nur IFC/DWG/PDF? Rückspeichern geht nur auf Archicad 29.
 - **Vorlage zuerst, Projekte danach:** Erst die neue Bürovorlage testen, dann neue Projekte darauf starten.
 - **Teamwork-Kommunikation sichern:** Nachrichten, Kommentare und Reservierungen gehen bei der Migration verloren.
@@ -60,7 +60,7 @@ Wichtig: **Projektprotokoll, Kommentare, Nachrichten und Reservierungen werden b
 
 ### Kann ich ein Archicad-30-Projekt in Archicad 28 öffnen?
 
-Nicht direkt. Archicad 30 speichert nur ins Format von Archicad 29 zurück; für 28 müssen Sie die Datei anschließend in Archicad 29 erneut eine Version zurückspeichern.
+Nicht direkt. Archicad 30 speichert nur ins Format von Archicad 29 zurück; für 28 müssen Sie die Datei anschliessend in Archicad 29 erneut eine Version zurückspeichern.
 
 ### Muss ich die Bürovorlage neu aufbauen?
 
@@ -74,7 +74,7 @@ Das Modell nicht, aber laut Graphisoft werden Projektprotokoll, Kommentare, Nach
 
 Der Umstieg auf Archicad 30 ist gut planbar, wenn Sie die Reihenfolge einhalten: Partner abfragen, Bürovorlage testen, Bibliotheken prüfen, dann Teamwork-Projekte migrieren. Die meisten Probleme entstehen nicht in der Software, sondern durch fehlende Abstimmung im Team oder mit Partnerbüros.
 
-Wenn Ihnen dafür im Büro gerade die Zeit fehlt, übernehmen wir das gern. Als Einstieg bieten wir ein **Pilotprojekt** an: eine klar abgegrenzte Aufgabe von 4 Stunden zum Festpreis von **126 € (bzw. 168 CHF)**, zum Beispiel die Prüfung Ihrer Bürovorlage in Archicad 30 mit Testmigration eines Projekts und IFC-Testexport. Alle Pakete finden Sie unter [Pakete & Konditionen](/ueber-uns#pakete); für eine Anfrage nutzen Sie bitte unser [Kontaktformular](/kontakt).
+Wenn Ihnen dafür im Büro gerade die Zeit fehlt, übernehmen wir das gern. Ein guter Einstieg ist eine klar abgegrenzte Aufgabe, zum Beispiel die Prüfung Ihrer Bürovorlage in Archicad 30 mit Testmigration eines Projekts und IFC-Testexport. Unsere [Leistungspakete](/ueber-uns#pakete) finden Sie auf der Seite Über uns; für eine Anfrage nutzen Sie bitte unser [Kontaktformular](/kontakt).
 
 ### Quellen
 

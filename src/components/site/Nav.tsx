@@ -100,7 +100,7 @@ export function Nav() {
           type="button"
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
-          aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
+          aria-label={menuOpen ? "Menü schliessen" : "Menü öffnen"}
           onClick={() => setMenuOpen((open) => !open)}
           className="ml-auto flex items-center border border-[rgba(32,32,29,0.22)] px-4 py-2 md:hidden"
           style={{
@@ -114,7 +114,7 @@ export function Nav() {
             WebkitTapHighlightColor: "transparent",
           }}
         >
-          {menuOpen ? "Schließen" : "Menü"}
+          {menuOpen ? "Schliessen" : "Menü"}
         </button>
       </nav>
 

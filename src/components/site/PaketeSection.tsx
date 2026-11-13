@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 
-import { PACKAGES, HOURLY_RATE, PRIMARY_TOOL, SECONDARY_TOOLS } from "./data";
+import { PACKAGES, PRIMARY_TOOL, SECONDARY_TOOLS } from "./data";
 
 const serif = "'Instrument Serif Local', Georgia, serif";
 const sans = "'Barlow Local', Arial, sans-serif";
@@ -23,7 +23,7 @@ export function PaketeSection() {
               fontWeight: 700,
             }}
           >
-            Pakete & Konditionen
+            Leistungspakete
           </p>
 
           <h2
@@ -39,7 +39,7 @@ export function PaketeSection() {
           >
             Klarer Umfang.
             <br />
-            Fester Preis.
+            Verbindliches Angebot.
           </h2>
 
           <p
@@ -51,27 +51,14 @@ export function PaketeSection() {
               color: "rgba(65, 65, 62, 0.68)",
             }}
           >
-            Starten Sie mit einem kleinen Pilotprojekt und prüfen Sie Qualität,
-            Kommunikation und Bürostandard, bevor Sie größere Aufgaben vergeben.
-            Alle Pakete werden nach Sichtung Ihrer Unterlagen verbindlich
-            angeboten – Abrechnung als B2B-Auftrag, keine Anstellung.
+            Typische Aufgaben, die wir als klar abgegrenzte Pakete übernehmen.
+            Nach Sichtung Ihrer Unterlagen erhalten Sie ein verbindliches
+            Angebot – Abrechnung als B2B-Auftrag, keine Anstellung.
           </p>
 
-          <p
-            className="mt-4 max-w-xl"
-            style={{
-              fontFamily: sans,
-              fontSize: "16px",
-              lineHeight: "1.65",
-              color: "rgba(58, 58, 55, 0.86)",
-            }}
-          >
-            Unsere Preise sind niedrig, weil unsere Fixkosten niedrig sind –
-            nicht, weil wir an der Sorgfalt sparen.
-          </p>
         </div>
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {PACKAGES.map((pkg) => (
             <article
               key={pkg.id}
@@ -134,29 +121,6 @@ export function PaketeSection() {
                   </li>
                 ))}
               </ul>
-
-              <div className="mt-auto pt-7">
-                <p
-                  style={{
-                    fontFamily: serif,
-                    fontSize: "28px",
-                    lineHeight: "1.1",
-                    color: "rgba(58, 58, 55, 0.92)",
-                  }}
-                >
-                  {pkg.priceEU}
-                </p>
-                <p
-                  className="mt-1"
-                  style={{
-                    fontFamily: sans,
-                    fontSize: "13px",
-                    color: "rgba(65, 65, 62, 0.58)",
-                  }}
-                >
-                  {pkg.priceCH}
-                </p>
-              </div>
             </article>
           ))}
         </div>
@@ -171,8 +135,7 @@ export function PaketeSection() {
               color: "rgba(65, 65, 62, 0.62)",
             }}
           >
-            Aufgaben außerhalb der Pakete: {HOURLY_RATE.eu} bzw.{" "}
-            {HOURLY_RATE.ch}. Preise netto. Bearbeitung in {PRIMARY_TOOL}, auf
+            Auch Aufgaben ausserhalb der Pakete übernehmen wir gern. Bearbeitung in {PRIMARY_TOOL}, auf
             Wunsch auch in {SECONDARY_TOOLS.join(", ").replace(/, ([^,]*)$/, " und $1")}.
           </p>
 
@@ -180,7 +143,7 @@ export function PaketeSection() {
             to="/kontakt"
             className="inline-flex items-center gap-2 text-sm font-medium transition-opacity hover:opacity-60"
           >
-            Pilotprojekt anfragen
+            Anfrage senden
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

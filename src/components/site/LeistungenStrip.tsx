@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 const items = [
   {
     title: "Ausführungs- & Detailplanung",
-    text: "Grundrisse, Schnitte, Fassaden und Details bis LPH 5 – nach Ihren Bürostandards.",
+    text: "Grundrisse, Schnitte, Fassaden und Details bis zum Ausführungsprojekt (SIA-Phase 51/52 bzw. LPH 5) – nach Ihren Bürostandards.",
     image: "/images/leistungen/ausfuehrungsplanung-detail.webp",
     alt: "Symbolbild: Balkondetail mit Axonometrie und Schnitt",
   },

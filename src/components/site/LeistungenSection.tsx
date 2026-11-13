@@ -14,6 +14,7 @@ const services = [
       "Auswertungen & Listen",
       "Automatisierte Dokumentation",
       "Büro- und Projektstandards",
+      "Planbearbeitung nach SIA 400",
       "Individuelle Archicad-Workflows",
       "Datenexport",
     ],
@@ -74,7 +75,7 @@ const services = [
     items: [
       "D5 Render",
       "Twinmotion",
-      "Außenvisualisierungen",
+      "Aussenvisualisierungen",
       "Präsentationsbilder",
     ],
   },

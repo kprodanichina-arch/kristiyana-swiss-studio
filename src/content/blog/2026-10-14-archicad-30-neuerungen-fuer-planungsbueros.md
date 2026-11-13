@@ -19,11 +19,11 @@ Zur Einordnung: IFC 4.3 ist als DIN EN ISO 16739-1 international genormt, und bu
 
 ## Dokumentation und Projektorganisation
 
-Ein großer Teil der Neuerungen betrifft das, was in der Ausführungsplanung die meiste Zeit kostet: Ordnung im Projekt.
+Ein grosser Teil der Neuerungen betrifft das, was in der Ausführungsplanung die meiste Zeit kostet: Ordnung im Projekt.
 
 - **Projektinfo neu gestaltet:** eigene Gruppen, Drag-and-drop, Suche und direkte Bearbeitung. Gerade bei Planköpfen mit vielen Projektdaten ist das eine echte Erleichterung.
 - **Navigator mit eigenen Ordnern:** Ausschnitte lassen sich freier organisieren und sortieren.
-- **Bemaßung und Beschriftung:** anpassbare Hilfs- und Maßlinien, neue Formen für Beschriftungsrahmen, bessere Legenden.
+- **Bemassung und Beschriftung:** anpassbare Hilfs- und Masslinien, neue Formen für Beschriftungsrahmen, bessere Legenden.
 - **Wände über mehrere Geschosse:** präzisere Steuerung, wie Wände ober- und unterhalb des Bezugsgeschosses dargestellt werden.
 - **Treppen:** Beläge pro Ansicht steuerbar, Komponenten lassen sich als Kern, Belag oder Sonstiges definieren.
 
@@ -42,9 +42,9 @@ Unsere Erfahrung: Ein Versionswechsel im Teamwork sollte immer mit allen Beteili
 
 Die meiste Aufmerksamkeit bekommt das Thema KI. Archicad 30 bringt eine **MCP-Schnittstelle** (Model Context Protocol), über die externe KI-Werkzeuge auf den Projektkontext zugreifen, Fragen beantworten und Stapeländerungen ausführen können. Graphisoft kennzeichnet diese Funktion auf seiner Produktseite als **Beta**. Dazu kommen „AI Assistant Spaces“, mit denen der KI-Assistent eigene Dokumente wie Protokolle oder Vorschriften als Wissensbasis nutzt, sowie ein überarbeiteter AI Visualizer.
 
-Wir sehen hier echtes Potenzial – etwa für wiederkehrende Prüfungen von Eigenschaften oder Massenänderungen. Gleichzeitig raten wir zu Augenmaß: Bevor Projektdaten oder Bauherrenunterlagen an KI-Dienste gehen, sollten **Datenschutz und vertragliche Vertraulichkeit** geklärt sein. Und eine Beta-Funktion gehört nicht in die Abgabe am Freitagabend.
+Wir sehen hier echtes Potenzial – etwa für wiederkehrende Prüfungen von Eigenschaften oder Massenänderungen. Gleichzeitig raten wir zu Augenmass: Bevor Projektdaten oder Bauherrenunterlagen an KI-Dienste gehen, sollten **Datenschutz und vertragliche Vertraulichkeit** geklärt sein. Und eine Beta-Funktion gehört nicht in die Abgabe am Freitagabend.
 
-Neu ist außerdem ein drittes Abo-Modell, **Archicad Max**, neben Studio und Collaborate. Konkrete Preise und Konditionen sollten Büros direkt bei Graphisoft oder ihrem Partner erfragen.
+Neu ist ausserdem ein drittes Abo-Modell, **Archicad Max**, neben Studio und Collaborate. Konkrete Preise und Konditionen sollten Büros direkt bei Graphisoft oder ihrem Partner erfragen.
 
 ## Was das für Planungsbüros bedeutet
 
@@ -57,7 +57,7 @@ Unsere Empfehlung für den Umstieg:
 
 ## Unser Fazit
 
-Archicad 30 ist keine Revolution, sondern ein solides Arbeitsupdate mit einer klaren Botschaft: bessere Daten, bessere Ordnung, mehr Anbindung an KI. Für die Zusammenarbeit über IFC ist die Abbildung von Zonen als IfcSpatialZone der spannendste Schritt. Wir testen die neue Version derzeit in unseren eigenen Vorlagen und unterstützen Büros gern beim Übergang – von der Template-Anpassung bis zur IFC-Abstimmung mit Fachplanern. Wie der IFC-Export konkret aussieht, lesen Sie in [Archicad 30 IFC-Export: Zonen als IfcSpatialZone übergeben](/blog/2026-10-27-archicad-30-ifc-export-fachplaner), wie der Wechsel von Vorlage und Teamwork-Projekten gelingt, in [Umstieg auf Archicad 30: Projekte und Vorlage migrieren](/blog/2026-10-29-umstieg-auf-archicad-30). Als unkomplizierter Einstieg bieten wir ein [Pilotprojekt](/ueber-uns#pakete) an: 4 Stunden zum Festpreis von 126 € (bzw. 168 CHF). Anfragen gern über das [Kontaktformular](/kontakt).
+Archicad 30 ist keine Revolution, sondern ein solides Arbeitsupdate mit einer klaren Botschaft: bessere Daten, bessere Ordnung, mehr Anbindung an KI. Für die Zusammenarbeit über IFC ist die Abbildung von Zonen als IfcSpatialZone der spannendste Schritt. Wir testen die neue Version derzeit in unseren eigenen Vorlagen und unterstützen Büros gern beim Übergang – von der Template-Anpassung bis zur IFC-Abstimmung mit Fachplanern. Wie der IFC-Export konkret aussieht, lesen Sie in [Archicad 30 IFC-Export: Zonen als IfcSpatialZone übergeben](/blog/2026-10-27-archicad-30-ifc-export-fachplaner), wie der Wechsel von Vorlage und Teamwork-Projekten gelingt, in [Umstieg auf Archicad 30: Projekte und Vorlage migrieren](/blog/2026-10-29-umstieg-auf-archicad-30). Anfragen gern über das [Kontaktformular](/kontakt).
 
 ### Quellen
 

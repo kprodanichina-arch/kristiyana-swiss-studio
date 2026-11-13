@@ -15,7 +15,7 @@ export const Route = createFileRoute("/ueber-uns")({
     pageHead(
       "/ueber-uns",
       "Über uns & Leistungen | ArchiKa",
-      "ArchiKa unterstützt Architekturbüros mit Ausführungsplanung, BIM, IFC-Koordination, Scan-to-BIM und Visualisierung – Pilotprojekt zum Festpreis.",
+      "ArchiKa unterstützt Architekturbüros mit Ausführungsplanung, BIM, IFC-Koordination, Scan-to-BIM und Visualisierung – remote, nach SIA- und HOAI-Phasen.",
     ),
   component: UeberUnsPage,
 });

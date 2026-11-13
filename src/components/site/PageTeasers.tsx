@@ -5,7 +5,7 @@ const teasers = [
   {
     to: "/ueber-uns",
     title: "Über uns",
-    text: "Leistungen, Pakete mit Festpreis und Ihre Ansprechpartnerin.",
+    text: "Leistungen, Leistungspakete und Ihre Ansprechpartnerin.",
   },
   {
     to: "/projekte",

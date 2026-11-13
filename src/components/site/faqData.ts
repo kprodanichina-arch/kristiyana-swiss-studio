@@ -9,12 +9,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Was kostet externe Werkplanung?",
     answer:
-      "Werkplanung je Geschoss bieten wir ab 400 € an (bzw. ab 550 CHF). Aufgaben außerhalb der Pakete rechnen wir ab 45 €/h ab (bzw. ab 60 CHF/h). Ein Stundenkontingent von 40 Stunden kostet ab 1.700 €. Alle Preise sind netto und werden nach Sichtung Ihrer Unterlagen verbindlich angeboten.",
-  },
-  {
-    question: "Wie funktioniert das Pilotprojekt?",
-    answer:
-      "Sie wählen eine klar abgegrenzte Aufgabe aus einem laufenden Projekt, im Umfang von 4 Arbeitsstunden. Wir bearbeiten sie in Ihrem Bürostandard und übergeben in 2–3 Werktagen. Der Festpreis für die 4 Stunden beträgt 126 € (bzw. 168 CHF) – 30 % unter unserem regulären Stundensatz. Danach besprechen wir gemeinsam Qualität und Zusammenarbeit.",
+      "Das hängt von Umfang, Detaillierungsgrad und Planstand ab. Nach Sichtung Ihrer Unterlagen erhalten Sie ein verbindliches Angebot – als Festpreis je Paket oder nach Aufwand mit Leistungsnachweis. Alle Preise verstehen sich netto.",
   },
   {
     question: "Arbeiten Sie nach unserem Bürostandard?",
@@ -34,12 +29,12 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Wie gehen Sie mit unseren Projektdaten um?",
     answer:
-      "Als Unternehmen mit Sitz in der EU verarbeiten wir Ihre Projektdaten nach DSGVO und nutzen sie ausschließlich für Ihren Auftrag.",
+      "Als Unternehmen mit Sitz in der EU verarbeiten wir Ihre Projektdaten nach DSGVO und – für Auftraggeber in der Schweiz – im Einklang mit dem Schweizer Datenschutzgesetz (DSG). Wir nutzen sie ausschliesslich für Ihren Auftrag.",
   },
   {
     question: "Wie läuft die Zusammenarbeit ab?",
     answer:
-      "Remote: Sie senden Pläne, Modelle oder Projektdaten, wir stimmen Standard, Formate und Zeitrahmen ab, bearbeiten die Aufgabe und übergeben digital. Die Abstimmung läuft per E-Mail oder Videocall. Vor-Ort-Termine sind nach Absprache möglich.",
+      "Remote: Sie senden Pläne, Modelle oder Projektdaten, wir stimmen Standard, Formate und Zeitrahmen ab, bearbeiten die Aufgabe und übergeben digital. Die Abstimmung läuft per E-Mail oder Videocall. Vor-Ort-Termine sind nach Absprache möglich. Erreichbar sind wir Mo–Fr von 8 bis 17 Uhr (MEZ).",
   },
   {
     question: "Wer steht hinter ArchiKa?",
@@ -49,6 +44,6 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Für welche Länder arbeiten Sie?",
     answer:
-      "Wir arbeiten remote für Architektur- und Planungsbüros unabhängig vom Standort. Preise geben wir in Euro und in Schweizer Franken an.",
+      "Wir arbeiten remote für Architektur- und Planungsbüros unabhängig vom Standort, insbesondere in der Schweiz, in Deutschland und in Österreich. Wir orientieren uns an den Phasen und Normen Ihres Landes – SIA in der Schweiz, HOAI in Deutschland – und an Ihrem Bürostandard.",
   },
 ];

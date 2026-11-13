@@ -114,7 +114,7 @@ export function ContactSection() {
             >
               <li>Antwort in 1–2 Werktagen</li>
               <li>Remote und projektbezogen, ohne Anstellung</li>
-              <li>Pilotprojekt: 4 Stunden, 126 € / 168 CHF Festpreis</li>
+              <li>Erreichbar Mo–Fr, 8–17 Uhr (MEZ)</li>
             </ul>
 
             <p
