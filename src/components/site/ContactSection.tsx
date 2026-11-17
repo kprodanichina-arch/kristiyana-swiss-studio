@@ -3,11 +3,67 @@ import {
   EMAIL,
   PHONE_DISPLAY,
   PROJECT_TYPES,
+  PROJECT_TYPES_EN,
   VIBER_HREF,
   WHATSAPP_HREF,
 } from "./data";
+import { useLang } from "@/lib/i18n";
+
+const COPY = {
+  de: {
+    eyebrow: "Kontakt",
+    h2: ["Lassen Sie uns", "Ihr Projekt", "gemeinsam bearbeiten."],
+    lead1: "Sie benötigen Unterstützung bei BIM, Bestandsmodellierung, Punktwolken, technischer Planung oder Architekturvisualisierung?",
+    lead2: "Beschreiben Sie kurz Ihr Projekt – ich melde mich direkt bei Ihnen.",
+    bullets: [
+      "Antwort in 1–2 Werktagen",
+      "Remote und projektbezogen, ohne Anstellung",
+      "Erreichbar Mo–Fr, 8–17 Uhr (MEZ)",
+    ],
+    tagline: "Von der Punktwolke zum BIM-Modell. Von der Planung zur fertigen Dokumentation.",
+    name: "Name",
+    namePh: "Ihr Name",
+    email: "E-Mail",
+    emailPh: "ihre@email.de",
+    type: "Wobei kann ich Sie unterstützen?",
+    choose: "Bitte auswählen",
+    message: "Projektbeschreibung",
+    messagePh: "Erzählen Sie mir kurz von Ihrem Projekt, den benötigten Leistungen und dem gewünschten Zeitraum.",
+    sending: "Wird gesendet...",
+    send: "Anfrage senden",
+    success: "Vielen Dank. Ihre Anfrage wurde erfolgreich gesendet.",
+    error: "Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie mich direkt per E-Mail.",
+  },
+  en: {
+    eyebrow: "Contact",
+    h2: ["Let's work on", "your project", "together."],
+    lead1: "Do you need support with BIM, as-built modelling, point clouds, technical design or architectural visualisation?",
+    lead2: "Briefly describe your project – I will get back to you directly.",
+    bullets: [
+      "Reply within 1–2 working days",
+      "Remote and project-based, no employment",
+      "Available Mon–Fri, 8:00–17:00 CET",
+    ],
+    tagline: "From point cloud to BIM model. From design to finished documentation.",
+    name: "Name",
+    namePh: "Your name",
+    email: "Email",
+    emailPh: "you@company.com",
+    type: "How can I help?",
+    choose: "Please select",
+    message: "Project description",
+    messagePh: "Tell me briefly about your project, the services you need and your preferred timeframe.",
+    sending: "Sending...",
+    send: "Send enquiry",
+    success: "Thank you. Your enquiry has been sent successfully.",
+    error: "Something went wrong while sending. Please try again or contact me directly by email.",
+  },
+} as const;
 
 export function ContactSection() {
+  const lang = useLang();
+  const t = COPY[lang];
+  const projectTypes = lang === "en" ? PROJECT_TYPES_EN : PROJECT_TYPES;
   const [status, setStatus] = useState<
     "idle" | "sending" | "success" | "error"
   >("idle");
@@ -62,7 +118,7 @@ export function ContactSection() {
                 WebkitFontSmoothing: "antialiased",
               }}
             >
-              Kontakt
+              {t.eyebrow}
             </p>
 
             <h2
@@ -77,11 +133,11 @@ export function ContactSection() {
                 WebkitFontSmoothing: "antialiased",
               }}
             >
-              Lassen Sie uns
+              {t.h2[0]}
               <br />
-              Ihr Projekt
+              {t.h2[1]}
               <br />
-              gemeinsam bearbeiten.
+              {t.h2[2]}
             </h2>
 
             <p
@@ -95,11 +151,9 @@ export function ContactSection() {
                 WebkitFontSmoothing: "antialiased",
               }}
             >
-              Sie benötigen Unterstützung bei BIM, Bestandsmodellierung,
-              Punktwolken, technischer Planung oder Architekturvisualisierung?
+              {t.lead1}
               <br />
-              Beschreiben Sie kurz Ihr Projekt – ich melde mich direkt bei
-              Ihnen.
+              {t.lead2}
             </p>
 
             <ul
@@ -112,9 +166,9 @@ export function ContactSection() {
                 fontWeight: 500,
               }}
             >
-              <li>Antwort in 1–2 Werktagen</li>
-              <li>Remote und projektbezogen, ohne Anstellung</li>
-              <li>Erreichbar Mo–Fr, 8–17 Uhr (MEZ)</li>
+              {t.bullets.map((b) => (
+                <li key={b}>{b}</li>
+              ))}
             </ul>
 
             <p
@@ -127,8 +181,7 @@ export function ContactSection() {
                 WebkitFontSmoothing: "antialiased",
               }}
             >
-              Von der Punktwolke zum BIM-Modell. Von der Planung zur fertigen
-              Dokumentation.
+              {t.tagline}
             </p>
 
             <div className="mt-10 space-y-5">
@@ -193,6 +246,7 @@ export function ContactSection() {
               onSubmit={handleSubmit}
               className="border-t border-[rgba(32,32,29,0.18)]"
             >
+              <input type="hidden" name="language" value={lang} />
               <div className="border-b border-[rgba(32,32,29,0.14)] py-7">
                 <label
                   htmlFor="name"
@@ -204,7 +258,7 @@ export function ContactSection() {
                     color: "rgba(65, 65, 62, 0.48)",
                   }}
                 >
-                  Name
+                  {t.name}
                 </label>
 
                 <input
@@ -212,7 +266,7 @@ export function ContactSection() {
                   name="name"
                   type="text"
                   required
-                  placeholder="Ihr Name"
+                  placeholder={t.namePh}
                   className="mt-3 w-full border-0 bg-transparent p-0 outline-none placeholder:text-[rgba(65,65,62,0.38)]"
                   style={{
                     fontFamily: "'Barlow Local', Arial, sans-serif",
@@ -233,7 +287,7 @@ export function ContactSection() {
                     color: "rgba(65, 65, 62, 0.48)",
                   }}
                 >
-                  E-Mail
+                  {t.email}
                 </label>
 
                 <input
@@ -241,7 +295,7 @@ export function ContactSection() {
                   name="email"
                   type="email"
                   required
-                  placeholder="ihre@email.de"
+                  placeholder={t.emailPh}
                   className="mt-3 w-full border-0 bg-transparent p-0 outline-none placeholder:text-[rgba(65,65,62,0.38)]"
                   style={{
                     fontFamily: "'Barlow Local', Arial, sans-serif",
@@ -262,7 +316,7 @@ export function ContactSection() {
                     color: "rgba(65, 65, 62, 0.48)",
                   }}
                 >
-                  Wobei kann ich Sie unterstützen?
+                  {t.type}
                 </label>
 
                 <select
@@ -278,10 +332,10 @@ export function ContactSection() {
                   }}
                 >
                   <option value="" disabled>
-                    Bitte auswählen
+                    {t.choose}
                   </option>
 
-                  {PROJECT_TYPES.map((projectType) => (
+                  {projectTypes.map((projectType) => (
                     <option key={projectType} value={projectType}>
                       {projectType}
                     </option>
@@ -300,7 +354,7 @@ export function ContactSection() {
                     color: "rgba(65, 65, 62, 0.48)",
                   }}
                 >
-                  Projektbeschreibung
+                  {t.message}
                 </label>
 
                 <textarea
@@ -308,7 +362,7 @@ export function ContactSection() {
                   name="message"
                   required
                   rows={6}
-                  placeholder="Erzählen Sie mir kurz von Ihrem Projekt, den benötigten Leistungen und dem gewünschten Zeitraum."
+                  placeholder={t.messagePh}
                   className="mt-3 w-full resize-none border-0 bg-transparent p-0 outline-none placeholder:text-[rgba(65,65,62,0.38)]"
                   style={{
                     fontFamily: "'Barlow Local', Arial, sans-serif",
@@ -336,8 +390,8 @@ export function ContactSection() {
                   }}
                 >
                   {status === "sending"
-                    ? "Wird gesendet..."
-                    : "Anfrage senden"}
+                    ? t.sending
+                    : t.send}
                 </button>
 
                 {status === "success" && (
@@ -349,7 +403,7 @@ export function ContactSection() {
                       color: "rgba(65, 65, 62, 0.68)",
                     }}
                   >
-                    Vielen Dank. Ihre Anfrage wurde erfolgreich gesendet.
+                    {t.success}
                   </p>
                 )}
 
@@ -362,9 +416,7 @@ export function ContactSection() {
                       color: "rgba(65, 65, 62, 0.68)",
                     }}
                   >
-                    Beim Senden ist ein Fehler aufgetreten. Bitte versuchen
-                    Sie es erneut oder kontaktieren Sie mich direkt per
-                    E-Mail.
+                    {t.error}
                   </p>
                 )}
               </div>

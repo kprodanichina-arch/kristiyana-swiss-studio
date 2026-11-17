@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
+import { useLang } from "@/lib/i18n";
 
-const steps = [
+const stepsDe = [
   {
     number: "01",
     title: "Aufgabe klären.",
@@ -23,7 +24,32 @@ const steps = [
   },
 ];
 
+const stepsEn = [
+  {
+    number: "01",
+    title: "Define the task.",
+    text: "You send me your existing drawings, models or project data, and together we clarify where you need support.",
+  },
+  {
+    number: "02",
+    title: "Agree the standard.",
+    text: "We agree on your office standard, templates, software, existing data, required formats and the timeframe.",
+  },
+  {
+    number: "03",
+    title: "Get it done.",
+    text: "I carry out the agreed tasks remotely, working to your standards and within your existing project structure.",
+  },
+  {
+    number: "04",
+    title: "Hand over.",
+    text: "The finished drawings, models or visualisations are delivered digitally in the agreed formats and structure.",
+  },
+];
+
 export function AblaufSection() {
+  const en = useLang() === "en";
+  const steps = en ? stepsEn : stepsDe;
   const sectionRef = useRef<HTMLElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -77,7 +103,7 @@ export function AblaufSection() {
                 WebkitFontSmoothing: "antialiased",
               }}
             >
-              Ablauf
+              {en ? "Process" : "Ablauf"}
             </p>
 
             <h2
@@ -93,9 +119,9 @@ export function AblaufSection() {
                 WebkitFontSmoothing: "antialiased",
               }}
             >
-              Einfach integrierbar.
+              {en ? "Easy to integrate." : "Einfach integrierbar."}
               <br />
-              Klar im Ablauf.
+              {en ? "Clear process." : "Klar im Ablauf."}
             </h2>
           </div>
 
@@ -110,10 +136,13 @@ export function AblaufSection() {
                 WebkitFontSmoothing: "antialiased",
               }}
             >
-              Nicht neben dem Team, sondern im Workflow.
+              {en
+                ? "Not alongside your team, but within your workflow."
+                : "Nicht neben dem Team, sondern im Workflow."}
               <br />
-              Die Zusammenarbeit wird auf Ihren konkreten Bedarf abgestimmt
-              und in Ihre bestehende Arbeitsweise integriert.
+              {en
+                ? "The collaboration is tailored to your specific needs and integrated into the way you already work."
+                : "Die Zusammenarbeit wird auf Ihren konkreten Bedarf abgestimmt und in Ihre bestehende Arbeitsweise integriert."}
             </p>
           </div>
         </div>

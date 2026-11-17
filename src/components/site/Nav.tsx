@@ -1,16 +1,69 @@
 import { useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { Logo } from "./Logo";
+import { counterpartPath, langFromPath } from "@/lib/i18n";
+import { hasEnglishPosts } from "@/lib/blog";
 
-const links = [
+const linksDe = [
   { href: "/ueber-uns", label: "Über uns" },
   { href: "/projekte", label: "Projekte" },
   { href: "/blog", label: "Blog" },
   { href: "/faq", label: "FAQ" },
 ];
 
+const linksEn = [
+  { href: "/en/about", label: "About us" },
+  { href: "/en/projects", label: "Projects" },
+  ...(hasEnglishPosts ? [{ href: "/en/blog", label: "Blog" }] : []),
+  { href: "/en/faq", label: "FAQ" },
+];
+
+function LangSwitch({ pathname, onClick }: { pathname: string; onClick?: () => void }) {
+  const current = langFromPath(pathname);
+  const raw = counterpartPath(pathname);
+  const target = raw.startsWith("/en/blog") && !hasEnglishPosts ? "/en" : raw;
+  const item = (code: "de" | "en") =>
+    code === current ? (
+      <span aria-current="true" style={{ textDecoration: "underline", textUnderlineOffset: "6px" }}>
+        {code.toUpperCase()}
+      </span>
+    ) : (
+      <a
+        href={target}
+        hrefLang={code}
+        lang={code}
+        onClick={onClick}
+        aria-label={code === "en" ? "English version" : "Deutsche Version"}
+        style={{ color: "inherit", textDecoration: "none", opacity: 0.6 }}
+      >
+        {code.toUpperCase()}
+      </a>
+    );
+  return (
+    <span
+      className="inline-flex items-center gap-2"
+      style={{
+        fontFamily: "'Barlow Semi Condensed Local', Arial, sans-serif",
+        fontSize: "13px",
+        fontWeight: 700,
+        letterSpacing: "0.1em",
+      }}
+    >
+      {item("de")}
+      <span aria-hidden="true" style={{ opacity: 0.35 }}>/</span>
+      {item("en")}
+    </span>
+  );
+}
+
 export function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const en = langFromPath(pathname) === "en";
+  const links = en ? linksEn : linksDe;
+  const home = en ? "/en" : "/";
+  const contact = en ? "/en/contact" : "/kontakt";
+  const contactLabel = en ? "Contact" : "Kontakt";
 
   const closeMenu = () => {
     setMenuOpen(false);
@@ -36,8 +89,8 @@ export function Nav() {
     >
       <nav className="relative mx-auto flex h-[76px] max-w-6xl items-center justify-between gap-6 px-6 pl-8 sm:px-10 sm:pl-14 lg:px-14 lg:pl-20">
         <Link
-          to="/"
-          aria-label="Startseite"
+          to={home}
+          aria-label={en ? "Home" : "Startseite"}
           className="pointer-events-auto absolute left-8 top-2 z-50 flex items-center sm:left-14 lg:left-20"
           onClick={closeMenu}
         >
@@ -75,7 +128,7 @@ export function Nav() {
 
           <li>
             <Link
-              to="/kontakt"
+              to={contact}
               style={{
                 display: "inline-block",
                 border: "1px solid rgba(32, 32, 29, 0.22)",
@@ -90,8 +143,12 @@ export function Nav() {
                 transition: "background-color 0.2s",
               }}
             >
-              Kontakt
+              {contactLabel}
             </Link>
+          </li>
+
+          <li>
+            <LangSwitch pathname={pathname} />
           </li>
         </ul>
 
@@ -100,7 +157,15 @@ export function Nav() {
           type="button"
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
-          aria-label={menuOpen ? "Menü schliessen" : "Menü öffnen"}
+          aria-label={
+            en
+              ? menuOpen
+                ? "Close menu"
+                : "Open menu"
+              : menuOpen
+                ? "Menü schliessen"
+                : "Menü öffnen"
+          }
           onClick={() => setMenuOpen((open) => !open)}
           className="ml-auto flex items-center border border-[rgba(32,32,29,0.22)] px-4 py-2 md:hidden"
           style={{
@@ -114,7 +179,7 @@ export function Nav() {
             WebkitTapHighlightColor: "transparent",
           }}
         >
-          {menuOpen ? "Schliessen" : "Menü"}
+          {en ? (menuOpen ? "Close" : "Menu") : menuOpen ? "Schliessen" : "Menü"}
         </button>
       </nav>
 
@@ -149,7 +214,7 @@ export function Nav() {
             ))}
 
             <Link
-              to="/kontakt"
+              to={contact}
               onClick={closeMenu}
               className="mt-4 block border border-[rgba(32,32,29,0.24)] px-5 py-3 text-center"
               style={{
@@ -164,8 +229,12 @@ export function Nav() {
                 WebkitTapHighlightColor: "transparent",
               }}
             >
-              Kontakt
+              {contactLabel}
             </Link>
+
+            <div className="mt-5 flex justify-center" style={{ color: "#20201d" }}>
+              <LangSwitch pathname={pathname} onClick={closeMenu} />
+            </div>
           </div>
         </div>
       </div>

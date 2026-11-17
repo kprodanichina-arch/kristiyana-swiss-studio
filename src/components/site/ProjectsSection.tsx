@@ -5,12 +5,15 @@ import {
   type TouchEvent,
 } from "react";
 
+import { useLang, type Lang } from "@/lib/i18n";
+
 type GalleryImage = {
   src: string;
   alt: string;
 };
 
 type GallerySection = {
+  id: string;
   eyebrow: string;
   title: string;
   description: string;
@@ -44,6 +47,7 @@ const shuffle = <T,>(array: T[]): T[] => {
 
 const gallerySections: GallerySection[] = [
   {
+    id: "plans",
     eyebrow: "Ausführungsplanung",
     title: "Technische Planung & Dokumentation",
     description:
@@ -94,6 +98,7 @@ const gallerySections: GallerySection[] = [
   },
 
   {
+    id: "facades",
     eyebrow: "Fassaden & Details",
     title: "Fassadenplanung & architektonische Details",
     description:
@@ -122,6 +127,7 @@ const gallerySections: GallerySection[] = [
   },
 
   {
+    id: "scan",
     eyebrow: "Scan-to-BIM & BIM-Workflows",
     title: "Von der Punktwolke zum prüfbaren BIM-Modell",
     description:
@@ -137,6 +143,7 @@ const gallerySections: GallerySection[] = [
   },
 
   {
+    id: "renders",
     eyebrow: "Architekturvisualisierung",
     title: "Fotorealistische Renderings",
     description:
@@ -147,12 +154,76 @@ const gallerySections: GallerySection[] = [
   },
 ];
 
+const SECTION_EN: Record<string, Pick<GallerySection, "eyebrow" | "title" | "description">> = {
+  plans: {
+    eyebrow: "Construction documentation",
+    title: "Technical design & documentation",
+    description:
+      "Construction documentation and detailing for architecture practices – from plans, sections and elevations to detailed drawing preparation and technical documentation.",
+  },
+  facades: {
+    eyebrow: "Facades & details",
+    title: "Facade design & architectural details",
+    description:
+      "Development of facades, elevations and architectural details for clear and consistent project documentation.",
+  },
+  scan: {
+    eyebrow: "Scan-to-BIM & BIM workflows",
+    title: "From point cloud to a verifiable BIM model",
+    description:
+      "Scan-to-BIM workflow on a laser scan dataset (Leica BLK360): analysis of the classified point cloud, modelling in Archicad with IFC classification, IFC export and scan-vs-BIM deviation analysis. Data source: \u201cIndoor point cloud dataset for BIM related applications\u201d, INESC TEC (2023).",
+  },
+  renders: {
+    eyebrow: "Architectural visualisation",
+    title: "Photorealistic renderings",
+    description:
+      "Photorealistic architectural visualisations for presentations, project communication and compelling portrayal of architecture.",
+  },
+};
+
+const ALT_EN: Record<string, string> = {
+  "Grundriss – Ausführungsplanung": "Floor plan – construction documentation",
+  "Schnitt – Ausführungsplanung": "Section – construction documentation",
+  "Fensterdetail – Ausführungsplanung": "Window detail – construction documentation",
+  "Dachaufsicht – Ausführungsplanung": "Roof plan – construction documentation",
+  Fassadenansicht: "Facade elevation",
+  "Archicad: eingeladene Punktwolke (Leica BLK360, 48,7 Mio. Punkte) in der 3D-Ansicht – ohne Modell":
+    "Archicad: imported point cloud (Leica BLK360, 48.7 million points) in 3D view – without model",
+  "Punktwolke (Leica BLK360) als Draufsicht – Ausgangsdaten für Scan-to-BIM":
+    "Point cloud (Leica BLK360) in plan view – source data for Scan-to-BIM",
+  "Archicad: BIM-Modell mit eingeladener Punktwolke – Wände und Decken deckungsgleich":
+    "Archicad: BIM model with imported point cloud – walls and slabs aligned",
+  "Grundriss und 3D-Modell in Archicad – Scan-to-BIM-Workflow":
+    "Floor plan and 3D model in Archicad – Scan-to-BIM workflow",
+  "Archicad Elementeinstellungen mit IFC-Klassifizierung (IfcWall) und Element-ID":
+    "Archicad element settings with IFC classification (IfcWall) and element ID",
+  "Scan-vs-BIM-Abweichungsanalyse der Wände": "Scan-vs-BIM deviation analysis of the walls",
+};
+
+function translateSection(section: GallerySection, lang: Lang): GallerySection {
+  if (lang === "de") return section;
+  return {
+    ...section,
+    ...SECTION_EN[section.id],
+    images: section.images.map((img) => ({
+      ...img,
+      alt:
+        ALT_EN[img.alt] ??
+        img.alt.replace(/^Architekturvisualisierung (\d+)$/, "Architectural visualisation $1"),
+    })),
+  };
+}
+
 function Gallery({
   section,
   images,
+  prevLabel,
+  nextLabel,
 }: {
   section: GallerySection;
   images: GalleryImage[];
+  prevLabel: string;
+  nextLabel: string;
 }) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const transitionTimeoutRef = useRef<number | null>(null);
@@ -344,7 +415,7 @@ function Gallery({
             {!single && (<button
               type="button"
               onClick={previous}
-              aria-label="Vorheriges Bild"
+              aria-label={prevLabel}
               className="group relative hidden aspect-[4/3] overflow-hidden bg-muted md:block"
             >
               <img
@@ -379,7 +450,7 @@ function Gallery({
               {!single && (<><button
                 type="button"
                 onClick={previous}
-                aria-label="Vorheriges Bild"
+                aria-label={prevLabel}
                 className="absolute left-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center bg-black/35 text-2xl text-white backdrop-blur-sm transition-all duration-300 hover:bg-black/55 hover:-translate-x-0.5 md:hidden"
               >
                 ‹
@@ -388,7 +459,7 @@ function Gallery({
               <button
                 type="button"
                 onClick={next}
-                aria-label="Nächstes Bild"
+                aria-label={nextLabel}
                 className="absolute right-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center bg-black/35 text-2xl text-white backdrop-blur-sm transition-all duration-300 hover:bg-black/55 hover:translate-x-0.5 md:hidden"
               >
                 ›
@@ -398,7 +469,7 @@ function Gallery({
             {!single && (<button
               type="button"
               onClick={next}
-              aria-label="Nächstes Bild"
+              aria-label={nextLabel}
               className="group relative hidden aspect-[4/3] overflow-hidden bg-muted md:block"
             >
               <img
@@ -436,6 +507,8 @@ function Gallery({
 }
 
 export function ProjectsSection() {
+  const lang = useLang();
+  const en = lang === "en";
   const [shuffledSections, setShuffledSections] =
     useState<GallerySection[]>(gallerySections);
 
@@ -444,9 +517,9 @@ export function ProjectsSection() {
       gallerySections.map((section) => ({
         ...section,
         images:
-          section.eyebrow === "Scan-to-BIM & BIM-Workflows"
+          section.id === "scan"
             ? section.images
-            : section.eyebrow === "Architekturvisualisierung"
+            : section.id === "renders"
             ? shuffle(section.images).slice(0, 20)
             : shuffle(section.images),
       })),
@@ -455,13 +528,18 @@ export function ProjectsSection() {
 
   return (
     <section id="projekte">
-      {shuffledSections.map((section) => (
-        <Gallery
-          key={section.eyebrow}
-          section={section}
-          images={section.images}
-        />
-      ))}
+      {shuffledSections.map((raw) => {
+        const section = translateSection(raw, lang);
+        return (
+          <Gallery
+            key={section.id}
+            section={section}
+            images={section.images}
+            prevLabel={en ? "Previous image" : "Vorheriges Bild"}
+            nextLabel={en ? "Next image" : "Nächstes Bild"}
+          />
+        );
+      })}
     </section>
   );
 }

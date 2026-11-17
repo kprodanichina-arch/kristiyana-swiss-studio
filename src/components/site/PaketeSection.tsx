@@ -1,13 +1,18 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 
-import { PACKAGES, PRIMARY_TOOL, SECONDARY_TOOLS } from "./data";
+import { PACKAGES, PACKAGES_EN, PRIMARY_TOOL, SECONDARY_TOOLS } from "./data";
+import { useLang, localizePath } from "@/lib/i18n";
 
 const serif = "'Instrument Serif Local', Georgia, serif";
 const sans = "'Barlow Local', Arial, sans-serif";
 const label = "'Barlow Semi Condensed Local', Arial, sans-serif";
 
 export function PaketeSection() {
+  const lang = useLang();
+  const en = lang === "en";
+  const packages = en ? PACKAGES_EN : PACKAGES;
+  const others = SECONDARY_TOOLS.join(", ").replace(/, ([^,]*)$/, en ? " and $1" : " und $1");
   return (
     <section
       id="pakete"
@@ -23,7 +28,7 @@ export function PaketeSection() {
               fontWeight: 700,
             }}
           >
-            Leistungspakete
+            {en ? "Service packages" : "Leistungspakete"}
           </p>
 
           <h2
@@ -37,9 +42,9 @@ export function PaketeSection() {
               color: "rgba(58, 58, 55, 0.9)",
             }}
           >
-            Klarer Umfang.
+            {en ? "Clear scope." : "Klarer Umfang."}
             <br />
-            Verbindliches Angebot.
+            {en ? "Binding quote." : "Verbindliches Angebot."}
           </h2>
 
           <p
@@ -51,15 +56,15 @@ export function PaketeSection() {
               color: "rgba(65, 65, 62, 0.68)",
             }}
           >
-            Typische Aufgaben, die wir als klar abgegrenzte Pakete übernehmen.
-            Nach Sichtung Ihrer Unterlagen erhalten Sie ein verbindliches
-            Angebot – Abrechnung als B2B-Auftrag, keine Anstellung.
+            {en
+              ? "Typical tasks we take on as clearly defined packages. Once we have reviewed your documents, you receive a binding quote – invoiced as a B2B contract, not employment."
+              : "Typische Aufgaben, die wir als klar abgegrenzte Pakete übernehmen. Nach Sichtung Ihrer Unterlagen erhalten Sie ein verbindliches Angebot – Abrechnung als B2B-Auftrag, keine Anstellung."}
           </p>
 
         </div>
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-          {PACKAGES.map((pkg) => (
+          {packages.map((pkg) => (
             <article
               key={pkg.id}
               className={`flex flex-col border p-7 sm:p-8 ${
@@ -135,15 +140,16 @@ export function PaketeSection() {
               color: "rgba(65, 65, 62, 0.62)",
             }}
           >
-            Auch Aufgaben ausserhalb der Pakete übernehmen wir gern. Bearbeitung in {PRIMARY_TOOL}, auf
-            Wunsch auch in {SECONDARY_TOOLS.join(", ").replace(/, ([^,]*)$/, " und $1")}.
+            {en
+              ? `We are also happy to take on tasks outside these packages. Work is done in ${PRIMARY_TOOL}, and on request in ${others}.`
+              : `Auch Aufgaben ausserhalb der Pakete übernehmen wir gern. Bearbeitung in ${PRIMARY_TOOL}, auf Wunsch auch in ${others}.`}
           </p>
 
           <Link
-            to="/kontakt"
+            to={localizePath("/kontakt", lang)}
             className="inline-flex items-center gap-2 text-sm font-medium transition-opacity hover:opacity-60"
           >
-            Anfrage senden
+            {en ? "Send an enquiry" : "Anfrage senden"}
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

@@ -1,29 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { EMAIL } from "@/components/site/data";
+import { pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/impressum")({
-  head: () => ({
-    links: [
-      {
-        rel: "canonical",
-        href: "https://archikprojekt.com/impressum",
-      },
-    ],
-    meta: [
-      {
-        title: "Impressum | ArchiKa",
-      },
-      {
-        name: "description",
-        content:
-          "Impressum und Anbieterinformationen von ArchiKa und AY END VI BILD EOOD.",
-      },
-      {
-        property: "og:url",
-        content: "https://archikprojekt.com/impressum",
-      },
-    ],
-  }),
+  head: () =>
+    pageHead(
+      "/impressum",
+      "Impressum | ArchiKa",
+      "Impressum und Anbieterinformationen von ArchiKa und AY END VI BILD EOOD.",
+    ),
   component: ImpressumPage,
 });
 

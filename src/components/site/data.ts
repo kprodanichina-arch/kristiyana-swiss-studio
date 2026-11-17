@@ -157,3 +157,75 @@ export const PROJECT_TYPES = [
   "Architekturvisualisierung",
   "Laufende Projektunterstützung",
 ] as const;
+
+export const PACKAGES_EN: Package[] = [
+  {
+    id: "modellcheck",
+    eyebrow: "BIM / IFC",
+    title: "Model check & IFC preparation",
+    description:
+      "Review and clean-up of an existing Archicad model, with IFC export for consultants.",
+    includes: [
+      "Model review & clean-up",
+      "Classification & properties",
+      "IFC export with checking report",
+    ],
+  },
+  {
+    id: "scan-to-bim",
+    eyebrow: "Scan-to-BIM",
+    title: "Point cloud to as-built model",
+    description:
+      "Preparation of existing point clouds and modelling of the existing building in Archicad – as a basis for refurbishment, conversion or extension.",
+    includes: [
+      "Point cloud import & clean-up (e.g. E57)",
+      "As-built model in Archicad, LOD as agreed",
+      "Existing-condition drawings & IFC handover",
+    ],
+  },
+  {
+    id: "werkplanung",
+    eyebrow: "Construction documentation",
+    title: "Construction drawings per floor",
+    description:
+      "Construction drawings for one floor or building phase – plan, sections, elevations.",
+    includes: [
+      "Plan, sections, elevations",
+      "Dimensioning & annotation to your office standard",
+      "Sheet layout & PDF/DWG output",
+    ],
+  },
+  {
+    id: "kontingent",
+    eyebrow: "Ongoing support",
+    title: "40-hour block",
+    description:
+      "Flexible capacity for peak periods – available to call on over up to two months.",
+    includes: [
+      "40 hours, used flexibly",
+      "one dedicated contact person",
+      "invoiced against timesheets",
+    ],
+  },
+];
+
+export const PROJECT_TYPES_EN = [
+  "Construction documentation & detailing",
+  "Archicad",
+  "Revit",
+  "Rhino / Grasshopper",
+  "Archicad automation",
+  "Model checking & quality control",
+  "BIM model clean-up",
+  "IFC coordination",
+  "OpenBIM",
+  "BIMcloud",
+  "IFC export & BIM data",
+  "Scan-to-BIM / point clouds",
+  "As-built modelling in Archicad",
+  "Facade design",
+  "Quantity take-off",
+  "Sections & elevations",
+  "Architectural visualisation",
+  "Ongoing project support",
+] as const;

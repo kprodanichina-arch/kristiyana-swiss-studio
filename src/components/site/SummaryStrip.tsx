@@ -1,14 +1,23 @@
+import { useLang } from "@/lib/i18n";
 const label = "'Barlow Semi Condensed Local', Arial, sans-serif";
 const sans = "'Barlow Local', Arial, sans-serif";
 
-const items = [
+const itemsDe = [
   { k: "Was", v: "Ausführungsplanung, BIM/IFC, Scan-to-BIM, Visualisierung" },
   { k: "Für wen", v: "Architektur- und Planungsbüros (DACH), remote" },
   { k: "Erreichbar", v: "Mo–Fr, 8–17 Uhr (MEZ)" },
   { k: "Start", v: "Kurze Anfrage – Antwort in 1–2 Werktagen" },
 ];
 
+const itemsEn = [
+  { k: "What", v: "Construction documentation, BIM/IFC, Scan-to-BIM, visualisation" },
+  { k: "For whom", v: "Architecture and design practices worldwide, remote" },
+  { k: "Available", v: "Mon–Fri, 8:00–17:00 CET" },
+  { k: "Getting started", v: "Short enquiry – reply within 1–2 working days" },
+];
+
 export function SummaryStrip() {
+  const items = useLang() === "en" ? itemsEn : itemsDe;
   return (
     <section className="border-b border-border bg-background">
       <div className="mx-auto max-w-[1800px] px-6 py-8 sm:px-10 lg:px-14 xl:px-16">

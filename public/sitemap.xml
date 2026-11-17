@@ -66,4 +66,31 @@
   <url>
     <loc>https://archikprojekt.com/datenschutz</loc>
   </url>
+  <url>
+    <loc>https://archikprojekt.com/en</loc>
+  </url>
+
+  <url>
+    <loc>https://archikprojekt.com/en/about</loc>
+  </url>
+
+  <url>
+    <loc>https://archikprojekt.com/en/projects</loc>
+  </url>
+
+  <url>
+    <loc>https://archikprojekt.com/en/faq</loc>
+  </url>
+
+  <url>
+    <loc>https://archikprojekt.com/en/contact</loc>
+  </url>
+
+  <url>
+    <loc>https://archikprojekt.com/en/imprint</loc>
+  </url>
+
+  <url>
+    <loc>https://archikprojekt.com/en/privacy</loc>
+  </url>
 </urlset>
