@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 const PROFILE_FACTS_DE = [
   { label: "Planungserfahrung", value: "über 100.000 m²" },
   { label: "Software", value: "Archicad, BIMcloud · Revit, Rhino, Grasshopper" },
-  { label: "Sprachen", value: "Deutsch B2 · Englisch B2" },
+  { label: "Kommunikation", value: "auf Deutsch und Englisch" },
   { label: "Arbeitsweise", value: "Remote, Vor-Ort-Termine nach Absprache" },
   { label: "Ausbildung", value: "Master Architektur, UACEG Sofia" },
 ];
@@ -13,7 +13,7 @@ const PROFILE_FACTS_DE = [
 const PROFILE_FACTS_EN = [
   { label: "Design experience", value: "over 100,000 m²" },
   { label: "Software", value: "Archicad, BIMcloud · Revit, Rhino, Grasshopper" },
-  { label: "Languages", value: "English B2 · German B2" },
+  { label: "Communication", value: "in English and German" },
   { label: "Way of working", value: "Remote, on-site meetings by arrangement" },
   { label: "Education", value: "Master of Architecture, UACEG Sofia" },
 ];
