@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
+import { useLang } from "@/lib/i18n";
 
-const services = [
+const servicesDe = [
   {
     number: "01",
     title: "Ausführungsplanung & Archicad Automatisierung",
@@ -81,7 +82,90 @@ const services = [
   },
 ];
 
+const servicesEn = [
+  {
+    number: "01",
+    title: "Construction documentation & Archicad automation",
+    text: "Technical construction documentation and detailing, plus efficient handling and optimisation of Archicad projects – from preparing drawing sets to structured model checking and automating repetitive tasks.",
+    items: [
+      "Construction documentation & detailing",
+      "Archicad",
+      "Model checking",
+      "BIM model clean-up",
+      "Element and component numbering",
+      "Schedules & reports",
+      "Automated documentation",
+      "Office and project standards",
+      "Drawings to your national standards",
+      "Custom Archicad workflows",
+      "Data export",
+    ],
+  },
+  {
+    number: "02",
+    title: "IFC coordination, OpenBIM & BIMcloud",
+    text: "Structured coordination and management of BIM models with IFC, OpenBIM and BIMcloud – for reliable data exchange and efficient collaboration between project partners.",
+    items: [
+      "IFC coordination",
+      "OpenBIM",
+      "BIMcloud",
+      "IFC import & export",
+      "Discipline model coordination",
+      "Model federation",
+      "IFC data checking",
+      "BIM data management",
+    ],
+  },
+  {
+    number: "03",
+    title: "Facades & drawing preparation",
+    text: "Development and preparation of facades, elevations and technical drawings for clear and consistent project documentation.",
+    items: [
+      "Facade design",
+      "Elevations",
+      "Drawing preparation",
+      "Technical documentation",
+    ],
+  },
+  {
+    number: "04",
+    title: "Scan-to-BIM & as-built modelling",
+    text: "Existing point clouds are turned into structured digital as-built models: point cloud preparation, modelling in Archicad and handover as an IFC-ready BIM model.",
+    items: [
+      "Point clouds",
+      "Point cloud preparation",
+      "Archicad as-built models",
+      "IFC export",
+    ],
+  },
+  {
+    number: "05",
+    title: "Other software: Revit, Rhino & Grasshopper",
+    text: "Archicad is our main tool. If your practice works with other software, we also support you in Revit, Rhino and Grasshopper – for drawing work, form-finding or parametric facade studies.",
+    items: [
+      "Revit",
+      "Rhino",
+      "Grasshopper",
+      "Parametric studies",
+      "Data exchange with Archicad (IFC)",
+    ],
+  },
+  {
+    number: "06",
+    title: "Architectural visualisation",
+    text: "Photorealistic architectural visualisations for presentations, project communication and compelling portrayal of architecture.",
+    items: [
+      "D5 Render",
+      "Twinmotion",
+      "Exterior visualisations",
+      "Presentation images",
+    ],
+  },
+];
+
 export function LeistungenSection() {
+  const en = useLang() === "en";
+  const services = en ? servicesEn : servicesDe;
   const sectionRef = useRef<HTMLElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -133,7 +217,7 @@ export function LeistungenSection() {
                 WebkitFontSmoothing: "antialiased",
               }}
             >
-              Leistungen
+              {en ? "Services" : "Leistungen"}
             </p>
 
             <h2
@@ -149,11 +233,11 @@ export function LeistungenSection() {
                 WebkitFontSmoothing: "antialiased",
               }}
             >
-              Flexible
+              {en ? "Flexible" : "Flexible"}
               <br />
-              Unterstützung
+              {en ? "support" : "Unterstützung"}
               <br />
-              für Ihre Projekte
+              {en ? "for your projects" : "für Ihre Projekte"}
             </h2>
 
             <p
@@ -167,14 +251,13 @@ export function LeistungenSection() {
                 WebkitFontSmoothing: "antialiased",
               }}
             >
-              Gute Planung braucht Zeit. Projekte oft mehr, als vorhanden
-              ist.
+              {en
+                ? "Good design takes time. Projects often need more of it than there is."
+                : "Gute Planung braucht Zeit. Projekte oft mehr, als vorhanden ist."}
               <br />
-              ArchiKa unterstützt Architekturbüros bei Ausführungs- und
-              Detailplanung, Archicad-Optimierung, IFC-Koordination,
-              OpenBIM, BIMcloud, Scan-to-BIM sowie Architekturvisualisierung –
-              in Archicad, auf Wunsch auch in Revit, Rhino und
-              Grasshopper.
+              {en
+                ? "ArchiKa supports architecture practices with construction documentation and detailing, Archicad optimisation, IFC coordination, OpenBIM, BIMcloud, Scan-to-BIM and architectural visualisation – in Archicad, and on request in Revit, Rhino and Grasshopper."
+                : "ArchiKa unterstützt Architekturbüros bei Ausführungs- und Detailplanung, Archicad-Optimierung, IFC-Koordination, OpenBIM, BIMcloud, Scan-to-BIM sowie Architekturvisualisierung – in Archicad, auf Wunsch auch in Revit, Rhino und Grasshopper."}
             </p>
           </div>
 

@@ -1,8 +1,10 @@
+import { useLang } from "@/lib/i18n";
+
 const serif = "'Instrument Serif Local', Georgia, serif";
 const sans = "'Barlow Local', Arial, sans-serif";
 const label = "'Barlow Semi Condensed Local', Arial, sans-serif";
 
-const points = [
+const pointsDe = [
   {
     title: "Nach Ihren Vorgaben",
     text: "Wir arbeiten mit Ihren Vorlagen, Detailkatalogen und den von Ihnen vorgegebenen Normen. Offene Fragen klären wir, bevor gezeichnet wird – nicht danach.",
@@ -17,7 +19,24 @@ const points = [
   },
 ];
 
+const pointsEn = [
+  {
+    title: "To your specifications",
+    text: "We work with your templates, detail libraries and the standards you specify. Open questions are clarified before drawing starts – not afterwards.",
+  },
+  {
+    title: "Checked before delivery",
+    text: "Every delivery is checked internally and sent to you as a draft for approval.",
+  },
+  {
+    title: "EU company, GDPR & FADP",
+    text: "Your contractor is a company based in the EU. Your project data is processed in line with the GDPR and – for clients in Switzerland – the Swiss FADP; work is invoiced as a B2B service.",
+  },
+];
+
 export function QualitaetSection() {
+  const en = useLang() === "en";
+  const points = en ? pointsEn : pointsDe;
   return (
     <section id="qualitaet" className="bg-background">
       <div className="mx-auto max-w-[1800px] px-6 py-20 sm:px-10 sm:py-24 lg:px-14 xl:px-16">
@@ -29,7 +48,7 @@ export function QualitaetSection() {
             fontWeight: 700,
           }}
         >
-          Qualität & Sicherheit
+          {en ? "Quality & security" : "Qualität & Sicherheit"}
         </p>
 
         <h2
@@ -43,7 +62,9 @@ export function QualitaetSection() {
             color: "rgba(58, 58, 55, 0.9)",
           }}
         >
-          Externe Unterstützung, die sich wie Ihr eigenes Team anfühlt.
+          {en
+            ? "External support that feels like part of your own team."
+            : "Externe Unterstützung, die sich wie Ihr eigenes Team anfühlt."}
         </h2>
 
         <div className="mt-12 grid gap-10 border-t border-[rgba(32,32,29,0.14)] pt-10 md:grid-cols-3 md:gap-12">

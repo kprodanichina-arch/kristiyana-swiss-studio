@@ -8,7 +8,11 @@
  *   excerpt: Ein bis zwei Sätze für die Übersicht
  *   tags:    Komma-getrennte Schlagworte
  *   draft:   true  → wird nicht angezeigt
+ *
+ * Englische Beiträge (eigene Artikel für den englischsprachigen Markt,
+ * keine Übersetzungen) liegen in src/content/blog-en/ → /en/blog/<slug>.
  */
+import type { Lang } from "./i18n";
 
 export type BlogPost = {
   slug: string;
@@ -20,6 +24,12 @@ export type BlogPost = {
 };
 
 const files = import.meta.glob("../content/blog/*.md", {
+  query: "?raw",
+  import: "default",
+  eager: true,
+}) as Record<string, string>;
+
+const filesEn = import.meta.glob("../content/blog-en/*.md", {
   query: "?raw",
   import: "default",
   eager: true,
@@ -56,18 +66,30 @@ function parse(path: string, raw: string): (BlogPost & { draft: boolean }) | nul
   };
 }
 
-export const posts: BlogPost[] = Object.entries(files)
-  .map(([path, raw]) => parse(path, raw))
-  .filter((p): p is BlogPost & { draft: boolean } => p !== null && !p.draft)
-  .sort((a, b) => b.date.localeCompare(a.date));
-
-export function getPost(slug: string) {
-  return posts.find((p) => p.slug === slug);
+function load(source: Record<string, string>): BlogPost[] {
+  return Object.entries(source)
+    .map(([path, raw]) => parse(path, raw))
+    .filter((p): p is BlogPost & { draft: boolean } => p !== null && !p.draft)
+    .sort((a, b) => b.date.localeCompare(a.date));
 }
 
-export function formatDate(date: string) {
+export const posts: BlogPost[] = load(files);
+export const postsEn: BlogPost[] = load(filesEn);
+
+/** Englischer Blog wird erst im Menü gezeigt, wenn es mindestens einen Beitrag gibt. */
+export const hasEnglishPosts = postsEn.length > 0;
+
+export function getPosts(lang: Lang) {
+  return lang === "en" ? postsEn : posts;
+}
+
+export function getPost(slug: string, lang: Lang = "de") {
+  return getPosts(lang).find((p) => p.slug === slug);
+}
+
+export function formatDate(date: string, lang: Lang = "de") {
   const d = new Date(`${date}T12:00:00`);
-  return d.toLocaleDateString("de-DE", {
+  return d.toLocaleDateString(lang === "en" ? "en-GB" : "de-DE", {
     day: "numeric",
     month: "long",
     year: "numeric",

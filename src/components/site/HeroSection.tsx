@@ -1,10 +1,12 @@
+import { useLang, localizePath } from "@/lib/i18n";
+
 type Service = {
   title: string;
   description: string;
   background: string;
 };
 
-const services: Service[] = [
+const servicesDe: Service[] = [
   {
     title: "BIM & digitale Planung",
     description: "Archicad · IFC · Mengenermittlung",
@@ -27,7 +29,62 @@ const services: Service[] = [
   },
 ];
 
+const servicesEn: Service[] = [
+  {
+    title: "BIM & digital design",
+    description: "Archicad · IFC · Quantity take-off",
+    background: "rgba(221, 207, 183, 0.68)",
+  },
+  {
+    title: "Scan-to-BIM",
+    description: "Point clouds · As-built modelling · IFC",
+    background: "rgba(246, 243, 235, 0.72)",
+  },
+  {
+    title: "Technical design",
+    description: "Plans · Sections · Facades · Details",
+    background: "rgba(201, 214, 195, 0.70)",
+  },
+  {
+    title: "Architectural visualisation",
+    description: "Photorealistic exterior renderings",
+    background: "rgba(215, 220, 193, 0.72)",
+  },
+];
+
+const COPY = {
+  de: {
+    tagline: "Architektur · Ausführungsplanung · BIM",
+    h1: ["Ausführungsplanung", "und BIM für", "Architekturbüros"],
+    lead: "Flexible Unterstützung für Architektur- und Planungsbüros – von der Ausführungs- und Detailplanung über BIM/IFC bis zur Visualisierung.",
+    handover: "Übergabe als PLN, IFC, PDF oder DWG – nach Ihren Bürostandards.",
+    bullets: [
+      "Archicad · BIM/IFC · Ausführungsplanung",
+      "Erreichbar Mo–Fr, 8–17 Uhr (MEZ)",
+      "Remote, Antwort in 1–2 Werktagen",
+    ],
+    explore: "Leistungen entdecken",
+    alt: "Architekturvisualisierung von ArchiKa",
+  },
+  en: {
+    tagline: "Architecture · Documentation · BIM",
+    h1: ["Construction", "drawings & BIM", "for architects"],
+    lead: "Flexible support for architecture and design practices – from construction documentation and detailing to BIM/IFC and visualisation.",
+    handover: "Delivered as PLN, IFC, PDF or DWG – to your office standards.",
+    bullets: [
+      "Archicad · BIM/IFC · Construction documentation",
+      "Available Mon–Fri, 8:00–17:00 CET",
+      "Remote, reply within 1–2 working days",
+    ],
+    explore: "Explore our services",
+    alt: "Architectural visualisation by ArchiKa",
+  },
+} as const;
+
 export function HeroSection() {
+  const lang = useLang();
+  const t = COPY[lang];
+  const services = lang === "en" ? servicesEn : servicesDe;
   return (
     <section className="relative overflow-hidden border-b border-border bg-background">
       <div className="mx-auto flex max-w-[1800px] flex-col lg:min-h-[calc(100vh-4rem)] lg:flex-row">
@@ -58,7 +115,7 @@ export function HeroSection() {
                 textShadow: "0 1px 5px rgba(0, 0, 0, 0.07)",
               }}
             >
-              Architektur · Ausführungsplanung · BIM
+              {t.tagline}
             </p>
           </div>
 
@@ -92,11 +149,12 @@ export function HeroSection() {
                     "0 1px 3px rgba(255, 255, 255, 0.85)",
                 }}
               >
-                Ausführungsplanung
-                <br />
-                und BIM für
-                <br />
-                Architekturbüros
+                {t.h1.map((line, i) => (
+                  <span key={line} className="whitespace-nowrap">
+                    {line}
+                    {i < t.h1.length - 1 && <br />}
+                  </span>
+                ))}
               </h1>
             </div>
 
@@ -110,9 +168,7 @@ export function HeroSection() {
                 textShadow: "0 1px 6px rgba(0, 0, 0, 0.07)",
               }}
             >
-              Flexible Unterstützung für Architektur- und
-              Planungsbüros – von der Ausführungs- und Detailplanung
-              über BIM/IFC bis zur Visualisierung.
+              {t.lead}
               <br />
               <span
                 className="mt-2 inline-block"
@@ -121,7 +177,7 @@ export function HeroSection() {
                   fontWeight: 500,
                 }}
               >
-                Übergabe als PLN, IFC, PDF oder DWG – nach Ihren Bürostandards.
+                {t.handover}
               </span>
             </p>
 
@@ -134,9 +190,9 @@ export function HeroSection() {
                 WebkitFontSmoothing: "antialiased",
               }}
             >
-              <li>Archicad · BIM/IFC · Ausführungsplanung</li>
-              <li>Erreichbar Mo–Fr, 8–17 Uhr (MEZ)</li>
-              <li>Remote, Antwort in 1–2 Werktagen</li>
+              {t.bullets.map((b) => (
+                <li key={b}>{b}</li>
+              ))}
             </ul>
           </div>
 
@@ -155,8 +211,8 @@ export function HeroSection() {
             </p>
 
             <a
-              href="/ueber-uns#leistungen"
-              aria-label="Leistungen entdecken"
+              href={localizePath("/ueber-uns#leistungen", lang)}
+              aria-label={t.explore}
               className="group flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-black/25 transition-all duration-300 hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-black/20 focus:ring-offset-2"
               style={{
                 boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
@@ -176,7 +232,7 @@ export function HeroSection() {
               </span>
 
               <span className="sr-only">
-                Leistungen entdecken
+                {t.explore}
               </span>
             </a>
           </div>
@@ -185,7 +241,7 @@ export function HeroSection() {
         <div className="relative min-h-[60vh] w-full overflow-hidden bg-muted lg:min-h-screen lg:w-[64%]">
           <img
             src="/images/renders/44.webp"
-            alt="Architekturvisualisierung von ArchiKa"
+            alt={t.alt}
             className="absolute inset-0 h-full w-full object-cover"
             draggable={false}
           />

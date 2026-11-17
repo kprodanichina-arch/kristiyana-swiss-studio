@@ -1,7 +1,8 @@
+import { useLang, localizePath } from "@/lib/i18n";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 
-const items = [
+const itemsDe = [
   {
     title: "Ausführungs- & Detailplanung",
     text: "Grundrisse, Schnitte, Fassaden und Details bis zum Ausführungsprojekt (SIA-Phase 51/52 bzw. LPH 5) – nach Ihren Bürostandards.",
@@ -22,14 +23,37 @@ const items = [
   },
 ] as const;
 
+const itemsEn = [
+  {
+    title: "Construction documentation & detailing",
+    text: "Plans, sections, facades and details through to construction documentation – to your office standards.",
+    image: "/images/leistungen/ausfuehrungsplanung-detail.webp",
+    alt: "Illustration: balcony detail with axonometric view and section",
+  },
+  {
+    title: "BIM & IFC coordination",
+    text: "Models in Archicad and BIMcloud, with checked IFC handover to your consultants.",
+    image: "/images/leistungen/bim-ifc-modell.webp",
+    alt: "Illustration: exploded view of a BIM model with building elements and MEP services",
+  },
+  {
+    title: "Architectural visualisation",
+    text: "Photorealistic renderings for presentations, competitions and marketing.",
+    image: "/images/leistungen/visualisierung.webp",
+    alt: "Illustration: visualisation of a residential building with balconies",
+  },
+] as const;
+
 export function LeistungenStrip() {
+  const lang = useLang();
+  const items = lang === "en" ? itemsEn : itemsDe;
   return (
     <section className="border-b border-border bg-background">
       <div className="mx-auto grid max-w-[1800px] gap-px bg-border md:grid-cols-3">
         {items.map((item) => (
           <Link
             key={item.title}
-            to="/projekte"
+            to={localizePath("/projekte", lang)}
             className="group flex flex-col bg-background transition-colors hover:bg-black/[0.02]"
           >
             <div className="aspect-[3/2] w-full overflow-hidden bg-muted">

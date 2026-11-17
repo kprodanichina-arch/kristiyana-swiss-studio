@@ -2,6 +2,7 @@ import { useState, type FormEvent } from "react";
 import { Star } from "lucide-react";
 
 import { EMAIL } from "./data";
+import { useLang, type Lang } from "@/lib/i18n";
 
 type Review = {
   id: string;
@@ -14,20 +15,65 @@ type Review = {
   created_at: string;
 };
 
-const ratingLabels = {
-  speed: "Schnelligkeit",
-  quality: "Qualität",
-  communication: "Kommunikation & Feedback",
+const COPY = {
+  de: {
+    speed: "Schnelligkeit",
+    quality: "Qualität",
+    communication: "Kommunikation & Feedback",
+    stars: "Sterne",
+    eyebrow: "Kundenmeinungen",
+    title: "Kundenmeinungen",
+    intro: "Teilen Sie Ihre Erfahrungen mit uns. Eingereichte Bewertungen werden vor der Veröffentlichung geprüft.",
+    give: "Bewertung abgeben",
+    company: "Name des Unternehmens / Privatperson",
+    message: "Ihre persönliche Nachricht",
+    sending: "Wird gesendet...",
+    send: "Bewertung senden",
+    cancel: "Abbrechen",
+    sent: "Vielen Dank. Ihr E-Mail-Programm wurde geöffnet. Bitte senden Sie die vorbereitete Bewertung ab. Danach prüfen wir sie und veröffentlichen sie nach Freigabe.",
+    error: "Bitte füllen Sie alle Pflichtfelder aus und vergeben Sie alle Sterne.",
+    approved: "Freigegebene Bewertungen",
+    mailRatings: "Bewertungen:",
+    mailMessage: "Persönliche Nachricht:",
+    mailNote: "Hinweis: Diese Bewertung wurde zur Prüfung an ArchiKa gesendet und wird erst nach Freigabe veröffentlicht.",
+    mailSubject: "Neue Kundenbewertung – ",
+  },
+  en: {
+    speed: "Speed",
+    quality: "Quality",
+    communication: "Communication & feedback",
+    stars: "stars",
+    eyebrow: "Client feedback",
+    title: "Client feedback",
+    intro: "Share your experience with us. Submitted reviews are checked before they are published.",
+    give: "Leave a review",
+    company: "Company name / private individual",
+    message: "Your personal message",
+    sending: "Sending...",
+    send: "Send review",
+    cancel: "Cancel",
+    sent: "Thank you. Your email program has opened. Please send the prepared review; we will then check it and publish it once approved.",
+    error: "Please fill in all required fields and give all star ratings.",
+    approved: "Approved reviews",
+    mailRatings: "Ratings:",
+    mailMessage: "Personal message:",
+    mailNote: "Note: this review has been sent to ArchiKa for checking and will only be published once approved.",
+    mailSubject: "New client review – ",
+  },
 } as const;
+
+type Copy = (typeof COPY)[Lang];
 
 function StarRatingInput({
   value,
   onChange,
   label,
+  starsWord,
 }: {
   value: number;
   onChange: (value: number) => void;
   label: string;
+  starsWord: string;
 }) {
   const [hover, setHover] = useState(0);
 
@@ -55,7 +101,7 @@ function StarRatingInput({
             onMouseEnter={() => setHover(star)}
             onMouseLeave={() => setHover(0)}
             className="p-0.5 transition-colors"
-            aria-label={`${star} Sterne`}
+            aria-label={`${star} ${starsWord}`}
           >
             <Star
               className={`h-5 w-5 ${
@@ -100,7 +146,7 @@ function StarDisplay({ value }: { value: number }) {
   );
 }
 
-function ReviewCard({ review }: { review: Review }) {
+function ReviewCard({ review, t }: { review: Review; t: Copy }) {
   const average =
     Math.round(
       ((review.speed_rating +
@@ -161,9 +207,9 @@ function ReviewCard({ review }: { review: Review }) {
 
       <dl className="mt-6 space-y-3 border-t border-border pt-5">
         {[
-          ["Schnelligkeit", review.speed_rating],
-          ["Qualität", review.quality_rating],
-          ["Kommunikation & Feedback", review.communication_rating],
+          [t.speed, review.speed_rating],
+          [t.quality, review.quality_rating],
+          [t.communication, review.communication_rating],
         ].map(([label, value]) => (
           <div
             key={label as string}
@@ -233,6 +279,7 @@ export function ReviewsSection({
 }: {
   initialReviews?: Review[];
 }) {
+  const t = COPY[useLang()];
   const reviews =
     initialReviews.length > 0 ? initialReviews : MANUAL_REVIEWS;
 
@@ -271,21 +318,21 @@ export function ReviewsSection({
 
     try {
       const body = [
-        `Name des Unternehmens / Privatperson: ${form.companyName}`,
+        `${t.company}: ${form.companyName}`,
         "",
-        "Bewertungen:",
-        `- Schnelligkeit: ${form.speedRating}/5`,
-        `- Qualität: ${form.qualityRating}/5`,
-        `- Kommunikation & Feedback: ${form.communicationRating}/5`,
+        t.mailRatings,
+        `- ${t.speed}: ${form.speedRating}/5`,
+        `- ${t.quality}: ${form.qualityRating}/5`,
+        `- ${t.communication}: ${form.communicationRating}/5`,
         "",
-        "Persönliche Nachricht:",
+        t.mailMessage,
         form.message,
         "",
-        "Hinweis: Diese Bewertung wurde zur Prüfung an ArchiKa gesendet und wird erst nach Freigabe veröffentlicht.",
+        t.mailNote,
       ].join("\n");
 
       const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent(
-        "Neue Kundenbewertung – " + form.companyName,
+        t.mailSubject + form.companyName,
       )}&body=${encodeURIComponent(body)}`;
 
       setStatus("sent");
@@ -320,7 +367,7 @@ export function ReviewsSection({
           WebkitFontSmoothing: "antialiased",
         }}
       >
-        Kundenmeinungen
+        {t.eyebrow}
       </p>
 
       <h2
@@ -335,7 +382,7 @@ export function ReviewsSection({
           WebkitFontSmoothing: "antialiased",
         }}
       >
-        Kundenmeinungen
+        {t.title}
       </h2>
 
       <p
@@ -349,8 +396,7 @@ export function ReviewsSection({
           WebkitFontSmoothing: "antialiased",
         }}
       >
-        Teilen Sie Ihre Erfahrungen mit uns. Eingereichte Bewertungen
-        werden vor der Veröffentlichung geprüft.
+        {t.intro}
       </p>
 
       <div className="mt-12">
@@ -369,7 +415,7 @@ export function ReviewsSection({
               WebkitFontSmoothing: "antialiased",
             }}
           >
-            Bewertung abgeben
+            {t.give}
           </button>
         ) : (
           <form
@@ -387,7 +433,7 @@ export function ReviewsSection({
                 WebkitFontSmoothing: "antialiased",
               }}
             >
-              Bewertung abgeben
+              {t.give}
             </h3>
 
             <div className="mt-6 space-y-5">
@@ -402,7 +448,7 @@ export function ReviewsSection({
                     companyName: e.target.value,
                   }))
                 }
-                placeholder="Name des Unternehmens / Privatperson"
+                placeholder={t.company}
                 className={field}
                 style={{
                   fontFamily: "'Barlow Local', Arial, sans-serif",
@@ -413,7 +459,8 @@ export function ReviewsSection({
 
               <div className="grid gap-5 sm:grid-cols-3">
                 <StarRatingInput
-                  label={ratingLabels.speed}
+                  label={t.speed}
+                  starsWord={t.stars}
                   value={form.speedRating}
                   onChange={(v) =>
                     setForm((f) => ({
@@ -424,7 +471,8 @@ export function ReviewsSection({
                 />
 
                 <StarRatingInput
-                  label={ratingLabels.quality}
+                  label={t.quality}
+                  starsWord={t.stars}
                   value={form.qualityRating}
                   onChange={(v) =>
                     setForm((f) => ({
@@ -435,7 +483,8 @@ export function ReviewsSection({
                 />
 
                 <StarRatingInput
-                  label={ratingLabels.communication}
+                  label={t.communication}
+                  starsWord={t.stars}
                   value={form.communicationRating}
                   onChange={(v) =>
                     setForm((f) => ({
@@ -458,7 +507,7 @@ export function ReviewsSection({
                     message: e.target.value,
                   }))
                 }
-                placeholder="Ihre persönliche Nachricht"
+                placeholder={t.message}
                 className={`${field} resize-none`}
                 style={{
                   fontFamily: "'Barlow Local', Arial, sans-serif",
@@ -485,8 +534,8 @@ export function ReviewsSection({
                 }}
               >
                 {status === "submitting"
-                  ? "Wird gesendet..."
-                  : "Bewertung senden"}
+                  ? t.sending
+                  : t.send}
               </button>
 
               <button
@@ -500,7 +549,7 @@ export function ReviewsSection({
                 }}
                 className="transition-colors hover:text-foreground"
               >
-                Abbrechen
+                {t.cancel}
               </button>
             </div>
 
@@ -515,9 +564,7 @@ export function ReviewsSection({
                   WebkitFontSmoothing: "antialiased",
                 }}
               >
-                Vielen Dank. Ihr E-Mail-Programm wurde geöffnet. Bitte
-                senden Sie die vorbereitete Bewertung ab. Danach prüfen wir
-                sie und veröffentlichen sie nach Freigabe.
+                {t.sent}
               </p>
             )}
 
@@ -532,8 +579,7 @@ export function ReviewsSection({
                   WebkitFontSmoothing: "antialiased",
                 }}
               >
-                Bitte füllen Sie alle Pflichtfelder aus und vergeben Sie
-                alle Sterne.
+                {t.error}
               </p>
             )}
           </form>
@@ -553,12 +599,12 @@ export function ReviewsSection({
               WebkitFontSmoothing: "antialiased",
             }}
           >
-            Freigegebene Bewertungen
+            {t.approved}
           </p>
 
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             {reviews.map((review) => (
-              <ReviewCard key={review.id} review={review} />
+              <ReviewCard key={review.id} review={review} t={t} />
             ))}
           </div>
         </div>

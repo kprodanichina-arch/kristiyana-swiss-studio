@@ -2,6 +2,7 @@ import { Mail, Linkedin } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { WhatsAppIcon, ViberIcon } from "./icons";
 import { Logo } from "./Logo";
+import { useLang } from "@/lib/i18n";
 import {
   EMAIL,
   LINKEDIN,
@@ -10,6 +11,7 @@ import {
 } from "./data";
 
 export function Footer() {
+  const en = useLang() === "en";
   const footerRef = useRef<HTMLElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -66,7 +68,7 @@ export function Footer() {
                 WebkitFontSmoothing: "antialiased",
               }}
             >
-              © ArchiKa. Alle Rechte vorbehalten.
+              {en ? "© ArchiKa. All rights reserved." : "© ArchiKa. Alle Rechte vorbehalten."}
             </p>
           </div>
 
@@ -110,7 +112,7 @@ export function Footer() {
 
             <a
               href={`mailto:${EMAIL}`}
-              aria-label="E-Mail"
+              aria-label={en ? "Email" : "E-Mail"}
               className={iconClass}
             >
               <Mail className="h-4 w-4" />
@@ -129,7 +131,7 @@ export function Footer() {
           }}
         >
           <a
-            href="/impressum"
+            href={en ? "/en/imprint" : "/impressum"}
             style={{
               fontFamily:
                 "'Barlow Semi Condensed Local', Arial, sans-serif",
@@ -141,11 +143,11 @@ export function Footer() {
             }}
             className="transition-colors hover:text-[rgba(65,65,62,0.9)] hover:underline hover:underline-offset-4 focus:outline-none focus:ring-2 focus:ring-[rgba(32,32,29,0.18)] focus:ring-offset-2"
           >
-            Impressum
+            {en ? "Imprint" : "Impressum"}
           </a>
 
           <a
-            href="/datenschutz"
+            href={en ? "/en/privacy" : "/datenschutz"}
             style={{
               fontFamily:
                 "'Barlow Semi Condensed Local', Arial, sans-serif",
@@ -157,7 +159,7 @@ export function Footer() {
             }}
             className="transition-colors hover:text-[rgba(65,65,62,0.9)] hover:underline hover:underline-offset-4 focus:outline-none focus:ring-2 focus:ring-[rgba(32,32,29,0.18)] focus:ring-offset-2"
           >
-            Datenschutz
+            {en ? "Privacy policy" : "Datenschutz"}
           </a>
         </div>
       </div>

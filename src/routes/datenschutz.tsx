@@ -1,29 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { EMAIL } from "@/components/site/data";
+import { pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/datenschutz")({
-  head: () => ({
-    links: [
-      {
-        rel: "canonical",
-        href: "https://archikprojekt.com/datenschutz",
-      },
-    ],
-    meta: [
-      {
-        title: "Datenschutz | ArchiKa",
-      },
-      {
-        name: "description",
-        content:
-          "Datenschutzerklärung von ArchiKa und AY END VI BILD EOOD.",
-      },
-      {
-        property: "og:url",
-        content: "https://archikprojekt.com/datenschutz",
-      },
-    ],
-  }),
+  head: () =>
+    pageHead(
+      "/datenschutz",
+      "Datenschutz | ArchiKa",
+      "Datenschutzerklärung von ArchiKa und AY END VI BILD EOOD.",
+    ),
   component: DatenschutzPage,
 });
 

@@ -6,35 +6,40 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  useRouterState,
 } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { useLang } from "../lib/i18n";
 
 const GA_MEASUREMENT_ID = "G-ENDV0PFY4G";
 const GA_CONSENT_KEY = "archika-analytics-consent";
 
 function NotFoundComponent() {
+  const en = useLang() === "en";
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
 
         <h2 className="mt-4 text-xl font-semibold text-foreground">
-          Seite nicht gefunden
+          {en ? "Page not found" : "Seite nicht gefunden"}
         </h2>
 
         <p className="mt-2 text-sm text-muted-foreground">
-          Die gesuchte Seite existiert nicht oder wurde verschoben.
+          {en
+            ? "The page you are looking for does not exist or has been moved."
+            : "Die gesuchte Seite existiert nicht oder wurde verschoben."}
         </p>
 
         <div className="mt-6">
           <Link
-            to="/"
+            to={en ? "/en" : "/"}
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Zur Startseite
+            {en ? "Go to homepage" : "Zur Startseite"}
           </Link>
         </div>
       </div>
@@ -51,6 +56,7 @@ function ErrorComponent({
 }) {
   console.error(error);
   const router = useRouter();
+  const en = useLang() === "en";
 
   useEffect(() => {
     reportLovableError(error, {
@@ -62,11 +68,13 @@ function ErrorComponent({
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          Die Seite konnte nicht geladen werden
+          {en ? "The page could not be loaded" : "Die Seite konnte nicht geladen werden"}
         </h1>
 
         <p className="mt-2 text-sm text-muted-foreground">
-          Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
+          {en
+            ? "An error occurred. Please try again."
+            : "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."}
         </p>
 
         <div className="mt-6 flex flex-wrap justify-center gap-2">
@@ -77,14 +85,14 @@ function ErrorComponent({
             }}
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Erneut versuchen
+            {en ? "Try again" : "Erneut versuchen"}
           </button>
 
           <a
-            href="/"
+            href={en ? "/en" : "/"}
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
-            Zur Startseite
+            {en ? "Go to homepage" : "Zur Startseite"}
           </a>
         </div>
       </div>
@@ -220,8 +228,10 @@ export const Route =
   });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isEn = pathname === "/en" || pathname.startsWith("/en/");
   return (
-    <html lang="de">
+    <html lang={isEn ? "en-GB" : "de"}>
       <head>
         <HeadContent />
 
@@ -332,6 +342,7 @@ function GoogleAnalytics() {
 
 function AnalyticsConsentBanner() {
   const [visible, setVisible] = useState(false);
+  const en = useLang() === "en";
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -363,14 +374,13 @@ function AnalyticsConsentBanner() {
       <div className="mx-auto flex max-w-5xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="max-w-3xl">
           <p className="text-sm font-medium text-foreground">
-            Datenschutz & Analyse
+            {en ? "Privacy & analytics" : "Datenschutz & Analyse"}
           </p>
 
           <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-            Wir verwenden Google Analytics, um zu verstehen, wie Besucher
-            unsere Website nutzen und woher sie kommen. Die Analyse erfolgt
-            nur mit Ihrer Zustimmung. Sie können Ihre Auswahl jederzeit
-            ändern.
+            {en
+              ? "We use Google Analytics to understand how visitors use our website and where they come from. Analytics only runs with your consent. You can change your choice at any time."
+              : "Wir verwenden Google Analytics, um zu verstehen, wie Besucher unsere Website nutzen und woher sie kommen. Die Analyse erfolgt nur mit Ihrer Zustimmung. Sie können Ihre Auswahl jederzeit ändern."}
           </p>
         </div>
 
@@ -380,7 +390,7 @@ function AnalyticsConsentBanner() {
             onClick={rejectAnalytics}
             className="rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
-            Ablehnen
+            {en ? "Decline" : "Ablehnen"}
           </button>
 
           <button
@@ -388,7 +398,7 @@ function AnalyticsConsentBanner() {
             onClick={acceptAnalytics}
             className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Akzeptieren
+            {en ? "Accept" : "Akzeptieren"}
           </button>
         </div>
       </div>

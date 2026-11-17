@@ -4,6 +4,7 @@ import { PageShell } from "@/components/site/PageShell";
 import { HeroSection } from "@/components/site/HeroSection";
 import { PageTeasers } from "@/components/site/PageTeasers";
 import { LeistungenStrip } from "@/components/site/LeistungenStrip";
+import { alternateLinks } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -12,8 +13,10 @@ export const Route = createFileRoute("/")({
         rel: "canonical",
         href: "https://archikprojekt.com/",
       },
+      ...alternateLinks("/"),
     ],
     meta: [
+      { property: "og:locale", content: "de_CH" },
       {
         property: "og:url",
         content: "https://archikprojekt.com/",

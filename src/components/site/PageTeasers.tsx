@@ -1,7 +1,9 @@
+import { useLang } from "@/lib/i18n";
+import { hasEnglishPosts } from "@/lib/blog";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 
-const teasers = [
+const teasersDe = [
   {
     to: "/ueber-uns",
     title: "Über uns",
@@ -24,7 +26,35 @@ const teasers = [
   },
 ] as const;
 
+const teasersEn = [
+  {
+    to: "/en/about",
+    title: "About us",
+    text: "Services, service packages and your contact person.",
+  },
+  {
+    to: "/en/projects",
+    title: "Projects",
+    text: "Construction documentation, BIM workflows and visualisations from our practice.",
+  },
+  {
+    to: "/en/blog",
+    title: "Blog",
+    text: "Articles on BIM, Archicad and outsourcing architectural work.",
+  },
+  {
+    to: "/en/contact",
+    title: "Contact",
+    text: "Tell us about your project – we will get back to you promptly.",
+  },
+] as const;
+
 export function PageTeasers() {
+  const lang = useLang();
+  const teasers =
+    lang === "en"
+      ? teasersEn.filter((t) => t.to !== "/en/blog" || hasEnglishPosts)
+      : teasersDe;
   return (
     <section className="bg-background">
       <div className="mx-auto grid max-w-[1800px] gap-px border-y border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
