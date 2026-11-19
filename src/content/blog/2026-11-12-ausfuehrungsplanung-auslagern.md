@@ -86,7 +86,7 @@ Das hängt vom Umfang ab. Eine klar abgegrenzte Testaufgabe lässt sich oft inne
 
 Die Ausführungsplanung auszulagern lohnt sich, wenn der Entwurf steht, der Umfang klar beschrieben ist und die Übergabe von Modell und Plänen vorab getestet wurde. Entscheidend ist nicht, ob extern gearbeitet wird, sondern wie gut die Schnittstelle definiert ist: Leistungsbeschreibung, Bürostandard, Datenformat und ein fester Ansprechpartner.
 
-Am einfachsten finden Sie das mit einer kleinen Aufgabe aus einem laufenden Projekt heraus. Gut geeignet ist eine klar abgegrenzte Aufgabe in Ihrem Bürostandard – zum Beispiel ein Detail, ein Schnitt oder die Überarbeitung eines Grundrisses. Unsere [Leistungspakete](/ueber-uns#pakete) finden Sie auf der Seite Über uns; Referenzen zeigen wir unter [Projekte](/projekte). Für eine Anfrage nutzen Sie bitte unser [Kontaktformular](/kontakt).
+Am einfachsten finden Sie das mit einer kleinen Aufgabe aus einem laufenden Projekt heraus. Gut geeignet ist eine klar abgegrenzte Aufgabe in Ihrem Bürostandard – zum Beispiel ein Detail, ein Schnitt oder die Überarbeitung eines Grundrisses. Wie sich SIA-Phase 51/52 und LPH 5 bei Projekten in der Schweiz unterscheiden, lesen Sie in [SIA-Phasen und HOAI-Leistungsphasen im Vergleich](/blog/2026-11-19-sia-phasen-hoai). Unsere [Leistungspakete](/ueber-uns#pakete) finden Sie auf der Seite Über uns; Referenzen zeigen wir unter [Projekte](/projekte). Für eine Anfrage nutzen Sie bitte unser [Kontaktformular](/kontakt).
 
 ### Quellen
 

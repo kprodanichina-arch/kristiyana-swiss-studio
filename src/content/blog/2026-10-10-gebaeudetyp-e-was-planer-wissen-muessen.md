@@ -41,7 +41,7 @@ Gerade bei einfacheren Standards gilt also: Die Planung wird nicht unbedingt ein
 
 ## Unser Fazit
 
-Der Gebäudetyp E kann Bauen in Deutschland günstiger und flexibler machen. Ob das gelingt, entscheidet sich weniger auf der Baustelle als in der Planung – bei klaren Vereinbarungen, eindeutigen Leistungsbeschreibungen und gut strukturierten Modellen. Wir verfolgen das Gesetzgebungsverfahren weiter und berichten, sobald der Kabinettsentwurf vorliegt. Unterstützung bei Ausführungsplanung und BIM können Sie gern über das [Kontaktformular](/kontakt).
+Der Gebäudetyp E kann Bauen in Deutschland günstiger und flexibler machen. Ob das gelingt, entscheidet sich weniger auf der Baustelle als in der Planung – bei klaren Vereinbarungen, eindeutigen Leistungsbeschreibungen und gut strukturierten Modellen. Wir verfolgen das Gesetzgebungsverfahren weiter und berichten, sobald der Kabinettsentwurf vorliegt. Wenn Sie Unterstützung bei Ausführungsplanung oder BIM brauchen, senden Sie uns eine kurze Projektanfrage – eine klar abgegrenzte erste Aufgabe aus einem laufenden Projekt ist ein risikoarmer Weg, die Zusammenarbeit zu testen. Unsere [Leistungspakete](/ueber-uns#pakete) finden Sie auf der Seite Über uns; für eine Anfrage nutzen Sie bitte unser [Kontaktformular](/kontakt).
 
 *Dieser Beitrag dient der allgemeinen Information und ersetzt keine Rechtsberatung.*
 
