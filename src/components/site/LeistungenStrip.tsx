@@ -16,6 +16,12 @@ const itemsDe = [
     alt: "Symbolbild: Explosionsdarstellung eines BIM-Modells mit Bauteilen und Haustechnik",
   },
   {
+    title: "Scan-to-BIM & Bestandsmodellierung",
+    text: "Vom Laserscan zum Bestandsmodell: Punktwolke in Archicad modelliert, IFC-klassifiziert und mit Scan-vs-BIM-Abweichungsanalyse.",
+    image: "/images/leistungen/scan-to-bim.webp",
+    alt: "Archicad-Bestandsmodell über der Punktwolke eines Laserscans",
+  },
+  {
     title: "Architekturvisualisierung",
     text: "Fotorealistische Renderings für Präsentation, Wettbewerb und Vermarktung.",
     image: "/images/leistungen/visualisierung.webp",
@@ -35,6 +41,12 @@ const itemsEn = [
     text: "Models in Archicad and BIMcloud, with checked IFC handover to your consultants.",
     image: "/images/leistungen/bim-ifc-modell.webp",
     alt: "Illustration: exploded view of a BIM model with building elements and MEP services",
+  },
+  {
+    title: "Scan-to-BIM & as-built modelling",
+    text: "From laser scan to as-built model: point cloud modelled in Archicad, IFC-classified, with scan-vs-BIM deviation analysis.",
+    image: "/images/leistungen/scan-to-bim.webp",
+    alt: "Archicad as-built model over a laser-scan point cloud",
   },
   {
     title: "Architectural visualisation",
@@ -91,7 +103,7 @@ export function LeistungenStrip() {
             : "Remote und projektbezogen – in Ihrem Bürostandard und Ihrer Projektstruktur."}
         </p>
       </div>
-      <div className="grid gap-5 md:grid-cols-3">
+      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {items.map((item) => (
           <Link
             key={item.title}
