@@ -195,7 +195,7 @@ export function LeistungenSection() {
   return (
     <section
       ref={sectionRef}
-      id="leistungen"
+      id={en ? "services" : "leistungen"}
       className="bg-background"
     >
       <div className="mx-auto max-w-[1800px] px-6 py-20 sm:px-10 sm:py-28 lg:px-14 xl:px-16">

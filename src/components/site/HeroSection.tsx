@@ -211,7 +211,7 @@ export function HeroSection() {
             </p>
 
             <a
-              href={localizePath("/ueber-uns#leistungen", lang)}
+              href={lang === "en" ? "/en/about#services" : "/ueber-uns#leistungen"}
               aria-label={t.explore}
               className="group flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-black/25 transition-all duration-300 hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-black/20 focus:ring-offset-2"
               style={{
