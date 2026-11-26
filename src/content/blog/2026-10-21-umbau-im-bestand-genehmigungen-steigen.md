@@ -43,7 +43,7 @@ Mehr Spielraum im Recht bedeutet nicht weniger Planungsaufwand. Im Gegenteil: We
 
 ## Unser Fazit
 
-Die aktuellen Zahlen und die neue Bauordnung in NRW zeigen in dieselbe Richtung: Der Bestand wird zur zentralen Bauaufgabe. Das ist gut für Ressourcen und Stadtentwicklung – stellt Planungsbüros aber vor höhere Anforderungen an Aufmass, Dokumentation und Abstimmung. Wir unterstützen Büros dabei mit Scan-to-BIM, Bestandsmodellen in Archicad und der Ausführungsplanung für Umbau und Aufstockung. Worauf es ankommt, wenn Sie die Ausführungsplanung an externe Unterstützung vergeben, lesen Sie in [Ausführungsplanung auslagern: So gelingt es im Büro](/blog/2026-11-12-ausfuehrungsplanung-auslagern). Anfragen gern über das [Kontaktformular](/kontakt).
+Die aktuellen Zahlen und die neue Bauordnung in NRW zeigen in dieselbe Richtung: Der Bestand wird zur zentralen Bauaufgabe. Das ist gut für Ressourcen und Stadtentwicklung – stellt Planungsbüros aber vor höhere Anforderungen an Aufmass, Dokumentation und Abstimmung. Wir unterstützen Büros dabei mit Scan-to-BIM, Bestandsmodellen in Archicad und der Ausführungsplanung für Umbau und Aufstockung. Wie aus einer Punktwolke ein brauchbares Bestandsmodell wird, zeigen wir in [Scan to BIM: So entsteht ein brauchbares Bestandsmodell](/blog/2026-11-26-scan-to-bim-bestandsmodell). Worauf es ankommt, wenn Sie die Ausführungsplanung an externe Unterstützung vergeben, lesen Sie in [Ausführungsplanung auslagern: So gelingt es im Büro](/blog/2026-11-12-ausfuehrungsplanung-auslagern). Anfragen gern über das [Kontaktformular](/kontakt).
 
 *Dieser Beitrag dient der allgemeinen Information und ersetzt keine Rechtsberatung.*
 
