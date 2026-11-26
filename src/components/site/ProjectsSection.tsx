@@ -131,7 +131,7 @@ const gallerySections: GallerySection[] = [
     eyebrow: "Scan-to-BIM & BIM-Workflows",
     title: "Von der Punktwolke zum prüfbaren BIM-Modell",
     description:
-      "Scan-to-BIM-Workflow an einem Laserscan-Datensatz (Leica BLK360): Auswertung der klassifizierten Punktwolke, Modellierung in Archicad mit IFC-Klassifizierung, IFC-Export und Scan-vs-BIM-Abweichungsanalyse. Datengrundlage: „Indoor point cloud dataset for BIM related applications“, INESC TEC (2023). Die letzten beiden Bilder sind Beispielbilder (Illustration) zum Ablauf.",
+      "Scan-to-BIM-Workflow an einem Laserscan-Datensatz (Leica BLK360): Auswertung der klassifizierten Punktwolke, Modellierung in Archicad mit IFC-Klassifizierung, IFC-Export und Scan-vs-BIM-Abweichungsanalyse. Datengrundlage: „Indoor point cloud dataset for BIM related applications“, INESC TEC (2023). Die letzten vier Bilder sind Beispielbilder (Illustration) zum Ablauf.",
     images: [
       { src: "/images/workflows/archicad-punktwolke.webp", alt: "Archicad: eingeladene Punktwolke (Leica BLK360, 48,7 Mio. Punkte) in der 3D-Ansicht – ohne Modell" },
       { src: "/images/workflows/scan-to-bim-punktwolke.webp", alt: "Punktwolke (Leica BLK360) als Draufsicht – Ausgangsdaten für Scan-to-BIM" },
@@ -141,6 +141,8 @@ const gallerySections: GallerySection[] = [
       { src: "/images/workflows/scan-vs-bim-abweichung.webp", alt: "Scan-vs-BIM-Abweichungsanalyse der Wände" },
       { src: "/images/workflows/scan-to-bim-illustration-villa.webp", alt: "Beispielbild (Illustration): Punktwolke und BIM-Modell eines Bestandsgebäudes im Vergleich" },
       { src: "/images/workflows/scan-to-bim-illustration-innenraum.webp", alt: "Beispielbild (Illustration): Innenraum-Punktwolke und BIM-Modell mit Treppe im Vergleich" },
+      { src: "/images/workflows/scan-to-bim-illustration-halle.webp", alt: "Beispielbild (Illustration): Punktwolke und BIM-Modell einer Stahlhalle im Vergleich" },
+      { src: "/images/workflows/scan-to-bim-illustration-grundriss.webp", alt: "Beispielbild (Illustration): Punktwolken-Schnitt und daraus erstellter Grundriss einer Wohnung" },
     ],
   },
 
@@ -173,7 +175,7 @@ const SECTION_EN: Record<string, Pick<GallerySection, "eyebrow" | "title" | "des
     eyebrow: "Scan-to-BIM & BIM workflows",
     title: "From point cloud to a verifiable BIM model",
     description:
-      "Scan-to-BIM workflow on a laser scan dataset (Leica BLK360): analysis of the classified point cloud, modelling in Archicad with IFC classification, IFC export and scan-vs-BIM deviation analysis. Data source: \u201cIndoor point cloud dataset for BIM related applications\u201d, INESC TEC (2023). The last two images are illustrations of the process.",
+      "Scan-to-BIM workflow on a laser scan dataset (Leica BLK360): analysis of the classified point cloud, modelling in Archicad with IFC classification, IFC export and scan-vs-BIM deviation analysis. Data source: \u201cIndoor point cloud dataset for BIM related applications\u201d, INESC TEC (2023). The last four images are illustrations of the process.",
   },
   renders: {
     eyebrow: "Architectural visualisation",
@@ -204,6 +206,10 @@ const ALT_EN: Record<string, string> = {
     "Illustration: point cloud and BIM model of an existing building side by side",
   "Beispielbild (Illustration): Innenraum-Punktwolke und BIM-Modell mit Treppe im Vergleich":
     "Illustration: interior point cloud and BIM model with staircase side by side",
+  "Beispielbild (Illustration): Punktwolke und BIM-Modell einer Stahlhalle im Vergleich":
+    "Illustration: point cloud and BIM model of a steel hall side by side",
+  "Beispielbild (Illustration): Punktwolken-Schnitt und daraus erstellter Grundriss einer Wohnung":
+    "Illustration: point cloud slice and the resulting floor plan of an apartment",
 };
 
 function translateSection(section: GallerySection, lang: Lang): GallerySection {
