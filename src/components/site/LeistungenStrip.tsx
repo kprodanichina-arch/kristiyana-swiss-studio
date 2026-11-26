@@ -18,7 +18,7 @@ const itemsDe = [
   {
     title: "Scan-to-BIM & Bestandsmodellierung",
     text: "Vom Laserscan zum Bestandsmodell: Punktwolke in Archicad modelliert, IFC-klassifiziert und mit Scan-vs-BIM-Abweichungsanalyse.",
-    image: "/images/leistungen/scan-to-bim.webp",
+    image: "/images/leistungen/scan-to-bim-symbolbild.webp",
     alt: "Symbolbild: Punktwolke und BIM-Modell eines Mehrfamilienhauses",
   },
   {
@@ -45,7 +45,7 @@ const itemsEn = [
   {
     title: "Scan-to-BIM & as-built modelling",
     text: "From laser scan to as-built model: point cloud modelled in Archicad, IFC-classified, with scan-vs-BIM deviation analysis.",
-    image: "/images/leistungen/scan-to-bim.webp",
+    image: "/images/leistungen/scan-to-bim-symbolbild.webp",
     alt: "Illustration: point cloud and BIM model of an apartment building",
   },
   {
